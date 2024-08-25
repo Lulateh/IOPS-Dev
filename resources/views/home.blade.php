@@ -67,4 +67,39 @@
 
     </div>
 </section>
+
+<section class="columns-2 bg-neutral-300">
+    
+    <div class="my-32">
+        <div class="break-inside-avoid font-Coda ml-20">
+            <h2 class="text-4xl">
+                ¿Quienes somos?
+            </h2>
+            <p class="mt-4 text-xl">
+                Somos I.OPS Inventory Operations, una empresa cuya meta es apoyar a pequeños y grandes empresarios otorgando herramientas capaces de optimizar y mejorar los procesos tediosos y largos del oficio.<br><br>
+                Por ahora estamos en el proceso de mejorar LogiStock, un sistema de manejo de inventarios que comprenda desde microempresas hasta operaciones más grandes y complejas, como hoteles o hospitales.
+            </p>
+        </div>
+
+        <div class="inline-flex justify-end mt-12 mr-20">
+            <img class=" size-11/12" src="{{ asset('img/IopsIconBlack.png') }}" alt="">
+        </div>
+    </div>
+
+</section>
+
+<footer class="bg-main-green py-2">
+    <div class="columns-2">
+        <div>
+            <img class="w-24 ml-20" src= "{{ asset('img/IopsIconWhite.png') }}" alt="">
+        </div>
+
+        <div class="relative float-right mr-20 mt-4">
+            <p class="font-Coda text-white">
+                Información de contacto <br>
+                invntryoperations@gmail.com
+            </p>
+        </div>
+    </div> 
+</footer>
 @endsection
