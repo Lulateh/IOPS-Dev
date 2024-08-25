@@ -88,7 +88,7 @@
 
 </section>
 
-<footer class="bg-main-green py-2">
+<footer class="bg-secondary-green py-2">
     <div class="columns-2">
         <div>
             <img class="w-24 ml-20" src= "{{ asset('img/IopsIconWhite.png') }}" alt="">
