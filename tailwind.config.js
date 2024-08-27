@@ -9,7 +9,8 @@ export default {
     extend: {
       colors: {
         'main-green': '#26413C',
-        'secondary-green': '#03120E'
+        'secondary-green': '#03120E',
+        'cream' : '#F4EBD9',
       },
       fontFamily: {
         Coda: ['Coda']

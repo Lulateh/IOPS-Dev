@@ -15,9 +15,12 @@
             <button class="bg-neutral-300 px-8 py-1 rounded-lg font-Coda">
                 Ir a LogiStock
             </button>
-            <button class="text-white bg-secondary-green ml-2 px-8 py-1 rounded-lg font-Coda">
-                Probar LogiStock
-            </button>
+
+            <a href="./safetyPage">
+                <button class="text-white bg-secondary-green ml-2 px-8 py-1 rounded-lg font-Coda">
+                    Probar LogiStock
+                </button>
+            </a>
         </div>
     </div> 
 </header>
