@@ -32,17 +32,20 @@
                 <div class=" columns-2 mt-4 flex">
                     <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="submit" value="Registrar">
 
-                    <button class="text-white bg-main-green px-8 py-1 ml-auto rounded-lg">
-                        Iniciar sesion
-                    </button>
+                    <a href="./login" class="ml-auto">
+                        <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="button" value="Iniciar sesion">
+                    </a>
+                    
                 </div>
             </form>
         </div>
 
         <div class="flex">
-            <button class="font-Coda text-white bg-secondary-green px-8 py-1 mx-auto mt-4 rounded-lg ">
-                Volver
-            </button>
+            <a class="mx-auto mt-4" href="./">
+                <button class="font-Coda text-white bg-secondary-green px-8 py-1  rounded-lg ">
+                    Volver
+                </button>
+            </a>
         </div>
     </section>
 @endsection

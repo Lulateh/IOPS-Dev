@@ -12,9 +12,11 @@
         </div>
 
         <div class="relative float-right mr-20 mt-4">
-            <button class="bg-neutral-300 px-8 py-1 rounded-lg font-Coda">
-                Ir a LogiStock
-            </button>
+            <a href="./login">
+                <button class="bg-neutral-300 px-8 py-1 rounded-lg font-Coda">
+                    Ir a LogiStock
+                </button>
+            </a>
 
             <a href="./safetyPage">
                 <button class="text-white bg-secondary-green ml-2 px-8 py-1 rounded-lg font-Coda">
@@ -38,12 +40,17 @@
         </div>
 
         <div class="mt-4">
-            <button class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Coda">
-                Probar LogiStock
-            </button>
-            <button class="text-white bg-main-green ml-4 px-8 py-1 rounded-lg font-Coda">
-                Ir a LogiStock
-            </button>
+            <a href="./safetyPage">
+                <button class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Coda">
+                    Probar LogiStock
+                </button>
+            </a>
+
+            <a href="./login">
+                <button class="text-white bg-main-green ml-4 px-8 py-1 rounded-lg font-Coda">
+                    Ir a LogiStock
+                </button>
+            </a>
         </div>
 
     </div>

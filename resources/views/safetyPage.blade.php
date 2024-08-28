@@ -35,9 +35,12 @@
                             Registrarse
                         </button>
                     </a>
-                    <button class="text-white bg-secondary-green ml-6 px-8 py-1 rounded-lg font-Coda">
-                        Iniciar sesion
-                    </button>                    
+
+                    <a href="./login">
+                        <button class="text-white bg-secondary-green ml-6 px-8 py-1 rounded-lg font-Coda">
+                            Iniciar sesion
+                        </button>  
+                    </a>                  
                 </div>
             </div>
         </div>
