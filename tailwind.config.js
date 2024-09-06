@@ -11,9 +11,12 @@ export default {
         'main-green': '#26413C',
         'secondary-green': '#03120E',
         'cream' : '#F4EBD9',
+        'lilac' : '717EC3',
+        'light-blue' : 'DCFFFD'
       },
       fontFamily: {
-        Coda: ['Coda']
+        Coda: ['Coda'],
+        Poppins: ['Poppins']
       }
     },
   },

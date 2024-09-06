@@ -18,6 +18,6 @@
     </header>
 
     <h1 class="font-Coda text-main-green text-3xl mt-10 ml-20">
-        WELCOME, {{Auth::user()->nombre}}
+        WELCOME, {{Auth::user()->nombre}} 
     </h1>
 @endsection
