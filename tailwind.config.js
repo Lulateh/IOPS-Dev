@@ -18,7 +18,8 @@ export default {
       fontFamily: {
         Coda: ['Coda'],
         Poppins: ['Poppins']
-      }
+      },
+    
     },
   },
   plugins: [],

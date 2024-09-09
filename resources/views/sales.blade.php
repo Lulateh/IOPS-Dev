@@ -25,15 +25,14 @@
 <!-- --------------BODY-------------- -->
 <section>
     <div class="columns-2 mb-4">
-         <h1 class="font-normal font-Poppins text-main-green text-4xl mt-6 ml-20">
-            Salidas
-        </h1>
+            <h1 class="font-normal font-Poppins text-main-green text-4xl mt-6 ml-20">
+              Salidas
+            </h1>
 
-        <a href=" {{ url('/') }} ">
-             <button class="text-white bg-main-green ml-[29rem] mt-12 px-4 py-1 rounded-lg font-Poppins ">
+        
+            <button onclick="showModalAgregar()" class="text-white bg-main-green ml-[29rem] mt-12 px-4 py-1 rounded-lg font-Poppins">
                 Agregar reserva
             </button>  
-         </a> 
     </div>
 
     <div class="columns-2 flex">
@@ -491,8 +490,95 @@
 
         </div>
     </div>
-
 </section>
 <!-- --------------BODY-------------- -->
+
+<!-- MODAL AGREGAR RESERVA -->
+<div id="modal-component-container" class="fixed inset-0 opacity-0 hidden transition-opacity duration-500">
+  <div class="modal-flex-container flex items-end justify-center">
+
+    <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-75"> 
+    </div> 
+
+    <div class="modal-space-container"> 
+    </div>
+
+    <div id="modal-container" class="modal-container inline-block align-bottom bg-cream rounded-lg text-left 
+     overflow-hidden shadow-xl transform transition-all mt-32">
+      <div class="modal-wrapper bg-cream px-16 pt-4 pb-16"> 
+        <div class="modal-wrapper-flex sm:flex sm:items-start">
+          <div class="modal-content text-center mt-2">
+            <h2>Agregar reserva</h2>
+            <div class="modal-text flex flex-row gap-4 mt-4">
+              <div class="bg-card-bg rounded-lg">
+
+                <div class="m-10 overflow-invisible overflow-y-scroll  h-64">
+
+                  <div class="flex border border-black h-14 w-72 mt-1 ml-2">
+                    <div class="flex flex-col ml-4 mt-2">
+
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-24 mt-[0.76rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">23</p>   
+                    </div>
+                  </div>
+                  
+
+                </div>
+                
+              </div>
+
+              <div class="flex-col">
+
+                <div> 
+                  <div class="bg-card-bg rounded-lg h-40 mb-4" >
+                    <p>Cliente:</p>
+                    <p>Contacto:</p>
+                    <p>Fecha de entrega:</p>
+                  </div>
+
+                  <div class="bg-card-bg rounded-lg h-40"> 
+                    <label for="productName" class="font-Coda">Nombre del producto </label> <br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="productName" name="productName" required><br>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div> 
+
+        <div class="mt-4 ml-[270px]">
+          <button onclick="hideModalAgregar()" class="text-white bg-main-green px-4 py-1 rounded-lg font-Poppins">Volver</button>
+          <button onclick="hideModalAgregar()" class="text-white bg-main-green px-4 py-1 rounded-lg font-Poppins">Guardar</button>
+        </div>
+
+      
+      </div>
+
+    </div>
+
+    <script>
+      function showModalAgregar(){
+        let dialog = document.getElementById('modal-component-container');
+        dialog.classList.remove('hidden');
+        dialog.classList.add('opacity-100');
+      }
+
+      function hideModalAgregar(){
+        let dialog = document.getElementById('modal-component-container');
+        dialog.classList.add('opacity-0');
+        dialog.classList.add('hidden');
+      }
+  
+    </script>
+  </div>
+
+  
 
 @endsection
