@@ -6,7 +6,7 @@
 
 @section('content')
 <!-- --------------HEADER-------------- -->
-<header class="bg-main-green py-4">
+<header class="bg-main-green py-3">
     <div class="columns-2">
         <div>
             <img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
@@ -24,20 +24,20 @@
 
 <!-- --------------BODY-------------- -->
 <section>
-    <div class="columns-2 mb-2">
-         <h1 class="font-normal font-Poppins text-main-green text-3xl mt-6 ml-20 col-1">
+    <div class="columns-2 mb-4">
+         <h1 class="font-normal font-Poppins text-main-green text-4xl mt-6 ml-20">
             Salidas
         </h1>
 
         <a href=" {{ url('/') }} ">
-             <button class="text-white bg-main-green ml-[30rem] mt-16 px-4 py-1 rounded-lg font-Poppins col-2">
+             <button class="text-white bg-main-green ml-[29rem] mt-12 px-4 py-1 rounded-lg font-Poppins ">
                 Agregar reserva
             </button>  
          </a> 
     </div>
 
     <div class="columns-2 flex">
-<!-- icons -->
+  
         <div class="basis-1/6">
             <svg class="ml-20 mb-6" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 90 90" fill="none">
                 <circle cx="45" cy="45" r="45" fill="#26413C"/>
@@ -73,118 +73,421 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M30.9809 34.4083C29.7976 34.4083 28.8392 33.4208 29.0226 32.2542C30.1684 25.1667 35.5684 20 44.9392 20C54.3142 20 60.6351 25.6667 60.6351 33.3958C60.6351 38.9958 57.8642 42.9292 53.1767 45.7833C48.5934 48.5292 47.2851 50.4417 47.2851 54.1583V54.2833C47.2851 54.8359 47.0656 55.3658 46.6749 55.7565C46.2842 56.1472 45.7543 56.3667 45.2017 56.3667H41.9934C41.4445 56.3667 40.9177 56.1501 40.5276 55.7639C40.1375 55.3776 39.9156 54.8531 39.9101 54.3042L39.8976 53.4708C39.7184 48.3833 41.8851 45.1333 46.7517 42.1708C51.0434 39.5375 52.5726 37.4417 52.5726 33.7208C52.5726 29.6417 49.4142 26.6458 44.5476 26.6458C40.3434 26.6458 37.4226 28.85 36.4726 32.4875C36.1976 33.5458 35.3142 34.4083 34.2226 34.4083H30.9809ZM43.5684 70C46.1601 70 48.1309 68.025 48.1309 65.4583C48.1309 62.8833 46.1601 60.9083 43.5684 60.9083C41.0434 60.9083 39.0392 62.8833 39.0392 65.4542C39.0392 68.025 41.0434 70 43.5684 70Z" fill="white"/>
               </svg>
         </div>
-<!-- cards -->
-        <div class="basis-5/6 flex flex-wrap mt-3">
-        <!-- card 1 -->
+  
+        <div class="basis-5/6 flex flex-wrap mt-2">
+          <!-- card 1 -->
           <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
-            <div class="ml-4 mt-4">
+            <div class="ml-4 mt-[20px] mr-3">
               <!-- info cliente -->
-                <div class="columns-2 border-b-2 border-dotted border-main-green mr-4">
-                  <h1 class="text-xl font-medium font-Poppins text-secondary-green mt-3">ENTREGADO</h1>
-                  <p class="font-Coda text-right text-main-green">Cliente: Juanito Cruz</p>
-                  <p class="font-Coda text-right text-main-green">Fecha de entrega: 03/09/24</p>
+                <div class="border-b-2 border-dotted border-main-green columns-2 m-1">
+
+                    <div class="font-Poppins text-secondary-green mt-2">
+                      <h3>ENTREGADO</h3>
+                    </div>
+
+                    <div class="font-Coda text-main-green text-right mr-2">
+                      <p class="m-0">Cliente: Juanito Cruz</p>
+                      <p class="m-0">Fecha: 03/09/24</p>
+                    </div>
+
                 </div>
               <!-- productos -->
-              <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-4 mr-4 mt-2  text-secondary-green ">
+              <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-secondary-green ">
 
-                <div class="flex flex-col justify-between border border-secondary-green p-1 h-14 columns-2">
-                    <div class="flex flex-col">
-                    <p class="font-Coda text-xs">nombre producto</p>
-                    <p class="font-Coda text-xs">codigo producto</p>
-                    </div>
-                    <div class="flex flex-row-reverse">
-                    <p class="font-Poppins font-extrabold text-secondary-green">23</p>   
-                    </div>
-                </div>
-              
-                <div class="flex flex-col justify-between border border-secondary-green p-1 h-14 columns-2">
-                  <div>
-                    <p class="font-Coda text-xs">nombre producto</p>
-                    <p class="font-Coda text-xs">codigo producto</p>
-                  </div>
-                  <div class="flex flex-row-reverse">
-                    <p class="font-Poppins font-extrabold text-secondary-green">30</p>   
-                  </div>  
-                </div>
-              
-                <div class="flex flex-col justify-between border border-secondary-green p-1 h-14 columns-2">
-                  <div>
-                    <p class="font-Coda text-xs">nombre producto</p>
-                    <p class="font-Coda text-xs">codigo producto</p>
-                  </div>
-                  <div class="flex flex-row-reverse">
-                    <p class="font-Poppins font-extrabold text-secondary-green">1</p>   
-                  </div>  
-                </div>
-              
-                <div class="flex flex-col justify-between border border-secondary-green p-1 h-14 columns-2">
-                  <div>
-                    <p class="font-Coda text-xs">nombre producto</p>
-                    <p class="font-Coda text-xs">codigo producto</p>
-                  </div>
-                  <div class="flex flex-row-reverse">
-                    <p class="font-Poppins font-extrabold text-secondary-green">10</p>   
-                  </div>  
-                </div>
-              
-                <div class="flex flex-col justify-between border border-secondary-green p-1 h-14 columns-2">
-                  <div>
-                    <p class="font-Coda text-xs">nombre producto</p>
-                    <p class="font-Coda text-xs">codigo producto</p>
-                  </div>
-                  <div class="flex flex-row-reverse">
-                    <p class="font-Poppins font-extrabold text-secondary-green">2</p>   
-                  </div>   
-                </div>
-              
-                <div class="flex flex-col justify-between border border-secondary-green p-1 h-14 columns-2">
-                  <div>
-                    <p class="font-Coda text-xs">nombre producto</p>
-                    <p class="font-Coda text-xs">codigo producto</p>
-                  </div>
-                  <div class="flex flex-row-reverse">
-                    <p class="font-Poppins font-extrabold text-secondary-green">11</p>   
-                  </div>    
-                </div>
-              
-                
+                <div class="flex border border-black h-12">
+                    <div class="flex flex-col ml-2 mt-1">
 
-              </div>
-            </div>
-            <div class="text-right mt-[70px] mr-4">
-              <p class="font-Coda font-black text-lg">N° 1234</p>
-            </div>
-          </div> 
-        <!-- card 2 -->
-          <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg ml-2">
-            <div class="ml-4 font-Coda">
-                <h2 class="text-xl"> a</h2>
-                <p>Código:</p>
-                <div class="bg-white relative float-right rounded-lg mr-4 mb-4 px-2">
-                    <p></p>
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">23</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                    <div class="flex flex-col ml-2 mt-1">
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">11</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">1</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">10</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">2</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">30</p>   
+                  </div>
+
+                  </div>
+              
                 </div>
             </div>
-          </div>
-        <!-- card 2 -->
+                  <div class="text-right mt-[48px] mr-7">
+                    <p class="font-Coda font-black text-lg">N° 1234</p>
+                  </div>
+            </div> 
+          
+          <!-- card 2 -->
           <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
-            <div class="ml-4 font-Coda">
-                <h2 class="text-xl"> a</h2>
-                <p>Código:</p>
-                <div class="bg-white relative float-right rounded-lg mr-4 mb-4 px-2">
-                    <p></p>
+            <div class="ml-4 mt-[20px] mr-3">
+              <!-- info cliente -->
+                <div class="border-b-2 border-dotted border-main-green columns-2 m-1">
+
+                    <div class="font-Poppins text-secondary-green mt-2">
+                      <h3>ENTREGADO</h3>
+                    </div>
+
+                    <div class="font-Coda text-main-green text-right mr-2">
+                      <p class="m-0">Cliente: Juanito Cruz</p>
+                      <p class="m-0">Fecha: 03/09/24</p>
+                    </div>
+
+                </div>
+              <!-- productos -->
+              <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-secondary-green ">
+
+                <div class="flex border border-black h-12">
+                    <div class="flex flex-col ml-2 mt-1">
+
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">23</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                    <div class="flex flex-col ml-2 mt-1">
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">11</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">1</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">10</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">2</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">30</p>   
+                  </div>
+
+                  </div>
+              
                 </div>
             </div>
-          </div>
-        <!-- card 2 -->
-          <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg ml-2">
-            <div class="ml-4 font-Coda">
-                <h2 class="text-xl"> a</h2>
-                <p>Código:</p>
-                <div class="bg-white relative float-right rounded-lg mr-4 mb-4 px-2">
-                    <p></p>
+                  <div class="text-right mt-[48px] mr-7">
+                    <p class="font-Coda font-black text-lg">N° 1234</p>
+                  </div>
+            </div> 
+          <!-- card 3 -->
+          <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
+            <div class="ml-4 mt-[20px] mr-3">
+              <!-- info cliente -->
+                <div class="border-b-2 border-dotted border-main-green columns-2 m-1">
+
+                    <div class="font-Poppins text-secondary-green mt-2">
+                      <h3>ENTREGADO</h3>
+                    </div>
+
+                    <div class="font-Coda text-main-green text-right mr-2">
+                      <p class="m-0">Cliente: Juanito Cruz</p>
+                      <p class="m-0">Fecha: 03/09/24</p>
+                    </div>
+
+                </div>
+              <!-- productos -->
+              <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-secondary-green ">
+
+                <div class="flex border border-black h-12">
+                    <div class="flex flex-col ml-2 mt-1">
+
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">23</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                    <div class="flex flex-col ml-2 mt-1">
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">11</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">1</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">10</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">2</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">30</p>   
+                  </div>
+
+                  </div>
+              
                 </div>
             </div>
-          </div>
+                  <div class="text-right mt-[48px] mr-7">
+                    <p class="font-Coda font-black text-lg">N° 1234</p>
+                  </div>
+            </div> 
+          <!-- card 4 -->
+          <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
+            <div class="ml-4 mt-[20px] mr-3">
+              <!-- info cliente -->
+                <div class="border-b-2 border-dotted border-main-green columns-2 m-1">
+
+                    <div class="font-Poppins text-secondary-green mt-2">
+                      <h3>ENTREGADO</h3>
+                    </div>
+
+                    <div class="font-Coda text-main-green text-right mr-2">
+                      <p class="m-0">Cliente: Juanito Cruz</p>
+                      <p class="m-0">Fecha: 03/09/24</p>
+                    </div>
+
+                </div>
+              <!-- productos -->
+              <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-secondary-green ">
+
+                <div class="flex border border-black h-12">
+                    <div class="flex flex-col ml-2 mt-1">
+
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">23</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                    <div class="flex flex-col ml-2 mt-1">
+                      <p class="font-Coda text-xs m-0">nombre producto</p>
+                      <p class="font-Coda text-xs m-0">codigo producto</p>
+                    </div>
+
+                    <div class="flex ml-6 mt-[0.45rem]">
+                      <p class="font-Poppins font-extrabold text-secondary-green text-2xl">11</p>   
+                    </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">1</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">10</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">2</p>   
+                  </div>
+
+                </div>
+              
+                <div class="flex border border-black h-12">
+
+                  <div class="flex flex-col ml-2 mt-1">
+                    <p class="font-Coda text-xs m-0">nombre producto</p>
+                    <p class="font-Coda text-xs m-0">codigo producto</p>
+                  </div>
+
+                  <div class="flex ml-6 mt-[0.45rem]">
+                    <p class="font-Poppins font-extrabold text-secondary-green text-2xl">30</p>   
+                  </div>
+
+                  </div>
+              
+                </div>
+            </div>
+                  <div class="text-right mt-[48px] mr-7">
+                    <p class="font-Coda font-black text-lg">N° 1234</p>
+                  </div>
+            </div> 
 
         </div>
     </div>
