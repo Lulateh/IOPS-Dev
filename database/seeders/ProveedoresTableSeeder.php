@@ -17,7 +17,7 @@ class ProveedoresTableSeeder extends Seeder
         'nombre' => 'Proveedor Prueba',
         'direccion' => 'Esparza, Nances',
         'telefono' => '123456789',
-        'email' => 'proveedor@gmail.com',
+        'email' => 'proveedor@yahoo.com',
         'created_at' => now(),
         'updated_at' => now(),
     ]);

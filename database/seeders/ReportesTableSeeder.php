@@ -14,10 +14,11 @@ class ReportesTableSeeder extends Seeder
     public function run()
 {
     DB::table('reportes')->insert([
-        'producto_id' => 1,
+        'producto_id' => 2,
         'cantidad_entradas' => 50,
-        'cantidad_salidas' => 0,
+        'cantidad_salidas' => 20,
         'tipo_reporte' => 'diario',
+        'ganancias' => 500.00,
         'fecha_inicio' => now()->startOfDay(),
         'fecha_fin' => now()->endOfDay(),
         'created_at' => now(),

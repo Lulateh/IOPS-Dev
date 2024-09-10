@@ -15,6 +15,7 @@ return new class extends Migration
         $table->bigIncrements('id');
         $table->unsignedBigInteger('producto_id');
         $table->integer('cantidad');
+        $table->integer('producto_reservado')->default(0);
         $table->enum('tipo_movimiento', ['entrada', 'salida']);
         $table->date('fecha_entrega')->nullable();
         $table->timestamp('fecha_movimiento')->useCurrent();

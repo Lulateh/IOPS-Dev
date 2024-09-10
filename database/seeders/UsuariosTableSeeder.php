@@ -15,9 +15,9 @@ class UsuariosTableSeeder extends Seeder
 {
     DB::table('usuarios')->insert([
         'nombre' => 'Admin',
-        'nombre_empresa' => 'Inventory Operations',
-        'email' => 'invntryoperations@gmail.com',
-        'password' => bcrypt('InventoryOperations2024'),
+        'nombre_empresa' => 'Pruebas S.A.',
+        'email' => 'pruebas@gmail.com',
+        'password' => bcrypt('1234'),
         'rol' => 'administrador',
         'created_at' => now(),
         'updated_at' => now(),

@@ -17,6 +17,7 @@ return new class extends Migration
         $table->integer('cantidad_entradas');
         $table->integer('cantidad_salidas');
         $table->enum('tipo_reporte', ['diario', 'semanal', 'mensual']);
+        $table->decimal('ganancias', 8, 2)->default(0);
         $table->date('fecha_inicio');
         $table->date('fecha_fin');
         $table->timestamps();
