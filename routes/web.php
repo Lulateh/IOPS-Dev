@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +30,7 @@ Route::get('/login', [AuthController::class, 'login']) -> name('login');
 Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post') ;
 
 Route::middleware("auth:usuario") -> group(function(){
-    Route::view('/home', 'home') -> name('home');
+    $posts = DB::table('productos') ->get();
+    Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
+    Route::post('/home', [HomeController::class, 'addProduct']) -> name('product.post') ;
 });

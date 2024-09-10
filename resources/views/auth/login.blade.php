@@ -15,13 +15,13 @@
             <div>
                 {{session()->get("success")}}
             </div>
-        @endif
+    @endif
 
-        @if (session()->has("error"))
-            <div>
-                {{session()->get("error")}}
-            </div>  
-        @endif
+    @if (session()->has("error"))
+        <div>
+            {{session()->get("error")}}
+        </div>  
+    @endif
 
     <div class="grid justify-center">
         <form method="POST" action="{{route("login.post")}}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
