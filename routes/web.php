@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +39,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
     Route::post('/home', [HomeController::class, 'addProduct']) -> name('product.post') ;
 });
+
+Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
+Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
+Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');

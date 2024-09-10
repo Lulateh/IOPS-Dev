@@ -11,7 +11,17 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+<header class="bg-main-green py-4">
+        <div class="columns-2">
+            <div>
+                <img class="w-16 ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
+            </div>
 
+            <div class="relative float-right mr-20 ">
+                <img class="w-12" src="{{ asset ('icons/profileIcon.svg')}}" alt="">
+            </div>
+        </div> 
+    </header>
     @yield('content')
 
 </body>
