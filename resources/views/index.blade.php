@@ -31,7 +31,7 @@
     <div class=" my-40 ml-20 break-inside-avoid">
 
         <div>
-            <h1 class="font-Coda text-6xl">
+            <h1 class="font-medium font-Poppins text-6xl">
                 LogiStock by I.OPS
             </h1>
             <p class="mt-4 font-Coda text-xl">
@@ -81,11 +81,11 @@
 <section class="columns-2 bg-neutral-300">
     
     <div class="my-32">
-        <div class="break-inside-avoid font-Coda ml-20">
-            <h2 class="text-4xl">
+        <div class="break-inside-avoid ml-20">
+            <h2 class="font-medium font-Poppins text-4xl">
                 ¿Quienes somos?
             </h2>
-            <p class="mt-4 text-xl">
+            <p class=" font-Coda mt-4 text-xl">
                 Somos I.OPS Inventory Operations, una empresa cuya meta es apoyar a pequeños y grandes empresarios otorgando herramientas capaces de optimizar y mejorar los procesos tediosos y largos del oficio.<br><br>
                 Por ahora estamos en el proceso de mejorar LogiStock, un sistema de manejo de inventarios que comprenda desde microempresas hasta operaciones más grandes y complejas, como hoteles o hospitales.
             </p>
