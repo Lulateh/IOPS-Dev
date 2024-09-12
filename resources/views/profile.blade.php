@@ -8,7 +8,8 @@
 <header class="bg-main-green py-2">
     <div class="columns-2">
         <div>
-            <img class="w-24 ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
+        <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
+        </a>
         </div>
 
   

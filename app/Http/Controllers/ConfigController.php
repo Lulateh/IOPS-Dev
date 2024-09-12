@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ConfigController extends Controller
 {
     //
-    public function index()
+    public function config()
     {
         //
         return view('config');
