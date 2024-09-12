@@ -17,7 +17,7 @@
 <body class="bg-cream">
 
    <div class="mt-5 mb-5">
-      <a href="#" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+      <a href="{{ route('profile') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
       ← Volver
      </a>
    </div>
@@ -58,13 +58,13 @@
     <div class="border-t-8 border-dotted border-main-green w-full mt-4 mb-36"></div>
 
     <div class="flex flex-col items-center justify-center space-y-4 mb-10">
-  <!-- Primer botón de opción (seleccionado por defecto) -->
+
   <label class="flex items-center space-x-2 cursor-pointer mb-24">
     <input type="radio" name="option" value="1" checked class="form-radio text-green-600 border-gray-300 rounded-full focus:ring-green-500">
     <span class="text-black font-Coda text-4xl">Español</span>
   </label>
   
-  <!-- Segundo botón de opción -->
+
   <label class="flex items-center space-x-2 cursor-pointer  ">
     <input type="radio" name="option" value="2" class="form-radio text-green-600 border-gray-300 rounded-full focus:ring-green-500">
     <span class="text-text-black font-Coda text-4xl ">English</span>
@@ -85,12 +85,12 @@
 <div class="border-t-8 border-dotted border-main-green w-full mt-4 mb-10"></div>
 
 <div class="flex flex-col items-center">
-    <!-- Primer contenedor -->
+ 
     <div class="bg-gray-200 shadow-md rounded-lg p-4 mb-10 inline-flex items-center">
         <label class="flex items-center space-x-10 cursor-pointer">
             <input type="radio" name="Tema" value="1" checked class="form-radio text-green-600 border-gray-300 rounded-full focus:ring-green-500">
             <div class="flex flex-wrap gap-4">
-                <!-- Círculos -->
+
                 <div class="w-12 h-12 bg-blue-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-green-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-red-500 rounded-full"></div>
@@ -100,12 +100,12 @@
         </label>
     </div>
 
-    <!-- Segundo contenedor -->
+
     <div class="bg-gray-200 shadow-md rounded-lg p-4 mb-10 inline-flex items-center">
         <label class="flex items-center space-x-10 cursor-pointer">
             <input type="radio" name="Tema" value="1" class="form-radio text-green-600 border-gray-300 rounded-full focus:ring-green-500">
             <div class="flex flex-wrap gap-4">
-                <!-- Círculos -->
+
                 <div class="w-12 h-12 bg-blue-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-green-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-red-500 rounded-full"></div>
@@ -115,12 +115,12 @@
         </label>
     </div>
 
-    <!-- Tercer contenedor -->
+
     <div class="bg-gray-200 shadow-md rounded-lg p-4 mb-10 inline-flex items-center">
         <label class="flex items-center space-x-10 cursor-pointer">
             <input type="radio" name="Tema" value="1" class="form-radio text-green-600 border-gray-300 rounded-full focus:ring-green-500">
             <div class="flex flex-wrap gap-4">
-                <!-- Círculos -->
+
                 <div class="w-12 h-12 bg-blue-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-green-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-red-500 rounded-full"></div>
@@ -130,12 +130,12 @@
         </label>
     </div>
 
-    <!-- Cuarto contenedor -->
+
     <div class="bg-gray-200 shadow-md rounded-lg p-4 mb-10 inline-flex items-center">
         <label class="flex items-center space-x-10 cursor-pointer">
             <input type="radio" name="Tema" value="1" class="form-radio text-green-600 border-gray-300 rounded-full focus:ring-green-500">
             <div class="flex flex-wrap gap-4">
-                <!-- Círculos -->
+
                 <div class="w-12 h-12 bg-blue-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-green-500 rounded-full"></div>
                 <div class="w-12 h-12 bg-red-500 rounded-full"></div>

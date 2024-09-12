@@ -4,7 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ConfigController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +44,7 @@ Route::middleware("auth:usuario") -> group(function(){
 Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
 Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
 Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
+
+Route::get('/profile', [ProfileController::class, 'index']) -> name('profile');
+
+Route::get('/config', [ConfigController::class, 'index']) -> name('config');
