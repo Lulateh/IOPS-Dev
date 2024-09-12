@@ -41,12 +41,9 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
     Route::get('/sales',  [SalesController::class, 'sales'])->name('sales');
-        
+    Route::get('/profile', [ProfileController::class, 'index']) -> name('profile');
+    Route::get('/config', [ConfigController::class, 'index']) -> name('config');
     
 });
 
 
-
-Route::get('/profile', [ProfileController::class, 'index']) -> name('profile');
-
-Route::get('/config', [ConfigController::class, 'index']) -> name('config');
