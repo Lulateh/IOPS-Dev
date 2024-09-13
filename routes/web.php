@@ -30,6 +30,10 @@ Route::post('/registro', [AuthController::class, 'registroPost']) -> name('regis
 Route::get('/login', [AuthController::class, 'login']) -> name('login');
 Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post') ;
 
+Route::get('/incoming',function(){
+    return view('incoming');
+});
+
 Route::get('/sales', function () {
     return view('sales');
 });
