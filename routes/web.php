@@ -7,6 +7,7 @@ use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\IncomingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +34,11 @@ Route::get('/login', [AuthController::class, 'login']) -> name('login');
 Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post') ;
 
 
+Route::get('/incoming',function(){
+    return view('incoming');
+});
+
+
 Route::middleware("auth:usuario") -> group(function(){
     $posts = DB::table('productos') ->get();
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
@@ -43,7 +49,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/sales',  [SalesController::class, 'sales'])->name('sales');
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
-    
+    Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
 });
 
 
