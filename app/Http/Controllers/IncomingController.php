@@ -6,7 +6,7 @@ use App\Models\Product;
 
 class IncomingController extends Controller
 {
-    public function sales()
+    public function incoming()
     {
         
         return view('incoming');
