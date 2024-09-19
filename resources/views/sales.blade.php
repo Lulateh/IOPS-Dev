@@ -511,7 +511,7 @@
 
         <div class="modal-wrapper-flex">
 
-          <div class="modal-content">
+          <div class="modal-content m-5">
 
             <div class="border-b-2 border-dotted border-white columns-2 m-1 w-[50rem]">
               
@@ -521,8 +521,8 @@
                 <p class="m-0">Fecha de entrega: 03/09/24<p>
               </div>
 
-              <div class="text-white flex ml-64 font-Poppins font-light"> 
-                <h2 class="my-3">N° 1234</h2>
+              <div class="text-white flex text-3xl ml-64 font-Poppins font-light"> 
+                <h2 class="my-4">N° 1234</h2>
               </div>
               
             </div>
@@ -730,9 +730,11 @@
 
         </div>
 
-        <div class="ml-72">
+        <div class="ml-72 mt-2">
           <button onclick="hideModalReserva()" class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Poppins mr-2">Volver</button>
-          <button onclick="showModalEditar()" class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Poppins mr-2">Editar</button>
+          <a href="{{ route('editSales') }}">
+          <button  class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Poppins mr-2">Editar</button>
+          <a>
         </div>
 
       </div>

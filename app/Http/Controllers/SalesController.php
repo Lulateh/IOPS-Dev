@@ -11,4 +11,17 @@ class SalesController extends Controller
         
         return view('sales');
     }
+
+    public function addSales()
+    {
+        
+        return view('addSales');
+    }
+
+    public function editSales()
+    {
+        
+        return view('editSales');
+    }
+
 }

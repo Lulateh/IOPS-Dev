@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title')
-Add Sales
+Edit Sales
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@ Add Sales
 <!-- --------------HEADER-------------- -->
 
 <!-- --------------BODY-------------- -->
-<body class="bg-cream">
+<body class="bg-card-bg">
 
 <div class="flex-container flex items-end justify-center">
 
@@ -23,11 +23,11 @@ Add Sales
 
         <div class="text-center mt-2"> 
 
-            <h2 class="font-Poppins font-medium text-3xl  mb-8">Agregar reserva</h2>
+            <h2 class="font-Poppins font-medium text-3xl  mb-8">Modificar reserva</h2>
 
             <div class="flex flex-row mt-4"> 
 
-                <div class="bg-card-bg bg-opacity-70 rounded-lg w-[36rem] mr-16">
+                <div class="bg-main-green bg-opacity-30 rounded-lg w-[36rem] mr-16">
 
                     <div class="m-8 overflow-y-scroll h-[25.4rem]"> 
 
@@ -55,12 +55,12 @@ Add Sales
                 <div class="flex-col">
 
                     <div> 
-                      <div class="bg-card-bg bg-opacity-70  rounded-lg p-2 mb-6 font-Coda font-semibold columns-2 w-[36rem]">
+                      <div class="bg-main-green bg-opacity-30 rounded-lg p-2 mb-6 font-Coda font-semibold columns-2 w-[36rem]">
     
                         <div class="flex-col text-lg text-left mt-3 ml-10">
-                          <p>Cliente:</p>
-                          <p>Contacto:</p>
-                          <p>Fecha de entrega:</p>
+                          <p>Cliente: Juanito</p>
+                          <p>Contacto: 0000000</p>
+                          <p>Fecha de entrega: 03/09/24</p>
                         </div>
     
                         <button onclick="showModalEditar()" class="align-end bg-main-green p-2 ml-32 m-4 rounded-lg">
@@ -72,7 +72,7 @@ Add Sales
     
                       </div>
     
-                      <div class="bg-card-bg bg-opacity-70 rounded-lg p-10 text-left"> 
+                      <div class="bg-main-green bg-opacity-30 rounded-lg p-10 text-left"> 
     
                         <label for="productName" class="font-Coda font-semibold">Nombre del producto</label> <br>
                         <input class="rounded-lg mt-1 mb-2 bg-white w-[31rem]" type="text" id="productName" name="productName" required><br>
