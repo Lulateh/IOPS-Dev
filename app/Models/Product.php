@@ -17,5 +17,7 @@ class Product extends Model
         'precio',
         'imagen_url',
         'cantidad_stock',
+        'entradas',
+        'salidas',
     ];
 }

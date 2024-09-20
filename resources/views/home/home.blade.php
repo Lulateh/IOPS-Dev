@@ -32,48 +32,10 @@
 
         <div class="columns-2">
             <div>
-                <label for="addProductModal" class="cursor-pointer active:bg-secondary-green text-white bg-main-green px-8 py-1 rounded-lg font-Coda">
+                <a href="{{ route('product.add') }}"  class="cursor-pointer active:bg-secondary-green text-white bg-main-green px-8 py-1 rounded-lg font-Coda">
                     Agregar producto
-                </label>
-            </div>
-            <input type="checkbox" id="addProductModal" class="peer fixed appearance-none opacity-0">
-            <label for="addProductModal" class="pointer-events-none invisible fixed inset-0 flex cursor-pointer items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30 opacity-0 transition-all duration-200 ease-in-out peer-checked:pointer-events-auto peer-checked:visible peer-checked:opacity-100 peer-checked:[&>*]:translate-y-0 peer-checked:[&>*]:scale-100">
-                <label class="max-h-[calc(100vh - 5em)] h-fit max-w-screen-lg scale-90 overflow-y-auto overscroll-contain rounded-md bg-white p-6 text-black shadow-2xl transition" for="addProductModal">
-                    <form action=" {{route('product.post')}} " method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <h2 class="font-Coda text-2xl text-center">Agregar producto</h2>
-                
-                        <div class="columns-2 gap-x-16 flex">
-                            <div class="">
-                                <label for="productName" class="font-Coda">Nombre del producto </label> <br>
-                                <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="productName" name="productName" required><br>
-                                <label for="amount" class="font-Coda">Cantidad del producto </label> <br>
-                                <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="amount" name="amount" required><br>
-                                <label for="brand" class="font-Coda">Marca </label> <br>
-                                <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="brand" name="brand" required><br>
-                                <label for="price" class="font-Coda">Precio </label> <br>
-                                <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price" required><br>
-                            </div>
-                            <div class="">
-                                <label for="details" class="font-Coda text-wrap">Descripción </label> <br>
-                                <input class="rounded-lg my-2 bg-card-bg w-60 h-16" type="text" id="details" name="details" required><br>
-                                <label for="img" class="font-Coda">Imagen </label> <br>
-                                <input  type="file" id="img" name="img" required accept="image/*, .jpg, .jpeg, .png"><br>
-                            </div>
-                        </div>
-                        <div class="flex mt-4 gap-5 justify-center">
-                            <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="submit" value="Agregar producto">
-                            <label for="addProductModal" class="font-Coda text-white bg-main-green px-8 py-1 rounded-lg">volver</label>
-                            <input type="checkbox" id="addProductModal" class="peer fixed appearance-none opacity-0">
-                        </div>
-                    </form>
-                </label>
-
-            </label>
-
-            <div>
-                
-            </div>
+                </a>
+            </div>           
         </div>
     </section>
 
@@ -110,22 +72,24 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M30.9809 34.4083C29.7976 34.4083 28.8392 33.4208 29.0226 32.2542C30.1684 25.1667 35.5684 20 44.9392 20C54.3142 20 60.6351 25.6667 60.6351 33.3958C60.6351 38.9958 57.8642 42.9292 53.1767 45.7833C48.5934 48.5292 47.2851 50.4417 47.2851 54.1583V54.2833C47.2851 54.8359 47.0656 55.3658 46.6749 55.7565C46.2842 56.1472 45.7543 56.3667 45.2017 56.3667H41.9934C41.4445 56.3667 40.9177 56.1501 40.5276 55.7639C40.1375 55.3776 39.9156 54.8531 39.9101 54.3042L39.8976 53.4708C39.7184 48.3833 41.8851 45.1333 46.7517 42.1708C51.0434 39.5375 52.5726 37.4417 52.5726 33.7208C52.5726 29.6417 49.4142 26.6458 44.5476 26.6458C40.3434 26.6458 37.4226 28.85 36.4726 32.4875C36.1976 33.5458 35.3142 34.4083 34.2226 34.4083H30.9809ZM43.5684 70C46.1601 70 48.1309 68.025 48.1309 65.4583C48.1309 62.8833 46.1601 60.9083 43.5684 60.9083C41.0434 60.9083 39.0392 62.8833 39.0392 65.4542C39.0392 68.025 41.0434 70 43.5684 70Z" fill="white"/>
             </svg>
             </a>
-        </div>
+    </div>
 
         <div class="basis-5/6 flex">
             @foreach ($posts as $post)
-            <div class="w-48 h-60 bg-card-bg mr-4 rounded-lg">
-                <figure>
-                    <img class="h-32 mx-auto my-2" src="img/{{$post->imagen_url}}" alt="{{$post->imagen_url}}">
-                </figure>
-                <div class="ml-4 font-Coda">
-                    <h2 class="text-xl"> {{$post->nombre}} </h2>
-                    <p>Código: &nbsp; {{$post->id}}</p>
-                    <div class=" flex justify-end  mr-4 mb-4 ">
-                        <p class="bg-white px-2 rounded-lg">{{$post->cantidad_stock}} unidades</p>
+            <a href="{{route('product.show', $post->id)}}">
+                <div class="w-48 h-60 bg-card-bg mr-4 rounded-lg">
+                    <figure>
+                        <img class="h-32 mx-auto my-2" src="img/{{$post->imagen_url}}" alt="{{$post->imagen_url}}">
+                    </figure>
+                    <div class="ml-4 font-Coda">
+                        <h2 class="text-xl"> {{$post->nombre}} </h2>
+                        <p>Código: &nbsp; {{$post->id}}</p>
+                        <div class=" flex justify-end  mr-4 mb-4 ">
+                            <p class="bg-white px-2 rounded-lg">{{$post->cantidad_stock}} unidades</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
     </section>

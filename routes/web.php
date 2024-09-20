@@ -42,7 +42,12 @@ Route::get('/incoming',function(){
 Route::middleware("auth:usuario") -> group(function(){
     $posts = DB::table('productos') ->get();
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
-    Route::post('/home', [HomeController::class, 'addProduct']) -> name('product.post') ;
+    Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');
+    Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
+    Route::get('/home/producto/{id}', [HomeController::class, 'showProduct']) -> name('product.show');
+    Route::get('/home/producto/{id}/edit', [HomeController::class, 'redirectToEdit']) -> name('product.redirect.edit');
+    Route::get('/home/producto/{id}/delete', [HomeController::class, 'deleteProduct']) -> name('product.delete');
+    Route::post('/home/producto/{id}/edit', [HomeController::class, 'editProduct']) -> name('product.edit');
     Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
