@@ -80,20 +80,53 @@
                     <th class="py-2 px-4 border-b bg-[#64746B] text-white">Precio del producto</th>
                     <th class="py-2 px-4 border-b bg-[#26413C] text-white">Condición de stock</th>
                     <th class="py-2 px-4 border-b bg-[#64746B] text-white">Cantidad de productos vendidos</th>
-                    <th class="py-2 px-4 border-b bg-[#26413C] text-white">Cantidad de productos ingresados</th>
+                    <th class="py-2 px-4 border-b bg-[#26413C] text-white">Cantidad de productos comprados</th>
                     <th class="py-2 px-4 border-b bg-[#64746B] text-white">Ganancias</th>
                 </tr>
             </thead>
             <tbody>
-                    @foreach($reportes as $reporte)
-                        <tr>
-                            <td class="py-2">{{ $reporte->id }}</td>
-                            <td class="py-2">{{ $reporte->producto->nombre }}</td>
-                            <td class="py-2">{{ $reporte->cantidad }}</td>
-                            <td class="py-2">{{ $reporte->created_at->format('d-m-Y H:i') }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
+                
+                <tr>
+                    <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
+                    <td class="py-2 px-4 text-center border-b">Pall Moll</td>
+                    <td class="py-2 px-4 text-center border-b">Cigarros</td>
+                    <td class="py-2 px-4 text-center border-b">₡2115.00</td>
+                    <td class="py-2 px-4 text-center border-b">En stock</td>
+                    <td class="py-2 px-4 text-center border-b">75</td>
+                    <td class="py-2 px-4 text-center border-b">20</td>
+                    <td class="py-2 px-4 text-center border-b">10000</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
+                    <td class="py-2 px-4 text-center border-b">Pall Moll</td>
+                    <td class="py-2 px-4 text-center border-b">Cigarros</td>
+                    <td class="py-2 px-4 text-center border-b">₡2115.00</td>
+                    <td class="py-2 px-4 text-center border-b">En stock</td>
+                    <td class="py-2 px-4 text-center border-b">75</td>
+                    <td class="py-2 px-4 text-center border-b">20</td>
+                    <td class="py-2 px-4 text-center border-b">10000</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
+                    <td class="py-2 px-4 text-center border-b">Pall Moll</td>
+                    <td class="py-2 px-4 text-center border-b">Cigarros</td>
+                    <td class="py-2 px-4 text-center border-b">₡2115.00</td>
+                    <td class="py-2 px-4 text-center border-b">En stock</td>
+                    <td class="py-2 px-4 text-center border-b">75</td>
+                    <td class="py-2 px-4 text-center border-b">20</td>
+                    <td class="py-2 px-4 text-center border-b">10000</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
+                    <td class="py-2 px-4 text-center border-b">Pall Moll</td>
+                    <td class="py-2 px-4 text-center border-b">Cigarros</td>
+                    <td class="py-2 px-4 text-center border-b">₡2115.00</td>
+                    <td class="py-2 px-4 text-center border-b">En stock</td>
+                    <td class="py-2 px-4 text-center border-b">75</td>
+                    <td class="py-2 px-4 text-center border-b">20</td>
+                    <td class="py-2 px-4 text-center border-b">10000</td>
+                </tr>
+            </tbody>
         </table>
         
     </div>

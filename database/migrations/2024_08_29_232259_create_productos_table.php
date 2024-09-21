@@ -20,11 +20,9 @@ return new class extends Migration
         $table->string('imagen_url', 255)->nullable();
         $table->unsignedBigInteger('proveedor_id');
         $table->integer('cantidad_stock')->default(0);
-        $table->integer('entradas')->default(0);
-        $table->integer('salidas')->default(0);
-        $table->timestamps();
-
+        
         $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('cascade');
+        $table->timestamps();
     });
 }
 
