@@ -40,6 +40,7 @@ Route::get('/incoming',function(){
 
 
 Route::middleware("auth:usuario") -> group(function(){
+    Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
     $posts = DB::table('productos') ->get();
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
     Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');

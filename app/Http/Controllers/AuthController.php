@@ -55,4 +55,13 @@ class AuthController extends Controller
 
         return redirect(route("registro")) -> with("error", "Se ha producido un error al crear una la cuenta");
     }
+
+    function logout(Request $request){
+        Auth::guard('usuario')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect(route("login"));
+    }
 }
