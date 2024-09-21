@@ -80,7 +80,7 @@
                     <th class="py-2 px-4 border-b bg-[#64746B] text-white">Precio del producto</th>
                     <th class="py-2 px-4 border-b bg-[#26413C] text-white">Condición de stock</th>
                     <th class="py-2 px-4 border-b bg-[#64746B] text-white">Cantidad de productos vendidos</th>
-                    <th class="py-2 px-4 border-b bg-[#26413C] text-white">Cantidad de productos ingresados</th>
+                    <th class="py-2 px-4 border-b bg-[#26413C] text-white">Cantidad de productos comprados</th>
                     <th class="py-2 px-4 border-b bg-[#64746B] text-white">Ganancias</th>
                 </tr>
             </thead>

@@ -5,20 +5,21 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class ProveedoresTableSeeder extends Seeder
+
+class SalidasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('proveedores')->insert([
+        DB::table('salidas')->insert([
             [
-                'nombre_proveedor' => 'Prueba',
-                'email' => 'proveedor@prueba.com',
-                'telefono' => '2290 0000',
+                'cantidad_salida' => 30,
                 'created_at' => now(),
                 'updated_at' => now(),
+                'producto_id' => 1,
+                'cliente_id' => 1,
             ],
         ]);
     }

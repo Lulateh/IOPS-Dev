@@ -20,4 +20,19 @@ class Product extends Model
         'entradas',
         'salidas',
     ];
+
+    public function inventario()
+    {
+        return $this->hasMany(Inventario::class, 'producto_id');
+    }
+
+    public function reporte()
+    {
+        return $this->hasMany(Reporte::class, 'producto_id');
+    }
+
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedor::class, 'proveedor_id');
+    }
 }
