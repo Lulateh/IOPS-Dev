@@ -18,13 +18,10 @@ class HomeController extends Controller{
         }
         
         $product -> nombre = $request -> productName;
-        $product -> cantidad_stock = $request -> amount;
         $product -> marca = $request -> brand;
         $product -> precio = $request -> price;
         $product -> descripcion = $request -> details;
-        $product -> proveedor_id = 2;
-        $product -> entradas = $request -> ins;
-        $product -> salidas = $request -> outs;
+        $product -> proveedor_id = 1;
         $product -> save();
 
         return redirect(route('home'));
@@ -52,7 +49,7 @@ class HomeController extends Controller{
     public function editProduct(Request $request, $id){
         $existingProduct = Product::find($id);
         $imagepath = "img/".$existingProduct->imagen_url;
-        if(file_exists($imagepath)){
+        if(file_exists($imagepath) && $imagepath != "img/"){
             unlink($imagepath);
         }
 
@@ -66,12 +63,9 @@ class HomeController extends Controller{
             }
 
             $existingProduct -> nombre = $request -> productName;
-            $existingProduct -> cantidad_stock = $request -> amount;
             $existingProduct -> marca = $request -> brand;
             $existingProduct -> precio = $request -> price;
             $existingProduct -> descripcion = $request -> details;
-            $existingProduct -> entradas = $request -> ins;
-            $existingProduct -> salidas = $request -> outs;
             $existingProduct -> save();
             return redirect(route('home'));
         }else{

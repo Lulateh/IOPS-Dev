@@ -40,18 +40,12 @@
                 <div >
                     <label for="productName" class="font-Coda">Nombre del producto </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="productName" name="productName" required><br>
-                    <label for="amount" class="font-Coda">Cantidad del producto </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="amount" name="amount" required><br>
                     <label for="brand" class="font-Coda">Marca </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="brand" name="brand" required><br>
                     <label for="price" class="font-Coda">Precio </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price" required><br>
                 </div>
                 <div >
-                    <label for="ins" class="font-Coda">Entradas </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="ins" name="ins" required><br>
-                    <label for="outs" class="font-Coda">Salidas </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="outs" name="outs" required><br>
                     <label for="details" class="font-Coda text-wrap">Descripción </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-60 h-16" type="text" id="details" name="details" required><br>
                     <label for="img" class="font-Coda">Imagen </label> <br>
@@ -59,7 +53,7 @@
                 </div>
             </div>
             <div class="flex mt-4 gap-5 justify-center">
-                <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="submit" value="Editar producto">
+                <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="submit" value="Agregar producto">
             </div>
         </form>
     </div>

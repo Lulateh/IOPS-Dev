@@ -43,8 +43,6 @@
         <p class="text-xl mt-2"> Descripción: {{$existingProduct['descripcion']}}</p>
         <p class="text-xl mt-2"> Precio: {{$existingProduct['precio']}}</p>
         <p class="text-xl mt-2"> Existencias: {{$existingProduct['cantidad_stock']}}</p>
-        <p class="text-xl mt-2"> Entradas: {{$existingProduct['entradas']}}</p>
-        <p class="text-xl mt-2"> Salidas: {{$existingProduct['salidas']}}</p>
 
         <div class="mt-4 flex">
             <a href="{{ route('product.redirect.edit', $existingProduct['id'])}}" class="text-white bg-main-green hover:bg-secondary-green px-6 py-2 rounded-lg font-Coda">Editar</a>

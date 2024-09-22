@@ -40,18 +40,12 @@
                 <div >
                     <label for="productName" class="font-Coda">Nombre del producto </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="productName" name="productName" value="{{ $existingProduct['nombre']}}" required><br>
-                    <label for="amount" class="font-Coda">Cantidad del producto </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="amount" name="amount" value="{{ $existingProduct['cantidad_stock']}}" required><br>
                     <label for="brand" class="font-Coda">Marca </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="brand" name="brand" value="{{ $existingProduct['marca']}}" required><br>
                     <label for="price" class="font-Coda">Precio </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price" value="{{ $existingProduct['precio']}}" required><br>
                 </div>
                 <div >
-                    <label for="ins" class="font-Coda">Entradas </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="ins" name="ins" value="{{ $existingProduct['entradas']}}" required><br>
-                    <label for="outs" class="font-Coda">Salidas </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="outs" name="outs" value="{{ $existingProduct['salidas']}}" required><br>
                     <label for="details" class="font-Coda text-wrap">Descripción </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-60 h-16" type="text" id="details" name="details" value="{{ $existingProduct['descripcion']}}" required><br>
                     <label for="img" class="font-Coda">Imagen </label> <br>
