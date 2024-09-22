@@ -17,5 +17,22 @@ class Product extends Model
         'precio',
         'imagen_url',
         'cantidad_stock',
+        'entradas',
+        'salidas',
     ];
+
+    public function inventario()
+    {
+        return $this->hasMany(Inventario::class, 'producto_id');
+    }
+
+    public function reporte()
+    {
+        return $this->hasMany(Reporte::class, 'producto_id');
+    }
+
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedor::class, 'proveedor_id');
+    }
 }

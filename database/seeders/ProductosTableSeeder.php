@@ -19,10 +19,8 @@ class ProductosTableSeeder extends Seeder
         'descripcion' => 'Cigarros doble click',
         'precio' => 1000.00,
         'imagen_url' => null,
-        'proveedor_id' => 2,
-        'cantidad_stock' => 100,
-        'entradas' => 50,
-        'salidas' => 100,
+        'proveedor_id' => 1,
+        'cantidad_stock' => 150,
         'created_at' => now(),
         'updated_at' => now(),
     ]);

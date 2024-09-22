@@ -5,3 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    
+
+    #profile-dropdown-menu:not(.hidden) {
+        display: block;
+    }
+}
