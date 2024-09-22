@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\IncomingController;
+use App\Http\Controllers\editUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +51,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
+    Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
 });
 
 

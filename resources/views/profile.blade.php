@@ -41,7 +41,7 @@
     
 
     <div class="flex flex-col items-center mx-9">
-        <a href="#" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Editar Perfil</a>
+        <a href="{{ route('editUser') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Editar Perfil</a>
         <a href="{{ route('config') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Configuración</a>
         <a href="#" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg hover:bg-gray-600 w-full text-center block">Cerrar sesión</a>
     </div>
