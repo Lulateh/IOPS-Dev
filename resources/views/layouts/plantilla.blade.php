@@ -7,6 +7,8 @@
     <title>@yield('title')</title>
     
     <link rel="shortcut icon" href="{{ asset('icons/favicon.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     @vite('resources/css/app.css')
 </head>
 <body>

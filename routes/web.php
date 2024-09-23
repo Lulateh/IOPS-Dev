@@ -58,6 +58,11 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
     Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
+    Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
+    Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
+    Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
+
+    
 });
 
 
