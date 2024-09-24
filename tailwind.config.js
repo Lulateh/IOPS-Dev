@@ -15,6 +15,7 @@ export default {
         'lilac' : '717EC3',
         'light-blue' : 'DCFFFD',
         'card-bg': '#BCC4C3'
+
       },
       fontFamily: {
         Coda: ['Coda'],

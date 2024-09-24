@@ -34,16 +34,19 @@
 
 
     <div class="text-center mb-4">
-        <h2 class="text-2xl font-bold mb-1">Nombre de Usuario</h2>
-        <p class="text-xl text-gray-600 font-Coda mb-20 ">ID: 12345</p>
-        <p class="text-xl font-Coda mb-6">correo@ejemplo.com</p>
+        <h2 class="text-2xl font-bold mb-1">{{ Auth::user()->nombre }}</h2>
+        <p class="text-xl text-gray-600 font-Coda mb-6 ">{{ Auth::user()->id }}</p>
+        <h2 class="text-2xl font-bold mb-1">Empresa: {{ Auth::user()->nombre_empresa }}</h2>
+        <p class="text-xl font-Coda mb-6"> {{ Auth::user()->email }}</p>
     </div>
     
 
     <div class="flex flex-col items-center mx-9">
-        <a href="#" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Editar Perfil</a>
+        @auth
+        <a href="{{ route('editUser') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Editar Perfil</a>
+        @endauth
         <a href="{{ route('config') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Configuración</a>
-        <a href="#" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg hover:bg-gray-600 w-full text-center block">Cerrar sesión</a>
+        <a href="#" class="mb-6 bg-main-green font-Coda text-white px-4 py-2 rounded-lg hover:bg-gray-600 w-full text-center block">Cerrar sesión</a>
     </div>
 
  </div>
@@ -259,20 +262,4 @@
     
 </div>
 </body>
-
-
-<!-- <footer class="bg-secondary-green py-2 ">
-    <div class="columns-2">
-        <div>
-            <img class="w-24 ml-20" src= "{{ asset('img/IopsIconWhite.png') }}" alt="">
-        </div>
-
-        <div class="relative float-right mr-20 mt-4">
-            <p class="font-Coda text-white">
-                Información de contacto <br>
-                invntryoperations@gmail.com
-            </p>
-        </div>
-    </div> 
-</footer>-->
 @endsection

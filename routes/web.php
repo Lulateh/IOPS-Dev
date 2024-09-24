@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\IncomingController;
+use App\Http\Controllers\editUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,10 +35,6 @@ Route::get('/login', [AuthController::class, 'login']) -> name('login');
 Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post') ;
 
 
-Route::get('/incoming',function(){
-    return view('incoming');
-});
-
 
 Route::middleware("auth:usuario") -> group(function(){
     Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
@@ -53,9 +50,23 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
     Route::get('/sales',  [SalesController::class, 'sales'])->name('sales');
+    Route::get('/addSales',  [SalesController::class, 'addSales'])->name('addSales');
+    Route::get('/editSales',  [SalesController::class, 'editSales'])->name('editSales');
+    Route::get('/viewSales',  [SalesController::class, 'viewSales'])->name('viewSales');
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
+    Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
+    Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
+    Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
+    Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
+
+    
+    Route::get('/incoming/addIncoming', [IncomingController::class, 'addIncoming'])->name('incoming.addIncoming');
+    Route::get('incoming/details', [IncomingController::class, 'details'])->name('incoming.details');
+    Route::get('incoming/edit', [IncomingController::class, 'details'])->name('incoming.edit');
+
+
 });
 
 
