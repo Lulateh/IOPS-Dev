@@ -25,7 +25,7 @@
   <!-- --------------HEADER-------------- -->
 
   <!-- --------------BODY-------------- -->
-  <section>
+  <body>
     <div class="columns-2 mb-4">
             <h1 class="font-normal font-Poppins text-main-green text-4xl mt-6 ml-20">
               Salidas
@@ -76,7 +76,9 @@
         <div class="overflow-y-scroll basis-5/6 gap-2 flex flex-wrap mt-2 h-[32rem]">
           
           <!-- card 1 -->
-          <div onclick="showModalReserva()" class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
+          <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
+            <a href="{{route('viewSales')}}">
+
             <div class="ml-4 mt-[20px] mr-3">
               <!-- info cliente -->
                 <div class="border-b-2 border-dotted border-main-green columns-2 m-1">
@@ -174,12 +176,12 @@
               
                 </div>
             </div>
-                  <div class="text-right mt-[48px] mr-7">
-                    <p class="font-Coda font-black text-lg">N° 1234</p>
-                  </div>
-            </div> 
-          
+            <div class="text-right mt-[48px] mr-7">
+              <p class="font-Coda font-black text-lg">N° 1234</p>
+            </div>
             
+            </a>
+          </div> 
           <!-- card 2 -->
           <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
             <div class="ml-4 mt-[20px] mr-3">
@@ -493,270 +495,10 @@
         </div>
         
     </div>
-  </section>
+  </body>
   <!-- --------------BODY-------------- -->
 
-  <!-- MODAL VER RESERVA -->
-  <div id="modal-ver-reserva" class="fixed inset-0 opacity-0 hidden transition-opacity duration-500">
-
-    <div class="modal-flex-container flex items-end justify-center">
-
-      <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-75">
-      </div>
-
-      <div class="modal-container inline-block align-bottom bg-main-green rounded-lg text-left 
-      overflow-hidden shadow-xl transform transition-all mt-32 w-fit"> 
-
-      <div class="modal-wrapper bg-main-green m-4"> 
-
-        <div class="modal-wrapper-flex">
-
-          <div class="modal-content m-5">
-
-            <div class="border-b-2 border-dotted border-white columns-2 m-1 w-[50rem]">
-              
-              <div class="text-white flex flex-col font-Poppins font-light ml-4 mb-4">
-                <p class="m-0">Estado: Reservado</p>
-                <p class="m-0">Cliente: Juanito Cruz</p>
-                <p class="m-0">Fecha de entrega: 03/09/24<p>
-              </div>
-
-              <div class="text-white flex text-3xl ml-64 font-Poppins font-light"> 
-                <h2 class="my-4">N° 1234</h2>
-              </div>
-              
-            </div>
-
-            <div class="modal-text"> 
-
-              <div class="overflow-auto rounded-lg h-96 m-2">
-
-                <div>
-
-                  <div class="grid grid-cols-2 gap-[0.01rem] mb-6 mr-0">
-
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-                    
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-                    
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-                    
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-                    
-                    <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-                    
-                      <div class="flex border border-white h-14 mt-1 ml-2 m-2">
-                      <div class="flex flex-col ml-4 mt-2">
-
-                        <p class="text-white font-Coda text-sm m-0">nombre producto</p>
-                        <p class="text-white font-Coda text-sm m-0">codigo producto</p>
-
-                      </div>
-
-                      <div class="flex ml-24 mt-[0.76rem]">
-
-                        <p class="text-white font-Poppins font-extrabold text-2xl">23</p>   
-
-                      </div>
-                    </div>
-                    
-                  </div>
-
-                  
-                  
-                  
-                </div>
-                
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="ml-72 mt-2">
-          <button onclick="hideModalReserva()" class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Poppins mr-2">Volver</button>
-          <a href="{{ route('editSales') }}">
-          <button  class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Poppins mr-2">Editar</button>
-          <a>
-        </div>
-
-      </div>
-
-      </div>
-
-    </div>
-
-    <script>
-      function showModalReserva(){
-        let dialog = document.getElementById('modal-ver-reserva');
-        dialog.classList.remove('hidden');
-        dialog.classList.add('opacity-100');
-      }
-      function hideModalReserva(){
-        let dialog = document.getElementById('modal-ver-reserva');
-        dialog.classList.add('opacity-0');
-        dialog.classList.add('hidden');
-      }
-    </script>
-
-  </div>
+  
   
 
 @endsection

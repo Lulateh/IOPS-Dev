@@ -12,6 +12,12 @@ class SalesController extends Controller
         return view('sales');
     }
 
+    public function viewSales()
+    {
+        
+        return view('viewSales');
+    }
+
     public function addSales()
     {
         

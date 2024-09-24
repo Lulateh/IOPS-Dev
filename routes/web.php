@@ -49,6 +49,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/sales',  [SalesController::class, 'sales'])->name('sales');
     Route::get('/addSales',  [SalesController::class, 'addSales'])->name('addSales');
     Route::get('/editSales',  [SalesController::class, 'editSales'])->name('editSales');
+    Route::get('/viewSales',  [SalesController::class, 'viewSales'])->name('viewSales');
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
