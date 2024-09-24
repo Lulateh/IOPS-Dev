@@ -1,7 +1,7 @@
 @extends('layouts.plantilla') 
 
 @section('title')
-    Addincoming
+    Edit incoming
 @endsection
 
 @section('content')
@@ -23,14 +23,13 @@
 </header>
     
     
-<div>
-    <a class="ml-20 mt-4 flex" href="{{ route('incoming') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" class="mt-1 w-6 fill-main-green"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
-        <p class="font-Coda text-main-green text-2xl">Regresar</p>
+<div class="mt-8">
+    <a href="{{ route('incoming') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+         ← Volver
     </a>
 </div>
    
-   <div class= "mt-6 flex justify-center">
+   <div class= "mt-28 flex justify-center">
     <div class="bg-card-bg w-3/4 p-10 rounded-lg shadow-lg">
         <form action="/guardar-entrada" method="POST">
 
