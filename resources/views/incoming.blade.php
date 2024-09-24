@@ -9,33 +9,53 @@
 <header class="bg-main-green py-3">
     <div class="columns-2">
         <div>
-        <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
-        </a>
-        </div>
-
-        <div class="relative float-right mr-20 mt-3">
-        <a href="{{ route('profile') }}"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-cream" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-              </svg>
+            <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
             </a>
         </div>
-    </div> 
-  </header>
-
-  <section>
-  <div class="columns-2 mb-4">
-            <h1 class="font-normal font-Poppins text-main-green text-4xl mt-6 ml-20">
-              Entradas pendientes
-            </h1>
 
         
-            <button onclick="showModalAgregar()" class="text-white bg-main-green ml-[28rem] mt-12 px-4 py-1 rounded-lg font-Poppins">
-                Agregar entrega
-            </button>  
-    </div>
+        <div class="relative float-right mr-20 mt-3">
+            <button type="button" class="inline-flex justify-center w-full px-4 py-2" id="profile-dropdown-button" aria-haspopup="true" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-cream" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </button>
 
-    <div class="columns-2 flex">
+            <div class="fixed right-0 mt-2 mr-16 w-46 rounded-md shadow-lg bg-cream ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="profile-dropdown-button" id="profile-dropdown-menu">
+                <div class="py-1" role="none">
+                    <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Profile</a>
+                    <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                        @csrf
+                        <a href="#" onclick="this.closest('form').submit()">Cerrar sesión</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </div> 
+</header>
+
+<section class="flex columns-2 justify-between mt-10 mx-20">
+       
+        <div>
+            <h1 class="font-Coda text-main-green text-3xl">
+              Entradas pendientes
+            </h1>
+        </div>
+
+        <div class="columns-2">
+            <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer active:bg-secondary-green text-white bg-main-green px-8 py-1 rounded-lg font-Coda">
+                Agregar entrega
+            </a>
+        </div>
+            
+     </div>
+</section>
+ <section class="mt-16">
+<div class="columns-2 flex">
   
     <div class="basis-1/6">
            <a href="{{route('home')}}"> <svg class="mx-auto mb-8 transition-all duration-300 hover:w-24 hover:h-24" xmlns="http://www.w3.org/2000/svg" width="90" height="70" viewBox="0 0 120 120" fill="none">
@@ -68,182 +88,26 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M30.9809 34.4083C29.7976 34.4083 28.8392 33.4208 29.0226 32.2542C30.1684 25.1667 35.5684 20 44.9392 20C54.3142 20 60.6351 25.6667 60.6351 33.3958C60.6351 38.9958 57.8642 42.9292 53.1767 45.7833C48.5934 48.5292 47.2851 50.4417 47.2851 54.1583V54.2833C47.2851 54.8359 47.0656 55.3658 46.6749 55.7565C46.2842 56.1472 45.7543 56.3667 45.2017 56.3667H41.9934C41.4445 56.3667 40.9177 56.1501 40.5276 55.7639C40.1375 55.3776 39.9156 54.8531 39.9101 54.3042L39.8976 53.4708C39.7184 48.3833 41.8851 45.1333 46.7517 42.1708C51.0434 39.5375 52.5726 37.4417 52.5726 33.7208C52.5726 29.6417 49.4142 26.6458 44.5476 26.6458C40.3434 26.6458 37.4226 28.85 36.4726 32.4875C36.1976 33.5458 35.3142 34.4083 34.2226 34.4083H30.9809ZM43.5684 70C46.1601 70 48.1309 68.025 48.1309 65.4583C48.1309 62.8833 46.1601 60.9083 43.5684 60.9083C41.0434 60.9083 39.0392 62.8833 39.0392 65.4542C39.0392 68.025 41.0434 70 43.5684 70Z" fill="white"/>
             </svg>
             </a>
-        </div>
-
-        <div class="mt-10 grid grid-cols-2 gap-2 ">
-
-
-        <div class="relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-        <div class="w-2/55 h-full">
-        <img src="/img/box.png" alt="Producto" class="h-full w-full object-cover rounded-l-lg transform scale-90">
     </div>
-    <div class="ml-4 w-2/3 flex flex-col justify-center">
-        <h2 class="text-lg font-semibold">Nombre del Producto</h2>
-        <p class="text-sm font-semibold">Código del Producto</p>
+
+  <div class="mt-10 grid grid-cols-2 gap-2 ">
+    <div class="font-Coda relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
+    <a href="{{ route('incoming.details') }}">
+     <div class="mx-8 w-2/3 flex flex-col justify-center">
+        <h2 class="text-lg font-semibold mx-10">ass</h2>
+        <p class="text-sm font-semibold mx-10">Código:</p>
     </div>
-    <div class="ml-auto mb-8 mr-4 flex flex-col items-end">
-        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-5">
+    <div class="ml-auto mb-8 mr-8 flex flex-col items-end">
+        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-8">
             <span class="text-sm">10 unidades</span>
         </div>
-        <p class="mt-12 text-xs ">Ingreso: 12/09/2024</p>
-    </div>
-</div>
-
-    <div class="relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-    <div class="w-2/55 h-full">
-        <img src="/img/box.png" alt="Producto" class="h-full w-full object-cover rounded-l-lg transform scale-90">
-    </div>
-    <div class="ml-4 w-2/3 flex flex-col justify-center">
-        <h2 class="text-lg font-semibold">Nombre del Producto</h2>
-        <p class="text-sm font-semibold">Código del Producto</p>
-    </div>
-    <div class="ml-auto mb-8 mr-4 flex flex-col items-end">
-        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-5">
-            <span class="text-sm">10 unidades</span>
+        <p class="mt-12 text-xs">llegaron 12/09/2024</p>
+        </a>
         </div>
-        <p class="mt-12 text-xs">Ingreso: 12/09/2024</p>
-    </div>
-</div>
-
-<div class="relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-    <div class="w-2/55 h-full">
-        <img src="/img/box.png" alt="Producto" class="h-full w-full object-cover rounded-l-lg transform scale-90">
-    </div>
-    <div class="ml-4 w-2/3 flex flex-col justify-center">
-        <h2 class="text-lg font-semibold">Nombre del Producto</h2>
-        <p class="text-sm font-semibold">Código del Producto</p>
-    </div>
-    <div class="ml-auto mb-8 mr-4 flex flex-col items-end">
-        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-5">
-            <span class="text-sm">10 unidades</span>
         </div>
-        <p class="mt-12 text-xs">Ingreso: 12/09/2024</p>
-    </div>
-</div>
-
-<div class="relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-    <div class="w-2/55 h-full">
-        <img src="/img/box.png" alt="Producto" class="h-full w-full object-cover rounded-l-lg transform scale-90">
-    </div>
-    <div class="ml-4 w-2/3 flex flex-col justify-center">
-        <h2 class="text-lg font-semibold">Nombre del Producto</h2>
-        <p class="text-sm font-semibold">Código del Producto</p>
-    </div>
-    <div class="ml-auto mb-8 mr-4 flex flex-col items-end">
-        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-5">
-            <span class="text-sm">10 unidades</span>
-        </div>
-        <p class="mt-12 text-xs">Ingreso: 12/09/2024</p>
-    </div>
-</div>
-<div class="relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-    <div class="w-2/55 h-full">
-        <img src="/img/box.png" alt="Producto" class="h-full w-full object-cover rounded-l-lg transform scale-90">
-    </div>
-    <div class="ml-4 w-2/3 flex flex-col justify-center">
-        <h2 class="text-lg font-semibold">Nombre del Producto</h2>
-        <p class="text-sm font-semibold">Código del Producto</p>
-    </div>
-    <div class="ml-auto mb-8 mr-4 flex flex-col items-end">
-        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-5">
-            <span class="text-sm">10 unidades</span>
-        </div>
-        <p class="mt-12 text-xs ">Ingreso: 12/09/2024</p>
-    </div>
-</div>
-
-<div class="relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-    <div class="w-2/55 h-full">
-        <img src="/img/box.png" alt="Producto" class="h-full w-full object-cover rounded-l-lg transform scale-90">
-    </div>
-    <div class="ml-4 w-2/3 flex flex-col justify-center">
-        <h2 class="text-lg font-semibold">Nombre del Producto</h2>
-        <p class="text-sm font-semibold ">Código del Producto</p>
-    </div>
-    <div class="ml-auto mb-8 mr-4 flex flex-col items-end">
-        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-5">
-            <span class="text-sm">10 unidades</span>
-        </div>
-        <p class="mt-12 text-xs ">Ingreso: 12/09/2024</p>
-    </div>
-</div>
-
-
-</div>
-    </div>
-
-    <div id="modalAgregar" class="fixed inset-0 bg-gray-800 bg-opacity-75 items-center justify-center hidden">
-  <div class="bg-card-bg w-[90%] p-12 rounded-lg shadow-lg relative">
-    <h2 class="text-xl font-semibold mb-8 text-center">Agregar entrega</h2>
-    
-    <!-- Formulario dentro del modal -->
-    <div class="grid grid-cols-2 gap-4">
-      <!-- Primera columna -->
-      <div>
-        <label class="block mb-4 font-semibold">Nombre del producto</label>
-        <input type="text" class="w-full   mb-4 rounded-lg bg-gray-300">
-        
-        <label class="block mb-4 font-semibold">Código del producto</label>
-        <input type="text" class="w-full   mb-4 rounded-lg bg-gray-300">
-        
-        <label class="block mb-4 font-semibold">Descripción del producto</label>
-        <textarea class="w-full  mb-4 rounded-lg bg-gray-300"></textarea>
-        
-        <label class="block mb-4 font-semibold">Cantidad del producto</label>
-        <input type="number" class="w-full  mb-4 rounded-lg bg-gray-300">
-      </div>
-      
-      <!-- Segunda columna -->
-      <div>
-        <label class="block mb-4 font-semibold">Marca del producto</label>
-        <input type="text" class="w-full  mb-4 rounded-lg bg-gray-300">
-        
-        <label class="block mb-4 font-semibold">Proveedor</label>
-        <input type="text" class="w-full   mb-4rounded-lg bg-gray-300">
-        
-        <label class="block mb-4 font-semibold">Contacto del proveedor</label>
-        <input type="text" class="w-full  mb-4rounded-lg bg-gray-300">
-        
-        <label class="block mb-4 font-semibold">Fecha de entrada del producto</label>
-        <input type="date" class="w-full   mb-4 rounded-lg bg-gray-300">
-      </div>
-    </div>
-    
-    <!-- Espacio para subir imagen -->
-    <div class="mt-8">
-      <label class="block mb-4 font-semibold">Subir imagen del producto</label>
-      <input type="file" class="w-full p-3 rounded-lg bg-gray-300">
-    </div>
-    
-    <!-- Botones -->
-    <div class="flex justify-center mt-8">
-      <button class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins mr-4" onclick="guardarEntrega()">
-        Guardar entrega
-      </button>
-      <button class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins" onclick="closeModal()">
-        Volver
-      </button>
-    </div>
   </div>
-</div>
 
-        
-</section>
+ </section>
 
-
-<script>
-  function showModalAgregar() {
-    document.getElementById('modalAgregar').classList.remove('hidden');
-  }
-
-  function closeModal() {
-    document.getElementById('modalAgregar').classList.add('hidden');
-  }
-
-  function guardarEntrega() {
-    closeModal();
-    // Lógica para guardar la entrega
-  }
-</script>
 
 @endsection
