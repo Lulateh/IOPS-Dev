@@ -18,18 +18,4 @@ class Product extends Model
         'imagen_url',
         'cantidad_stock',
     ];
-
-<<<<<<< HEAD
-=======
-    public function incomings()
-    {
-        return $this->hasMany(Incoming::class, 'producto_id');
-    }
-
-    public function inventario()
-    {
-        return $this->hasMany(Inventario::class, 'producto_id');
-    }
->>>>>>> c0b8865f2b921bce3abf1cd1e57c97ac442b444a
-
 }
