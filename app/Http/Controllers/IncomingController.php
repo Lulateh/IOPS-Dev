@@ -45,4 +45,12 @@ class IncomingController extends Controller
     public function edit() {
         return view('incomingEdit');
     }
+
+
+    public function editIncoming(Request $request, $id){
+        $existingIncoming = Product::find($id);
+        if($existingIncoming){
+            $existingIncoming ->codigo = $request -> codigo;
+        }
+    }
 }
