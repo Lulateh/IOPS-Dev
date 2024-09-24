@@ -82,9 +82,9 @@
     <div class="bg-white rounded-lg p-6 max-w-md w-full">
         <h2 class="text-lg font-semibold mb-4">Estas a punto de eliminar una entrega de forma definitiva
             ¿Estás seguro de eliminar la entrega?</h2>
-        <div class="flex justify-between">
-            <button id="confirmDelete" class="bg-red-500 text-white px-4 py-2 rounded">Eliminar entrega</button>
-            <button id="cancelDelete" class="bg-white border-r-2 text-black px-4 py-2 rounded">Cancelar</button>
+        <div class="flex justify-center ">
+            <button id="confirmDelete" class="bg-red-500 text-white px-4 py-2 rounded mr-10">Eliminar entrega</button>
+            <button id="cancelDelete" class="bg-white border-solid border-2 text-black px-4 py-2 rounded">Cancelar</button>
         </div>
     </div>
 </div>
