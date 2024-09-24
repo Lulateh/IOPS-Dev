@@ -34,10 +34,6 @@ Route::get('/login', [AuthController::class, 'login']) -> name('login');
 Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post') ;
 
 
-Route::get('/incoming',function(){
-    return view('incoming');
-});
-
 
 Route::middleware("auth:usuario") -> group(function(){
     Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
@@ -56,6 +52,11 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
+    Route::get('/incoming/addIncoming', [IncomingController::class, 'addIncoming'])->name('incoming.addIncoming');
+    Route::get('incoming/details', [IncomingController::class, 'details'])->name('incoming.details');
+    Route::get('incoming/edit', [IncomingController::class, 'details'])->name('incoming.edit');
+
+
 });
 
 
