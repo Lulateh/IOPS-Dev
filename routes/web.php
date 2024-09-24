@@ -64,7 +64,7 @@ Route::middleware("auth:usuario") -> group(function(){
     
     Route::get('/incoming/addIncoming', [IncomingController::class, 'addIncoming'])->name('incoming.addIncoming');
     Route::get('incoming/details', [IncomingController::class, 'details'])->name('incoming.details');
-    Route::get('incoming/edit', [IncomingController::class, 'details'])->name('incoming.edit');
+    Route::get('incoming/edit', [IncomingController::class, 'edit'])->name('incoming.edit');
 
 
 });
