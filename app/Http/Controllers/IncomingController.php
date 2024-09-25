@@ -48,7 +48,7 @@ class IncomingController extends Controller
 
     
 
-    public function updateIncoming(Request $request){
+    public function updateIncoming(Request $request,){
         $existingIncoming = Incoming::find(1);
         if($existingIncoming){
             $existingIncoming -> producto_id = $request -> prod_id;

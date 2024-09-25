@@ -69,6 +69,23 @@
         </a>
     </div>
 
+    <div class="col-3 flex"> 
+        <form action="" method="POST">
+        @csrf
+        <div> 
+           
+
+        </div>
+
+        <div> 
+        </div> 
+
+        <div> 
+        </div>
+
+        </form>
+    </div>
+
     <div class="basis-5/6 flex items-start mr-5">
         <table class=" w-full">
             <thead>
