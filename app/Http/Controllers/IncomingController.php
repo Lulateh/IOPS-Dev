@@ -47,10 +47,14 @@ class IncomingController extends Controller
     }
 
 
-    public function editIncoming(Request $request, $id){
-        $existingIncoming = Product::find($id);
+    public function updateIncoming(Request $request){
+        $existingIncoming = Incoming::find(1);
         if($existingIncoming){
-            $existingIncoming ->codigo = $request -> codigo;
+            $existingIncoming -> cantidad_entrada = $request -> cantidad;
+            $existingIncoming -> save();
+            return redirect(route('incoming'));
+        }else{
+            return redirect(route('incoming')) -> with("error", "Ha ocurrido un error");
         }
     }
 }

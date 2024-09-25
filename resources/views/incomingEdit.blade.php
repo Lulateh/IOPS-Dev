@@ -31,12 +31,12 @@
    
    <div class= "mt-28 flex justify-center">
     <div class="bg-card-bg w-3/4 p-10 rounded-lg shadow-lg">
-        <form action="/guardar-entrada" method="POST">
-
+        <form action="{{ route('update.incoming') }}" method="POST">
+            @csrf
             <div class="grid grid-cols-2 gap-8">
                 <div>
                     <label class="block mb-2 font-semibold">Código del producto</label>
-                    <input type="text" name="codigo" class="w-full p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]" required>
+                    <label></label>
 
                     <label class="block mb-2 font-semibold">Cantidad del producto</label>
                     <input type="number" name="cantidad" class="w-full p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]" required>
@@ -51,11 +51,8 @@
                 </div>
             </div>
 
-        
             <div class="flex justify-center mt-8">
-                <button type="submit" class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins">
-                    Agregar entrada
-                </button>
+                <input type="submit" class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins" value="Modificar entrada">
             </div>
         </form>
     </div>

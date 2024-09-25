@@ -49,7 +49,17 @@ Edit Sales
 
                     <div class="m-8 overflow-y-scroll h-[25.4rem]"> 
 
-                        <div class="flex border border-black h-14 w-[26] mt-1 ml-2 m-2">
+                      <div class="flex">
+
+                        <div class="mt-2"> 
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                          </svg>
+                        </div>
+
+
+                        <div class="flex border border-black h-14 w-[24] mt-1 ml-4 m-2">
 
                             <div class="flex flex-col ml-10 mt-2">
         
@@ -58,13 +68,15 @@ Edit Sales
         
                             </div>
         
-                            <div class="flex ml-[16rem] mt-[0.76rem]">
+                            <div class="flex ml-[14rem] mr-6 mt-[0.76rem]">
         
                               <p class="font-Poppins font-extrabold text-secondary-green text-2xl">23</p>   
         
                             </div>
 
                         </div> 
+
+                      </div>
 
                     </div>
 
