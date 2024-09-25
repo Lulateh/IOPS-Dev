@@ -71,7 +71,7 @@
 
     <div class="flex flex-col">
     <div class="columns-3 flex flex-row mb-10"> 
-        <form action="" method="POST">
+        <form action="addPerson" method="POST">
         @csrf
             <div class="grid grid-cols-3 gap-8">
                 <div> 
@@ -110,23 +110,34 @@
                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Nombre</th>
                 <th class="py-2 px-4 border-b bg-[#64746B] text-white">Correo</th>
                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Telefono</th>
+                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Categoria</th>
                 <th class="py-2 px-4 border-b bg-[#64746B] text-white">Acciones</th>
             </thead>
 
             <tbody>
-                @foreach ($proveedores as $proveedor)
-                    <tr>
-                        <td class="py-2 px-4 border-b text-black text-center">{{$proveedor->nombre_proveedor}}</td>
-                        <td class="py-2 px-4 border-b text-black text-center">{{$proveedor->email}}</td>
-                        <td class="py-2 px-4 border-b text-black text-center">{{$proveedor->telefono}}</td>
-                        <td class="py-2 px-4 border-b text-black text-center">
-                            <a href="" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
-                            <a href="" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</a>
-                        </td>
-                    </tr>
-                @endforeach
+                @foreach ($datos as $dato)
+                <tr>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        @if(isset($dato->nombre_proveedor))
+                            {{$dato->nombre_proveedor}}
+                        @else
+                            {{$dato->nombre_cliente}}
+                        @endif
+                    </td>
+                    <td class="py-2 px-4 border-b text-black text-center">{{$dato->email}}</td>
+                    <td class="py-2 px-4 border-b text-black text-center">{{$dato->telefono}}</td>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        {{ $dato->categoria }} 
+                    </td>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        <a href="" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
+                        <a href="" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</a>
+                    </td>
+                </tr>
+            @endforeach
         </table>
     </div>
+
 
     </div>
 </section>

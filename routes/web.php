@@ -43,6 +43,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
     $posts = DB::table('productos') ->get();
     $proveedores = DB::table('proveedores') ->get();
+    $clientes = DB::table('clientes')->get();
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
     Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');
     Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
@@ -73,8 +74,10 @@ Route::middleware("auth:usuario") -> group(function(){
     
 
    
-    Route::view('/personas', 'personas.personas', ['proveedores' => $proveedores]) -> name('personas');
+    //Route::view('/personas', 'personas.personas', ['proveedores' => $proveedores, 'clientes'=>$clientes]) -> name('personas');
     Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('addPerson');
+    Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
+    //Route::get('/showPerson', [ProveedorController::class, 'showPerson']);
 });
 
 
