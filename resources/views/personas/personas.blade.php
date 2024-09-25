@@ -71,7 +71,7 @@
 
     <div class="flex flex-col">
     <div class="columns-3 flex flex-row mb-10"> 
-        <form action="addPerson" method="POST">
+        <form action="{{ route('add.person') }}" method="POST">
         @csrf
             <div class="grid grid-cols-3 gap-8">
                 <div> 

@@ -38,7 +38,7 @@ class ProveedorController extends Controller
     });
 
     $clientes = Clientes::all()->map(function ($cliente) {
-        $cliente->categoria = 'Cliente';
+        $cliente->categoria = 'Cliente'; 
         return $cliente;
     });
 

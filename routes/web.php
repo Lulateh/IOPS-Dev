@@ -72,10 +72,9 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::view('incoming/edit', 'incomingEdit',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.edit');
     Route::post('/incoming/edit',[IncomingController::class, 'updateIncoming'])->name('update.incoming');
     
-
    
     //Route::view('/personas', 'personas.personas', ['proveedores' => $proveedores, 'clientes'=>$clientes]) -> name('personas');
-    Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('addPerson');
+    Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
     //Route::get('/showPerson', [ProveedorController::class, 'showPerson']);
 });
