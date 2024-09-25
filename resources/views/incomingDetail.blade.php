@@ -25,12 +25,12 @@
 
     
 <body class="bg-main-green"> 
-    <div class="mt-8">
-        <a href="{{ route('incoming') }}" class="ml-20 text-white font-Coda hover:underline text-4xl">  
+    <div class="mt-8 mb-4">
+        <a href="{{ route('sales') }}" class="ml-20 text-white font-Coda hover:underline text-4xl">  
             ← Volver
-           </a>
+        </a>
     </div>
-    <div class="mt-24 max-w-6xl mx-auto bg-white bg-opacity-25 rounded-lg shadow-lg p-10 mb-28">
+    <div class="mt-6 max-w-6xl mx-auto bg-white bg-opacity-25 rounded-lg shadow-lg p-10 mb-28">
         <div class="grid grid-cols-2 gap-8 ">
             <!-- Left Side (Product Details) -->
             <div>
