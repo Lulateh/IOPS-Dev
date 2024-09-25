@@ -46,11 +46,14 @@ class IncomingController extends Controller
         return view('incomingEdit');
     }
 
+    
 
     public function updateIncoming(Request $request){
         $existingIncoming = Incoming::find(1);
         if($existingIncoming){
+            $existingIncoming -> producto_id = $request -> prod_id;
             $existingIncoming -> cantidad_entrada = $request -> cantidad;
+            $existingIncoming -> proveedor_id = $request -> prov_id;
             $existingIncoming -> save();
             return redirect(route('incoming'));
         }else{

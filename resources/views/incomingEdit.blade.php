@@ -36,18 +36,30 @@
             <div class="grid grid-cols-2 gap-8">
                 <div>
                     <label class="block mb-2 font-semibold">Código del producto</label>
-                    <label></label>
+                    <div class="relative inline-block text-left mb-5">
+                        <select name ="prod_id" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="">Seleccione un producto</option>
+                            @foreach($posts as $producto)
+                              <option value="{{ $producto->id }}">{{ $producto->nombre}}</option>
+                            @endforeach
+                          </select>
+                      </div>
 
-                    <label class="block mb-2 font-semibold">Cantidad del producto</label>
+                    <label class="block mt-9 mb-2 font-semibold">Cantidad del producto</label>
                     <input type="number" name="cantidad" class="w-full p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]" required>
                 </div>
 
                 <div>
                     <label class="block mb-2 font-semibold">Proveedor</label>
-                    <input type="text" name="proveedor" class="w-full p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]" required>
+                    <div class="relative inline-block text-left mb-5">
+                        <select name ="prov_id" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="">Seleccione un proveedor</option>
+                            @foreach($proveedores as $proveedor)
+                              <option value="{{ $proveedor->id }}">{{ $proveedor->nombre_proveedor}}</option>
+                            @endforeach
+                          </select>
+                      </div>
 
-                    <label class="block mb-2 font-semibold">Contacto del proveedor</label>
-                    <input type="text" name="contacto" class="w-full p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]" required>
                 </div>
             </div>
 

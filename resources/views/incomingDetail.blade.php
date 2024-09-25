@@ -26,7 +26,7 @@
     
 <body class="bg-main-green"> 
     <div class="mt-8 mb-4">
-        <a href="{{ route('sales') }}" class="ml-20 text-white font-Coda hover:underline text-4xl">  
+        <a href="{{ route('incoming') }}" class="ml-20 text-white font-Coda hover:underline text-4xl">  
             ← Volver
         </a>
     </div>
