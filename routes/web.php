@@ -66,7 +66,8 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('incoming/details', [IncomingController::class, 'details'])->name('incoming.details');
     Route::get('incoming/edit', [IncomingController::class, 'edit'])->name('incoming.edit');
 
-
+    $proveedores = DB::table('proveedores') ->get();
+    Route::view('/personas', 'personas.personas', ['proveedores' => $proveedores]) -> name('personas');
 });
 
 
