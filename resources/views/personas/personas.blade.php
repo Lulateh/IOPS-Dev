@@ -69,25 +69,43 @@
         </a>
     </div>
 
-    <div class="col-3 flex"> 
+    <div class="flex flex-col">
+    <div class="columns-3 flex flex-row mb-10"> 
         <form action="" method="POST">
         @csrf
-        <div> 
-           
+            <div class="grid grid-cols-3 gap-8">
+                <div> 
+                    <label class="block mb-2 font-semibold">Nombre</label>
+                    <input type="text" name="nombre" class="w-[28rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
 
-        </div>
+                    <label class="block mb-2 font-semibold">Email</label>
+                    <input type="text" name="email" class="w-[28rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                </div>
 
-        <div> 
-        </div> 
+                <div class="mx-10"> 
+                    <label class="block mb-2 font-semibold">Telefono</label>
+                    <input type="number" name="telefono" class="w-[28rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
 
-        <div> 
-        </div>
+                    <label class="block mb-2 font-semibold">Categoría</label>
+                    <div class="relative inline-block text-left mb-5">
+                        <select name ="categoria_id" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="">Seleccione una categoría</option>
+                            <option value="1">Proveedor</option>
+                            <option value="2">Cliente</option>
+                          </select>
+                      </div>
+                </div> 
 
+                <div class="ml-32 mt-16"> 
+                    <input type="submit" class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins" value="Agregar">
+                </div>
+
+            </div>
         </form>
     </div>
 
     <div class="basis-5/6 flex items-start mr-5">
-        <table class=" w-full">
+        <table class="w-full">
             <thead>
                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Nombre</th>
                 <th class="py-2 px-4 border-b bg-[#64746B] text-white">Correo</th>
@@ -108,6 +126,8 @@
                     </tr>
                 @endforeach
         </table>
+    </div>
+
     </div>
 </section>
 

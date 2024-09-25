@@ -9,6 +9,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\editUserController;
+use App\Http\Controllers\ProveedorController;
+use App\Models\Proveedor;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,6 +74,7 @@ Route::middleware("auth:usuario") -> group(function(){
 
    
     Route::view('/personas', 'personas.personas', ['proveedores' => $proveedores]) -> name('personas');
+    Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('addPerson');
 });
 
 
