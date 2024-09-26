@@ -76,15 +76,15 @@
             <div class="grid grid-cols-3 font-Poppins">
                 <div> 
                     <label class="block mb-2 font-semibold">Nombre</label>
-                    <input type="text" name="nombre" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                    <input type="text" name="nombre" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
 
                     <label class="block mb-2 font-semibold">Email</label>
-                    <input type="text" name="email" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                    <input type="text" name="email" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
                 </div>
 
                 <div class=""> 
                     <label class="block mb-2 font-semibold">Telefono</label>
-                    <input type="number" name="telefono" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                    <input type="number" name="telefono" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
 
                     <label class="block mb-2 font-semibold">Categoría</label>
                     <div class="relative inline-block text-left mb-5">
@@ -100,7 +100,7 @@
                 <div class=""> 
 
                     <label class="block mb-2 font-semibold">Dirección</label>
-                    <input type="text" name="direccion" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                    <input type="text" name="direccion" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
 
                     <input type="submit" class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins mt-7 ml-[6rem]" value="Agregar">
                 </div>

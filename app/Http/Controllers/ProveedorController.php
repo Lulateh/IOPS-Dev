@@ -30,23 +30,23 @@ class ProveedorController extends Controller
         return redirect(route('personas'))->with('success', 'Datos guardados exitosamente.');
     }
 
-    public function showPerson()
-{
-    $proveedores = Proveedor::all()->map(function ($proveedor) {
+    public function showPerson(){
+        $proveedores = Proveedor::all()->map(function ($proveedor) {
         $proveedor->categoria = 'Proveedor'; 
         $proveedor->direccion = null;
         return $proveedor;
-    });
+        });
 
-    $clientes = Clientes::all()->map(function ($cliente) {
-        $cliente->categoria = 'Cliente';
+        $clientes = Clientes::all()->map(function ($cliente) {
+        $cliente->categoria = 'Cliente'; 
         return $cliente;
-    });
+        });
 
-    
-    $datos = $proveedores->concat($clientes);
+        
+        $datos = $proveedores->concat($clientes);
 
-   
-    return view('personas.personas', compact('datos'));
-}
+        
+        return view('personas.personas', compact('datos'));
+    }
+
 }
