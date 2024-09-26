@@ -70,34 +70,39 @@
     </div>
 
     <div class="flex flex-col">
-    <div class="columns-3 flex flex-row mb-10"> 
+    <div class="columns-3 flex flex-row mb-10 ml-2"> 
         <form action="{{ route('add.person') }}" method="POST">
         @csrf
-            <div class="grid grid-cols-3 gap-8">
+            <div class="grid grid-cols-3 font-Poppins">
                 <div> 
                     <label class="block mb-2 font-semibold">Nombre</label>
-                    <input type="text" name="nombre" class="w-[28rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                    <input type="text" name="nombre" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
 
                     <label class="block mb-2 font-semibold">Email</label>
-                    <input type="text" name="email" class="w-[28rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                    <input type="text" name="email" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
                 </div>
 
-                <div class="mx-10"> 
+                <div class=""> 
                     <label class="block mb-2 font-semibold">Telefono</label>
-                    <input type="number" name="telefono" class="w-[28rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+                    <input type="number" name="telefono" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
 
                     <label class="block mb-2 font-semibold">Categoría</label>
                     <div class="relative inline-block text-left mb-5">
-                        <select name ="categoria_id" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                        <select name ="categoria_id" class="w-[20rem] text-center block appearance-none border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
                             <option value="">Seleccione una categoría</option>
                             <option value="1">Proveedor</option>
                             <option value="2">Cliente</option>
                           </select>
                       </div>
+
                 </div> 
 
-                <div class="ml-32 mt-16"> 
-                    <input type="submit" class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins" value="Agregar">
+                <div class=""> 
+
+                    <label class="block mb-2 font-semibold">Dirección</label>
+                    <input type="text" name="direccion" class="w-[20rem] p-2 mb-4 rounded-lg opacity-25 bg-[#26413C]">
+
+                    <input type="submit" class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins mt-7 ml-[6rem]" value="Agregar">
                 </div>
 
             </div>
@@ -105,11 +110,12 @@
     </div>
 
     <div class="basis-5/6 flex items-start mr-5">
-        <table class="w-full">
+        <table class="w-[75rem]">
             <thead>
                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Nombre</th>
                 <th class="py-2 px-4 border-b bg-[#64746B] text-white">Correo</th>
                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Telefono</th>
+                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Dirección</th>
                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Categoria</th>
                 <th class="py-2 px-4 border-b bg-[#64746B] text-white">Acciones</th>
             </thead>
@@ -126,6 +132,10 @@
                     </td>
                     <td class="py-2 px-4 border-b text-black text-center">{{$dato->email}}</td>
                     <td class="py-2 px-4 border-b text-black text-center">{{$dato->telefono}}</td>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        <!-- Mostrar la dirección solo si existe -->
+                        {{ $dato->direccion ?? 'N/A' }} <!-- Muestra la dirección o "N/A" si no existe -->
+                    </td>
                     <td class="py-2 px-4 border-b text-black text-center">
                         {{ $dato->categoria }} 
                     </td>

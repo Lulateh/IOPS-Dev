@@ -23,7 +23,7 @@ class ProveedorController extends Controller
             $persona-> nombre_cliente = $request -> nombre;
             $persona -> email = $request -> email;
             $persona -> telefono = $request -> telefono;
-            $persona -> direccion ="";
+            $persona -> direccion = $request -> direccion;
             $persona -> save();
         }
 
@@ -34,18 +34,19 @@ class ProveedorController extends Controller
 {
     $proveedores = Proveedor::all()->map(function ($proveedor) {
         $proveedor->categoria = 'Proveedor'; 
+        $proveedor->direccion = null;
         return $proveedor;
     });
 
     $clientes = Clientes::all()->map(function ($cliente) {
-        $cliente->categoria = 'Cliente'; 
+        $cliente->categoria = 'Cliente';
         return $cliente;
     });
 
     
     $datos = $proveedores->concat($clientes);
 
-    
+   
     return view('personas.personas', compact('datos'));
 }
 }
