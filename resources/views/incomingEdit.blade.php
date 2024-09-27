@@ -51,7 +51,7 @@
                     <div class="relative inline-block  mb-5">
                         <select name ="prov_id" class="block appearance-none w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
                             @foreach($proveedores as $proveedor)
-                              <option value="{{ $proveedor->id }}" {{ $proveedor->proveedor_id == $proveedor->id ? 'selected' : '' }}>{{ $proveedor->nombre_proveedor}}</option>
+                              <option value="{{ $proveedor->id }}" {{ $incoming->proveedor_id == $proveedor->id ? 'selected' : '' }}>{{ $proveedor->nombre_proveedor}}</option>
                             @endforeach
                           </select>
                       </div>
