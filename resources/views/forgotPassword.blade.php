@@ -46,6 +46,28 @@
         });
     </script>
 @endif
+@if(session('success'))
+        <script>
+            swal({
+                title: "Éxito!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                buttons: {
+                    confirm: {
+                        text: "OK",
+                        value: true,
+                        visible: true,
+                        className: "my-button",
+                        closeModal: true,
+                    }
+                }
+            }).then((value) => {
+                if (value) {
+                    window.location.href = "{{ route('login') }}"; 
+                }
+            });
+        </script>
+    @endif
 
 </body>
 @endsection
