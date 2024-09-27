@@ -12,6 +12,7 @@ use App\Http\Controllers\editUserController;
 use App\Http\Controllers\ProveedorController;
 use App\Models\Proveedor;
 
+use App\Http\Controllers\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,7 @@ use App\Models\Proveedor;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('index');
@@ -36,6 +38,10 @@ Route::post('/registro', [AuthController::class, 'registroPost']) -> name('regis
 
 Route::get('/login', [AuthController::class, 'login']) -> name('login');
 Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post') ;
+
+
+Route::get('/forgotPassword', [ForgotPasswordController::class, 'forgotPasswordView'])->name('forgot.password.view');
+Route::post('/forgotPassword/checkEmail', [ForgotPasswordController::class, 'checkEmail'])->name('checkEmail');
 
 
 
