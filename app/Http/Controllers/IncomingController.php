@@ -107,7 +107,7 @@ class IncomingController extends Controller
                 $product->cantidad_stock = $total;
                 $product->save();
             }
-            return redirect(route('incomings.show', ['id' => $product->id]));
+            return redirect(route('incomings.show', ['id' => $existingIncoming->id]));
         }else{
             return redirect(route('incoming')) -> with("error", "Ha ocurrido un error");
         }
