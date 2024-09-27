@@ -43,6 +43,8 @@ Route::get('/incoming',function(){
 
 Route::get('/forgotPassword', [ForgotPasswordController::class, 'forgotPasswordView'])->name('forgot.password.view');
 Route::post('/forgotPassword/checkEmail', [ForgotPasswordController::class, 'checkEmail'])->name('checkEmail');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('password.reset');
+Route::post('password/update', [ForgotPasswordController::class, 'updatePassword'])->name('password.update');
 
 
 
