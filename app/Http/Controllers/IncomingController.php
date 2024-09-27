@@ -34,7 +34,7 @@ class IncomingController extends Controller
     }
     public function showIncoming($id){
 
-        $incoming = Incoming::with('product')->find($id);
+        $incoming = Incoming::with('product', 'proveedor')->find($id);
 
         if ($incoming) {            
             return view('incomingDetail', compact('incoming'));           
