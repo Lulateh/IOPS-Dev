@@ -69,14 +69,14 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
-    Route::post('/incoming', [IncomingController::class, 'guardarEntrada'])->name('incoming.post');
+    Route::view('/incoming/addIncoming', 'add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
+    Route::post('/incoming/addIncoming', [IncomingController::class, 'guardarEntrada'])->name('incoming.post');
     Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
     Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
     Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
     Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
 
     
-    Route::get('/incoming/addIncoming', [IncomingController::class, 'addIncoming'])->name('incoming.addIncoming');
     Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
     Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
 
