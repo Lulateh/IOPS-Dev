@@ -8,51 +8,20 @@
 
 
     
-    
-<div class=" bg-secondary-green h-screen">
+<div class="mt-8">
+    <a href="{{ route('incoming') }}" class="ml-20 text-white font-Coda hover:underline text-4xl">  
+    ← Volver
+   </a>
+ </div>
+   
+ <body class="bg-main-green"> 
 
-    <a class="ml-20  flex" href="{{ route('incoming') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" class="mt-10 w-6 fill-white"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
-        <p class="mt-10 font-Coda text-white text-2xl">Regresar</p>
-    </a>
-
-    <div class="font-Coda mt-6 max-w-6xl mx-auto bg-white bg-opacity-25 rounded-lg shadow-lg p-10 mb-28">
-        <div class="grid grid-cols-2 gap-4  ">
-           
-            <div class =" text-center justify-center ">
-                
-                <h1 class="text-4xl font-bold mb-4">{{ $incoming->product->nombre }}</h1>
-<header class="bg-secondary-green py-2">
-    <div class="columns-2">
-        <div>
-          <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
-          </a>
-        </div>
-  
-        <div class="relative float-right mr-20 mt-3">
-          <a href="{{ route('profile') }}"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-main-green" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                </svg>
-              </a>
-          </div>
-  
-    </div> 
-  </header>
-
-    
-<body class="bg-main-green"> 
-    <div class="mt-8 mb-4">
-        <a href="{{ route('incoming') }}" class="ml-20 text-white font-Coda hover:underline text-4xl">  
-            ← Volver
-        </a>
-    </div>
-    <div class="mt-6 max-w-6xl mx-auto bg-white bg-opacity-25 rounded-lg shadow-lg p-10 mb-28">
+    <div class="mt-24 max-w-6xl mx-auto bg-white bg-opacity-25 rounded-lg shadow-lg p-10">
         <div class="grid grid-cols-2 gap-8 ">
             <!-- Left Side (Product Details) -->
             <div>
                 <!-- Product Name -->
-                <h1 class="text-4xl font-bold mb-4">Nombre del Producto</h1>
+                <h1 class="text-4xl font-bold mb-4">{{ $incoming->product->nombre }}</h1>
 
                
                 <p class="text-xl mb-2">Codigo : {{ $incoming->product->id }}</p>
@@ -81,9 +50,8 @@
                 
                 <div class=" mt-20 flex justify-center gap-4">
                    
-                <a href="{{ route('incoming.edit') }}" class="bg-green-950 text-white py-2 px-4 rounded-lg hover:bg-green-800">Modificar Entrega</a>
+                    <a href="{{ route('incoming.edit', ['id' => $incoming->id]) }}" class="bg-green-950 text-white py-2 px-4 rounded-lg hover:bg-green-800">Modificar Entrega</a>
 
-                  
                 <button onclick="toggleModal()" class="bg-green-950 text-white py-2 px-4 rounded-lg hover:bg-green-800">Eliminar Entrega</button>
                 </div>
             </div>

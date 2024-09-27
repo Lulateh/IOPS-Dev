@@ -55,10 +55,6 @@ class IncomingController extends Controller
         return view('incomingDetail');
     }
 
-    public function edit() {
-        return view('incomingEdit');
-    }
-
     public function destroy($id)
 {
     $incoming = Incoming::find($id);
@@ -71,10 +67,19 @@ class IncomingController extends Controller
     }
 }
 
+    public function edit($id)
+    {
+        $incoming = Incoming::findOrFail($id); 
+        $proveedores = Proveedor::all();
+        $posts = Product::all();
+
+        return view('incomingEdit', compact('incoming', 'proveedores', 'posts'));
+    }
+ 
     
 
-    public function updateIncoming(Request $request,){
-        $existingIncoming = Incoming::find(1);
+    public function updateIncoming(Request $request, $id){
+        $existingIncoming = Incoming::find($id);
         $product = Product::find($request -> prod_id);
         if($existingIncoming){
             $existingIncoming -> producto_id = $request -> prod_id;
