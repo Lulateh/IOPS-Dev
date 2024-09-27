@@ -6,14 +6,29 @@
 
 @section('content')
 
+<header class="bg-main-green py-3">
+    <div class="columns-2">
+        <div>
+            <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
+            </a>
+        </div>
 
+        <div class="relative float-right mr-20 mt-3">
+        <a href="{{ route('profile') }}"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-cream" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+            </a>
+        </div>
+    </div> 
+</header>
     
     
-<div class=" bg-secondary-green h-screen">
+<div class=" /*bg-[#26413C]*/  bg-secondary-green h-screen">
 
     <a class="ml-20  flex" href="{{ route('incoming') }}">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" class="mt-10 w-6 fill-white"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
-        <p class="mt-10 font-Coda text-white text-2xl">Regresar</p>
+        <p class="underline mt-10 font-Coda text-white text-2xl">Volver</p>
     </a>
 
     <div class="font-Coda mt-6 max-w-6xl mx-auto bg-white bg-opacity-25 rounded-lg shadow-lg p-10 mb-28">
@@ -30,7 +45,7 @@
                 <p class="text-lg  mb-2">Marca : {{ $incoming->product->marca }}</p>
 
               
-                <p class="text-base  mb-6">{{ $incoming->product->descripcion }}</p>
+                <p class="text-base  mb-10">{{ $incoming->product->descripcion }}</p>
 
                 <div class ="flex justify-center">
                 <div class="bg-white rounded-lg flex  items-center justify-center w-32 h-[2rem] ">
@@ -41,14 +56,15 @@
 
             <div class="text-center">
                
-                <p class="text-lg font-bold mb-2">Proveedor: {{ $incoming->product->marca }}</p>
+                <p class="text-lg font-bold mb-2">Proveedor: {{ $incoming->proveedor->nombre_proveedor }}</p>
 
-                <p class="text-lg  mb-2">Contacto: contacto@proveedor.com</p>
+                <p class="text-lg  ">email : {{ $incoming->proveedor->email }}</p>
+                <p class="text-lg  mb-6">Telefono: {{ $incoming->proveedor->telefono }}</p>
 
-                <p class="text-lg  mb-6">Fecha de Entrada: 2024-09-23</p>
+                <p class="text-s mt-20 ">Fecha de Entrada: {{ $incoming->created_at->format('d-m-y') }}</p>
 
                 
-                <div class=" mt-20 flex justify-center gap-4">
+                <div class=" mt-5 flex justify-center gap-4">
                    
                 <a href="{{ route('incoming.edit') }}" class="bg-green-950 text-white py-2 px-4 rounded-lg hover:bg-green-800">Modificar Entrega</a>
 
