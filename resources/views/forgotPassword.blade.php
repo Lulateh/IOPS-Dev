@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Confirmar Email
+    LogiStock - Recuperar Contraseña
 @endsection
 
 @section('content')
@@ -12,13 +12,13 @@
         ← Volver
     </a>
 </div>
-<h2 class="text-5xl font-Coda my-16 text-center">Confirmar Email</h2>
+<h2 class="text-5xl font-Coda my-16 text-center">Reestablecer Contraseña</h2>
 
-<form action="" method="POST">
+<form action="{{ route('password.reset.link') }}" method="POST">
     @csrf
 
     <div class="max-w-2xl mx-auto p-6 bg-main-green bg-opacity-35 rounded-lg shadow-md">
-
+    <h3 class="text-2xl font-Coda mb-4 text-center">Ingresa tu correo electrónico</h3>
         <div class="mb-6">
             <label for="email" class="block text-sm font-medium text-black">Correo Electrónico</label>
             <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-main-green focus:border-main-green sm:text-sm" placeholder="Ingresa tu correo electrónico" required>

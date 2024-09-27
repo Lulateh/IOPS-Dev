@@ -55,10 +55,10 @@
                 
                 <input class="text-white bg-main-green px-8 py-1 ml-auto rounded-lg" type="submit" value="Iniciar sesion">
             </div>
-
-            <input class="flex mt-4 mx-auto underline" type="button" value="Recuperar contraseña">
+            <a href="{{ route('forgot.password.view') }}"class="flex mt-4 mx-auto justify-center underline text-main-green hover:text-green-500">Recuperar contraseña</a>
         </form>
     </div>
+    
 
     <div class="flex">
         <a class="mx-auto mt-4" href="./">

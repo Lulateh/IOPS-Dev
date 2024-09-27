@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\editUserController;
+use App\Http\Controllers\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,7 @@ use App\Http\Controllers\editUserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('index');
@@ -38,6 +40,10 @@ Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post'
 Route::get('/incoming',function(){
     return view('incoming');
 });
+
+Route::get('/forgotPassword', [ForgotPasswordController::class, 'forgotPasswordView'])->name('forgot.password.view');
+Route::post('/forgotPassword/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.reset.link');
+
 
 
 Route::middleware("auth:usuario") -> group(function(){
