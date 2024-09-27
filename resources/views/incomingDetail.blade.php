@@ -78,7 +78,7 @@
 
 
 
-<div id="deleteModal" class="fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50 hidden">
+<div id="deleteModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
     
     <div class="bg-white rounded-lg p-6 max-w-md w-full">
         <h2 class="text-lg font-semibold mb-4">Estas a punto de eliminar una entrega de forma definitiva
