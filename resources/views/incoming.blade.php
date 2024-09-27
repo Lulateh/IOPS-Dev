@@ -14,7 +14,7 @@
         </div>
 
         
-        <div class="relative float-right mr-20 mt-3">
+        <div class="relative float-right mr-20 ">
             <button type="button" class="inline-flex justify-center w-full px-4 py-2" id="profile-dropdown-button" aria-haspopup="true" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-cream" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -46,7 +46,7 @@
             </h1>
         </div>
 
-        <div class="columns-2">
+        <div class=" columns-2">
             <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer active:bg-secondary-green text-white bg-main-green px-8 py-1 rounded-lg font-Coda">
                 Agregar entrega
             </a>
@@ -104,7 +104,7 @@
         <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-8">
             <span class="text-sm">{{ $incoming->cantidad_entrada }} unidades</span>
         </div>
-        <p class="mt-8 text-xs">llegaron {{ $incoming->cantidad_entrada }} unidades el  {{ $incoming->created_at->format('d-m-y') }}</p>
+        <p class="ml-10 mt-8 text-xs">llegaron {{ $incoming->cantidad_entrada }} unidades el  {{ $incoming->created_at->format('d-m-y') }}</p>
         </div>
         </div>
         </a>
