@@ -8,6 +8,26 @@ use App\Models\Proveedor;
 
 class IncomingController extends Controller
 {
+
+    public function guardarEntrada(Request $request)
+    {
+        $request -> validate([
+            'producto_id' => 'required|exists:productos,id',
+            'cantidad' => 'required|integer|min:1',
+        ]);
+
+        $producto = Product::find($request->producto_id);
+        $producto->cantidad_stock += $request->cantidad;
+        $producto->save();
+
+        Incoming::create([
+            'producto_id' => $request->producto_id,
+            'cantidad_entrada' => $request->cantidad,
+            'proveedor_id' => $producto->proveedor_id,
+        ]);
+
+        return redirect(route('incoming'));
+    }
     public function index()
 
     {
