@@ -18,19 +18,21 @@ class IncomingController extends Controller
     
     }
     public function showIncoming($id){
-        $existingIncoming =Incoming::find($id);
-        if($existingIncoming){            
-            return view('incoming', compact('existingIncoming', 'id'));            
-        }else{
-            return redirect(route('incoming')) -> with("error", "No se a encontrado la entrada");
+
+        $incoming = Incoming::with('product')->find($id);
+
+        if ($incoming) {            
+            return view('incomingDetail', compact('incoming'));           
+        } else {
+            return redirect(route('incoming')) -> with('error', 'No se ha encontrado la entrada');
         }
         
     }
 
     public function incoming()
     {
-        $incoming = Incoming::all();
-        return view('incoming', compact('incoming'));
+        $incomings = Incoming::all();
+        return view('incoming', compact('incomings'));
     }
 
     public function addIncoming()
@@ -45,4 +47,16 @@ class IncomingController extends Controller
     public function edit() {
         return view('incomingEdit');
     }
+
+    public function destroy($id)
+{
+    $incoming = Incoming::find($id);
+
+    if ($incoming) {
+        $incoming->delete(); 
+        return redirect()->route('incoming')->with('success', 'Entrada eliminada correctamente.');
+    } else {
+        return redirect()->route('incoming')->with('error', 'No se encontró la entrada.');
+    }
+}
 }

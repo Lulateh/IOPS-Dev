@@ -55,8 +55,10 @@
      </div>
 </section>
  <section class="mt-16">
+
+
 <div class="columns-2 flex">
-  
+
     <div class="basis-1/6">
            <a href="{{route('home')}}"> <svg class="mx-auto mb-8 transition-all duration-300 hover:w-24 hover:h-24" xmlns="http://www.w3.org/2000/svg" width="90" height="70" viewBox="0 0 120 120" fill="none">
                 <circle class="hover:fill-[#717EC3]" cx="60" cy="60" r="60" fill="#26413C"/>
@@ -90,21 +92,24 @@
             </a>
     </div>
 
-  <div class="mt-10 grid grid-cols-2 gap-2 ">
+  <div class="mt-10 grid grid-cols-2 gap-4 ">
+  @foreach ($incomings as $incoming)
+  <a href="{{ route('incomings.show', ['id' => $incoming->id]) }}">
     <div class="font-Coda relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-    <a href="{{ route('incoming.details') }}">
-     <div class="mx-8 w-2/3 flex flex-col justify-center">
-        <h2 class="text-lg font-semibold mx-10">ass</h2>
-        <p class="text-sm font-semibold mx-10">Código:</p>
+     <div class="mx-10 flex flex-col justify-center">
+        <h2 class="text-l font-bold ">{{ $incoming->product->nombre }}</h2>
+        <p class="text-sm  ">Código: {{ $incoming->producto_id }}</p>
     </div>
     <div class="ml-auto mb-8 mr-8 flex flex-col items-end">
         <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-8">
-            <span class="text-sm">10 unidades</span>
+            <span class="text-sm">{{ $incoming->cantidad_entrada }} unidades</span>
         </div>
-        <p class="mt-12 text-xs">llegaron 12/09/2024</p>
+        <p class="mt-8 text-xs">llegaron {{ $incoming->cantidad_entrada }} unidades el  {{ $incoming->created_at->format('d-m-y') }}</p>
+        </div>
+        </div>
         </a>
-        </div>
-        </div>
+        @endforeach
+        
   </div>
 
  </section>

@@ -9,20 +9,19 @@ class Incoming extends Model
 {
     use HasFactory;
 
-    protected $table = 'entradas'; // Nombre de la tabla
+    protected $table = 'entradas'; 
     protected $fillable = [
         'cantidad_entrada', 
         'producto_id', 
         'proveedor_id'
     ];
 
-    // Relación con Producto
+    
     public function product()
     {
         return $this->belongsTo(Product::class, 'producto_id');
     }
 
-    // Relación con Proveedor
     public function proveedor()
     {
         return $this->belongsTo(Proveedor::class, 'proveedor_id');

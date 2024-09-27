@@ -20,7 +20,7 @@ class Product extends Model
     ];
     public function incomings()
     {
-        return $this->hasMany(Incoming::class, 'producto_id');
+        return $this->hasMany(Incomings::class, 'producto_id');
     }
 
     public function inventario()

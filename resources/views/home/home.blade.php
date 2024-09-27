@@ -35,7 +35,7 @@
 
 
     </div> 
-  </header>
+</header>
 
     
     <section class="flex columns-2 justify-between mt-10 mx-20">
@@ -99,7 +99,7 @@
                     <div class="ml-4 font-Coda">
                         <h2 class="text-xl"> {{$post->nombre}} </h2>
                         <p>Código: &nbsp; {{$post->id}}</p>
-                        <div class=" flex justify-end  mr-4 mb-4 ">
+                        <div class=" flex justify-end   ">
                             <p class="bg-white px-2 rounded-lg">{{$post->cantidad_stock}} unidades</p>
                         </div>
                     </div>

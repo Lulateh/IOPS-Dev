@@ -39,6 +39,8 @@ Route::post('/login', [AuthController::class, 'loginPost']) -> name('login.post'
 Route::middleware("auth:usuario") -> group(function(){
     Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
     $posts = DB::table('productos') ->get();
+    $incomings = DB::table('entradas')->get();
+    
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
     Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');
     Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
@@ -63,7 +65,10 @@ Route::middleware("auth:usuario") -> group(function(){
 
     
     Route::get('/incoming/addIncoming', [IncomingController::class, 'addIncoming'])->name('incoming.addIncoming');
-    Route::get('incoming/details', [IncomingController::class, 'details'])->name('incoming.details');
+    Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
+    Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
+
+
     Route::get('incoming/edit', [IncomingController::class, 'details'])->name('incoming.edit');
 
 
