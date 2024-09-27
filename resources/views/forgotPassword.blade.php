@@ -14,7 +14,7 @@
 </div>
 <h2 class="text-5xl font-Coda my-16 text-center">Reestablecer Contraseña</h2>
 
-<form action="{{ route('password.reset.link') }}" method="POST">
+<form action="{{ route('checkEmail') }}" method="POST">
     @csrf
 
     <div class="max-w-2xl mx-auto p-6 bg-main-green bg-opacity-35 rounded-lg shadow-md">
@@ -29,5 +29,23 @@
         </div>
     </div>
 </form>
+@if(session('error'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+        swal({
+            title: "Error!",
+            text: "{{ session('error') }}",
+            icon: "error",
+            button: {
+                text: "OK",
+                value: true,
+                visible: true,
+                className: "my-button",
+                closeModal: true,
+            }
+        });
+    </script>
+@endif
+
 </body>
 @endsection

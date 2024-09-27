@@ -42,7 +42,7 @@ Route::get('/incoming',function(){
 });
 
 Route::get('/forgotPassword', [ForgotPasswordController::class, 'forgotPasswordView'])->name('forgot.password.view');
-Route::post('/forgotPassword/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.reset.link');
+Route::post('/forgotPassword/checkEmail', [ForgotPasswordController::class, 'checkEmail'])->name('checkEmail');
 
 
 
