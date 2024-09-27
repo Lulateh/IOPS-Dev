@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    LogiStock - Home
+    Personas
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
         </div>
 
         
-        <div class="relative float-right mr-20 ">
+        <div class="relative float-right mr-20">
             <button type="button" class="inline-flex justify-center w-full px-4 py-2" id="profile-dropdown-button" aria-haspopup="true" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-cream" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -21,7 +21,7 @@
                 </svg>
             </button>
 
-            <div class="fixed right-0 mt-2 mr-16 w-46 rounded-md shadow-lg bg-cream ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="profile-dropdown-button" id="profile-dropdown-menu">
+            <div class="fixed right-0  mr-16 w-46 rounded-md shadow-lg bg-cream ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="profile-dropdown-button" id="profile-dropdown-menu">
                 <div class="py-1" role="none">
                     <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Profile</a>
                     <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
@@ -31,28 +31,8 @@
                 </div>
             </div>
         </div>
-        
-
-
     </div> 
 </header>
-
-    
-<section class="flex columns-2 justify-between mt-10 mx-20">
-    <div>
-        <h1 class="font-Coda text-main-green text-3xl">
-            WELCOME, {{Auth::user()->nombre}}
-        </h1>
-    </div>
-
-    <div class="columns-2">
-        <div>
-            <a href="{{ route('product.add') }}"  class="cursor-pointer active:bg-secondary-green text-white bg-main-green px-8 py-1 rounded-lg font-Coda">
-                Agregar producto
-            </a>
-        </div>           
-    </div>
-</section>
 
 <section class="flex columns-2 mt-16">
 
@@ -89,32 +69,95 @@
         </a>
     </div>
 
-    <div class="basis-5/6 flex">
-        @foreach ($posts as $post)
-        <a href="{{route('product.show', $post->id)}}">
-            <div class="w-48 h-60 bg-card-bg mr-4 rounded-lg">
-                <figure>
-                    <img class="h-32 mx-auto my-2" src="img/{{$post->imagen_url}}" alt="{{$post->imagen_url}}">
-                </figure>
-                <div class="ml-4 font-Coda">
-                    <h2 class="text-xl"> {{$post->nombre}} </h2>
-                    <p>Código: &nbsp; {{$post->id}}</p>
-                    <div class=" flex justify-end  mr-4 mb-4 ">
-                        <p class="bg-white px-2 rounded-lg">{{$post->cantidad_stock}} unidades</p>
-                    </div>
+    <div class="flex flex-col">
+    <div class="columns-3 flex flex-row mb-10 ml-2"> 
+        <form action="{{ route('add.person') }}" method="POST">
+        @csrf
+            <div class="grid grid-cols-3 font-Poppins">
+                <div> 
+                    <label class="block mb-2 font-semibold">Nombre</label>
+                    <input type="text" name="nombre" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
+
+                    <label class="block mb-2 font-semibold">Email</label>
+                    <input type="text" name="email" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
                 </div>
+
+                <div class=""> 
+                    <label class="block mb-2 font-semibold">Telefono</label>
+                    <input type="number" name="telefono" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
+
+                    <label class="block mb-2 font-semibold">Categoría</label>
+                    <div class="relative inline-block text-left mb-5">
+                        <select name ="categoria_id" class="w-[20rem] text-center block appearance-none border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
+                            <option value="">Seleccione una categoría</option>
+                            <option value="1">Proveedor</option>
+                            <option value="2">Cliente</option>
+                          </select>
+                      </div>
+
+                </div> 
+
+                <div class=""> 
+
+                    <label class="block mb-2 font-semibold">Dirección</label>
+                    <input type="text" name="direccion" class="w-[20rem] p-2 mb-4 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
+
+                    <input type="submit" class="text-white bg-main-green px-6 py-2 rounded-lg font-Poppins mt-7 ml-[6rem]" value="Agregar">
+                </div>
+
             </div>
-        </a>
-        @endforeach
+        </form>
+    </div>
+
+    <div class="basis-5/6 flex items-start mr-5">
+        <table class="w-[75rem]">
+            <thead>
+                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Nombre</th>
+                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Correo</th>
+                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Telefono</th>
+                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Dirección</th>
+                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Categoria</th>
+                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Acciones</th>
+            </thead>
+
+            <tbody>
+                @foreach ($datos as $dato)
+                <tr>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        @if(isset($dato->nombre_proveedor))
+                            {{$dato->nombre_proveedor}}
+                        @else
+                            {{$dato->nombre_cliente}}
+                        @endif
+                    </td>
+                    <td class="py-2 px-4 border-b text-black text-center">{{$dato->email}}</td>
+                    <td class="py-2 px-4 border-b text-black text-center">{{$dato->telefono}}</td>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        <!-- Mostrar la dirección solo si existe -->
+                        {{ $dato->direccion ?? 'N/A' }} <!-- Muestra la dirección o "N/A" si no existe -->
+                    </td>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        {{ $dato->categoria }} 
+                    </td>
+                    <td class="py-2 px-4 border-b text-black text-center">
+                        <a href="" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
+                        <a href="" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+
+
     </div>
 </section>
 
-    <script>
-        const dropdownButton = document.getElementById('profile-dropdown-button');
-        const dropdownMenu = document.getElementById('profile-dropdown-menu');
+<script>
+    const dropdownButton = document.getElementById('profile-dropdown-button');
+    const dropdownMenu = document.getElementById('profile-dropdown-menu');
 
-        dropdownButton.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('hidden');
-        });
-    </script>
+    dropdownButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+    });
+</script>
 @endsection

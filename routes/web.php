@@ -9,6 +9,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\editUserController;
+use App\Http\Controllers\ProveedorController;
+use App\Models\Proveedor;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +44,8 @@ Route::middleware("auth:usuario") -> group(function(){
     $posts = DB::table('productos') ->get();
     $incomings = DB::table('entradas')->get();
     
+    $proveedores = DB::table('proveedores') ->get();
+    $clientes = DB::table('clientes')->get();
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
     Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');
     Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
@@ -70,9 +75,14 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
 
 
-    Route::get('incoming/edit', [IncomingController::class, 'details'])->name('incoming.edit');
-
-
+    Route::view('incoming/edit', 'incomingEdit',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.edit');
+    Route::post('/incoming/edit',[IncomingController::class, 'updateIncoming'])->name('update.incoming');
+    
+   
+    //Route::view('/personas', 'personas.personas', ['proveedores' => $proveedores, 'clientes'=>$clientes]) -> name('personas');
+    Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
+    Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
+    //Route::get('/showPerson', [ProveedorController::class, 'showPerson']);
 });
 
 

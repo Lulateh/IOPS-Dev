@@ -7,8 +7,26 @@ Edit Sales
 @section('content')
 
 <!-- --------------HEADER-------------- -->
-<div class="mt-8 mb-6">
-    <a href="{{ route('sales') }}" class="ml-20 text-secondary-green font-Coda hover:underline text-4xl">  
+<header class="bg-main-green py-2">
+  <div class="columns-2">
+      <div>
+        <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
+        </a>
+      </div>
+
+      <div class="relative float-right mr-20 mt-3">
+        <a href="{{ route('profile') }}"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-cream" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+            </a>
+        </div>
+
+  </div> 
+</header>
+
+<div class="mt-8">
+    <a href="{{ route('viewSales') }}" class="ml-20 text-secondary-green font-Coda hover:underline text-4xl">  
     ← Volver
    </a>
  </div>
@@ -31,7 +49,17 @@ Edit Sales
 
                     <div class="m-8 overflow-y-scroll h-[25.4rem]"> 
 
-                        <div class="flex border border-black h-14 w-[26] mt-1 ml-2 m-2">
+                      <div class="flex">
+
+                        <div class="mt-2"> 
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                          </svg>
+                        </div>
+
+
+                        <div class="flex border border-black h-14 w-[24] mt-1 ml-4 m-2">
 
                             <div class="flex flex-col ml-10 mt-2">
         
@@ -40,13 +68,15 @@ Edit Sales
         
                             </div>
         
-                            <div class="flex ml-[16rem] mt-[0.76rem]">
+                            <div class="flex ml-[14rem] mr-6 mt-[0.76rem]">
         
                               <p class="font-Poppins font-extrabold text-secondary-green text-2xl">23</p>   
         
                             </div>
 
                         </div> 
+
+                      </div>
 
                     </div>
 
