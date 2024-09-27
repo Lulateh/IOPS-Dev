@@ -61,7 +61,8 @@
             }
         }).then((value) => {
             if (value) {
-                window.location.href = "{{ route('editUser') }}";
+                window.location.href = "{{ route('editUser') }}"; 
+            }
         });
     </script>
 @endif
