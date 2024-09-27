@@ -58,12 +58,21 @@ class IncomingController extends Controller
     public function destroy($id)
 {
     $incoming = Incoming::find($id);
-
     if ($incoming) {
-        $incoming->delete(); 
-        return redirect()->route('incoming')->with('success', 'Entrada eliminada correctamente.');
+        $product = $incoming->product;
+
+        if ($product) {
+           
+            $product->cantidad_stock -= $incoming->cantidad_entrada;
+            $product->save();
+        }
+
+      
+        $incoming->delete();
+
+        return redirect()->route('incoming')->with('success', 'Entrega eliminada y cantidad de stock actualizada.');
     } else {
-        return redirect()->route('incoming')->with('error', 'No se encontró la entrada.');
+        return redirect()->route('incoming')->with('error', 'No se ha encontrado la entrega.');
     }
 }
 
