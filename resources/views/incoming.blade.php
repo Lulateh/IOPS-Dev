@@ -46,7 +46,7 @@
             </h1>
         </div>
 
-        <div class=" columns-2">
+        <div class=" ">
             <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer active:bg-secondary-green text-white bg-main-green px-8 py-1 rounded-lg font-Coda">
                 Agregar entrega
             </a>
@@ -92,25 +92,27 @@
             </a>
     </div>
 
-  <div class="mt-10 grid grid-cols-2 gap-4 ">
-  @foreach ($incomings as $incoming)
-  <a href="{{ route('incomings.show', ['id' => $incoming->id]) }}">
-    <div class="font-Coda relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
-     <div class="mx-10 flex flex-col justify-center">
-        <h2 class="text-l font-bold ">{{ $incoming->product->nombre }}</h2>
-        <p class="text-sm  ">Código: {{ $incoming->producto_id }}</p>
-    </div>
-    <div class="ml-auto mb-8 mr-8 flex flex-col items-end">
-        <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-8">
+    <div class="mt-10 max-h-[600px] overflow-y-auto">
+  <div class="grid grid-cols-2 gap-4">
+    @foreach ($incomings as $incoming)
+    <a href="{{ route('incomings.show', ['id' => $incoming->id]) }}">
+      <div class="font-Coda relative w-full h-32 bg-card-bg mr-4 rounded-lg flex items-center">
+        <div class="mx-10 flex flex-col justify-center">
+          <h2 class="text-l font-bold ">{{ $incoming->product->nombre }}</h2>
+          <p class="text-sm">Código: {{ $incoming->producto_id }}</p>
+        </div>
+        <div class="ml-auto mb-8 mr-8 flex flex-col items-end">
+          <div class="w-24 bg-white rounded-lg flex items-center justify-center h-[2rem] mt-8">
             <span class="text-sm">{{ $incoming->cantidad_entrada }} unidades</span>
+          </div>
+          <p class="ml-10 mt-8 text-xs">Llegaron {{ $incoming->cantidad_entrada }} unidades el {{ $incoming->created_at->format('d-m-y') }}</p>
         </div>
-        <p class="ml-10 mt-8 text-xs">llegaron {{ $incoming->cantidad_entrada }} unidades el  {{ $incoming->created_at->format('d-m-y') }}</p>
-        </div>
-        </div>
-        </a>
-        @endforeach
-        
+      </div>
+    </a>
+    @endforeach
   </div>
+</div>
+
 
  </section>
 
