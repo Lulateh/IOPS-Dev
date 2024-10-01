@@ -46,8 +46,15 @@
         <a href="{{ route('editUser') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Editar Perfil</a>
         @endauth
         <a href="{{ route('config') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Configuración</a>
-        <a href="#" class="mb-6 bg-main-green font-Coda text-white px-4 py-2 rounded-lg hover:bg-gray-600 w-full text-center block">Cerrar sesión</a>
-    </div>
+        <a href="{{ route('logout') }}" class="mb-6 bg-main-green font-Coda text-white px-4 py-2 rounded-lg hover:bg-gray-600 w-full text-center block"
+   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+   Cerrar sesión
+</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+</div>
 
  </div>
 
