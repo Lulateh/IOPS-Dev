@@ -51,6 +51,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
     $posts = DB::table('productos') ->get();
     $incomings = DB::table('entradas')->get();
+    $reservas = DB::table('reservas')->get();
     
     $proveedores = DB::table('proveedores') ->get();
     $clientes = DB::table('clientes')->get();
@@ -64,9 +65,8 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
-
-    Route::view('/sales', 'salidas.sales') -> name('sales');
-    Route::get('/sales/viewSales', [SalesController::class, 'viewSales'])->name('viewSales');
+    Route::view('/sales', 'salidas.sales', ['reservas' => $reservas, 'clientes'=> $clientes, 'posts' => $posts]) -> name('sales');
+    Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');
     Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
     Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');
 
