@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Sales;
+use App\Models\Clientes;
 
 class SalesController extends Controller
 {
@@ -14,7 +16,6 @@ class SalesController extends Controller
 
     public function viewSales()
     {
-        
         return view('salidas.viewSales');
     }
 
@@ -26,7 +27,6 @@ class SalesController extends Controller
 
     public function editSales()
     {
-        
         return view('salidas.editSales');
     }
 
