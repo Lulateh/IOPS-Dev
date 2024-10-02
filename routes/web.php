@@ -65,10 +65,13 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
+
     Route::view('/sales', 'salidas.sales', ['reservas' => $reservas, 'clientes'=> $clientes, 'posts' => $posts]) -> name('sales');
     Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');
     Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
-    Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');
+    Route::get('/sales/editSales/{id}',  [SalesController::class, 'editSales']) -> name('editSales');
+    Route::post('/update-client', [SalesController::class, 'updateClient'])->name('updateClient');
+
 
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
