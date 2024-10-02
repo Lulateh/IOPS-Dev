@@ -39,13 +39,14 @@ View sales
                 <div class="border-b-2 border-dotted border-secondary-green columns-2 m-2 ml-[4.5rem] w-[50rem] mb-4">
               
                     <div class="text-secondary-green text-left flex flex-col font-Poppins font-regular ml-6 mb-4">
-                      <p class="m-0">Cliente: Juanito Cruz</p>
-                      <p class="m-0">Contacto: 0000 0000</p>
-                      <p class="m-0">Fecha de entrega: 03/09/24<p>
+                      <p class="m-0">Cliente: {{$existingClient['nombre_cliente']}}</p>
+                      <p class="m-0">Telefono: {{$existingClient['telefono']}}</p>
+                      <p class="m-0">Email: {{$existingClient['email']}}</p>
+                      <p class="m-0">Fecha de entrega: {{$existingReservation['fecha_salida']}}<p>
                     </div>
       
                     <div class="text-secondary-green flex text-3xl ml-64 font-Poppins font-medium"> 
-                      <h2 class="my-4">N° 1234</h2>
+                      <h2 class="my-4">N° {{$existingReservation['id']}}</h2>
                     </div>
                     
                 </div>
@@ -55,11 +56,25 @@ View sales
                         <h3 class="font-Poppins font-medium">Estado de la reserva:<h3>
                     </div>
 
-                    <div> 
+                    @if($existingReservation['estado'] == "entregado")
+                      <div> 
+                          <button class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">ENTREGADO</button>
+                          <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">RESERVADO</button>
+                          <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">CANCELADO</button>
+                      </div>
+                    @elseif($existingReservation['estado'] == "reservado")
+                      <div> 
                         <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">ENTREGADO</button>
                         <button class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">RESERVADO</button>
                         <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">CANCELADO</button>
-                    </div>
+                      </div>
+                    @elseif($existingReservation['estado'] == "cancelado")
+                      <div> 
+                          <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">ENTREGADO</button>
+                          <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">RESERVADO</button>
+                          <button class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">CANCELADO</button>
+                      </div>
+                    @endif
                 </div>
 
                 <div class="flex flex-row ml-16">
