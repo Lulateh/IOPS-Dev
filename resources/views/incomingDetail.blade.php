@@ -31,7 +31,7 @@
         <p class="underline mt-10 font-Coda text-white text-2xl">Volver</p>
     </a>
 
-    <div class="font-Coda mt-6 max-w-6xl mx-auto bg-white bg-opacity-25 rounded-lg shadow-lg p-10 mb-28">
+    <div class="font-Coda mt-6 max-w-6xl mx-auto bg-white  rounded-lg shadow-lg p-10 mb-28">
         <div class="grid grid-cols-2 gap-4  ">
            
             <div class =" text-center justify-center ">
@@ -60,6 +60,8 @@
 
                 <p class="text-lg  ">email : {{ $incoming->proveedor->email }}</p>
                 <p class="text-lg  mb-6">Telefono: {{ $incoming->proveedor->telefono }}</p>
+
+                <p class="text-lg">Encargado de mercadería: {{$incoming->usuarios->id}}</p>
 
                 <p class="text-s mt-20 ">Fecha de Entrada: {{ $incoming->created_at->format('d-m-y') }}</p>
 

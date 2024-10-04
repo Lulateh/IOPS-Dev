@@ -48,7 +48,7 @@
 
         <div class=" ">
             <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer active:bg-secondary-green text-white bg-main-green px-8 py-1 rounded-lg font-Coda">
-                Agregar entrega
+                Agregar entrada
             </a>
         </div>
             

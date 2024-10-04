@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reservas', function (Blueprint $table) {
+        Schema::create('entradas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cantidad_reservas', 50);
-            $table->date('fecha_salida', 100);
-            $table->enum('estado', ['entregado', 'reservado', 'cancelado']);
-            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->integer('cantidad_entrada')->default(0);
             $table->foreignId('producto_id')->constrained('productos');
+            $table->foreignId('proveedor_id')->constrained('proveedores');
             $table->foreignId('user_id')->constrained('usuarios');
             $table->timestamps();
-    });
+        });
     }
 
     /**
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservas');
+        Schema::dropIfExists('entradas');
     }
 };

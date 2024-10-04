@@ -14,6 +14,7 @@ class IncomingController extends Controller
         $newIncoming -> producto_id = $request -> prod_id;
         $newIncoming -> cantidad_entrada = $request -> cantidad;
         $newIncoming -> proveedor_id = $request -> prov_id;
+        $newIncoming -> user_id = auth() -> user() -> id;
         $newIncoming -> save();
         $product = Product::find($request -> prod_id);
         if($product){

@@ -25,4 +25,9 @@ class Reserva extends Model
         return $this->belongsToMany(Producto::class, 'reservas_productos', 'reserva_id', 'producto_id')
             ->withPivot('cantidad_reservada');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

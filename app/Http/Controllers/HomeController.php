@@ -19,8 +19,10 @@ class HomeController extends Controller{
         
         $product -> nombre = $request -> productName;
         $product -> marca = $request -> brand;
-        $product -> precio = $request -> price;
+        $product -> precio_venta = $request -> price;
+        $product -> precio_compra = 0;
         $product -> descripcion = $request -> details;
+        $product -> fecha_vencimiento = date('Y-m-d');
         $product -> proveedor_id = 1;
         $product -> save();
 
@@ -64,8 +66,10 @@ class HomeController extends Controller{
 
             $existingProduct -> nombre = $request -> productName;
             $existingProduct -> marca = $request -> brand;
-            $existingProduct -> precio = $request -> price;
+            $existingProduct -> precio_venta = $request -> price;
+            $existingProduct -> precio_compra = 0;
             $existingProduct -> descripcion = $request -> details;
+            $existingProduct -> fecha_vencimiento = date('Y-m-d');
             $existingProduct -> save();
             return redirect(route('home'));
         }else{

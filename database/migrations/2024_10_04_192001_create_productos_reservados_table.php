@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('entradas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('cantidad_entrada')->default(0);
-            $table->foreignId('producto_id')->constrained('productos');
-            $table->foreignId('proveedor_id')->constrained('proveedores');
+        Schema::create('productos_reservados', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
+            $table->foreignId('producto_id')->constrained('productos');
+            $table->foreignId('reservas_id')->constrained('reservas');
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('entradas');
+        Schema::dropIfExists('productos_reservados');
     }
 };
