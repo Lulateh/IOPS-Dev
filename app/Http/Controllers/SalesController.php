@@ -25,12 +25,24 @@ class SalesController extends Controller
         }
     }
 
-    public function addSales()
+    public function addSale(Request $request)
+{
+    $newSale = new Sale();
+    $newSale -> product_id = $request -> product_id;
+    $newSale -> quantity = $request -> quantity;
+    $newSale -> save();
+    return redirect()->route('AddSales');
+}
+
+
+
+    public function showAddSaleForm()
     {
         
-        return view('salidas.addSales');
-    }
-
+        $productos = Product::all();
+        $ventas = Sale::all();
+        return view('sales.addSales', compact('productos', 'ventas'));
+    }    
     public function editSales()
     {
         
