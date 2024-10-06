@@ -10,6 +10,17 @@ use App\Models\Clientes;
 
 class ReservationController extends Controller
 {
+
+    public function addReservation()
+    {
+        $reservas = DB::table('reservas') -> get();
+        $clientes = DB::table('clientes') -> get();
+        $productos = DB::table('productos') -> get();
+        $productosReservados = DB::table('productos_reservados') -> get();
+        return view('reservations.reservations', compact('reservas', 'clientes', 'productos', 'productosReservados'));
+    }
+    
+
     public function viewReservation($id)
     {
         $reserva = Reserva::find($id);

@@ -99,8 +99,8 @@ Route::middleware("auth:usuario") -> group(function(){
 //     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
 //     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
     
-//     Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
-//     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
+    Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
+    Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
 });
 
 

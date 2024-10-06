@@ -15,6 +15,7 @@ class ProductoReservado extends Model
         'id',
         'reserva_id',
         'producto_id',
+        'cantidad',
     ];
 
     public function producto()
