@@ -48,44 +48,44 @@ Route::post('password/update', [ForgotPasswordController::class, 'updatePassword
 
 
 Route::middleware("auth:usuario") -> group(function(){
-    Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
-    $posts = DB::table('productos') ->get();
-    $incomings = DB::table('entradas')->get();
+//     Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
+//     $posts = DB::table('productos') ->get();
+//     $incomings = DB::table('entradas')->get();
     
-    $proveedores = DB::table('proveedores') ->get();
-    $clientes = DB::table('clientes')->get();
-    Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
-    Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');
-    Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
-    Route::get('/home/producto/{id}', [HomeController::class, 'showProduct']) -> name('product.show');
-    Route::get('/home/producto/{id}/edit', [HomeController::class, 'redirectToEdit']) -> name('product.redirect.edit');
-    Route::get('/home/producto/{id}/delete', [HomeController::class, 'deleteProduct']) -> name('product.delete');
-    Route::post('/home/producto/{id}/edit', [HomeController::class, 'editProduct']) -> name('product.edit');
-    Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
-    Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
-    Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
-    Route::view('/sales', 'salidas.sales') -> name('sales');
-    Route::get('/sales/viewSales',  [SalesController::class, 'viewSales']) -> name('viewSales');
-    Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
-    Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');
-    Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
-    Route::get('/config', [ConfigController::class, 'config']) -> name('config');
-    Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
-    Route::view('/incoming/addIncoming', 'add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
-    Route::post('/incoming/addIncoming', [IncomingController::class, 'guardarEntrada'])->name('incoming.post');
-    Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
-    Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
-    Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
-    Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
+//     $proveedores = DB::table('proveedores') ->get();
+//     $clientes = DB::table('clientes')->get();
+//     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
+//     Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');
+//     Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
+//     Route::get('/home/producto/{id}', [HomeController::class, 'showProduct']) -> name('product.show');
+//     Route::get('/home/producto/{id}/edit', [HomeController::class, 'redirectToEdit']) -> name('product.redirect.edit');
+//     Route::get('/home/producto/{id}/delete', [HomeController::class, 'deleteProduct']) -> name('product.delete');
+//     Route::post('/home/producto/{id}/edit', [HomeController::class, 'editProduct']) -> name('product.edit');
+//     Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
+//     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
+//     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
+//     Route::view('/sales', 'salidas.sales') -> name('sales');
+//     Route::get('/sales/viewSales',  [SalesController::class, 'viewSales']) -> name('viewSales');
+//     Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
+//     Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');
+//     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
+//     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
+//     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
+//     Route::view('/incoming/addIncoming', 'add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
+//     Route::post('/incoming/addIncoming', [IncomingController::class, 'guardarEntrada'])->name('incoming.post');
+//     Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
+//     Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
+//     Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
+//     Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
 
     
-    Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
-    Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
-    Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
-    Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
+//     Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
+//     Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
+//     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
+//     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
     
-    Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
-    Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
+//     Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
+//     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
 });
 
 

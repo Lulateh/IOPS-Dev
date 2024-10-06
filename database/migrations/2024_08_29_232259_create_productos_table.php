@@ -20,6 +20,7 @@ return new class extends Migration
         $table->decimal('precio_compra', 10, 2);
         $table->date('fecha_vencimiento', 100);
         $table->string('imagen_url', 255)->nullable();
+        $table->string('ubicacion_bodega', 100);
         $table->unsignedBigInteger('proveedor_id');
         $table->integer('cantidad_stock')->default(0);
         

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('producto_id')->constrained('productos');
             $table->foreignId('reservas_id')->constrained('reservas');
+            $table->integer('cantidad');
         });
     }
 

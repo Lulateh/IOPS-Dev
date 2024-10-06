@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre_proveedor', 50);
             $table->string('email', 100);
             $table->string('telefono', 20);
+            $table->enum('estado', ['activo', 'inactivo']) ->default('activo');
             $table->timestamps();
     });
     }
