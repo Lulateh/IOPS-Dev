@@ -39,9 +39,13 @@
     <div class="content-center ">
         
         <h1 class="text-3xl font-bold">{{$existingProduct['nombre']}}</h1>
+        <p class="text-xl mt-2"> Codigo: {{$existingProduct['id']}}</p>
         <p class="text-xl mt-2"> Marca: {{$existingProduct['marca']}}</p>
+        <p class="text-xl mt-2"> Proveedor: {{$existingProveedor['nombre_proveedor']}}</p>
         <p class="text-xl mt-2"> Descripción: {{$existingProduct['descripcion']}}</p>
-        <p class="text-xl mt-2"> Precio: {{$existingProduct['precio']}}</p>
+        <p class="text-xl mt-2"> Precio de compra: {{$existingProduct['precio_compra']}}</p>
+        <p class="text-xl mt-2"> Precio de venta: {{$existingProduct['precio_venta']}}</p>
+        <p class="text-xl mt-2"> Fecha de caducidad: {{$existingProduct['fecha_vencimiento']}}</p>
         <p class="text-xl mt-2"> Existencias: {{$existingProduct['cantidad_stock']}}</p>
 
         <div class="mt-4 flex">
