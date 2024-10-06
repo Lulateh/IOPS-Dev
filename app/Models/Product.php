@@ -14,13 +14,17 @@ class Product extends Model
         'nombre',
         'marca',
         'descripcion',
-        'precio',
+        'precio_venta',
+        'precio_compra',
+        'fecha_vencimiento',
         'imagen_url',
+        'ubicacion_bodega',
+        'proveedor_id',
         'cantidad_stock',
     ];
     public function incomings()
     {
-        return $this->hasMany(Incomings::class, 'producto_id');
+        return $this->hasMany(Incoming::class, 'producto_id');
     }
 
 }

@@ -46,6 +46,8 @@
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price_income" name="price_income" value="{{ $existingProduct['precio_compra']}}" required><br>
                     <label for="price_sale" class="font-Coda"> Precio de Venta </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price_sale" name="price_sale" value="{{ $existingProduct['precio_venta']}}" required><br>
+                    <label for="location" class="font-Coda"> Ubicación </label> <br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="location" name="location" value="{{ $existingProduct['ubicacion_bodega']}}" required><br>
                 </div>
                 <div >
                     <label for="details" class="font-Coda text-wrap">Descripción </label> <br>
@@ -57,7 +59,7 @@
                         @endforeach
                     </select><br>
                     <label for ="expiration" class="font-Coda">Fecha de Vencimiento </label><br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="date" id="expiration" name="expiration" required><br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="date" id="expiration" name="expiration" value="{{ $existingProduct['fecha_vencimiento']}}" required><br>
                     <label for="img" class="font-Coda">Imagen </label> <br>
                     <input  type="file" id="img" name="img" required accept="image/*, .jpg, .jpeg, .png"><br>
                 </div>

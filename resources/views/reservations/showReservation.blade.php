@@ -89,8 +89,8 @@ View reservations
                                             @endforeach
                                         </div>
 
-                                        <div class="flex ml-[10rem] mt-[0.76rem]">
-                                            <p class="text-secondary-green font-Poppins font-extrabold text-2xl">23</p>
+                                        <div class="flex mx-auto mt-[0.76rem]">
+                                            <p class="text-secondary-green font-Poppins font-extrabold text-2xl">{{$productoReservado -> cantidad}}</p>
                                         </div>
                                     </div>
                                 </div>

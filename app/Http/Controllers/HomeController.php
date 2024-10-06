@@ -24,6 +24,7 @@ class HomeController extends Controller{
         $product -> precio_compra = $request -> price_income;
         $product -> descripcion = $request -> details;
         $product -> fecha_vencimiento = $request -> expiration;
+        $product -> ubicacion_bodega = $request -> location;
         $product -> proveedor_id = $request -> provider;
         $product -> save();
 
@@ -72,6 +73,7 @@ class HomeController extends Controller{
             $existingProduct -> precio_venta = $request -> price_sale;
             $existingProduct -> precio_compra = $request -> price_income;
             $existingProduct -> descripcion = $request -> details;
+            $existingProduct -> ubicacion_bodega = $request -> location;
             $existingProduct -> fecha_vencimiento = $request -> expiration;
             $existingProduct -> proveedor_id = $request -> provider;
             $existingProduct -> save();

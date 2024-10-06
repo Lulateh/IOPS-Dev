@@ -56,7 +56,7 @@ Route::middleware("auth:usuario") -> group(function(){
     $reservas = DB::table('reservas')->get();
     $proveedores = DB::table('proveedores') ->get();
     $clientes = DB::table('clientes')->get();
-    $productoReservado = DB::table('productos_reservados')->get();
+    $productosReservados = DB::table('productos_reservados')->get();
     
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
     Route::view('/home/addProduct', 'home.addProduct', ['proveedor' => $proveedores]) -> name('product.add');
@@ -70,7 +70,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
 
-    Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productoReservado' => $productoReservado, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
+    Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productosReservados' => $productosReservados, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
     Route::view('/reservations/addReservation', 'reservations.addReservation') -> name('reservation.add'); //Por implementear
     Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post'); //Por implementear
     Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
@@ -94,13 +94,13 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
 
     
-//     Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
-//     Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
-//     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
-//     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
+    Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
+    Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
+    Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
+    Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
     
-//     Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
-//     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
+    Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
+    Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
 });
 
 
