@@ -71,12 +71,12 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
 
     Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productoReservado' => $productoReservado, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
-    Route::view('/reservations/addReservation', 'reservations.addReservation') -> name('reservation.add');
-    Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post');
+    Route::view('/reservations/addReservation', 'reservations.addReservation') -> name('reservation.add'); //Por implementear
+    Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post'); //Por implementear
     Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
-    Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit');
-    Route::post('/reservations/{id}/edit',  [ReservationController::class, 'editReservation']) -> name('reservation.edit');
-    Route::get('/reservations/{id}/delete',  [ReservationController::class, 'deleteReservation']) -> name('reservation.delete');
+    Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit'); //Por implementear
+    Route::post('/reservations/{id}/edit',  [ReservationController::class, 'editReservation']) -> name('reservation.edit'); //Por implementear
+    Route::get('/reservations/{id}/delete',  [ReservationController::class, 'deleteReservation']) -> name('reservation.delete'); //Por implementear
 
     Route::view('/sales', 'salidas.sales', ['reservas' => $reservas, 'clientes'=> $clientes, 'posts' => $posts]) -> name('sales');
     Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');

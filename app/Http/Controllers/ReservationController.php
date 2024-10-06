@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Reserva;
 use App\Models\Product;
 use App\Models\Clientes;
-use App\Models\ProductoReservado;
 
 class ReservationController extends Controller
 {
@@ -27,9 +26,8 @@ class ReservationController extends Controller
         $productosReservados = DB::table('productos_reservados') -> where('reservas_id', '=', $id) -> get();
         $productos = Product::all();
         $existingClient = Clientes::find($existingReservation->cliente_id);
-        $existingProduct = Product::find($existingReservation->product_id);
         if($existingReservation){            
-            return view('reservations.editReservation', compact('existingReservation', 'existingClient', 'existingProduct', 'id', 'productosReservados', 'productos'));            
+            return view('reservations.editReservation', compact('existingReservation', 'existingClient', 'id', 'productosReservados', 'productos'));            
         }else{
             return redirect(route('reservations')) -> with("error", "No se a encontrado la Reserva");
         }
