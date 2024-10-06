@@ -118,7 +118,13 @@ Edit Sales
                       <div class="bg-main-green bg-opacity-30 rounded-lg p-10 text-left"> 
     
                         <label for="productName" class="font-Coda font-semibold">Código del producto</label> <br>
-                        <input class="rounded-lg mt-1 mb-2 bg-white w-[31rem]" type="number" id="productCod" name="productCod" required><br>
+                        <div class="relative inline-block mb-5">
+                          <select name ="prod_id" class="block appearance-none w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
+                              @foreach($posts as $producto)
+                              <option value="{{ $producto->id }}" {{ $incoming->producto_id == $producto->id ? 'selected' : '' }}>{{ $producto->nombre }}</option>
+                              @endforeach
+                            </select>
+                        </div>
 
                         <label for="productCant" class="font-Coda font-semibold">Cantidad del producto</label> <br>
                         <input class="rounded-lg mt-1 mb-2 bg-white w-[31rem]" type="number" id="productCant" name="productCant" required><br>

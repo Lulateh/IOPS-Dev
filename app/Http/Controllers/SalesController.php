@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Reserva;
 use App\Models\Product;
 use App\Models\Clientes;
+use App\Models\Sales;
 
 class SalesController extends Controller
 {
@@ -40,7 +41,7 @@ class SalesController extends Controller
     {
         
         $productos = Product::all();
-        $ventas = Sale::all();
+        $ventas = Sales::all();
         return view('sales.addSales', compact('productos', 'ventas'));
     }    
     public function editSales()
