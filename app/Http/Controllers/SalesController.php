@@ -25,13 +25,25 @@ class SalesController extends Controller
         }
     }
 
-    public function addSales()
+    public function addSale(Request $request)
+{
+    $newSale = new Sale();
+    $newSale -> product_id = $request -> product_id;
+    $newSale -> quantity = $request -> quantity;
+    $newSale -> save();
+    return redirect()->route('AddSales');
+}
+
+
+
+    public function showAddSaleForm()
     {
         
-        return view('salidas.addSales');
-    }
-
-    public function editSales($id)
+        $productos = Product::all();
+        $ventas = Sale::all();
+        return view('sales.addSales', compact('productos', 'ventas'));
+    }    
+    public function editSales()
     {
         // Obtener la reserva utilizando el ID proporcionado
         $existingReservation = Reserva::findOrFail($id);

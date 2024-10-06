@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proveedores', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre_proveedor', 50);
-            $table->string('email', 100);
-            $table->string('telefono', 20);
-            $table->enum('estado', ['activo', 'inactivo']) ->default('activo');
+        Schema::create('productos_reservados', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-    });
+            $table->foreignId('producto_id')->constrained('productos');
+            $table->foreignId('reservas_id')->constrained('reservas');
+            $table->integer('cantidad');
+        });
     }
 
     /**
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proveedores');
+        Schema::dropIfExists('productos_reservados');
     }
 };

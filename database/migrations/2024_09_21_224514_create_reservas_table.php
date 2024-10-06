@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cantidad_reservas', 50);
             $table->date('fecha_salida', 100);
             $table->enum('estado', ['entregado', 'reservado', 'cancelado']);
             $table->foreignId('cliente_id')->constrained('clientes');
-            $table->foreignId('producto_id')->constrained('productos');
+            $table->foreignId('user_id')->constrained('usuarios');
             $table->timestamps();
     });
     }

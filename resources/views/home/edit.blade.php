@@ -42,12 +42,24 @@
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="productName" name="productName" value="{{ $existingProduct['nombre']}}" required><br>
                     <label for="brand" class="font-Coda">Marca </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="brand" name="brand" value="{{ $existingProduct['marca']}}" required><br>
-                    <label for="price" class="font-Coda">Precio </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price" value="{{ $existingProduct['precio']}}" required><br>
+                    <label for="price_income" class="font-Coda">Precio de Compra </label> <br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price_income" name="price_income" value="{{ $existingProduct['precio_compra']}}" required><br>
+                    <label for="price_sale" class="font-Coda"> Precio de Venta </label> <br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price_sale" name="price_sale" value="{{ $existingProduct['precio_venta']}}" required><br>
+                    <label for="location" class="font-Coda"> Ubicación </label> <br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="location" name="location" value="{{ $existingProduct['ubicacion_bodega']}}" required><br>
                 </div>
                 <div >
                     <label for="details" class="font-Coda text-wrap">Descripción </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-60 h-16" type="text" id="details" name="details" value="{{ $existingProduct['descripcion']}}" required><br>
+                    <label for="provider" class="font-Coda">Proveedor </label><br>
+                    <select name="provider" class="rounded-lg my-2 bg-card-bg w-96">
+                        @foreach ($existingProviders as $proveedor)
+                            <option value="{{ $proveedor->id }}">{{ $proveedor->nombre_proveedor }}</option>                            
+                        @endforeach
+                    </select><br>
+                    <label for ="expiration" class="font-Coda">Fecha de Vencimiento </label><br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="date" id="expiration" name="expiration" value="{{ $existingProduct['fecha_vencimiento']}}" required><br>
                     <label for="img" class="font-Coda">Imagen </label> <br>
                     <input  type="file" id="img" name="img" required accept="image/*, .jpg, .jpeg, .png"><br>
                 </div>

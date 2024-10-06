@@ -16,10 +16,14 @@ return new class extends Migration
         $table->string('nombre', 50);
         $table->string('marca', 50);
         $table->string('descripcion', 255)->nullable();
-        $table->decimal('precio', 10, 2);
+        $table->decimal('precio_venta', 10, 2);
+        $table->decimal('precio_compra', 10, 2);
+        $table->date('fecha_vencimiento', 100);
         $table->string('imagen_url', 255)->nullable();
+        $table->string('ubicacion_bodega', 100);
         $table->unsignedBigInteger('proveedor_id');
         $table->integer('cantidad_stock')->default(0);
+        
         
         $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('cascade');
         $table->timestamps();
