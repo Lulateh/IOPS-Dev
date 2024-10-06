@@ -42,12 +42,22 @@
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="productName" name="productName" required><br>
                     <label for="brand" class="font-Coda">Marca </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="brand" name="brand" required><br>
-                    <label for="price" class="font-Coda">Precio </label> <br>
-                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price" required><br>
+                    <label for="price_income" class="font-Coda">Precio de Compra </label> <br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price_income" required><br>
+                    <label for="price_sale" class="font-Coda"> Precio de Venta </label> <br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price_sale" required><br>
                 </div>
                 <div >
                     <label for="details" class="font-Coda text-wrap">Descripción </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-60 h-16" type="text" id="details" name="details" required><br>
+                    <label for="provider" class="font-Coda">Proveedor </label><br>
+                    <select name="provider" class="rounded-lg my-2 bg-card-bg w-96">
+                        @foreach ($proveedor as $proveedor)
+                            <option value="{{ $proveedor->id }}">{{ $proveedor->nombre_proveedor }}</option>                            
+                        @endforeach
+                    </select><br>
+                    <label for ="expiration" class="font-Coda">Fecha de Vencimiento </label><br>
+                    <input class="rounded-lg my-2 bg-card-bg w-96" type="date" id="expiration" name="expiration" required><br>
                     <label for="img" class="font-Coda">Imagen </label> <br>
                     <input  type="file" id="img" name="img" required accept="image/*, .jpg, .jpeg, .png"><br>
                 </div>

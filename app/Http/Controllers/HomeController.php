@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller{
@@ -19,11 +20,11 @@ class HomeController extends Controller{
         
         $product -> nombre = $request -> productName;
         $product -> marca = $request -> brand;
-        $product -> precio_venta = $request -> price;
-        $product -> precio_compra = 0;
+        $product -> precio_venta = $request -> price_sale;
+        $product -> precio_compra = $request -> price_income;
         $product -> descripcion = $request -> details;
-        $product -> fecha_vencimiento = date('Y-m-d');
-        $product -> proveedor_id = 1;
+        $product -> fecha_vencimiento = $request -> expiration;
+        $product -> proveedor_id = $request -> provider;
         $product -> save();
 
         return redirect(route('home'));
@@ -31,8 +32,9 @@ class HomeController extends Controller{
 
     public function showProduct($id){
         $existingProduct = Product::find($id);
+        $existingProveedor = Proveedor::find($existingProduct->proveedor_id);
         if($existingProduct){            
-            return view('home.producto', compact('existingProduct', 'id'));            
+            return view('home.producto', compact('existingProduct', 'existingProveedor', 'id'));            
         }else{
             return redirect(route('home')) -> with("error", "No se a encontrado el producto");
         }
@@ -41,8 +43,9 @@ class HomeController extends Controller{
 
     public function redirectToEdit($id){
         $existingProduct = Product::find($id);
+        $existingProviders = Proveedor::all();
         if($existingProduct){            
-            return view('home.edit', compact('existingProduct', 'id'));            
+            return view('home.edit', compact('existingProduct', 'existingProviders', 'id'));            
         }else{
             return redirect(route('home')) -> with("error", "No se a encontrado el producto");
         }
@@ -66,10 +69,11 @@ class HomeController extends Controller{
 
             $existingProduct -> nombre = $request -> productName;
             $existingProduct -> marca = $request -> brand;
-            $existingProduct -> precio_venta = $request -> price;
-            $existingProduct -> precio_compra = 0;
+            $existingProduct -> precio_venta = $request -> price_sale;
+            $existingProduct -> precio_compra = $request -> price_income;
             $existingProduct -> descripcion = $request -> details;
-            $existingProduct -> fecha_vencimiento = date('Y-m-d');
+            $existingProduct -> fecha_vencimiento = $request -> expiration;
+            $existingProduct -> proveedor_id = $request -> provider;
             $existingProduct -> save();
             return redirect(route('home'));
         }else{

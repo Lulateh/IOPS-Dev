@@ -1,15 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SalesController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\editUserController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\ReservationController;
+use Illuminate\Support\Facades\DB;
 use App\Models\Proveedor;
 
 use App\Http\Controllers\ForgotPasswordController;
@@ -52,23 +54,35 @@ Route::middleware("auth:usuario") -> group(function(){
     $posts = DB::table('productos') ->get();
     $incomings = DB::table('entradas')->get();
     $reservas = DB::table('reservas')->get();
-    
     $proveedores = DB::table('proveedores') ->get();
     $clientes = DB::table('clientes')->get();
+    $productoReservado = DB::table('productos_reservados')->get();
+    
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
-    Route::view('/home/addProduct', 'home.addProduct') -> name('product.add');
+    Route::view('/home/addProduct', 'home.addProduct', ['proveedor' => $proveedores]) -> name('product.add');
     Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
     Route::get('/home/producto/{id}', [HomeController::class, 'showProduct']) -> name('product.show');
     Route::get('/home/producto/{id}/edit', [HomeController::class, 'redirectToEdit']) -> name('product.redirect.edit');
-    Route::get('/home/producto/{id}/delete', [HomeController::class, 'deleteProduct']) -> name('product.delete');
     Route::post('/home/producto/{id}/edit', [HomeController::class, 'editProduct']) -> name('product.edit');
+    Route::get('/home/producto/{id}/delete', [HomeController::class, 'deleteProduct']) -> name('product.delete');
+
     Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
+
+    Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productoReservado' => $productoReservado, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
+    Route::view('/reservations/addReservation', 'reservations.addReservation') -> name('reservation.add');
+    Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post');
+    Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
+    Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit');
+    Route::post('/reservations/{id}/edit',  [ReservationController::class, 'editReservation']) -> name('reservation.edit');
+    Route::get('/reservations/{id}/delete',  [ReservationController::class, 'deleteReservation']) -> name('reservation.delete');
+
     Route::view('/sales', 'salidas.sales', ['reservas' => $reservas, 'clientes'=> $clientes, 'posts' => $posts]) -> name('sales');
     Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');
     Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
     Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');
+
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
