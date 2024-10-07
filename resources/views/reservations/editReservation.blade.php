@@ -120,7 +120,10 @@ Edit Reservation
                         </button>
     
                       </div>
-    
+                        @php
+                        // Extraemos los IDs de los productos reservados en un array
+                            $productosReservadosIds = $productosReservados->pluck('producto_id')->toArray();
+                        @endphp
                         <div class="bg-main-green bg-opacity-30 rounded-lg p-10 text-left"> 
                             <form action="{{ route('update.productReservation', ['id' => $existingReservation->id ]) }}" method = "POST">
                                 @csrf
@@ -128,13 +131,11 @@ Edit Reservation
                                     <label for="productName" class="font-Coda font-semibold">Código del producto</label> <br>
                                     <select name="productSelect" class="block appearance-none w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
                                         <option value="">Seleccione un producto</option>
-                                        @foreach($productosReservados as $productoReservado)
                                             @foreach($productos as $producto)
-                                                    @if($producto -> id != $productoReservado -> producto_id&&$productoReservado -> reservas_id == $id)
+                                                    @if(!in_array($producto->id, $productosReservadosIds))
                                                         <option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
                                                     @endif
                                             @endforeach
-                                        @endforeach
                                     </select>
                                 </div>
                         
