@@ -176,12 +176,6 @@ Edit Reservation
                 </div>
 
             </div>
-            
-            <div class="mr-6 mt-8">
-                <a   class="text-white bg-main-green text-lg  px-4 py-1 rounded-lg font-Poppins">
-                    Modificar reserva
-                </a>
-            </div>
 
         </div>
 

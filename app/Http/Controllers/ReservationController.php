@@ -56,7 +56,7 @@ class ReservationController extends Controller
 
         // Verificar si el producto ya está reservado en la reserva existente
         $productoReservado = $existingReservation->productosReservados()->where('producto_id', $request->productSelect)->first();
-        
+
         // Calcular la cantidad total que se desea reservar
         $cantidadTotalAReservar = $productoReservado ? $productoReservado->cantidad + $request->productCant : $request->productCant;
 
@@ -66,13 +66,20 @@ class ReservationController extends Controller
                 ->with('error', 'No hay suficiente stock disponible para reservar.');
         }
 
-        // Si existe, actualizar la cantidad
         if ($productoReservado) {
             // Resta la cantidad antigua y suma la nueva
-            $producto->cantidad_stock += $productoReservado->cantidad;
-            $producto->save();
-            $productoReservado->cantidad = $request->productCant;
+            $oldAmount = $productoReservado->cantidad;
+            $incomingAmount = $request->productCant;
+            $productoReservado->cantidad = $incomingAmount;
             $productoReservado->save();
+            $newAmount = $productoReservado->cantidad;
+            if ($oldAmount > $newAmount) {
+                $producto -> cantidad_stock += $oldAmount - $newAmount;
+                $producto -> save();
+            }else{
+                $producto -> cantidad_stock -= $newAmount - $oldAmount;
+                $producto -> save();
+            }
         } else {
             // Si no existe, crear un nuevo registro
             $newProductoReservado = new ProductoReservado();
@@ -80,11 +87,9 @@ class ReservationController extends Controller
             $newProductoReservado->producto_id = $request->productSelect;
             $newProductoReservado->cantidad = $request->productCant;
             $newProductoReservado->save();
+            $producto -> cantidad_stock -= $request->productCant;
+            $producto -> save();
         }
-
-        // Resta la cantidad reservada del inventario del producto
-        $producto->cantidad_stock -= $request->productCant; 
-        $producto->save();
 
         // Redirigir a la vista de edición de reservas
         return redirect(route('reservation.redirect.edit', $id))
