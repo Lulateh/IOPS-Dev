@@ -28,7 +28,7 @@ class SalesController extends Controller
 
     public function addSale(Request $request)
 {
-    $newSale = new Sale();
+    $newSale = new Sales();
     $newSale -> product_id = $request -> product_id;
     $newSale -> quantity = $request -> quantity;
     $newSale -> save();
@@ -44,7 +44,7 @@ class SalesController extends Controller
         $ventas = Sales::all();
         return view('sales.addSales', compact('productos', 'ventas'));
     }    
-    public function editSales()
+    public function editSales($id)
     {
         // Obtener la reserva utilizando el ID proporcionado
         $existingReservation = Reserva::findOrFail($id);
@@ -58,32 +58,6 @@ class SalesController extends Controller
         }
     }
 
-    public function updateClient(Request $request)
-{
-    // Validar el request
-    $request->validate([
-        'clientId' => 'required|exists:clientes,id',
-        'reservationId' => 'required|exists:reservas,id',
-        'deliveryDate' => 'required|date',
-    ]);
-
-    // Buscar la reserva
-    $reservation = Reserva::find($request->reservationId);
-
-    if ($reservation) {
-        // Actualizar la fecha de entrega de la reserva
-        $reservation->fecha_salida = $request->deliveryDate;
-
-        // Asignar el cliente existente a la reserva sin modificar sus datos
-        $reservation->cliente_id = $request->clientId; // Asumiendo que deseas asociar la reserva con el cliente existente
-        $reservation->save();
-
-        return redirect()->route('editSales', ['id' => $reservation->id])
-            ->with('success', 'Fecha de entrega actualizada exitosamente.');
-    }
-
-    return redirect()->back()->with('error', 'No se pudo actualizar la información.');
-}
 
 
     public function updateSales(){

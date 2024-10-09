@@ -29,4 +29,9 @@ class Reserva extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function productosReservados()
+    {
+        return $this->hasMany(ProductoReservado::class, 'reservas_id');
+    }
 }
