@@ -55,10 +55,8 @@ class ReservationController extends Controller
         $cantidadDisponible = $producto->cantidad_stock; // Asegúrate de que este campo contenga la cantidad disponible en inventario
 
         // Verificar si el producto ya está reservado en la reserva existente
-        $productoReservado = ProductoReservado::where('reservas_id', $id)
-            ->where('producto_id', $request->productSelect)
-            ->first();
-
+        $productoReservado = $existingReservation->productosReservados()->where('producto_id', $request->productSelect)->first();
+        
         // Calcular la cantidad total que se desea reservar
         $cantidadTotalAReservar = $productoReservado ? $productoReservado->cantidad + $request->productCant : $request->productCant;
 
@@ -71,7 +69,9 @@ class ReservationController extends Controller
         // Si existe, actualizar la cantidad
         if ($productoReservado) {
             // Resta la cantidad antigua y suma la nueva
-            $productoReservado->cantidad += $request->productCant;
+            $producto->cantidad_stock += $productoReservado->cantidad;
+            $producto->save();
+            $productoReservado->cantidad = $request->productCant;
             $productoReservado->save();
         } else {
             // Si no existe, crear un nuevo registro

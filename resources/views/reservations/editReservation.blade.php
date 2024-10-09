@@ -72,11 +72,11 @@ Edit Reservation
                                             id: {{ $productoReservado->producto_id }}, 
                                             name: '{{ $productoReservado->producto->nombre }}',
                                             quantity: {{ $productoReservado->cantidad }} 
-                                            })">
-                                        <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                                        </svg>
+                                        })">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                            </svg>
                                         </button>
                                     </div>
 
@@ -143,26 +143,29 @@ Edit Reservation
                                 
                                 <!-- Campo oculto para el ID del producto a editar -->
                                 <input type="hidden" id="editingProductId" name="editingProductId" value="">
-                        
+                                
+                                <!-- Select para elegir el producto -->
                                 <div class="ml-2">
-                                    <label for="productName" class="font-Coda font-semibold">Código del producto</label> <br>
+                                    <label for="productSelect" class="font-Coda font-semibold">Código del producto</label> <br>
                                     <select id="productSelect" name="productSelect" class="block appearance-none w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
                                         <option value="">Seleccione un producto</option>
                                         @foreach($productos as $producto)
-                                            @if(!in_array($producto->id, $productosReservadosIds))
-                                            <option value="{{ $producto->id }}" {{ $producto->id}}>
-                                                {{ $producto->nombre }}</option>
-                                            @endif
+                                                <option value="{{ $producto->id }}" 
+                                                {{ old('productSelect', isset($selectedProduct) && $selectedProduct->id == $producto->id ? 'selected' : '') }}>
+                                                {{ $producto->nombre }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
-                        
+                                
+                                <!-- Campo de cantidad -->
                                 <div class="ml-2">
                                     <label for="productCant" class="font-Coda font-semibold">Cantidad del producto</label> <br>
                                     <input class="rounded-lg py-2 mt-1 mb-2 bg-white w-[31.5rem]" type="number" id="productCant" name="productCant" required><br>
                                 </div>
-                        
-                                <input class="text-white bg-main-green mt-4 ml-[11rem] px-4 py-1 rounded-lg font-Poppins" type="submit" value="Agregar producto">               
+                                
+                                <!-- Botón de submit -->
+                                <input class="text-white bg-main-green mt-4 ml-[11rem] px-4 py-1 rounded-lg font-Poppins" type="submit" value="Agregar producto">
                             </form>
                         </div>
                         
@@ -278,7 +281,7 @@ Edit Reservation
         // Asignar el ID del producto al campo oculto
          document.getElementById('editingProductId').value = product.id;
         // Asignar el nombre del producto al select
-        document.getElementById('productSelect').value = product.name; 
+        document.getElementById('productSelect').value = product.id; 
         // Asignar la cantidad al campo de cantidad
         document.getElementById('productCant').value = product.quantity;
     }
