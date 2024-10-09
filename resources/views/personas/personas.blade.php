@@ -133,15 +133,19 @@
                     <td class="py-2 px-4 border-b text-black text-center">{{$dato->email}}</td>
                     <td class="py-2 px-4 border-b text-black text-center">{{$dato->telefono}}</td>
                     <td class="py-2 px-4 border-b text-black text-center">
-                        <!-- Mostrar la dirección solo si existe -->
-                        {{ $dato->direccion ?? 'N/A' }} <!-- Muestra la dirección o "N/A" si no existe -->
+                        
+                        {{ $dato->direccion ?? 'N/A' }} 
                     </td>
                     <td class="py-2 px-4 border-b text-black text-center">
                         {{ $dato->categoria }} 
                     </td>
                     <td class="py-2 px-4 border-b text-black text-center">
-                        <a href="" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
-                        <a href="" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</a>
+                    <a href="{{ route('proveedores.edit', $dato->id) }}" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
+                    <form action="{{ route('proveedores.destroy', $dato->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</button>
+                    </form>
                     </td>
                 </tr>
             @endforeach

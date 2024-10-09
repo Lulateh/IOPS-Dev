@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SalesController;
@@ -85,11 +86,22 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
     
-   
-    //Route::view('/personas', 'personas.personas', ['proveedores' => $proveedores, 'clientes'=>$clientes]) -> name('personas');
+    Route::get('/proveedores', [ProveedorController::class, 'showProveedores'])->name('proveedores.index');
+    Route::get('/proveedores/{id}/edit', [ProveedorController::class, 'edit'])->name('proveedores.edit');
+    Route::post('/proveedores', [ProveedorController::class, 'addProveedor'])->name('proveedores.store');
+    Route::put('/proveedores/{id}', [ProveedorController::class, 'update'])->name('proveedores.update');
+    Route::delete('/proveedores/{id}', [ProveedorController::class, 'destroy'])->name('proveedores.destroy');
+    
+    Route::get('/clientes', [ClientesController::class, 'showClientes'])->name('clientes.index');
+    Route::get('/clientes/{id}/edit', [ClientesController::class, 'edit'])->name('clientes.edit');
+    Route::post('/clientes', [ClientesController::class, 'addCliente'])->name('clientes.store');
+    Route::put('/clientes/{id}', [ClientesController::class, 'update'])->name('clientes.update');
+    Route::delete('/clientes/{id}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
+
     Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
-    //Route::get('/showPerson', [ProveedorController::class, 'showPerson']);
+    
+
 });
 
 
