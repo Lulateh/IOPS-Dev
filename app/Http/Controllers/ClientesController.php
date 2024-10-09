@@ -22,13 +22,13 @@ class ClientesController extends Controller
     public function showClientes()
     {
         $clientes = Clientes::all();
-        return view('clientes.index', compact('clientes'));
+        return view('personas.clientes', compact('clientes'));
     }
 
     public function edit($id)
     {
         $cliente = Clientes::findOrFail($id);
-        return view('clientes.edit', compact('cliente'));
+        return view('personas.editCliente', compact('cliente'));
     }
 
     public function update(Request $request, $id)
@@ -36,7 +36,7 @@ class ClientesController extends Controller
         $cliente = Clientes::findOrFail($id);
         $cliente->update($request->all());
 
-        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
+        return redirect()->route('personas.clientes')->with('success', 'Cliente actualizado correctamente.');
     }
 
     public function destroy($id)
@@ -44,6 +44,6 @@ class ClientesController extends Controller
         $cliente = Clientes::findOrFail($id);
         $cliente->delete();
 
-        return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
+        return redirect()->route('personas.clientes')->with('success', 'Cliente eliminado correctamente.');
     }
 }

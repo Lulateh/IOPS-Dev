@@ -21,20 +21,31 @@ class ProveedorController extends Controller
     public function showProveedores()
     {
         $proveedores = Proveedor::all();
-        return view('proveedores.index', compact('proveedores'));
+        return view('personas.proveedores', compact('proveedores'));
     }
 
     public function edit($id)
     {
         $proveedor = Proveedor::findOrFail($id);
-        return view('proveedores.edit', compact('proveedor'));
+        return view('personas.editProveedor', compact('proveedor'));
     }
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'telefono' => 'required|string|max:15',
+        ]);
+    
         $proveedor = Proveedor::findOrFail($id);
-        $proveedor->update($request->all());
-
+    
+        $proveedor->update([
+            'nombre_proveedor' => $request->nombre,
+            'email' => $request->email,
+            'telefono' => $request->telefono,
+        ]);
+    
         return redirect()->route('proveedores.index')->with('success', 'Proveedor actualizado correctamente.');
     }
 

@@ -88,13 +88,13 @@ Route::middleware("auth:usuario") -> group(function(){
     
     Route::get('/proveedores', [ProveedorController::class, 'showProveedores'])->name('proveedores.index');
     Route::get('/proveedores/{id}/edit', [ProveedorController::class, 'edit'])->name('proveedores.edit');
-    Route::post('/proveedores', [ProveedorController::class, 'addProveedor'])->name('proveedores.store');
+    Route::post('/proveedores', [ProveedorController::class, 'addProveedor'])->name('proveedor.add');
     Route::put('/proveedores/{id}', [ProveedorController::class, 'update'])->name('proveedores.update');
     Route::delete('/proveedores/{id}', [ProveedorController::class, 'destroy'])->name('proveedores.destroy');
     
     Route::get('/clientes', [ClientesController::class, 'showClientes'])->name('clientes.index');
     Route::get('/clientes/{id}/edit', [ClientesController::class, 'edit'])->name('clientes.edit');
-    Route::post('/clientes', [ClientesController::class, 'addCliente'])->name('clientes.store');
+    Route::post('/clientes', [ClientesController::class, 'addCliente'])->name('cliente.add');
     Route::put('/clientes/{id}', [ClientesController::class, 'update'])->name('clientes.update');
     Route::delete('/clientes/{id}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
 
