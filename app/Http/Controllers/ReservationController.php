@@ -164,6 +164,16 @@ class ReservationController extends Controller
             ->with('success', 'Producto eliminado con éxito y cantidad restaurada al inventario.');
     }
 
-    
+    public function updateStatus(Request $request, $id)
+    {
+        $reserva = Reserva::find($id);
+        if ($reserva) {
+            $reserva->estado = $request->input('estado');
+            $reserva->save();
+
+            return redirect()->route('reservation.show', $id)->with('success','Estado actualizado correctamente');
+        }
+        return redirect()->route('reservation.show', $id)->with('error', 'Error al actualizar el estado');
+    }
 
 }
