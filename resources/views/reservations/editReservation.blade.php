@@ -138,7 +138,7 @@ Edit Reservation
                             $productosReservadosIds = $productosReservados->pluck('producto_id')->toArray();
                         @endphp
                         <div class="bg-main-green bg-opacity-30 rounded-lg p-10 text-left"> 
-                            <form action="{{ route('update.productReservation', ['id' => $existingReservation->id ]) }}" method="POST">
+                            <form action="{{ route('update.productReservation', ['id' => $existingReservation->id ]) }}" method="POST" >
                                 @csrf
                                 
                                 <!-- Campo oculto para el ID del producto a editar -->
@@ -165,10 +165,10 @@ Edit Reservation
                                 </div>
                                 
                                 <!-- Botón de submit -->
-                                <input class="text-white bg-main-green mt-4 ml-[11rem] px-4 py-1 rounded-lg font-Poppins" type="submit" value="Agregar producto">
+                                <input id="submitButton" class="text-white bg-main-green mt-4 ml-[11rem] px-4 py-1 rounded-lg font-Poppins" type="submit" value="Agregar producto">
                             </form>
                         </div>
-                        
+                         
                     
     
                     </div>
@@ -284,7 +284,10 @@ Edit Reservation
         document.getElementById('productSelect').value = product.id; 
         // Asignar la cantidad al campo de cantidad
         document.getElementById('productCant').value = product.quantity;
+
+        document.getElementById('submitButton').value = "Editar producto";
     }
+
 </script>
 
 </body>
