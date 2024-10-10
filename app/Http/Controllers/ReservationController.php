@@ -29,23 +29,6 @@ class ReservationController extends Controller
         return redirect()->route('reservation.redirect.edit', [$id]);
     }
     
-    // public function storeReservation(Request $request)
-    // {
-    //     $request->validate([
-    //         'cliente_id' => 'required',
-    //         'fecha_salida' => 'required',
-    //         'estado' => 'required',
-    //     ]);
-
-    //     $reserva = new Reserva();
-    //     $reserva->cliente_id = $request->cliente_id;
-    //     $reserva->fecha_salida = $request->fecha_salida;
-    //     $reserva->estado = $request->estado;
-    //     $reserva->save();
-
-    //     return redirect(route('reservations'))->with('success', 'Reserva creada correctamente');
-    // }
-
     public function viewReservation($id)
     {
         $reserva = Reserva::find($id);

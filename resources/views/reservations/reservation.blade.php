@@ -27,10 +27,10 @@
             <h1 class="font-normal font-Poppins text-main-green text-4xl mt-6 ml-20">
                 Reservas
             </h1>
-            <div class="">
+            <div class="py-6">
                 <form action="{{ route('reservation.add') }}" method="POST">
                     @csrf
-                <input type="submit" value="Agregar reserva" class="text-white bg-main-green ml-[28rem] my-auto px-4 py-1 rounded-lg font-Poppins">
+                <input type="submit" value="Agregar reserva" class="text-white cursor-pointer bg-main-green ml-[28rem]  px-4 py-1 rounded-lg font-Poppins">
                 </form>
 
             </div>
