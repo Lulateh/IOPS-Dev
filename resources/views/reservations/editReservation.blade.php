@@ -39,6 +39,16 @@ Edit Reservation
 
     <div class="inline-block align-bottom text-left overflow-hidden mt-30"> 
 
+         <!-- Alerta de stock insuficiente -->
+        @if (session('error'))
+            <div id="stockAlert" class="bg-red-500 text-white font-semibold rounded-lg p-4 mb-4 flex justify-between items-center">
+                <span>{{ session('error') }}</span>
+                <button onclick="document.getElementById('stockAlert').style.display='none'" class="ml-4 text-white hover:text-gray-300">
+                    &times; <!-- Icono de cerrar (X) -->
+                </button>
+            </div>
+        @endif
+
         <div class="text-center mt-2"> 
 
             <h2 class="font-Poppins font-medium text-3xl mb-5">Modificar reserva</h2>
