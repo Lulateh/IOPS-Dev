@@ -37,8 +37,8 @@ class ForgotPasswordController extends Controller
     $token = Str::random(60); 
 
     DB::table('password_reset_tokens')->updateOrInsert(
-        ['email' => $request->email],  // Condición de búsqueda
-        ['token' => $token, 'created_at' => now()]  // Valores a actualizar o insertar
+        ['email' => $request->email], 
+        ['token' => $token, 'created_at' => now()] 
     );
     
 
@@ -57,12 +57,12 @@ class ForgotPasswordController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:usuarios,email',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required|confirmed',
             'token' => 'required',
         ], [
-            'password.confirmed' => 'Las contraseñas no coinciden.', // Mensaje si las contraseñas no coinciden
-            'password.min' => 'La contraseña debe tener al menos 8 caracteres.', // Mensaje si la longitud es menor de 8
-            'email.exists' => 'No se encontró una cuenta con ese correo electrónico.', // Mensaje si el correo no existe
+            'password.confirmed' => 'Las contraseñas no coinciden.',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            'email.exists' => 'No se encontró una cuenta con ese correo electrónico.', 
         ]);
 
         if ($validator->fails()) {
@@ -72,7 +72,7 @@ class ForgotPasswordController extends Controller
                              ->with('error', 'Las contraseñas no coinciden o no son de la longitud correcta. \n \n Intentalo de nuevo.');
         }
 
-        // Verificar si el token es válido
+     
         $reset = DB::table('password_reset_tokens')
                     ->where('email', $request->email)
                     ->where('token', $request->token)
@@ -82,12 +82,12 @@ class ForgotPasswordController extends Controller
             return redirect()->back()->with('error', 'El token es inválido, ha expirado o el correo es incorrecto.');
         }
 
-        // Buscar el usuario y actualizar la contraseña
+
         $user = Usuario::where('email', $request->email)->first();
         $user->password = bcrypt($request->password);
         $user->save();
 
-        // Eliminar el token de la base de datos
+    
         DB::table('password_reset_tokens')->where('email', $request->email)->delete();
 
         return redirect()->back()->with('success', 'Tu contraseña ha sido restablecida con éxito.');

@@ -47,7 +47,7 @@ class AuthController extends Controller
         $usuario -> nombre_empresa = $request -> corporationName;
         $usuario -> email = $request -> email;
         $usuario -> password = Hash::make($request -> password);
-        $usuario -> rol = "usuario";
+        $usuario -> rol = "colaborador";
 
         if ($usuario -> save()){
             return redirect(route("login")) -> with("success", "Usuario creado exitosamente");

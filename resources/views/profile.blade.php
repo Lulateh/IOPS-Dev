@@ -29,7 +29,7 @@
 
  <div class="bg-teal-950 bg-opacity-25 p-6 rounded-lg shadow-lg flex flex-col h-[97%]">
     <div class="flex justify-center mb-4">
-        <img src="https://via.placeholder.com/150" alt="Imagen de usuario" class="w-60 h-50 rounded-full border-2 border-gray-200">
+        <img src="{{ Auth::user()->imagen_url ? asset('profile_images/' . Auth::user()->imagen_url) : asset('images/default-avatar.png') }}" alt="Imagen de usuario" class="w-60 h-60 rounded-full border-2 border-gray-200">
     </div>
 
 
@@ -45,7 +45,7 @@
         @auth
         <a href="{{ route('editUser') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Editar Perfil</a>
         @endauth
-        <a href="{{ route('config') }}" class="bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center block">Configuración</a>
+        <a href="{{ route('config') }}" class="hidden bg-main-green font-Coda text-white px-4 py-2 rounded-lg mb-4 hover:bg-gray-600 w-full text-center">Configuración</a>
         <a href="{{ route('logout') }}" class="mb-6 bg-main-green font-Coda text-white px-4 py-2 rounded-lg hover:bg-gray-600 w-full text-center block"
    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
    Cerrar sesión

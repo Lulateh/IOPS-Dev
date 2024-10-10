@@ -20,20 +20,41 @@ class editUserController extends Controller
     
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . auth()->id(), 
+            'email' => 'required|email|unique:users,email,' . auth()->id(),
             'nombre_empresa' => 'nullable|string|max:255',
-     
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
+    
+        try {
+            $usuario = Auth::user();
+    
 
-        $usuario = Auth::user();
-        $usuario->update([
-            'nombre' => $request->nombre,
-            'email' => $request->email,
-            'nombre_empresa' => $request->nombre_empresa,      
-        ]);
-        
-        return redirect()->back()->with('success', 'Los datos han sido actualizados correctamente.');
-        
+            if ($request->hasFile('imagen')) {
+
+                if ($usuario->imagen_url && file_exists(public_path('profile_images/' . $usuario->imagen_url))) {
+                    unlink(public_path('profile_images/' . $usuario->imagen_url));
+                }
+    
+
+                $imagen = $request->file('imagen');
+                $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension();
+                $imagen->move(public_path('profile_images'), $nombreImagen);
+    
+
+                $usuario->imagen_url = $nombreImagen;
+            }
+    
+
+            $usuario->update([
+                'nombre' => $request->nombre,
+                'email' => $request->email,
+                'nombre_empresa' => $request->nombre_empresa,
+            ]);
+    
+            return redirect()->back()->with('success', 'Los datos han sido actualizados correctamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Hubo un problema al actualizar los datos. Intenta nuevamente.');
+        }
     }
 
     public function changePassword()
@@ -61,7 +82,7 @@ class editUserController extends Controller
     $user->password = Hash::make($request->new_password);
     $user->save();
 
-    return redirect()->back()->with('success', 'La contraseña ha sido actualizada correctamente.');
+    return redirect()->back()->with('success', 'La contraseña ha sido actualizada correctamente.\n\nAhora inicia sesion con la nueva contraseña');
 
     }   
 
