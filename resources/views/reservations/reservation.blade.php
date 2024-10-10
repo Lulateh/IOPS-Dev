@@ -23,16 +23,18 @@
 </header>
 
 <body>
-    <div class="columns-2 mb-4">
+    <div class="columns-2 mb-4 ">
             <h1 class="font-normal font-Poppins text-main-green text-4xl mt-6 ml-20">
                 Reservas
             </h1>
+            <div class="">
+                <form action="{{ route('reservation.add') }}" method="POST">
+                    @csrf
+                <input type="submit" value="Agregar reserva" class="text-white bg-main-green ml-[28rem] my-auto px-4 py-1 rounded-lg font-Poppins">
+                </form>
 
-            <a href="{{ route('reservation.add') }}">
-            <button class="text-white bg-main-green ml-[28rem] mt-12 px-4 py-1 rounded-lg font-Poppins">
-                Agregar reserva
-            </button>  
-            </a>
+            </div>
+            
     </div>
 
     <div class="columns-2 flex">
@@ -123,7 +125,7 @@
                     <div class="text-right mr-7">
                         <p class="font-Coda font-black text-lg">N° {{$reserva -> id}}</p>
                     </div>
-                </a>
+                </input>
             </div> 
         @endforeach
         

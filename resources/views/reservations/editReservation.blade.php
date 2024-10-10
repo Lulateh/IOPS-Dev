@@ -184,7 +184,7 @@ Edit Reservation
 </div>
 
 <!-- Modal editar cliente y fecha -->
-<div id="editClientModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+<div id="editClientModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50 ">
     <div class="bg-white rounded-lg p-6 w-1/3">
         <h2 class="text-xl font-semibold mb-4">Editar Cliente y Fecha de Entrega</h2>
         <form id="editClientForm" method="POST" action="{{ route('updateClientReservation') }}">
