@@ -80,7 +80,7 @@
         <div class="overflow-y-scroll basis-5/6 gap-2 flex flex-wrap mt-2 h-[32rem]">
           
           <!-- card 1 -->
-          @foreach ($reservas as $reserva)
+          @foreach ($existingReservation as $reserva)
             <div class="w-[45%] h-60 bg-card-bg mr-4 rounded-lg">
               <a href="{{route('viewSales', $reserva->id)}}">
 

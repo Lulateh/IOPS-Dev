@@ -41,9 +41,9 @@ Edit Reservation
 
         <div class="text-center mt-2"> 
 
-            <h2 class="font-Poppins font-medium text-3xl  mb-8">Modificar reserva</h2>
+            <h2 class="font-Poppins font-medium text-3xl mb-5">Modificar reserva</h2>
 
-            <div class="flex flex-row mt-4"> 
+            <div class="flex flex-row"> 
 
                 <div class="bg-main-green bg-opacity-30 rounded-lg w-[36rem] mr-16">
 
@@ -175,6 +175,12 @@ Edit Reservation
     
                 </div>
 
+            </div>
+
+            <div class="mt-6 mr-6 rounded-lg">
+                <button onclick="window.location.href='{{route('reservation.show', $reserva->id)}}'" class="text-white bg-main-green text-lg  p-1 rounded-lg  font-Poppins">
+                    Modificar reserva
+                </button>
             </div>
 
         </div>
