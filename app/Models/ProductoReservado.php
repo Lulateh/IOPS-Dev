@@ -13,7 +13,7 @@ class ProductoReservado extends Model
 
     protected $fillable = [
         'id',
-        'reserva_id',
+        'reservas_id',
         'producto_id',
         'cantidad',
     ];

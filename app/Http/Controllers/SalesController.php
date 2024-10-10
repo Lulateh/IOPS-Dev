@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Reserva;
 use App\Models\Product;
 use App\Models\Clientes;
+use App\Models\Sales;
 
 class SalesController extends Controller
 {
@@ -21,13 +22,13 @@ class SalesController extends Controller
             $existingProduct = Product::find($existingReservation->product_id);
             return view('salidas.viewSales', compact('existingReservation', 'existingProduct', 'existingClient', 'id'));
         }else{
-            return view('sales')->with("error", "No se a encontrado la Reserva");
+            return view('salidas.sales')->with("error", "No se a encontrado la Reserva");
         }
     }
 
     public function addSale(Request $request)
 {
-    $newSale = new Sale();
+    $newSale = new Sales();
     $newSale -> product_id = $request -> product_id;
     $newSale -> quantity = $request -> quantity;
     $newSale -> save();
@@ -40,13 +41,26 @@ class SalesController extends Controller
     {
         
         $productos = Product::all();
-        $ventas = Sale::all();
+        $ventas = Sales::all();
         return view('sales.addSales', compact('productos', 'ventas'));
     }    
-    public function editSales()
+    public function editSales($id)
     {
-        
-        return view('salidas.editSales');
+        // Obtener la reserva utilizando el ID proporcionado
+        $existingReservation = Reserva::findOrFail($id);
+        if($existingReservation){
+            $existingClient = Clientes::find($existingReservation->cliente_id);
+            $existingProduct = Product::find($existingReservation->product_id);
+            $clients = Clientes::all();
+            return view('salidas.editSales', compact('existingReservation', 'existingProduct', 'existingClient', 'id', 'clients'));
+        }else{
+            return view('salidas.sales')->with("error", "No se a encontrado la Reserva");
+        }
     }
 
+
+
+    public function updateSales(){
+        
+    }
 }

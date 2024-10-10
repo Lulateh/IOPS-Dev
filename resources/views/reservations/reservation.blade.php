@@ -98,23 +98,25 @@
                             </div>
                         </div>
 
-                        @foreach ($productoReservado as $productoReservado)
-                            <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-secondary-green ">
-                                <div class="flex border border-black h-12">
-                                    <div class="flex flex-col ml-2 mt-1">
-                                        @foreach ($posts as $producto)
-                                            @if ($productoReservado -> producto_id == $producto -> id)
-                                            <p class="font-Coda text-xs m-0">{{$producto -> nombre}}</p>
-                                            <p class="font-Coda text-xs m-0">codigo producto: {{$producto -> id}}</p>
-                                            @endif
-                                        @endforeach
-                                    </div>
+                        @foreach ($productosReservados as $productoReservado)
+                            @if ($productoReservado -> reservas_id == $reserva -> id)
+                                <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-secondary-green ">
+                                    <div class="flex border border-black h-12">
+                                        <div class="flex flex-col ml-2 mt-1">
+                                            @foreach ($posts as $producto)
+                                                @if ($productoReservado -> producto_id == $producto -> id)
+                                                    <p class="font-Coda text-xs m-0">{{$producto -> nombre}}</p>
+                                                    <p class="font-Coda text-xs m-0">codigo producto: {{$producto -> id}}</p>
+                                                @endif
+                                            @endforeach
+                                        </div>
 
-                                    <div class="flex ml-6 mt-[0.45rem]">
-                                        <p class="font-Poppins font-extrabold text-secondary-green text-2xl">{{$reserva -> cantidad_reservas}}</p>   
+                                        <div class="flex ml-6 mt-[0.45rem]">
+                                            <p class="font-Poppins font-extrabold text-secondary-green text-2xl">{{$productoReservado -> cantidad}}</p>   
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endforeach
                     </div>
 

@@ -275,7 +275,7 @@ View sales
                 </div>
                 
                 <div class="my-6">
-                    <a href="{{ route('editSales') }}">
+                    <a href="{{ route('editSales',['id' => $existingReservation->id]) }}">
                         <button  class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Poppins mr-2">Editar</button>
                     <a>
                   </div>

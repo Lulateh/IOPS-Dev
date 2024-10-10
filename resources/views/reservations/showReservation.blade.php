@@ -55,21 +55,21 @@ View reservations
 
                     @if($reserva['estado'] == "entregado")
                         <div> 
-                            <button class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">ENTREGADO</button>
-                            <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">RESERVADO</button>
-                            <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">CANCELADO</button>
+                            <button onclick="openModal('entregado')" class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">ENTREGADO</button>
+                            <button onclick="openModal('reservado')" class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">RESERVADO</button>
+                            <button onclick="openModal('cancelado')" class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">CANCELADO</button>
                         </div>
                     @elseif($reserva['estado'] == "reservado")
                         <div> 
-                            <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">ENTREGADO</button>
-                            <button class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">RESERVADO</button>
-                            <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">CANCELADO</button>
+                            <button onclick="openModal('entregado')" class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">ENTREGADO</button>
+                            <button onclick="openModal('reservado')" class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">RESERVADO</button>
+                            <button onclick="openModal('cancelado')" class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">CANCELADO</button>
                         </div>
                     @elseif($reserva['estado'] == "cancelado")
                         <div> 
-                            <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">ENTREGADO</button>
-                            <button class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">RESERVADO</button>
-                            <button class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">CANCELADO</button>
+                            <button onclick="openModal('entregado')" class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">ENTREGADO</button>
+                            <button onclick="openModal('reservado')" class="bg-white border-2 border-secondary-green rounded-lg px-3 text-secondary-green font-Poppins font-bold text-sm">RESERVADO</button>
+                            <button onclick="openModal('cancelado')" class="bg-secondary-green border-2 border-secondary-green rounded-lg px-3 text-white font-Poppins font-bold text-sm">CANCELADO</button>
                         </div>
                     @endif
                 </div>
@@ -89,8 +89,8 @@ View reservations
                                             @endforeach
                                         </div>
 
-                                        <div class="flex ml-[10rem] mt-[0.76rem]">
-                                            <p class="text-secondary-green font-Poppins font-extrabold text-2xl">23</p>
+                                        <div class="flex mx-auto mt-[0.76rem]">
+                                            <p class="text-secondary-green font-Poppins font-extrabold text-2xl">{{$productoReservado -> cantidad}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -108,6 +108,39 @@ View reservations
             </div>
         </div>
     </div>
+
+<!--Modal para verificar la opcion-->
+<div id="statusModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 flex justify-center items-center">
+    <div class="bg-white p-6 rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Cambiar estado de la reserva a <span class="text-red-600" id="newStatus"></span></h2>
+        <form id="statusForm" action="{{ route('reservations.updateStatus', $reserva['id']) }}" method="POST">
+            @csrf
+            @method('POST')
+            <input type="hidden" name="estado" id="estadoInput">
+
+            <p class="text-center">¿Estás seguro que deseas cambiar el estado?</p>
+            <div class="mt-4 ml-[6.3rem]">
+                <button type="button" class="bg-gray-300 px-4 py-2 rounded mr-2" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="bg-main-green text-white px-4 py-2 rounded">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal(estado) {
+        // Establece el valor del input escondido y el texto del modal
+        document.getElementById('estadoInput').value = estado;
+        document.getElementById('newStatus').innerText = estado.toUpperCase(); // Cambia el texto a mayúsculas
+        document.getElementById('statusModal').classList.remove('hidden');  // Muestra el modal
+    }
+
+    function closeModal() {
+        document.getElementById('statusModal').classList.add('hidden');  // Oculta el modal
+    }
+</script>
+
+
 </body>
 
 
