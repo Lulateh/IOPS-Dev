@@ -71,8 +71,8 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
 
     Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productosReservados' => $productosReservados, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
-    Route::view('/reservations/addReservation', 'reservations.addReservation') -> name('reservation.add'); //Por implementear
-    Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post'); //Por implementear
+    Route::post('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); //Por implementear
+    //Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post'); //Por implementear
     Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
     Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit'); //Por implementear
     Route::post('/reservations/{id}/edit',  [ReservationController::class, 'updateProductReservation']) -> name('update.productReservation');

@@ -12,6 +12,23 @@ use App\Models\ProductoReservado;
 
 class ReservationController extends Controller
 {
+
+    public function addReservation()
+    {
+        $reserva = new Reserva();
+        $reserva->cliente_id = 1;
+        $reserva->fecha_salida = now();
+        $reserva->user_id = auth()->user()->id;
+        $reserva->estado = 'Reservado';
+        $reserva->save();
+
+        
+
+        $id = $reserva->id;
+
+        return redirect()->route('reservation.redirect.edit', [$id]);
+    }
+    
     public function viewReservation($id)
     {
         $reserva = Reserva::find($id);

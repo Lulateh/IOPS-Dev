@@ -1,1 +1,0 @@
-<h1>Añadir Reservas</h1>
