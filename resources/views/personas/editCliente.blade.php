@@ -44,20 +44,18 @@
         <div>
         <label class="block  font-semibold">Email</label>
     <input type="email" name="email" value="{{ $cliente->email }}" class="w-[20rem] p-1 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
+    </div>
    
-         </div>
-
-
     <div class="ml-28">
     <label class="block font-semibold">Teléfono</label>
         <input type="text" name="telefono" value="{{ $cliente->telefono }}" class="w-[20rem] p-1 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
-       
     </div>
 
     <div>
-    <label class="block font-semibold">Dirección</label>
-    <input type="email" name="email" value="{{ $cliente->direccion }}" class="w-[20rem] p-1 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
+    <label class="block mb-2 font-semibold">Dirección</label>
+     <input type="text" name="direccion" value="{{ $cliente->direccion }}"  class="w-[23rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
     </div>
+   
     </div>
 
 

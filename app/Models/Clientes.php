@@ -10,7 +10,7 @@ class Clientes extends Model
     use HasFactory;
 
     protected $table = 'clientes';
-    protected $fillable = ['nombre_cliente', 'email', 'telefono', 'dirección'];
+    protected $fillable = ['nombre_cliente', 'email', 'telefono', 'direccion'];
 
     
     public function incoming()

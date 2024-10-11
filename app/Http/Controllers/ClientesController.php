@@ -33,10 +33,28 @@ class ClientesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $cliente = Clientes::findOrFail($id);
-        $cliente->update($request->all());
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'telefono' => 'required|string|max:15',
+            'direccion' => 'required|string|max:255',
+        ]);
 
-        return redirect()->route('personas.clientes')->with('success', 'Cliente actualizado correctamente.');
+        $cliente = Clientes::findOrFail($id);
+
+        $cliente->update([
+            'nombre_cliente' => $request->nombre,
+            'email' => $request->email,
+            'telefono' => $request->telefono,
+            'direccion' => $request->direccion,
+        ]);
+
+        \Log::info('Actualización de cliente: ', [
+            'direccion' => $request->direccion, 
+            'actualizada_direccion' => $cliente->direccion
+        ]);
+        
+        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
     }
 
     public function destroy($id)
@@ -44,6 +62,6 @@ class ClientesController extends Controller
         $cliente = Clientes::findOrFail($id);
         $cliente->delete();
 
-        return redirect()->route('personas.clientes')->with('success', 'Cliente eliminado correctamente.');
+        return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }
