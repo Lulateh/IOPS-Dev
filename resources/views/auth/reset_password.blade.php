@@ -1,63 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña</title>
-    <style>
-        .error {
-            color: red;
-            margin-bottom: 10px;
-        }
-        .success {
-            color: green;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Restablecer Contraseña</h1>
+@extends('layouts.plantilla')
 
-    <!-- Mostrar mensaje de error general -->
-    @if (session('error'))
-        <div class="error">
-            {{ session('error') }}
-        </div>
-    @endif
+@section('title')
+    Restablecer Contraseña
+@endsection
 
-    <!-- Mostrar mensaje de éxito -->
-    @if (session('success'))
-        <div class="success">
-            {{ session('success') }}
-        </div>
-    @endif
+@section('content')
+<body class="bg-main-green bg-opacity-30">
 
-    <!-- Mostrar los errores de validación -->
-    @if ($errors->any())
-        <div class="error">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+<div class="mt-5 mb-5">
+    <a href="{{ route('profile') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">
+        ← Volver
+    </a>
+</div>
 
-    <form action="{{ route('password.update') }}" method="POST">
-        @csrf
-        <div>
-            <label for="email">Correo Electrónico</label>
-            <input type="email" name="email" required>
+<h2 class="text-5xl font-Coda my-16 text-center">Restablecer Contraseña</h2>
+
+<form action="{{ route('password.update') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" name="token" value="{{ $token }}">
+    
+    <div class="max-w-2xl mx-auto p-6 bg-main-green bg-opacity-35 rounded-lg shadow-md">
+
+        <div class="mb-6">
+            <label for="email" class="block text-sm font-medium text-black">Correo Electrónico</label>
+            <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-main-green focus:border-main-green sm:text-sm" placeholder="Ingresa tu correo electrónico" required>
         </div>
-        <div>
-            <label for="password">Nueva Contraseña</label>
-            <input type="password" name="password" required>
+
+        <div class="mb-6">
+            <label for="password" class="block text-sm font-medium text-black">Nueva Contraseña</label>
+            <input type="password" id="password" name="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-main-green focus:border-main-green sm:text-sm" required>
         </div>
-        <div>
-            <label for="password_confirmation">Confirmar Nueva Contraseña</label>
-            <input type="password" name="password_confirmation" required>
+
+        <div class="mb-8">
+            <label for="password_confirmation" class="block text-sm font-medium text-black">Confirmar Nueva Contraseña</label>
+            <input type="password" id="password_confirmation" name="password_confirmation" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-main-green focus:border-main-green sm:text-sm" required>
         </div>
-        <button type="submit">Restablecer Contraseña</button>
-    </form>
+
+        <div class="flex justify-end space-x-3">
+            <button type="submit" class="px-4 py-2 bg-main-green text-white rounded-md hover:bg-green-700">Restablecer Contraseña</button>
+        </div>
+    </div>
+</form>
+
+@if(session('success'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+        swal({
+            title: "Éxito!",
+            text: "{{ session('success') }}",
+            icon: "success",
+            buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "my-button",
+                    closeModal: true,
+                }
+            }
+        }).then((value) => {
+            if (value) {
+                window.location.href = "{{ route('login') }}";
+            }
+        });
+    </script>
+@endif
+
+@if(session('error'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+        swal({
+            title: "Error",
+            text: "{{ session('error') }}",
+            icon: "error",
+            buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "my-button",
+                    closeModal: true,
+                }
+            }
+        });
+    </script>
+@endif
+
 </body>
-</html>
+@endsection

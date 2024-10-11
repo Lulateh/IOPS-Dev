@@ -23,12 +23,15 @@
 
 
 <div class="flex items-center space-x-4 mb-6">
-  <img class="w-24 h-24 rounded-full object-cover" src="URL_DE_LA_FOTO_ACTUAL" alt="Foto de perfil">
-  <div>
-    <label class="block text-sm font-medium text-black">Cambiar Foto de Perfil</label>
-    <input type="file" class="mt-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100">
-  </div>
-</div>
+        <img class="w-24 h-24 rounded-full object-cover" 
+             src="{{ Auth::user()->imagen_url ? asset('profile_images/' . Auth::user()->imagen_url) : asset('images/default-avatar.png') }}" 
+             alt="Foto de perfil">
+             
+        <div>
+            <label class="block text-sm font-medium text-black">Cambiar Foto de Perfil</label>
+            <input type="file" name="imagen" class="mt-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100">
+        </div>
+    </div>
 
 
 
@@ -77,9 +80,22 @@
                     closeModal: true,
                 }
             }
-        }).then((value) => {
-            if (value) {
-                window.location.href = "{{ route('profile') }}"; 
+        });
+    </script>
+@endif
+@if(session('error'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+        swal({
+            title: "Error!",
+            text: "{{ session('error') }}",
+            icon: "error",
+            button: {
+                text: "OK",
+                value: true,
+                visible: true,
+                className: "my-button",
+                closeModal: true,
             }
         });
     </script>

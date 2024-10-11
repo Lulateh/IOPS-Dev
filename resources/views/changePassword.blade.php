@@ -61,9 +61,14 @@
             }
         }).then((value) => {
             if (value) {
-                window.location.href = "{{ route('editUser') }}"; 
+                document.getElementById('logout-form').submit(); 
             }
         });
+    </script>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
     </script>
 @endif
 
