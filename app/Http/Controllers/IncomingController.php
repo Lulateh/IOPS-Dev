@@ -30,7 +30,7 @@ class IncomingController extends Controller
     
         $incomings = Incoming::all(); 
     
-        return view('incoming', compact('incomings'));
+        return view('entradas.incoming', compact('incomings'));
     
     }
     public function showIncoming($id){
@@ -38,7 +38,7 @@ class IncomingController extends Controller
         $incoming = Incoming::with('product', 'proveedor')->find($id);
 
         if ($incoming) {            
-            return view('incomingDetail', compact('incoming'));           
+            return view('entradas.incomingDetail', compact('incoming'));           
         } else {
             return redirect(route('incoming')) -> with('error', 'No se ha encontrado la entrada');
         }
@@ -48,12 +48,12 @@ class IncomingController extends Controller
     public function incoming()
     {
         $incomings = Incoming::all();
-        return view('incoming', compact('incomings'));
+        return view('entradas.incoming', compact('incomings'));
     }
 
 
     public function details() {
-        return view('incomingDetail');
+        return view('entradas.incomingDetail');
     }
 
     public function destroy($id)
@@ -83,7 +83,7 @@ class IncomingController extends Controller
         $proveedores = Proveedor::all();
         $posts = Product::all();
 
-        return view('incomingEdit', compact('incoming', 'proveedores', 'posts'));
+        return view('entradas.incomingEdit', compact('incoming', 'proveedores', 'posts'));
     }
  
     

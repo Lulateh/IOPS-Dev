@@ -90,19 +90,19 @@ Route::middleware("auth:usuario") -> group(function(){
 
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
-    Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
-    Route::view('/incoming/addIncoming', 'add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
-    Route::post('/incoming/addIncoming', [IncomingController::class, 'guardarEntrada'])->name('incoming.post');
-    Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
-    Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
-    Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
-    Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
-
     
+    Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
+    Route::view('/incoming/addIncoming', 'entradas.add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
+    Route::post('/incoming/addIncoming', [IncomingController::class, 'guardarEntrada'])->name('incoming.post');
     Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
     Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
+    
+    Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
+    Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
+    Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
+    Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
     
     Route::get('/proveedores', [ProveedorController::class, 'showProveedores'])->name('proveedores.index');
     Route::get('/proveedores/{id}/edit', [ProveedorController::class, 'edit'])->name('proveedores.edit');
