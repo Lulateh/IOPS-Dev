@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre', 50);
-            $table->string('nombre_empresa', 50)->nullable();
+            $table->foreignId('empresa_id')->constrained('empresas');
             $table->string('email', 255)->unique();
             $table->string('password', 255);
             $table->string('imagen_url', 255)->nullable();
             $table->enum('rol', ['administrador', 'colaborador' , 'supervisor'])->default('administrador');
+
             $table->timestamps();
+
+            
         });
     }
     
