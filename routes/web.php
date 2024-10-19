@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Proveedor;
 
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,6 +102,8 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');
     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
+    
+    Route::get('users/edit', [UserController::class, 'user'])-> name('edit.users');
     
     Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
     Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
