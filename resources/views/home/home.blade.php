@@ -41,7 +41,7 @@
 <section class="flex columns-2 justify-between mt-10 mx-20">
     <div>
         <h1 class="font-Coda text-main-green text-3xl">
-            WELCOME, {{Auth::user()->nombre}}
+            Bienvenido, {{Auth::user()->nombre}}
         </h1>
     </div>
 
