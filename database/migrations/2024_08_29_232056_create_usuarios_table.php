@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email', 255)->unique();
             $table->string('password', 255);
             $table->string('imagen_url', 255)->nullable();
+            $table->enum('estado', ['activo', 'inactivo']) ->default('activo');
             $table->enum('rol', ['administrador', 'colaborador' , 'supervisor'])->default('administrador');
 
             $table->timestamps();
