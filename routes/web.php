@@ -18,6 +18,7 @@ use App\Models\Proveedor;
 
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\UserController;
+use Faker\Provider\ar_EG\Company;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,7 +94,9 @@ Route::middleware("auth:usuario") -> group(function(){
 
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
-    Route::get('/editCompany', [CompanyController::class,'company'])-> name('editCompany');
+    Route::get('/editCompany/{id}', [CompanyController::class, 'edit'])->name('company.edit');
+    Route::post('/editCompany/{id}', [CompanyController::class, 'update'])->name('company.update');
+
     
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
     Route::view('/incoming/addIncoming', 'entradas.add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
@@ -103,7 +106,8 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
     
-    Route::get('users/edit', [UserController::class, 'user'])-> name('edit.users');
+    Route::get('users/editUsers/{id} ', [UserController::class, 'edit'])-> name('edit.users');
+    Route::post('users/editUsers/{id}', [UserController::class, 'update'])-> name('update.users');
     
     Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
     Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');

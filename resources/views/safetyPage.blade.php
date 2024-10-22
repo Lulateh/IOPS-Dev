@@ -31,13 +31,7 @@
                     Para garantizar tu seguridad y privacidad LogiStock requiere que inicies sesión o te crees una cuenta, de esta manera se te brindara un servicio más seguro y detallado.
                 </p>
 
-                <div class="mt-4 self-center">
-                    <a href=" {{ url('/registro') }} ">
-                        <button class="text-white bg-main-green px-8 mr-6 py-1 rounded-lg font-Poppins">
-                            REGRISTRARSE
-                        </button>
-                    </a>
-
+                <div class="mt-4 ml-[12rem]">
                     <a href=" {{ url('/login') }} ">
                         <button class="text-white bg-secondary-green ml-6 px-8 py-1 rounded-lg font-Poppins">
                             INICIAR SESIÓN
