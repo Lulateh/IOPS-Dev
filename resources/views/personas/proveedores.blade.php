@@ -8,56 +8,42 @@
 <header class="bg-main-green py-3">
     <div class="columns-2">
         <div>
-            <a href="{{ route('home') }}">
-                <img class="w-[6rem] ml-20" src="{{ asset('img/LogiStockIconWhite.png') }}" alt="">
+            <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
             </a>
         </div>
-        <div class="relative float-right mr-20 mt-3">
-            <a href="{{ route('profile') }}">
+
+        
+        <div class="relative float-right mr-20 ">
+            <button type="button" class="inline-flex justify-center w-full px-4 py-2" id="profile-dropdown-button" aria-haspopup="true" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-cream" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 0 0 1 6 0"/>
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                 </svg>
-            </a>
+            </button>
+
+            <div class="fixed right-0 mt-2 mr-16 w-46 rounded-md shadow-lg bg-cream ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="profile-dropdown-button" id="profile-dropdown-menu">
+                <div class="py-1" role="none">
+                    <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Profile</a>
+                    <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                        @csrf
+                        <a href="#" onclick="this.closest('form').submit()">Cerrar sesión</a>
+                    </form>
+                </div>
+            </div>
         </div>
     </div> 
 </header>
-<div class="">
-        <h2 class="ml-16 mt-10 text-main-green font-Poppins hover:underline text-4xl">  
-            Proveedores
-        </h2>
-    </div>
 
-<section class="flex columns-2 mt-12">
-    
-
-    <div class="flex flex-col">
-        <div class="flex flex-row mb-10 ml-2">
-            <form action="{{ route('proveedor.add') }}" method="POST" class="w-full">
-                @csrf
-                <div class="flex gap-8 font-Poppins">
-                    <div class="ml-52">
-                        <label class="block mb-2 font-semibold">Nombre</label>
-                        <input type="text" name="nombre" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
+<section class="flex justify-between items-center mt-12 mb-10 mx-20 ">
+<div class="ml-1">
+    <h2 class="text-main-green font-Coda text-4xl">  
+        Proovedores
+    </h2>
+</div>
+                    <div class="content-end">
+                    <a href="{{ route('proveedores.create') }}" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins">Agregar Proveedor</a> 
                     </div>
-                    <div class="">
-                        <label class="block mb-2 font-semibold">Teléfono</label>
-                        <input type="text" name="telefono" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
-                    </div>
-                    <div class="">
-                        <label class="block mb-2 font-semibold">Email</label>
-                        <input type="email" name="email" class="w-[18rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
-                    </div>
-                     <div class="content-end">
-                     <input type="submit" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" value="Agregar">
-                     </div>
-                </div>
-        </div> 
-    </div>
-
-    
 </section>
-</form>
 
 <div class="basis-5/6 flex items-center justify-center mr-5">
     <table class="w-[75rem]">

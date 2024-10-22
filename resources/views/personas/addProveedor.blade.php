@@ -31,58 +31,38 @@
                 </div>
             </div>
         </div>
-        
-
-
     </div> 
 </header>
     
     
 <div class="mt-8">
-    <a href="{{ route('clientes.index', ['id' => $cliente->id]) }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+    <a href="{{ route('proveedores.index') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
          ← Volver
     </a>
 </div>
    
-   <div class= "flex justify-center">
-    <div class="bg-card-bg w-3/4 p-10 rounded-lg shadow-lg mt-10 ">
-        <h1 class="font-Poppins font-bold text-center text-3xl mb-10">Editar Cliente</h1>
-        <form action="{{ route('clientes.update', ['id' => $cliente->id]) }}" method="POST">
-            @csrf
-            @method('PUT') 
-            <div class="grid grid-cols-2 gap-2 font-Poppins">
-                
-        <div class="ml-28">
-        <label class="block font-semibold">Nombre</label>
-        <input type="text" name="nombre_cliente" value="{{ $cliente->nombre_cliente }}" class="w-[20rem] p-1 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
-        </div>
-
-        <div>
-        <label class="block  font-semibold">Email</label>
-    <input type="email" name="email" value="{{ $cliente->email }}" class="w-[20rem] p-1 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
-   
-         </div>
-
-
-    <div class="ml-28">
-    <label class="block font-semibold">Teléfono</label>
-        <input type="text" name="telefono" value="{{ $cliente->telefono }}" class="w-[20rem] p-1 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
-       
-    </div>
-
-    <div>
-    <label class="block font-semibold">Dirección</label>
-    <input type="text" name="direccion" value="{{ $cliente->direccion }}" class="w-[20rem] p-1 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
-    </div>
-    </div>
-
-
-
-
-
-            <div class="flex justify-center mt-16">
-                <input type="submit" class="text-white text-2xl bg-main-green px-8 py-1 rounded-xl font-Poppins" value="Modificar">
-            </div>
+<div class= "flex justify-center">
+    <div class="bg-card-bg w-3/4 p-10 rounded-lg shadow-lg mt-10">
+    <h1 class="font-Poppins font-bold text-center text-3xl mb-10">Agregar Proveedor</h1>
+        <form action="{{ route('proveedor.add') }}" method="POST" class="w-full">
+                @csrf
+                <div class="flex gap-8 font-Poppins">
+                    <div class="ml-52">
+                        <label class="block mb-2 font-semibold">Nombre</label>
+                        <input type="text" name="nombre" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                    </div>
+                    <div class="">
+                        <label class="block mb-2 font-semibold">Teléfono</label>
+                        <input type="text" name="telefono" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                    </div>
+                    <div class="">
+                        <label class="block mb-2 font-semibold">Email</label>
+                        <input type="email" name="email" class="w-[18rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                    </div>
+                     <div class="content-end">
+                     <input type="submit" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" value="Agregar">
+                     </div>
+                </div>
         </form>
     </div>
 </div>

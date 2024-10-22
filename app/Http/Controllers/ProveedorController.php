@@ -17,6 +17,10 @@ class ProveedorController extends Controller
 
         return redirect()->route('proveedores.index')->with('success', 'Proveedor guardado exitosamente.');
     }
+    public function create()
+    {
+    return view('personas.addProveedor');
+    }
 
     public function showProveedores()
     {

@@ -24,6 +24,10 @@ class ClientesController extends Controller
         $clientes = Clientes::all();
         return view('personas.clientes', compact('clientes'));
     }
+    public function create()
+{
+    return view('personas.addCliente');
+}
 
     public function edit($id)
     {
@@ -36,7 +40,7 @@ class ClientesController extends Controller
         $cliente = Clientes::findOrFail($id);
         $cliente->update($request->all());
 
-        return redirect()->route('personas.clientes')->with('success', 'Cliente actualizado correctamente.');
+        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
     }
 
     public function destroy($id)
@@ -44,6 +48,6 @@ class ClientesController extends Controller
         $cliente = Clientes::findOrFail($id);
         $cliente->delete();
 
-        return redirect()->route('personas.clientes')->with('success', 'Cliente eliminado correctamente.');
+        return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }
