@@ -104,7 +104,8 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
     Route::post('/changePassword/updatePassword', [editUserController::class, 'updatePassword'])->name('updatePassword');
     
-    Route::get('/proveedores', [ProveedorController::class, 'showProveedores'])->name('proveedores.index');
+    Route::get('/proveedores', [ProveedorController::class, 'index'])->name('proveedores.index');
+    
     Route::get('/proveedores/{id}/edit', [ProveedorController::class, 'edit'])->name('proveedores.edit');
     Route::get('/proveedores/create', [ProveedorController::class, 'create'])->name('proveedores.create');
     Route::post('/proveedores', [ProveedorController::class, 'addProveedor'])->name('proveedor.add');

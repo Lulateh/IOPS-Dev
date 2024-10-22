@@ -36,7 +36,7 @@
     
     
 <div class="mt-8">
-    <a href="{{ route('proveedores.index') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+    <a href="{{ route('proveedores.index') }}" class="ml-20 text-main-green font-Coda hover:font-bold text-4xl">  
          ← Volver
     </a>
 </div>
@@ -47,21 +47,23 @@
         <form action="{{ route('proveedor.add') }}" method="POST" class="w-full">
                 @csrf
                 <div class="grid grid-cols-2 gap-2 font-Poppins">
-                    <div class="mr-10">
-                        <label class="block mb-2 font-semibold">Nombre</label>
-                        <input type="text" name="nombre" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                    <div class="ml-28">
+                        <label class="block font-semibold">Nombre</label>
+                        <input type="text" name="nombre" class="w-[20rem] p-1 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);" required>
                     </div>
                     <div >
-                        <label class="block mb-2 font-semibold">Teléfono</label>
-                        <input type="text" name="telefono" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                        <label class="block font-semibold">Teléfono</label>
+                        <input type="text" name="telefono" class="w-[20rem] p-1 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);" required>
                     </div>
-                    <div >
-                        <label class="block mb-2 font-semibold">Email</label>
-                        <input type="email" name="email" class="w-[18rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
-                    </div>
-                     
                 </div>
-                <div class="flex justify-center content-end">
+                    <div class="mt-10 mb-10 flex justify-center">
+                    <div>
+                        <label class="block font-semibold">Email</label>
+                        <input type="email" name="email" class="w-[20rem] p-1 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                    </div>
+                    </div>
+                
+                <div class="flex justify-center">
                      <input type="submit" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" value="Agregar">
                      </div>
         </form>

@@ -22,11 +22,16 @@ class ProveedorController extends Controller
     return view('personas.addProveedor');
     }
 
-    public function showProveedores()
-    {
-        $proveedores = Proveedor::all();
-        return view('personas.proveedores', compact('proveedores'));
-    }
+    public function index(Request $request)
+{
+    $estado = $request->input('estado');
+    
+    $proveedores = Proveedor::when($estado, function ($query, $estado) {
+        return $query->where('estado', $estado);
+    })->get();
+
+    return view('personas.proveedores', compact('proveedores', 'estado'));
+}
 
     public function edit($id)
     {
@@ -62,4 +67,8 @@ class ProveedorController extends Controller
 
         return redirect()->route('proveedores.index')->with('success', 'Proveedor eliminado correctamente.');
     }
+
+    
+
+
 }
