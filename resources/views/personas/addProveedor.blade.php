@@ -46,23 +46,24 @@
     <h1 class="font-Poppins font-bold text-center text-3xl mb-10">Agregar Proveedor</h1>
         <form action="{{ route('proveedor.add') }}" method="POST" class="w-full">
                 @csrf
-                <div class="flex gap-8 font-Poppins">
-                    <div class="ml-52">
+                <div class="grid grid-cols-2 gap-2 font-Poppins">
+                    <div class="mr-10">
                         <label class="block mb-2 font-semibold">Nombre</label>
                         <input type="text" name="nombre" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
                     </div>
-                    <div class="">
+                    <div >
                         <label class="block mb-2 font-semibold">Teléfono</label>
                         <input type="text" name="telefono" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
                     </div>
-                    <div class="">
+                    <div >
                         <label class="block mb-2 font-semibold">Email</label>
                         <input type="email" name="email" class="w-[18rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
                     </div>
-                     <div class="content-end">
+                     
+                </div>
+                <div class="flex justify-center content-end">
                      <input type="submit" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" value="Agregar">
                      </div>
-                </div>
         </form>
     </div>
 </div>

@@ -40,6 +40,7 @@ class ProveedorController extends Controller
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'telefono' => 'required|string|max:15',
+            'estado' => 'required|in:activo,inactivo',
         ]);
     
         $proveedor = Proveedor::findOrFail($id);
@@ -48,6 +49,7 @@ class ProveedorController extends Controller
             'nombre_proveedor' => $request->nombre,
             'email' => $request->email,
             'telefono' => $request->telefono,
+            'estado' => $request->estado,
         ]);
     
         return redirect()->route('proveedores.index')->with('success', 'Proveedor actualizado correctamente.');
