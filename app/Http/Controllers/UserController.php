@@ -16,7 +16,11 @@ class UserController extends Controller
         
         // Obtener el usuario de la base de datos
         $existingUser = Usuario::findOrFail($id);
-        $roles = Usuario::select('rol')->distinct()->get();
+        $roles = [
+            'admin' => 'Administrador',
+            'colaborator' => 'Colaborador',
+            'supervisor' => 'Supervisor',
+        ];
 
         // Retornar la vista de edición con los datos del usuario
         return view('users.editUsers', compact('existingUser','roles'));
