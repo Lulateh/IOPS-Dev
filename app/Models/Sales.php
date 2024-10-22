@@ -11,9 +11,10 @@ class Sales extends Model
 
     protected $table = 'salidas'; 
     protected $fillable = [
-        'cantidad_salida', 
-        'producto_id', 
-        'cliente_id'
+        'id',
+        'fecha_salida', 
+        'user_id',
+        'cliente_id',
     ];
 
     
