@@ -27,68 +27,88 @@
             Proveedores
         </h2>
     </div>
+    
 
 <section class="flex columns-2 mt-12">
     
+    <div class="basis-1/6 bg-card-bg h-screen pt-6">
+        <div class="flex flex-col font-Coda justify-center text-center">
+            <ul>
+            <h2 class="text-3xl font-bold ">Menu</h2>
+                <li><a href="{{route('home')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Inventario</a></li>
+                <li><a href="{{route('incoming')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Entradas</a></li>
+                <li><a href="{{route('reservations')}}" class = "block px-4 py-2 text-xl  text-gray-700 hover:bg-main-green hover:text-gray-100">Reservas</a></li>
+                <li><a href="{{route('sales')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Ventas</a></li>
+                <li><a href="{{route('reporte.diario')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Reportes</a></li>
+            </ul>
 
-    <div class="flex flex-col">
-        <div class="flex flex-row mb-10 ml-2">
-            <form action="{{ route('proveedor.add') }}" method="POST" class="w-full">
-                @csrf
-                <div class="flex gap-8 font-Poppins">
-                    <div class="ml-52">
-                        <label class="block mb-2 font-semibold">Nombre</label>
-                        <input type="text" name="nombre" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
-                    </div>
-                    <div class="">
-                        <label class="block mb-2 font-semibold">Teléfono</label>
-                        <input type="text" name="telefono" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
-                    </div>
-                    <div class="">
-                        <label class="block mb-2 font-semibold">Email</label>
-                        <input type="email" name="email" class="w-[18rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
-                    </div>
-                     <div class="content-end">
-                     <input type="submit" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" value="Agregar">
-                     </div>
-                </div>
-        </div> 
+            <ul>
+                <h2 class="text-3xl font-bold ">Personas</h2>
+                <li><a href="{{route('proveedores.index')}}" class = "block px-4 py-2 text-xl bg-main-green text-gray-100">Proveedores</a></li>
+                <li><a href="{{route('clientes.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Clientes</a></li>
+                <li><a href="#" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Usuarios</a></li>
+            </ul>
+        </div>
     </div>
 
+    <div class="basis-5/6 ml-5  mr-5">
+        <div class="flex flex-col">
+            <div class="flex flex-row mb-10 ml-2">
+                <form action="{{ route('proveedor.add') }}" method="POST" class="w-full">
+                    @csrf
+                    <div class="flex gap-8 font-Poppins">
+                        <div class="ml-52">
+                            <label class="block mb-2 font-semibold">Nombre</label>
+                            <input type="text" name="nombre" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                        </div>
+                        <div class="">
+                            <label class="block mb-2 font-semibold">Teléfono</label>
+                            <input type="text" name="telefono" class="w-[18rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                        </div>
+                        <div class="">
+                            <label class="block mb-2 font-semibold">Email</label>
+                            <input type="email" name="email" class="w-[18rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
+                        </div>
+                        <div class="content-end">
+                            <input type="submit" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" value="Agregar">
+                        </div>
+                    </div>
+                </form>
+            </div> 
+        </div>
+
+        <table class="w-[75rem]">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b bg-[#26413C] text-white rounded-tl-lg">Nombre</th>
+                    <th class="py-2 px-4 border-b bg-[#64746B] text-white">Correo</th>
+                    <th class="py-2 px-4 border-b bg-[#26413C] text-white">Teléfono</th>
+                    <th class="py-2 px-4 border-b bg-[#26413C] text-white rounded-tr-lg">Acciones</th>
+                </tr>
+            </thead>
     
+            <tbody>
+                @foreach ($proveedores as $proveedor)
+                <tr>
+                    <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $proveedor->nombre_proveedor }}</td>
+                    <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $proveedor->email }}</td>
+                    <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $proveedor->telefono }}</td>
+                    <td class="py-2 px-4 bg-card-bg border text-black text-center">
+                        <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
+                        <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </section>
-</form>
 
-<div class="basis-5/6 flex items-center justify-center mr-5">
-    <table class="w-[75rem]">
-        <thead>
-            <tr>
-                <th class="py-2 px-4 border-b bg-[#26413C] text-white rounded-tl-lg">Nombre</th>
-                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Correo</th>
-                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Teléfono</th>
-                <th class="py-2 px-4 border-b bg-[#26413C] text-white rounded-tr-lg">Acciones</th>
-            </tr>
-        </thead>
 
-        <tbody>
-            @foreach ($proveedores as $proveedor)
-            <tr>
-                <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $proveedor->nombre_proveedor }}</td>
-                <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $proveedor->email }}</td>
-                <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $proveedor->telefono }}</td>
-                <td class="py-2 px-4 bg-card-bg border text-black text-center">
-                    <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
-                    <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
 
 <script>
     const dropdownButton = document.getElementById('profile-dropdown-button');
