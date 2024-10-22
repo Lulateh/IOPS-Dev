@@ -86,11 +86,7 @@
             </td>
                 <td class="py-2 px-4 bg-card-bg border text-black text-center">
                     <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
-                    <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="text-white hover:bg-red-700 bg-red-500 rounded-lg px-3 py-2">Eliminar</button>
-                    </form>
+                    
                 </td>
             </tr>
             @endforeach
