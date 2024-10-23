@@ -17,12 +17,21 @@ class ProveedorController extends Controller
 
         return redirect()->route('proveedores.index')->with('success', 'Proveedor guardado exitosamente.');
     }
-
-    public function showProveedores()
+    public function create()
     {
-        $proveedores = Proveedor::all();
-        return view('personas.proveedores', compact('proveedores'));
+    return view('personas.addProveedor');
     }
+
+    public function index(Request $request)
+{
+    $estado = $request->input('estado');
+    
+    $proveedores = Proveedor::when($estado, function ($query, $estado) {
+        return $query->where('estado', $estado);
+    })->get();
+
+    return view('personas.proveedores', compact('proveedores', 'estado'));
+}
 
     public function edit($id)
     {
@@ -36,6 +45,7 @@ class ProveedorController extends Controller
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'telefono' => 'required|string|max:15',
+            'estado' => 'required|in:activo,inactivo',
         ]);
     
         $proveedor = Proveedor::findOrFail($id);
@@ -44,6 +54,7 @@ class ProveedorController extends Controller
             'nombre_proveedor' => $request->nombre,
             'email' => $request->email,
             'telefono' => $request->telefono,
+            'estado' => $request->estado,
         ]);
     
         return redirect()->route('proveedores.index')->with('success', 'Proveedor actualizado correctamente.');
@@ -56,4 +67,8 @@ class ProveedorController extends Controller
 
         return redirect()->route('proveedores.index')->with('success', 'Proveedor eliminado correctamente.');
     }
+
+    
+
+
 }
