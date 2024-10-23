@@ -8,6 +8,8 @@ use App\Models\Reserva;
 use App\Models\Product;
 use App\Models\Clientes;
 use App\Models\ProductoReservado;
+use App\Models\Sales;
+use App\Models\ProductoEntregado;
 
 
 class ReservationController extends Controller
@@ -21,8 +23,6 @@ class ReservationController extends Controller
         $reserva->user_id = auth()->user()->id;
         $reserva->estado = 'Reservado';
         $reserva->save();
-
-        
 
         $id = $reserva->id;
 
@@ -184,8 +184,26 @@ class ReservationController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $reserva = Reserva::find($id);
+        $productosReservados = DB::table('productos_reservados') -> where('reservas_id', '=', $id) -> get();
+
         if ($reserva) {
             $reserva->estado = $request->input('estado');
+            if ($reserva -> estado == 'entregado') {
+                $newSales = new Sales();
+                $newSales -> fecha_salida = now();
+                $newSales -> cliente_id = $reserva->cliente_id;
+                $newSales -> user_id = auth() -> user() -> id;
+                $newSales -> save();
+
+                foreach ($productosReservados as $productoReservado) {
+                    $newProductoEntregado = new ProductoEntregado();
+                    $newProductoEntregado -> salidas_id = $newSales -> id;
+                    $newProductoEntregado -> producto_id = $productoReservado -> producto_id;
+                    $newProductoEntregado -> cantidad = $productoReservado -> cantidad;
+                    $newProductoEntregado -> save();
+                }
+            }
+
             $reserva->save();
 
             return redirect()->route('reservation.show', $id)->with('success','Estado actualizado correctamente');

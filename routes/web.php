@@ -59,9 +59,11 @@ Route::middleware("auth:usuario") -> group(function(){
     $posts = DB::table('productos') ->get();
     $incomings = DB::table('entradas')->get();
     $reservas = DB::table('reservas')->get();
+    $sales = DB::table('salidas')->get();
     $proveedores = DB::table('proveedores') ->get();
     $clientes = DB::table('clientes')->get();
     $productosReservados = DB::table('productos_reservados')->get();
+    $productosEntregados = DB::table('productos_entregados')->get();
     
     Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
     Route::view('/home/addProduct', 'home.addProduct', ['proveedor' => $proveedores]) -> name('product.add');
@@ -77,7 +79,7 @@ Route::middleware("auth:usuario") -> group(function(){
 
     Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productosReservados' => $productosReservados, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
     Route::post('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); //Por implementear
-    Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post'); //Por implementear
+    //Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post'); //Por implementear
     Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
     Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit'); //Por implementear
     Route::post('/reservations/{id}/edit',  [ReservationController::class, 'updateProductReservation']) -> name('update.productReservation');
@@ -85,7 +87,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::delete('/reservas/{reservaId}/productos/{productoId}', [ReservationController::class, 'deleteProductReservation'])->name('deleteProductReservation');
     Route::post('/reservations/update-status/{id}', [ReservationController::class, 'updateStatus'])->name('reservations.updateStatus');
 
-    Route::view('/sales', 'salidas.sales', ['reservas' => $reservas, 'clientes'=> $clientes, 'posts' => $posts]) -> name('sales');
+    Route::view('/sales', 'salidas.sales', ['clientes'=> $clientes, 'posts' => $posts, 'sales' => $sales, 'productosEntregados' => $productosEntregados]) -> name('sales');
     Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');
     Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
     Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');

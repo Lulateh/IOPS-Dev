@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('salidas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cantidad_salida')->default(0);
-            $table->foreignId('producto_id')->constrained('productos')->onDelete('cascade');
+            $table->date('fecha_salida', 100);
             $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('usuarios');
             $table->timestamps();
         });
     }
