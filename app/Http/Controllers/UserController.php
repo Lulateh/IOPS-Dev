@@ -8,7 +8,30 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function user(){
-        return view('users.editUsers');
+        return view('users\addUser');
+    }
+
+    public function addUsers(Request $request)
+    {
+        // Validar los datos del formulario
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:8',
+            'role' => 'required|in:admin,colaborator,supervisor',
+        ]);
+
+        // Crear un nuevo usuario
+        $newUser = new Usuario();
+        $newUser->name = $request->name;
+        $newUser->email = $request->email;
+        $newUser->password = bcrypt($request->password);
+        $newUser->role = $request->role;
+        $newUser->save();
+
+        // Redireccionar a la lista de usuarios con un mensaje de éxito
+        return redirect()->route('users.index')->with('success', 'Usuario creado exitosamente.');
+
     }
 
     public function edit($id)

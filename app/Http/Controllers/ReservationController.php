@@ -211,4 +211,57 @@ class ReservationController extends Controller
         return redirect()->route('reservation.show', $id)->with('error', 'Error al actualizar el estado');
     }
 
+    public function cambiarEstado(Request $request, $id)
+    {
+        // Encontrar la reserva
+        $reserva = Reserva::find($id);
+
+        if ($reserva) {
+            // Actualizar el estado de la reserva
+            $nuevoEstado = $request->input('estado');
+            $reserva->estado = $nuevoEstado;
+            $reserva->save();
+
+            // Si el estado es 'entregado', mover productos y redirigir a ventas
+            if ($nuevoEstado == 'entregado') {
+                $this->moverProductosReservadosAEntregados($id);
+
+                // Crear un registro en la tabla de ventas
+                $sale = new Sales();
+                $sale->cliente_id = $reserva->cliente_id;
+                $sale->fecha_salida = now();
+                $sale->estado = 'entregado';
+                $sale->save();
+
+                return redirect()->route('sales')->with('success', 'Reserva entregada y productos movidos a ventas.');
+            }
+
+            return redirect()->back()->with('success', 'Estado de la reserva actualizado.');
+        }
+
+        return redirect()->back()->with('error', 'No se encontró la reserva.');
+    }
+
+    // Mover productos de 'productos_reservados' a 'productos_entregados'
+    private function moverProductosReservadosAEntregados($reservaId)
+    {
+        $productosReservados = DB::table('productos_reservados')->where('reserva_id', $reservaId)->get();
+
+        foreach ($productosReservados as $productoReservado) {
+            DB::table('productos_entregados')->insert([
+                'reserva_id' => $productoReservado->reserva_id,
+                'producto_id' => $productoReservado->producto_id,
+                'cantidad' => $productoReservado->cantidad,
+                'fecha_entrega' => now(),
+            ]);
+
+            $producto = Product::find($productoReservado->producto_id);
+            if ($producto) {
+                $producto->stock -= $productoReservado->cantidad;
+                $producto->save();
+            }
+        }
+
+        DB::table('productos_reservados')->where('reserva_id', $reservaId)->delete();
+    }
 }
