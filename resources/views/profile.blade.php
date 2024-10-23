@@ -73,7 +73,7 @@
     </div>
 
     <!-- Contenedor para las filas (derecha) -->
-    <div class="col-span-1 md:col-span-3 items-center justify-center lg:py-24">
+    <div class="col-span-1 md:col-span-3 items-center justify-center lg:py-24 mt-32">
         <!-- Fila 1 con 3 columnas -->
         <div class="mb-4">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:mb-16">
@@ -97,16 +97,11 @@
             </div>
         </div>
 
-        <!-- Fila 2 con solo un contenedor -->
-        <div class="p-4 items-center justify-center text-center">
-            <h3 class="font-bold text-lg">Detalles de la Empresa</h3>
-            <p>{{$empresa->detalles}}</p>
-        </div>
     </div>
    
 </div>
 
- <a href="" 
+ <a href="{{ route('company.edit', ['id' => $empresa->id]) }}" 
    class="bg-main-green hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg inline-block text-center lg:ml-auto">
    Editar Empresa
 </a>

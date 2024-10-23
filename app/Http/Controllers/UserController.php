@@ -17,13 +17,40 @@ class UserController extends Controller
         // Obtener el usuario de la base de datos
         $existingUser = Usuario::findOrFail($id);
         $roles = [
-            'admin' => 'Administrador',
-            'colaborator' => 'Colaborador',
+            'administrador' => 'Administrador',
+            'colaborador' => 'Colaborador',
             'supervisor' => 'Supervisor',
+        ];
+        $status = [
+            'activo' => 'Activo',
+            'inactivo' => 'Inactivo',
         ];
 
         // Retornar la vista de edición con los datos del usuario
-        return view('users.editUsers', compact('existingUser','roles'));
+        return view('users.editUsers', compact('existingUser','roles','status'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'username' => 'required|string|max:50',
+            'email' => 'required|email|max:255',
+            'status' => 'required|in:activo,inactivo',
+            'rol' => 'required|in:administrador,colaborador,supervisor',
+        ]);
+
+        $existingUser =Usuario::find($id);
+        if($existingUser){
+            $existingUser -> nombre = $request -> username;
+            $existingUser -> email = $request -> email;
+            $existingUser -> estado = $request -> status;
+            $existingUser -> rol = $request -> rol;
+
+            $existingUser -> save();
+            return redirect()->route('edit.users', $id)->with('success', 'Usuario actualizado correctamente');
+        }else{
+            return redirect()->route('edit.users', $id)->with('error', 'Usuario no actualizado correctamente');
+        }
+
     }
 
 }

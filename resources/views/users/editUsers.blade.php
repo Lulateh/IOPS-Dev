@@ -31,7 +31,7 @@
    
    <div class= "mt-10 flex justify-center">
     <div class="bg-card-bg w-3/4 p-10 rounded-lg shadow-lg">
-        <form action="" method="POST">
+        <form method="POST" action={{ route('update.users', $existingUser->id) }}>
             @csrf
 
             <h2 class="text-4xl font-Poppins font-medium text-center mt-4 mb-8">Editar usuario</h2>
@@ -40,14 +40,14 @@
                 <div>
 
                     <label class="block mb-2 font-semibold">Nombre del usuario</label>
-                    <input type="text" name="username" class="w-[31.6rem] p-2 mb-4 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25);" value="{{ ucfirst($existingUser->nombre) }}" required>
+                    <input type="text" name="username" class="w-[31.6rem] p-2 mb-4 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25); text-align: center;" value="{{ ucfirst($existingUser->nombre) }}" required>
 
                 </div>
 
                 <div>
 
                     <label class="block mb-2 font-semibold">Correo del usuario</label>
-                    <input type="email" name="email" class="w-[31.6rem] p-2 mb-4 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25);" value="{{ $existingUser->email }}" required>
+                    <input type="email" name="email" class="w-[31.6rem] p-2 mb-4 rounded-lg text-black" style="background-color: rgba(38, 65, 60, 0.25); text-align: center;" value="{{ $existingUser->email }}" required>
 
                 </div>
                 
@@ -59,9 +59,11 @@
                     <label class="block mt-9 mb-2 font-semibold">Estado del usuario</label>
                     <div class="relative inline-block  mb-5">
                         <select name ="status" class="block appearance-none w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
-                            
-                              <option value=""></option>
-                            
+                            @foreach($status as $key => $status)
+                              <option value="{{ $key }}"{{$existingUser->estado == $key ? 'selected' : ''}}>
+                                {{$status}}
+                              </option>
+                            @endforeach
                           </select>
                       </div>
                 </div>
