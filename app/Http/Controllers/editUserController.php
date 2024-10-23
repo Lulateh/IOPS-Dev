@@ -21,7 +21,6 @@ class editUserController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . auth()->id(),
-            'nombre_empresa' => 'nullable|string|max:255',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
     
@@ -48,7 +47,6 @@ class editUserController extends Controller
             $usuario->update([
                 'nombre' => $request->nombre,
                 'email' => $request->email,
-                'nombre_empresa' => $request->nombre_empresa,
             ]);
     
             return redirect()->back()->with('success', 'Los datos han sido actualizados correctamente.');

@@ -13,6 +13,7 @@ use App\Http\Controllers\editUserController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\usuariosController;
 use Illuminate\Support\Facades\DB;
 use App\Models\Proveedor;
 
@@ -133,6 +134,12 @@ Route::middleware("auth:usuario") -> group(function(){
 
     Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
+
+    Route::get('/usuarios', [UsuariosController::class, 'showUsuarios'])->name('usuarios.index');
+    Route::get('/usuarios/{id}/edit', [UsuariosController::class, 'edit'])->name('usuarios.edit');
+    Route::post('/usuarios', [UsuariosController::class, 'addUsuario'])->name('usuario.add');
+    Route::put('/usuarios/{id}', [UsuariosController::class, 'update'])->name('usuarios.update');
+    Route::delete('/usuarios/{id}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
     
 
 });
