@@ -58,9 +58,13 @@
                     className: "my-button",
                     closeModal: true,
                 }
-            }
+            },
+            closeOnClickOutside: true // Permite cerrar el popup al hacer clic fuera
         }).then((value) => {
+            // Si se cierra el popup por cualquier razón, también cerramos la sesión
             if (value) {
+                document.getElementById('logout-form').submit(); 
+            } else {
                 document.getElementById('logout-form').submit(); 
             }
         });
@@ -69,7 +73,6 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-    </script>
 @endif
 
 </body>
