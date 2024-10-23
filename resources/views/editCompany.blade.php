@@ -42,7 +42,8 @@
                 <h2 class="text-center font-Poppins font-bold text-3xl mb-4">EDITAR EMPRESA</h2>
             
                 <div class="flex flex-col mb-2">
-                    <img id="previewImage" class="w-24 h-24 rounded-full object-cover" src="{{ asset('storage/' . $existingCompany->logo) }}" alt="Foto de perfil">
+                    <img id="previewImage" class="bg-white w-24 h-24 rounded-full object-cover" 
+                    src="{{ asset('storage/' . $existingCompany->logo) }}" alt="Foto de perfil">
                     <label class="font-bold">Cambiar Foto de Perfil</label>
                     <input type="file" id="fileInput" name="imagen" class="mt-1 text-sm text-black file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100"> 
                 </div>
