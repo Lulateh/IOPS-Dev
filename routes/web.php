@@ -88,7 +88,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::delete('/reservas/{reservaId}/productos/{productoId}', [ReservationController::class, 'deleteProductReservation'])->name('deleteProductReservation');
     Route::post('/reservations/update-status/{id}', [ReservationController::class, 'updateStatus'])->name('reservations.updateStatus');
 
-    Route::view('/sales', 'salidas.sales', ['reservas' => $reservas, 'clientes'=> $clientes, 'posts' => $posts]) -> name('sales');
+    Route::view('/sales', 'salidas.sales', ['clientes'=> $clientes, 'posts' => $posts, 'sales' => $sales, 'productosEntregados' => $productosEntregados]) -> name('sales');
     Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');
     Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
     Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');
