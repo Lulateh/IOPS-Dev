@@ -7,9 +7,16 @@
 @section('content')
     
 <section class="bg-main-green py-2  h-screen ">
-    <div class="block ">
-        <img class="mx-auto w-32" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
+
+    <div class="mt-10">
+        <a href="./" class="ml-20 text-white font-Coda hover:underline text-4xl">  
+            ← Volver
+        </a>
     </div>
+
+        <div class="block ">
+            <img class="mx-auto w-32 mt-6" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
+        </div>
 
     @if (session() -> has("success"))
             <div>
@@ -23,10 +30,10 @@
         </div>  
     @endif
 
-    <div class="grid justify-center">
+    <div class="grid justify-center mt-10">
         <form method="POST" action="{{route("login.post")}}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
             @csrf
-            <h2 class="text-center text-3xl">Iniciar sesión</h2>
+            <h2 class="text-center text-3xl mb-10">Iniciar sesión</h2>
             
             <div>
                 <label for="corpMail">Correo electrónico</label><br>
@@ -48,25 +55,13 @@
                 @endif
             </div>
 
-            <div class=" columns-2 mt-4 flex">
-                <a href=" {{ url('/registro') }} ">
-                    <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="button" value="Registrar">
-                </a>
-                
+            <div class="mt-6 ml-[7.7rem]">
                 <input class="text-white bg-main-green px-8 py-1 ml-auto rounded-lg" type="submit" value="Iniciar sesion">
             </div>
             <a href="{{ route('forgot.password.view') }}"class="flex mt-4 mx-auto justify-center underline text-main-green hover:text-green-500">Recuperar contraseña</a>
         </form>
     </div>
     
-
-    <div class="flex">
-        <a class="mx-auto mt-4" href="./">
-            <button class="font-Coda text-white bg-secondary-green px-8 py-1  rounded-lg ">
-                Volver
-            </button>
-        </a>
-    </div>
 </section>
 
 @endsection

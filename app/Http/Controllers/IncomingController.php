@@ -33,6 +33,7 @@ class IncomingController extends Controller
         return view('entradas.incoming', compact('incomings'));
     
     }
+    
     public function showIncoming($id){
 
         $incoming = Incoming::with('product', 'proveedor')->find($id);
