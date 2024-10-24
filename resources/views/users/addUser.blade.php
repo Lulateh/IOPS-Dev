@@ -11,15 +11,15 @@
         </div>
 
         <div class="grid justify-center">
-            <form method="POST" action="{{ route('usuarios.add.post') }}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
+            <form method="POST" action="{{ route('usuarios.add') }}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
                 @csrf
                 <h2 class="text-center text-3xl">Registrar Usuario</h2>
 
                 <div>
                     <label for="name">Nombre Completo</label><br>
-                    <input class="rounded-lg my-2" type="text" id="name" name="name" size="50" required><br>
-                    @if ($errors->has('name'))
-                        <span class="text-red-500">{{ $errors->first('name') }}</span>
+                    <input class="rounded-lg my-2" type="text" id="nombre" name="nombre" size="50" required><br>
+                    @if ($errors->has('nombre'))
+                        <span class="text-red-500">{{ $errors->first('nombre') }}</span>
                     @endif
                 </div>
 
@@ -41,20 +41,16 @@
 
                 <div>
                     <label for="role">Rol del Usuario</label><br>
-                    <select class="rounded-lg my-2" id="role" name="role" required>
-                        <option value="admin">Administrador</option>
-                        <option value="colaborator">Colaborador</option>
+                    <select class="rounded-lg my-2" id="rol" name="rol" required>
+                        <option value="administrador">Administrador</option>
+                        <option value="colaborador">Colaborador</option>
                         <option value="supervisor">Supervisor</option>
                     </select>
-                    @if ($errors->has('role'))
-                        <span class="text-red-500">{{ $errors->first('role') }}</span>
-                    @endif
+                    
                 </div>
 
-                <div class=" mt-4 flex">
+                <div class=" mt-4 grid">
                     <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="submit" value="Registrar">
-
-                   
                 </div>
             </form>
         </div>

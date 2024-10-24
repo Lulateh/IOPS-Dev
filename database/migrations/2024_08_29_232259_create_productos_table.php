@@ -21,11 +21,10 @@ return new class extends Migration
         $table->date('fecha_vencimiento', 100);
         $table->string('imagen_url', 255)->nullable();
         $table->string('ubicacion_bodega', 100);
-        $table->unsignedBigInteger('proveedor_id');
         $table->integer('cantidad_stock')->default(0);
         
         
-        $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('cascade');
+        
         $table->timestamps();
     });
 }

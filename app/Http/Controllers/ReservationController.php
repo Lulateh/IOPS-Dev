@@ -11,10 +11,8 @@ use App\Models\ProductoReservado;
 use App\Models\Sales;
 use App\Models\ProductoEntregado;
 
-
 class ReservationController extends Controller
 {
-
     public function addReservation()
     {
         $reserva = new Reserva();
@@ -32,11 +30,11 @@ class ReservationController extends Controller
     public function viewReservation($id)
     {
         $reserva = Reserva::find($id);
-        $productosReservados = DB::table('productos_reservados') -> where('reservas_id', '=', $id) -> get();
+        $productosReservados = DB::table('productos_reservados')->where('reservas_id', '=', $id)->get();
         $productos = Product::all();
         $client = Clientes::find($reserva->cliente_id);
 
-        return view('reservations.showReservation', compact('reserva', 'client', 'id', 'productosReservados', 'productos'));        
+        return view('reservations.showReservation', compact('reserva', 'client', 'id', 'productosReservados', 'productos'));
     }
 
     public function redirectToEdit($id)
@@ -47,221 +45,145 @@ class ReservationController extends Controller
         $reserva = Reserva::with('productosReservados.producto')->find($id);
         $existingClient = Clientes::find($existingReservation->cliente_id);
         $clientes = Clientes::all();
-        if($existingReservation){            
-            return view('reservations.editReservation', compact('existingReservation', 'existingClient', 'id', 'productosReservados', 'productos','clientes','reserva'));            
-        }else{
-            return redirect(route('reservations')) -> with("error", "No se a encontrado la Reserva");
+
+        if ($existingReservation) {
+            return view('reservations.editReservation', compact('existingReservation', 'existingClient', 'id', 'productosReservados', 'productos', 'clientes', 'reserva'));
+        } else {
+            return redirect(route('reservations'))->with("error", "No se encontró la Reserva");
         }
     }
 
     public function updateProductReservation(Request $request, $id)
     {
-        // Encuentra la reserva existente
         $existingReservation = Reserva::find($id);
-        
-        // Encuentra el producto que se va a reservar
         $producto = Product::find($request->productSelect);
-        
-        // Verifica que el producto exista
+
         if (!$producto) {
-            return redirect(route('reservation.redirect.edit', $id))
-                ->with('error', 'Producto no encontrado.');
+            return redirect(route('reservation.redirect.edit', $id))->with('error', 'Producto no encontrado.');
         }
 
-        // Verificar la cantidad disponible del producto
-        $cantidadDisponible = $producto->cantidad_stock; // Asegúrate de que este campo contenga la cantidad disponible en inventario
-
-        // Verificar si el producto ya está reservado en la reserva existente
+        $cantidadDisponible = $producto->cantidad_stock;
         $productoReservado = $existingReservation->productosReservados()->where('producto_id', $request->productSelect)->first();
-
-        // Calcular la cantidad total que se desea reservar
         $cantidadTotalAReservar = $productoReservado ? $productoReservado->cantidad + $request->productCant : $request->productCant;
 
-        // Comprobar si la cantidad total supera la cantidad disponible
         if ($cantidadTotalAReservar > $cantidadDisponible) {
-            return redirect(route('reservation.redirect.edit', $id))
-                ->with('error', 'No hay suficiente stock disponible para reservar.');
+            return redirect(route('reservation.redirect.edit', $id))->with('error', 'No hay suficiente stock disponible para reservar.');
         }
 
         if ($productoReservado) {
-            // Resta la cantidad antigua y suma la nueva
             $oldAmount = $productoReservado->cantidad;
             $incomingAmount = $request->productCant;
             $productoReservado->cantidad = $incomingAmount;
             $productoReservado->save();
             $newAmount = $productoReservado->cantidad;
             if ($oldAmount > $newAmount) {
-                $producto -> cantidad_stock += $oldAmount - $newAmount;
-                $producto -> save();
-            }else{
-                $producto -> cantidad_stock -= $newAmount - $oldAmount;
-                $producto -> save();
+                $producto->cantidad_stock += $oldAmount - $newAmount;
+            } else {
+                $producto->cantidad_stock -= $newAmount - $oldAmount;
             }
+            $producto->save();
         } else {
-            // Si no existe, crear un nuevo registro
             $newProductoReservado = new ProductoReservado();
             $newProductoReservado->reservas_id = $id;
             $newProductoReservado->producto_id = $request->productSelect;
             $newProductoReservado->cantidad = $request->productCant;
             $newProductoReservado->save();
-            $producto -> cantidad_stock -= $request->productCant;
-            $producto -> save();
+            $producto->cantidad_stock -= $request->productCant;
+            $producto->save();
         }
 
-        // Redirigir a la vista de edición de reservas
-        return redirect(route('reservation.redirect.edit', $id))
-            ->with('success', 'Producto reservado actualizado o agregado correctamente.');
+        return redirect(route('reservation.redirect.edit', $id))->with('success', 'Producto reservado actualizado o agregado correctamente.');
     }
-
 
     public function updateClientReservation(Request $request)
     {
-        // Validar el request
         $request->validate([
             'clientId' => 'required|exists:clientes,id',
             'reservationId' => 'required|exists:reservas,id',
             'deliveryDate' => 'required|date',
         ]);
-    
-        // Buscar la reserva
+
         $reservation = Reserva::find($request->reservationId);
-    
+
         if ($reservation) {
-            // Actualizar la fecha de entrega de la reserva
             $reservation->fecha_salida = $request->deliveryDate;
-    
-            // Asignar el cliente existente a la reserva sin modificar sus datos
-            $reservation->cliente_id = $request->clientId; // Asumiendo que deseas asociar la reserva con el cliente existente
+            $reservation->cliente_id = $request->clientId;
             $reservation->save();
-    
-            return redirect()->route('reservation.redirect.edit', ['id' => $reservation->id])
-                ->with('success', 'Fecha de entrega actualizada exitosamente.');
+
+            return redirect()->route('reservation.redirect.edit', ['id' => $reservation->id])->with('success', 'Fecha de entrega actualizada exitosamente.');
         }
-    
+
         return redirect()->back()->with('error', 'No se pudo actualizar la información.');
     }
 
     public function deleteProductReservation($reservaId, $productoId)
     {
-        // Encuentra la reserva
         $reservation = Reserva::find($reservaId);
-
-        // Verifica que la reserva exista
         if (!$reservation) {
             return redirect()->back()->with('error', 'Reserva no encontrada.');
         }
 
-        // Busca el producto reservado
         $productoReservado = $reservation->productosReservados()->where('producto_id', $productoId)->first();
-
-        // Verifica que el producto reservado exista
         if (!$productoReservado) {
-            return redirect()->route('reservation.redirect.edit',  $reservaId)
-                ->with('error', 'Producto no encontrado en la reserva.');
+            return redirect()->route('reservation.redirect.edit', $reservaId)->with('error', 'Producto no encontrado en la reserva.');
         }
 
-        // Encuentra el producto en el inventario
         $producto = Product::find($productoId);
-
-        // Verifica que el producto exista en el inventario
         if (!$producto) {
-            return redirect()->route('reservation.redirect.edit', $reservaId)
-                ->with('error', 'Producto no encontrado en el inventario.');
+            return redirect()->route('reservation.redirect.edit', $reservaId)->with('error', 'Producto no encontrado en el inventario.');
         }
 
-        // Suma la cantidad reservada al inventario
         $producto->cantidad_stock += $productoReservado->cantidad;
         $producto->save();
 
-        // Elimina el producto reservado
         $productoReservado->delete();
 
-        // Redirige después de la eliminación
-        return redirect()->route('reservation.redirect.edit', $reservaId)
-            ->with('success', 'Producto eliminado con éxito y cantidad restaurada al inventario.');
+        return redirect()->route('reservation.redirect.edit', $reservaId)->with('success', 'Producto eliminado con éxito y cantidad restaurada al inventario.');
     }
 
     public function updateStatus(Request $request, $id)
     {
         $reserva = Reserva::find($id);
-        $productosReservados = DB::table('productos_reservados') -> where('reservas_id', '=', $id) -> get();
+        $productosReservados = DB::table('productos_reservados')->where('reservas_id', '=', $id)->get();
 
-        if ($reserva) {
+        if ($reserva && $reserva->estado != 'entregado' && $reserva->estado != 'cancelado') {
             $reserva->estado = $request->input('estado');
-            if ($reserva -> estado == 'entregado') {
+            
+            if ($reserva->estado == 'entregado') {
                 $newSales = new Sales();
-                $newSales -> fecha_salida = now();
-                $newSales -> cliente_id = $reserva->cliente_id;
-                $newSales -> user_id = auth() -> user() -> id;
-                $newSales -> save();
+                $newSales->fecha_salida = now();
+                $newSales->cliente_id = $reserva->cliente_id;
+                $newSales->user_id = auth()->user()->id;
+                $newSales->save();
 
                 foreach ($productosReservados as $productoReservado) {
                     $newProductoEntregado = new ProductoEntregado();
-                    $newProductoEntregado -> salidas_id = $newSales -> id;
-                    $newProductoEntregado -> producto_id = $productoReservado -> producto_id;
-                    $newProductoEntregado -> cantidad = $productoReservado -> cantidad;
-                    $newProductoEntregado -> save();
+                    $newProductoEntregado->salidas_id = $newSales->id;
+                    $newProductoEntregado->producto_id = $productoReservado->producto_id;
+                    $newProductoEntregado->cantidad = $productoReservado->cantidad;
+                    $newProductoEntregado->save();
+                }
+
+                // Elimina los productos de productos_reservados
+                DB::table('productos_reservados')->where('reservas_id', $id)->delete();
+                DB::table('reservas')->where('id', $id)->delete();
+            }
+
+            if ($reserva->estado == 'cancelado') {
+                foreach ($productosReservados as $productoReservado) {
+                    $producto = Product::find($productoReservado->producto_id);
+                    if ($producto) {
+                        $producto->cantidad_stock += $productoReservado->cantidad;
+                        $producto->save();
+                    }
                 }
             }
 
             $reserva->save();
 
-            return redirect()->route('reservation.show', $id)->with('success','Estado actualizado correctamente');
-        }
-        return redirect()->route('reservation.show', $id)->with('error', 'Error al actualizar el estado');
-    }
-
-    public function cambiarEstado(Request $request, $id)
-    {
-        // Encontrar la reserva
-        $reserva = Reserva::find($id);
-
-        if ($reserva) {
-            // Actualizar el estado de la reserva
-            $nuevoEstado = $request->input('estado');
-            $reserva->estado = $nuevoEstado;
-            $reserva->save();
-
-            // Si el estado es 'entregado', mover productos y redirigir a ventas
-            if ($nuevoEstado == 'entregado') {
-                $this->moverProductosReservadosAEntregados($id);
-
-                // Crear un registro en la tabla de ventas
-                $sale = new Sales();
-                $sale->cliente_id = $reserva->cliente_id;
-                $sale->fecha_salida = now();
-                $sale->estado = 'entregado';
-                $sale->save();
-
-                return redirect()->route('sales')->with('success', 'Reserva entregada y productos movidos a ventas.');
-            }
-
-            return redirect()->back()->with('success', 'Estado de la reserva actualizado.');
+            return redirect()->route('reservations')->with('success', 'Estado actualizado correctamente.');
         }
 
-        return redirect()->back()->with('error', 'No se encontró la reserva.');
-    }
-
-    // Mover productos de 'productos_reservados' a 'productos_entregados'
-    private function moverProductosReservadosAEntregados($reservaId)
-    {
-        $productosReservados = DB::table('productos_reservados')->where('reserva_id', $reservaId)->get();
-
-        foreach ($productosReservados as $productoReservado) {
-            DB::table('productos_entregados')->insert([
-                'reserva_id' => $productoReservado->reserva_id,
-                'producto_id' => $productoReservado->producto_id,
-                'cantidad' => $productoReservado->cantidad,
-                'fecha_entrega' => now(),
-            ]);
-
-            $producto = Product::find($productoReservado->producto_id);
-            if ($producto) {
-                $producto->stock -= $productoReservado->cantidad;
-                $producto->save();
-            }
-        }
-
-        DB::table('productos_reservados')->where('reserva_id', $reservaId)->delete();
+        return redirect()->route('reservations')->with('error', 'Error al actualizar el estado o el estado ya fue cambiado.');
     }
 }

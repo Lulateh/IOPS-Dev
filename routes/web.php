@@ -136,7 +136,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
 
     Route::get('/usuarios/add', [UserController::class, 'user'])->name('usuarios.add');
-    Route::post('/usuarios/add', [UserController::class, 'addUsers'])->name('usuarios.add.post');
+    Route::post('/usuarios/add', [UserController::class, 'addUsers'])->name('usuarios.add');
     Route::get('/usuarios', [UsuariosController::class, 'showUsuarios'])->name('usuarios.index');
     Route::get('/usuarios/{id}/edit', [UsuariosController::class, 'edit'])->name('usuarios.edit');
     Route::post('/usuarios', [UsuariosController::class, 'addUsuario'])->name('usuario.add');
