@@ -60,9 +60,9 @@
     </div>
 
     <div>
-        <div class="flex justify-between items-center mt-12 mb-10 mx-20 ">
+        <div class="flex justify-between items-center mt-12 mb-10 mx-20">
             <div class="ml-1">
-                <h2 class="text-main-green font-Coda text-4xl">  
+                <h2 class="text-main-green font-Coda text-3xl">  
                     Clientes
             </h2>
             </div>
