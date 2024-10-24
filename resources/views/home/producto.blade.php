@@ -26,13 +26,13 @@
 <div >
     <a class="ml-20 mt-4 flex" href="{{ route('home') }}">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" class="mt-1 w-6 fill-main-green"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
-        <p class="font-Coda text-main-green text-2xl">Regresar</p>
+        <p class="font-Coda text-main-green text-2xl"> Volver</p>
     </a>
 </div>
 
-<section class = "columns-2 mt-4 ml-20 flex ">
+<section class = "columns-2 mt-4 ml-[25rem] flex">
 
-    <div class="basis-1/3">
+    <div class="basis-1/3 mt-16">
         <img class="content-center" src = "../../img/{{$existingProduct['imagen_url']}}" alt = "{{$existingProduct['imagen_url']}}">
     </div>
 
