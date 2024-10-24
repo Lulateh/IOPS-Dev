@@ -38,51 +38,19 @@
 
 
 
-<section class="flex columns-2 mt-12">
-<div class="">
-    <h2 class="ml-16 mr-20 text-main-green font-Coda hover:underline text-4xl">  
-         Clientes
+<section class="flex justify-between items-center mt-12 mb-10 mx-20 ">
+<div class="ml-1">
+    <h2 class="text-main-green font-Coda text-4xl">  
+         Usuarios: {{$empresa->nombre}}
 </h2>
 </div>
 
-
-<div class="flex flex-col">
-<div class="flex flex-row mb-10 ml-2">
-    <form action="{{ route('cliente.add') }}" method="POST" class="w-full">
-        @csrf
-        <div class="grid grid-cols-2 gap-4 font-Poppins">
-            
-            <div class="mr-10">
-                <label class="block mb-2 font-semibold">Nombre</label>
-                <input type="text" name="nombre" class="w-[23rem] p-1 rounded-xl" style="background-color: rgba(38, 65, 60, 0.25);" required>
-            </div>
-            <div>
-                <label class="block mb-2 font-semibold">Email</label>
-                <input type="email" name="email" class="w-[23rem] p-1  rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
-            </div>
-            <div>
-                <label class="block mb-2 font-semibold">Rol</label>
-                  <select name="rol" class="w-[23rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" required>
-                    <option value="Usuario">Colaborador</option>
-                    <option value="Supervisor">Supervisor</option>
-                    <option value="Administrador">Administrador</option> 
-                 </select>
-            </div>
-            <div>
-                <label class="block mb-2 font-semibold">Contraseña Temporal</label>
-                <input value="{{ $empresa->nombre }}" type="text" name="temporalPassword" class="w-[23rem] p-1 rounded-xl text-black" style="background-color: rgba(38, 65, 60, 0.25);" readonly required>
-            </div>
-            
-        </div>
-       
-    
-</div> 
-
+<div class="flex items-center justify-center mr-1">
+<a href="#" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins">Agregar Usuario</a> 
 </div>
-<div class="flex items-center justify-center col-span-1 ">
-                <input type="submit" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" value="Agregar">
-            </div>
 </section>
+
+
 </form>
 
 <div class="basis-5/6 flex items-center justify-center mr-5 ">

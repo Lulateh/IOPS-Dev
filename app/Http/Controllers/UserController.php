@@ -3,10 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function showUsuarios()
+    {
+        $usuario = auth()->user();
+        $empresa = Empresa::where('id', $usuario->empresa_id)->first();
+        $usuarios = Usuario::all();
+        
+        return view('users.usuarios',compact('usuarios', 'usuario', 'empresa'));
+    }
     public function user(){
         return view('users.editUsers');
     }

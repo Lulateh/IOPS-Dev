@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<body class="bg-main-green bg-opacity-30">
+<body class="bg-main-green bg-opacity-30 p-4">
 
 <div class="mt-5 mb-5">
     <a href="{{ route('editUser') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
