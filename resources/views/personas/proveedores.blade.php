@@ -51,7 +51,7 @@
                 <h2 class="text-3xl font-bold my-3">Personas</h2>
                 <li><a href="{{route('proveedores.index')}}" class = "block px-4 py-2 text-xl bg-main-green  text-gray-100">Proveedores</a></li>
                 <li><a href="{{route('clientes.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Clientes</a></li>
-                <li><a href="#" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Usuarios</a></li>
+                <li><a href="{{route('users.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Usuarios</a></li>
             </ul>
         </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="flex justify-between items-center mt-12 mb-10 mx-20">
             <div class="ml-1">
                 <h2 class="text-main-green font-Coda text-4xl">  
-                    Proovedores
+                    Proveedores
                 </h2>
             </div>
 

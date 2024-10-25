@@ -102,10 +102,6 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('incoming/edit/{id}', [IncomingController::class, 'edit'])->name('incoming.edit');
     Route::post('incoming/edit/{id}', [IncomingController::class, 'updateIncoming'])->name('update.incoming');
     
-    Route::get('/usuarios', [UserController::class, 'showUsuarios'])->name('users.index');
-    Route::get('users/editUsers/{id} ', [UserController::class, 'edit'])-> name('edit.users');
-    Route::post('users/editUsers/{id}', [UserController::class, 'update'])-> name('update.users');
-    
     Route::get('/editUser', [editUserController::class, 'edituser'])->name('editUser');
     Route::put('/editUser/updateUser', [editUserController::class, 'updateUser'])->name('updateUser');
     Route::get('/changePassword', [editUserController::class, 'changePassword'])->name('changePassword');
@@ -129,10 +125,12 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::post('/personas',[ProveedorController::class, 'addPerson'])->name('add.person');
     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
 
-    Route::get('/users/add', [UserController::class, 'user'])->name('users.add');
-    Route::post('/users/add', [UserController::class, 'addUsers'])->name('users.add');
-    
-    Route::post('/usuarios', [UsuariosController::class, 'addUsuario'])->name('usuario.add');
+    Route::get('/usuarios', [UserController::class, 'showUsuarios'])->name('users.index');
+    Route::get('users/editUsers/{id} ', [UserController::class, 'edit'])-> name('edit.users');
+    Route::post('users/editUsers/{id}', [UserController::class, 'update'])-> name('update.users');
+    Route::get('/users/addUser', [UserController::class, 'user'])->name('users.add');
+    Route::post('/users/addUser', [UserController::class, 'addUsers'])->name('users.add');
+    Route::post('/usuarios', [UserController::class, 'addUsuario'])->name('usuario.add');
     
    
     

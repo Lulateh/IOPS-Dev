@@ -75,9 +75,9 @@ class UserController extends Controller
             $existingUser -> rol = $request -> rol;
 
             $existingUser -> save();
-            return redirect()->route('edit.users', $id)->with('success', 'Usuario actualizado correctamente');
+            return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente');
         }else{
-            return redirect()->route('edit.users', $id)->with('error', 'Usuario no actualizado correctamente');
+            return redirect()->route('users.index')->with('error', 'Usuario no actualizado correctamente');
         }
 
     }
