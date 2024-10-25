@@ -77,6 +77,15 @@
     </div>
 
 
+    <div class="flex justify-center mt-5">
+    <div>
+    <label class="block mb-2 font-semibold">Estado</label>
+    <select name="estado" class="w-[22rem] p-1 rounded-lg" style="background-color: rgba(38, 65, 60, 0.25);">
+        <option value="activo" {{ $cliente->estado == 'activo' ? 'selected' : '' }}>Activo</option>
+        <option value="inactivo" {{ $cliente->estado == 'inactivo' ? 'selected' : '' }}>Inactivo</option>
+    </select>
+</div>
+</div>
 
 
 

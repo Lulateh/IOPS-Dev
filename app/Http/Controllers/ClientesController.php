@@ -19,11 +19,16 @@ class ClientesController extends Controller
         return redirect()->route('clientes.index')->with('success', 'Cliente guardado exitosamente.');
     }
 
-    public function showClientes()
+    public function showClientes(Request $request)
     {
-        $clientes = Clientes::all();
-        return view('personas.clientes', compact('clientes'));
-    }
+        $estado = $request->input('estado');
+    
+    $clientes = Clientes::when($estado, function ($query, $estado) {
+        return $query->where('estado', $estado);
+    })->get();
+
+    return view('personas.clientes', compact('clientes', 'estado'));
+}
     public function create()
 {
     return view('personas.addCliente');

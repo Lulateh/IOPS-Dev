@@ -66,10 +66,20 @@
                     Clientes
             </h2>
             </div>
+            <div class=" flex items-center">
+                    <form action="{{ route('clientes.index') }}" method="GET">
+                        <select name="estado" class="px-4 py-1 border rounded-lg">
+                            <option value="">Estado</option>
+                            <option value="activo" {{ request('estado') === 'activo' ? 'selected' : '' }}>Activo</option>
+                            <option value="inactivo" {{ request('estado') === 'inactivo' ? 'selected' : '' }}>Inactivo</option>
+                        </select>
+                        <button type="submit" class=" ml-2 text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins" >Filtrar</button>
+                    </form>
 
-            <div class="flex items-center justify-center mr-1">
+            <div class="mx-6">
             <a href="{{ route('clientes.create') }}" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins">Agregar Cliente</a> 
             </div>
+        </div>
         </div>
         
         <div class="basis-5/6 flex items-center mr-5 ml-10">
@@ -80,7 +90,8 @@
                         <th class="py-2 px-4 border-b bg-[#64746B] text-white">Correo</th>
                         <th class="py-2 px-4 border-b bg-[#26413C] text-white">Teléfono</th>
                         <th class="py-2 px-4 border-b bg-[#64746B] text-white">Dirección</th>
-                        <th class="py-2 px-4 border-b bg-[#26413C] text-white rounded-tr-lg">Acciones</th>
+                        <th class="py-2 px-4 border-b bg-[#26413C] text-white ">Estado</th>
+                        <th class="py-2 px-4 border-b bg-[#64746B] text-white rounded-tr-lg">Acciones</th>
                     </tr>
                 </thead>
         
@@ -91,6 +102,13 @@
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $cliente->email }}</td>
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $cliente->telefono }}</td>
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $cliente->direccion ?? 'N/A' }}</td>
+                        <td class="py-2 px-4 bg-card-bg border text-black text-center">
+                        @if($cliente->estado === 'activo')
+                            <span class="text-green-600">Activo</span>
+                        @else
+                            <span class="text-red-600">Inactivo</span>
+                        @endif
+                    </td>
                         <td class="py-2 px-4 bg-card-bg border t-black text-center">
                             <a href="{{ route('clientes.edit', $cliente->id) }}" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
                         </td>
