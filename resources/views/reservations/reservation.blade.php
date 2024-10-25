@@ -28,9 +28,9 @@
         <div class="flex flex-col font-Coda justify-center text-center mt-20">
             <ul>
             <h2 class="text-3xl font-bold mb-3">Menu</h2>
-                <li><a href="{{route('home')}}" class = "block px-4 py-2 text-xl bg-main-green text-gray-100">Inventario</a></li>
+                <li><a href="{{route('home')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Inventario</a></li>
                 <li><a href="{{route('incoming')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Entradas</a></li>
-                <li><a href="{{route('reservations')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Reservas</a></li>
+                <li><a href="{{route('reservations')}}" class = "block px-4 py-2 text-xl bg-main-green text-gray-100">Reservas</a></li>
                 <li><a href="{{route('sales')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Ventas</a></li>
                 <li><a href="{{route('reporte.diario')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Reportes</a></li>
             </ul>
