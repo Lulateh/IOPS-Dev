@@ -62,7 +62,7 @@
     <div class=" p-6 col-span-1 mb-4 lg:mb-0 flex flex-col items-center justify-center text-center xl:py-28">
          
          <div class="mb-4">
-         <img src="{{ $empresa->logo ? asset('company_images/' . $empresa->imagen_url) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' }}" 
+         <img src="{{ $empresa->logo ? asset('company_images/' . $empresa->logo) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' }}" 
               alt="Imagen de empresa" 
               class="w-32 sm:w-36 md:w-40 lg:w-48 xl:w-60 h-32 sm:h-36 md:h-40 lg:h-48 xl:h-60 rounded-full border-2 border-gray-200">
         </div>
@@ -72,6 +72,7 @@
         <p class="text-xl text-gray-600 font-Coda mb-2">{{$empresa->id}}</p>
 
     </div>
+
 
     <div class="col-span-1 md:col-span-3 items-center justify-center lg:py-24 mt-32">
 
