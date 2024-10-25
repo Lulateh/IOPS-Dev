@@ -31,7 +31,7 @@ class CompanyController extends Controller
             $existingCompany -> direccion = $request -> companyAddress;
 
             if ($request->hasFile('imagen')) {
-                $imagePath = $request->file('imagen')->store('uploads', 'public');
+                $imagePath = $request->file('imagen')->store('company_imgs', 'public');
                 $existingCompany->logo = $imagePath;
             }
 
