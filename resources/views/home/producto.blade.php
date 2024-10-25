@@ -41,7 +41,6 @@
         <h1 class="text-3xl font-bold">{{$existingProduct['nombre']}}</h1>
         <p class="text-xl mt-2"> Codigo: {{$existingProduct['id']}}</p>
         <p class="text-xl mt-2"> Marca: {{$existingProduct['marca']}}</p>
-        <p class="text-xl mt-2"> Proveedor: {{$existingProveedor['nombre_proveedor']}}</p>
         <p class="text-xl mt-2"> Descripción: {{$existingProduct['descripcion']}}</p>
         <p class="text-xl mt-2"> Ubicación: {{$existingProduct['ubicacion_bodega']}}</p>
         <p class="text-xl mt-2"> Precio de compra: ₡{{$existingProduct['precio_compra']}}</p>

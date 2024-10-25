@@ -25,7 +25,6 @@ class HomeController extends Controller{
         $product -> descripcion = $request -> details;
         $product -> fecha_vencimiento = $request -> expiration;
         $product -> ubicacion_bodega = $request -> location;
-        $product -> proveedor_id = $request -> provider;
         $product -> save();
 
         return redirect(route('home'));
@@ -75,7 +74,6 @@ class HomeController extends Controller{
             $existingProduct -> descripcion = $request -> details;
             $existingProduct -> ubicacion_bodega = $request -> location;
             $existingProduct -> fecha_vencimiento = $request -> expiration;
-            $existingProduct -> proveedor_id = $request -> provider;
             $existingProduct -> save();
             return redirect(route('home'));
         }else{

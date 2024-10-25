@@ -83,20 +83,22 @@
                   <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-secondary-green ">
 
                     @foreach ($productosEntregados as $productoEntregado)
-                    <div class="flex border border-black h-12">
-                      <div class="flex flex-col ml-2 mt-1">
-                        @foreach ($posts as $producto)
-                          @if ($productoEntregado -> producto_id == $producto -> id)
-                            <p class="font-Coda text-xs m-0">{{$producto -> nombre}}</p>
-                            <p class="font-Coda text-xs m-0">codigo producto: {{$producto -> id}}</p>
-                          @endif
-                        @endforeach
-                      </div>
+                      @if ($productoEntregado -> salidas_id == $sale -> id)  
+                        <div class="flex border border-black h-12">
+                          <div class="flex flex-col ml-2 mt-1">
+                            @foreach ($posts as $producto)
+                              @if ($productoEntregado -> producto_id == $producto -> id)
+                                <p class="font-Coda text-xs m-0">{{$producto -> nombre}}</p>
+                                <p class="font-Coda text-xs m-0">codigo producto: {{$producto -> id}}</p>
+                              @endif
+                            @endforeach
+                          </div>
 
-                      <div class="flex ml-6 mt-[0.45rem]">
-                        <p class="font-Poppins font-extrabold text-secondary-green text-2xl">{{$productoEntregado -> cantidad}}</p>   
-                      </div>
-                    </div>
+                          <div class="flex ml-6 mt-[0.45rem]">
+                            <p class="font-Poppins font-extrabold text-secondary-green text-2xl">{{$productoEntregado -> cantidad}}</p>   
+                          </div>
+                        </div>
+                      @endif
                     @endforeach
                   </div>
                 </div>
