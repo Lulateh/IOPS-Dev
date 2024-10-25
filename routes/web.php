@@ -78,27 +78,21 @@ Route::middleware("auth:usuario") -> group(function(){
      Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
 
     Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productosReservados' => $productosReservados, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
-    Route::post('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); //Por implementear
-    //Route::post('/reservations/addReservation', [ReservationController::class, 'addReservaion']) -> name('reservation.post'); //Por implementear
+    Route::post('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); 
     Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
-    Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit'); //Por implementear
+    Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit');
     Route::post('/reservations/{id}/edit',  [ReservationController::class, 'updateProductReservation']) -> name('update.productReservation');
     Route::post('/update-client', [ReservationController::class, 'updateClientReservation'])->name('updateClientReservation');
     Route::delete('/reservas/{reservaId}/productos/{productoId}', [ReservationController::class, 'deleteProductReservation'])->name('deleteProductReservation');
     Route::post('/reservations/update-status/{id}', [ReservationController::class, 'updateStatus'])->name('reservations.updateStatus');
 
     Route::view('/sales', 'salidas.sales', ['clientes'=> $clientes, 'posts' => $posts, 'sales' => $sales, 'productosEntregados' => $productosEntregados]) -> name('sales');
-    Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');
-    Route::get('/sales/addSales',  [SalesController::class, 'addSales']) -> name('addSales');
-    Route::get('/sales/editSales',  [SalesController::class, 'editSales']) -> name('editSales');
-    Route::get('/sales/editSales/{id}',  [SalesController::class, 'editSales']) -> name('editSales');
-    
+    Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');    
 
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
     Route::get('/config', [ConfigController::class, 'config']) -> name('config');
     Route::get('/editCompany/{id}', [CompanyController::class, 'edit'])->name('company.edit');
     Route::post('/editCompany/{id}', [CompanyController::class, 'update'])->name('company.update');
-
     
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
     Route::view('/incoming/addIncoming', 'entradas.add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
