@@ -34,7 +34,7 @@ View sales
 <!-- --------------BODY-------------- -->
 <body class="bg-main-green">
   <div class="flex-container flex items-end justify-center ">
-    <div class="inline-block align-bottom text-left overflow-hidden bg-white bg-opacity-20 rounded-2xl"> 
+    <div class="inline-block align-bottom text-left overflow-hidden bg-white  rounded-2xl"> 
       <div class="text-center mt-6 w-[60rem]"> 
         <div class="border-b-2 border-dotted border-secondary-green columns-2 m-2 ml-[4.5rem] w-[50rem] mb-4">
           <div class="text-secondary-green text-left flex flex-col font-Poppins font-regular ml-6 mb-4">
