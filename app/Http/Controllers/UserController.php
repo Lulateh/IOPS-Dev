@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Empresa;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -17,7 +19,33 @@ class UserController extends Controller
         return view('users.usuarios',compact('usuarios', 'usuario', 'empresa'));
     }
     public function user(){
-        return view('users.editUsers');
+        return view('users.addUser');
+    }
+
+    public function addUsers(Request $request)
+    {
+        // Validar los datos del formulario
+        // $request->validate([
+        //     'nombre' => 'required|string|max:255',
+        //     'email' => 'required|email|max:255|unique:usuarios,email',
+        //     'password' => 'required|string|min:4',
+        //     'rol' => 'required|in:administrador,colaborador,supervisor',
+        // ]);
+
+        
+        $empresa_id = Auth::user()->empresa_id;
+
+        // Crear un nuevo usuario
+        $newUser = new Usuario();
+        $newUser->nombre = $request->nombre;
+        $newUser->email = $request->email;
+        $newUser->password = bcrypt($request->password);
+        $newUser->rol = $request->rol;
+        $newUser->empresa_id = $empresa_id; 
+        $newUser->save();
+
+        // Redireccionar a la lista de usuarios con un mensaje de éxito
+        return redirect()->route('users.addUser')->with('success', 'Usuario creado exitosamente.');
     }
 
     public function edit($id)
