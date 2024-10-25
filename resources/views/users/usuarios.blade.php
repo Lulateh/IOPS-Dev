@@ -46,7 +46,7 @@
 </div>
 
 <div class="flex items-center justify-center mr-1">
-<a href="#" class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins">Agregar Usuario</a> 
+<a href="{{route('users.add')}}"  class="text-white bg-main-green cursor-pointer px-4 py-1 rounded-xl font-Poppins">Agregar Usuario</a> 
 </div>
 </section>
 

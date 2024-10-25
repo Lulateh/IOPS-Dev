@@ -19,19 +19,11 @@ class UserController extends Controller
         return view('users.usuarios',compact('usuarios', 'usuario', 'empresa'));
     }
     public function user(){
-        return view('users.addUser');
+        return route('users.index');
     }
 
     public function addUsers(Request $request)
     {
-        // Validar los datos del formulario
-        // $request->validate([
-        //     'nombre' => 'required|string|max:255',
-        //     'email' => 'required|email|max:255|unique:usuarios,email',
-        //     'password' => 'required|string|min:4',
-        //     'rol' => 'required|in:administrador,colaborador,supervisor',
-        // ]);
-
         
         $empresa_id = Auth::user()->empresa_id;
 
