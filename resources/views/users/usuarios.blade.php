@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-
+@if(Auth::user()->rol == 'administrador')
 <header class="bg-main-green py-3">
     <div class="columns-2">
         <div>
@@ -55,8 +55,9 @@
                 <h2 class="text-3xl font-bold my-3">Personas</h2>
                 <li><a href="{{route('proveedores.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Proveedores</a></li>
                 <li><a href="{{route('clientes.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Clientes</a></li>
-                <li><a href="{{route('users.index')}}" class = "block px-4 py-2 text-xl bg-main-green  text-gray-100">Usuarios</a></li>
-            </ul>
+                @if(Auth::user()->rol == 'administrador')
+                <li><a href="{{route('users.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Usuarios</a></li>
+                @endif            </ul>
         </div>
     </div>
 
@@ -102,7 +103,21 @@
         </div>
     </div>
 </section>
-
+@else
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Denegado</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="text-center p-5 bg-white rounded shadow-md">
+        <h1 class="text-2xl font-bold text-red-600">Acceso Denegado</h1>
+        <p class="mt-4 text-gray-700">No tienes permiso para acceder a esta sección.</p>
+        <a href="{{ route('home') }}" class="mt-6 inline-block px-4 py-2 bg-main-green text-white rounded hover:bg-green-600">Regresar al Inicio</a>
+    </div>
+</body>
+@endif
 
 
 
