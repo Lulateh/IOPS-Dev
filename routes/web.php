@@ -132,7 +132,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/users/add', [UserController::class, 'user'])->name('users.add');
     Route::post('/users/add', [UserController::class, 'addUsers'])->name('users.add');
     
-    Route::post('/usuarios', [UsuariosController::class, 'addUsuario'])->name('usuario.add');
+    //Route::post('/usuarios', [UsuariosController::class, 'addUsuario'])->name('usuario.add');
     
    
     

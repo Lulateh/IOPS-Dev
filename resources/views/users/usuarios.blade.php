@@ -73,7 +73,7 @@
                 <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $usuario->rol }}</td>
                 <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $usuario->estado}}</td>
                 <td class="py-2 px-4 bg-card-bg border t-black text-center">
-                    <a href="" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
+                    <a href="{{ route('edit.users', ['id' => $usuario->id]) }}" class="text-white hover:bg-blue-700 bg-blue-500 rounded-lg px-3 py-2">Editar</a>
                     <form action="" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')

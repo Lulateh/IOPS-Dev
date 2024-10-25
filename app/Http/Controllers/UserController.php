@@ -19,7 +19,7 @@ class UserController extends Controller
         return view('users.usuarios',compact('usuarios', 'usuario', 'empresa'));
     }
     public function user(){
-        return route('users.index');
+        return view('users.addUser');
     }
 
     public function addUsers(Request $request)
@@ -37,7 +37,7 @@ class UserController extends Controller
         $newUser->save();
 
         // Redireccionar a la lista de usuarios con un mensaje de éxito
-        return redirect()->route('users.addUser')->with('success', 'Usuario creado exitosamente.');
+        return redirect()->route('users.index')->with('success', 'Usuario creado exitosamente.');
     }
 
     public function edit($id)

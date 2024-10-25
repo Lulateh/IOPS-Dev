@@ -24,7 +24,7 @@
     
     
 <div class="mt-8">
-    <a href="" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+    <a href="{{ route('users.index') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
          ← Volver
     </a>
 </div>

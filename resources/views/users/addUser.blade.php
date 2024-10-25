@@ -11,7 +11,7 @@
         </div>
 
         <div class="grid justify-center">
-            <form method="POST" action="{{ route('usuarios.add') }}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
+            <form method="POST" action="{{ route('users.add') }}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
                 @csrf
                 <h2 class="text-center text-3xl">Registrar Usuario</h2>
 
@@ -56,7 +56,7 @@
         </div>
 
         <div class="flex">
-            <a class="mx-auto mt-4" href="./">
+            <a class="mx-auto mt-4" href="{{ route('users.index') }}">
                 <button class="font-Coda text-white bg-secondary-green px-8 py-1 rounded-lg">
                     Volver
                 </button>
