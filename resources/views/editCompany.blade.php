@@ -6,6 +6,7 @@
 
 
 @section('content')
+@if(Auth::user()->rol == 'administrador')
 
     <!-- --------------HEADER-------------- -->
     <header class="bg-secondary-green py-3">
@@ -76,6 +77,21 @@
             
         </div>
     </body>
+    @else
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Denegado</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="text-center p-5 bg-white rounded shadow-md">
+        <h1 class="text-2xl font-bold text-red-600">Acceso Denegado</h1>
+        <p class="mt-4 text-gray-700">No tienes permiso para acceder a esta sección.</p>
+        <a href="{{ route('home') }}" class="mt-6 inline-block px-4 py-2 bg-main-green text-white rounded hover:bg-green-600">Regresar al Inicio</a>
+    </div>
+</body>
+@endif
 <!-- --------------BODY-------------- -->
 
 <script>
