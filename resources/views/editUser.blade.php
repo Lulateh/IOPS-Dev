@@ -24,13 +24,13 @@
       
         <div class="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
             <div class="flex justify-center sm:justify-start">
-                <img class="w-40 h-40 sm:w-60 sm:h-60 rounded-full object-cover" 
+                <img id="previewImage" class="w-40 h-40 sm:w-60 sm:h-60 rounded-full object-cover" 
                      src="{{ Auth::user()->imagen_url ? asset('profile_images/' . Auth::user()->imagen_url) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' }}" 
                      alt="Foto de perfil">
             </div>
             <div class="flex flex-col justify-center">
                 <label class="block text-sm font-medium text-black mb-1">Cambiar Foto de Perfil</label>
-                <input type="file" name="imagen" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100">
+                <input type="file" id="fileInput" name="imagen" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100">
             </div>
         </div>
 
@@ -60,7 +60,20 @@
     </div>
 </form>
 
-
+<script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            document.getElementById('previewImage').src = e.target.result;
+        }
+        
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
 
 @if(session('success'))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -99,4 +112,5 @@
     </script>
 @endif
 </body>
+
 @endsection

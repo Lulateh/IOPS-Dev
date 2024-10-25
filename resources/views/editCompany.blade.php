@@ -6,6 +6,7 @@
 
 
 @section('content')
+@if(Auth::user()->rol == 'administrador')
 
     <!-- --------------HEADER-------------- -->
     <header class="bg-secondary-green py-3">
@@ -29,7 +30,7 @@
     <!-- --------------BODY-------------- -->
     <body class="bg-main-green">   
         <div class="mt-4 mb-4">
-            <a href="" class="ml-20 text-white font-Coda hover:underline text-4xl">  
+            <a href="{{ route('profile') }}" class="ml-20 text-white font-Coda hover:underline text-4xl">  
             ← Volver
            </a>
          </div>
@@ -43,7 +44,8 @@
             
                 <div class="flex flex-col mb-2">
                     <img id="previewImage" class="bg-white w-24 h-24 rounded-full object-cover" 
-                    src="{{ asset('storage/' . $existingCompany->logo) }}" alt="Foto de perfil">
+                         src="{{ asset('company_images/' . $existingCompany->logo) }}" alt="Foto de perfil">
+
                     <label class="font-bold">Cambiar Foto de Perfil</label>
                     <input type="file" id="fileInput" name="imagen" class="mt-1 text-sm text-black file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100"> 
                 </div>
@@ -75,6 +77,21 @@
             
         </div>
     </body>
+    @else
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Denegado</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="text-center p-5 bg-white rounded shadow-md">
+        <h1 class="text-2xl font-bold text-red-600">Acceso Denegado</h1>
+        <p class="mt-4 text-gray-700">No tienes permiso para acceder a esta sección.</p>
+        <a href="{{ route('home') }}" class="mt-6 inline-block px-4 py-2 bg-main-green text-white rounded hover:bg-green-600">Regresar al Inicio</a>
+    </div>
+</body>
+@endif
 <!-- --------------BODY-------------- -->
 
 <script>

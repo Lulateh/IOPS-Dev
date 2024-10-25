@@ -54,7 +54,9 @@
                         <h2 class="text-3xl font-bold ">Personas</h2>
                         <li><a href="{{route('proveedores.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Proveedores</a></li>
                         <li><a href="{{route('clientes.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Clientes</a></li>
+                        @if(Auth::user()->rol == 'administrador')
                         <li><a href="{{route('users.index')}}" class = "block px-4 py-2 text-xl text-gray-700 hover:bg-main-green hover:text-gray-100">Usuarios</a></li>
+                        @endif                    
                     </ul>
                 </div>
               </div>
