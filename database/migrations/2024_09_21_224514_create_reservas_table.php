@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('estado', ['entregado', 'reservado', 'cancelado']);
             $table->foreignId('cliente_id')->constrained('clientes');
             $table->foreignId('user_id')->constrained('usuarios');
+            $table->foreignId('empresa_id')->constrained('empresas');
             $table->timestamps();
     });
     }

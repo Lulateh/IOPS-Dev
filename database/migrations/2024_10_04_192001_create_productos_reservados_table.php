@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('producto_id')->constrained('productos');
             $table->foreignId('reservas_id')->constrained('reservas');
             $table->integer('cantidad');
+            $table->foreignId('empresa_id')->constrained('empresas');
         });
     }
 

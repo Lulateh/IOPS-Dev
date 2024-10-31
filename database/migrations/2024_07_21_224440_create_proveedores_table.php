@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email', 100);
             $table->string('telefono', 20);
             $table->enum('estado', ['activo', 'inactivo']) ->default('activo');
+            $table->foreignId('empresa_id')->constrained('empresas');
             $table->timestamps();
     });
     }

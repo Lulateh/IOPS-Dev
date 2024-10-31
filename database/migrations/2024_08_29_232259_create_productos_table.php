@@ -22,6 +22,7 @@ return new class extends Migration
         $table->string('imagen_url', 255)->nullable();
         $table->string('ubicacion_bodega', 100);
         $table->integer('cantidad_stock')->default(0);
+        $table->foreignId('empresa_id')->constrained('empresas');
         
         
         
