@@ -16,6 +16,7 @@ class ProductoReservado extends Model
         'reservas_id',
         'producto_id',
         'cantidad',
+        'empresa_id',
     ];
 
     public function producto()
@@ -26,5 +27,10 @@ class ProductoReservado extends Model
     public function reserva()
     {
         return $this->belongsTo(Reserva::class);
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresa_id');
     }
 }

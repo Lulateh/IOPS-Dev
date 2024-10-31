@@ -23,10 +23,14 @@ class Product extends Model implements Auditable
         'ubicacion_bodega',
         'proveedor_id',
         'cantidad_stock',
+        'empresa_id',
     ];
     public function incomings()
     {
         return $this->hasMany(Incoming::class, 'producto_id');
     }
 
+    public function empresas(){
+        return $this->belongsTo(Empresa::class, 'empresa_id');
+    }
 }

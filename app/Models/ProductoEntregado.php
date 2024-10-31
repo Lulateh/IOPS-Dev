@@ -15,7 +15,8 @@ class ProductoEntregado extends Model
         'id',
         'salidas_id',
         'producto_id',
-        'cantidad'];
+        'cantidad',
+        'empresa_id',];
 
     public function salida()
     {
@@ -25,5 +26,10 @@ class ProductoEntregado extends Model
     public function producto()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresa_id');
     }
 }

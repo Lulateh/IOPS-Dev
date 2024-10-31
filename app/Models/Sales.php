@@ -15,6 +15,7 @@ class Sales extends Model
         'fecha_salida', 
         'user_id',
         'cliente_id',
+        'empresa_id',
     ];
 
     
@@ -26,5 +27,10 @@ class Sales extends Model
     public function cliente()
     {
         return $this->belongsTo(Clientes::class, 'cliente_id');
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresa_id');
     }
 }

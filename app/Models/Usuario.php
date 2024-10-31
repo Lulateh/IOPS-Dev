@@ -20,7 +20,8 @@ class Usuario extends Authenticatable
         'email',
         'password',
         'imagen_url',
-        'rol'
+        'rol',
+        'empresa_id'
     ];
 
     protected $hidden = [
@@ -32,4 +33,9 @@ class Usuario extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresa_id');
+    }
 }

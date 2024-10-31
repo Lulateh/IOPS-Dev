@@ -18,16 +18,17 @@ class Reserva extends Model
         'estado',
         'cliente_id',
         'producto_id',
+        'empresa_id',
     ];
 
     public function cliente()
     {
-        return $this->belongsTo(Clientes::class);
+        return $this->belongsTo(Clientes::class, 'cliente_id');
     }
 
     public function producto()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class, 'producto_id');
     }
 
     public function productosReservados()
@@ -35,4 +36,8 @@ class Reserva extends Model
         return $this->hasMany(ProductoReservado::class, 'reservas_id');
     }
 
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresa_id');
+    }
 }

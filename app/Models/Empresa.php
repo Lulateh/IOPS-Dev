@@ -16,12 +16,12 @@ class Empresa extends Model implements Auditable
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 
     public function productos()
     {
-        return $this->hasMany(Producto::class);
+        return $this->hasMany(Product::class);
     }
 
     public function reservas()
@@ -36,12 +36,12 @@ class Empresa extends Model implements Auditable
 
     public function sales()
     {
-        return $this->hasMany(Venta::class);
+        return $this->hasMany(Sales::class);
     }
 
     public function clientes()
     {
-        return $this->hasMany(Cliente::class);
+        return $this->hasMany(Clientes::class);
     }
 
     public function proveedores()

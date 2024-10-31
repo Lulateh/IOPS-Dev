@@ -15,7 +15,8 @@ class Incoming extends Model implements Auditable
     protected $fillable = [
         'cantidad_entrada', 
         'producto_id', 
-        'proveedor_id'
+        'proveedor_id',
+        'empresa_id',
     ];
 
     
@@ -29,8 +30,13 @@ class Incoming extends Model implements Auditable
         return $this->belongsTo(Proveedor::class, 'proveedor_id');
     }
 
-    public function user()
+    public function usuario()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Usuario::class, 'user_id');
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresa_id');
     }
 }
