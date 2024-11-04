@@ -38,26 +38,30 @@ class ReservationController extends Controller
     }
 
     public function redirectToEdit($id)
-    {
-        $existingReservation = Reserva::find($id);
-        $productosReservados = ProductoReservado::with('producto')->where('reservas_id', $id)->get();
-        $productos = Product::all();
-        $reserva = Reserva::with('productosReservados.producto')->find($id);
-        $existingClient = Clientes::find($existingReservation->cliente_id);
-        $clientes = Clientes::all();
+{
+    $existingReservation = Reserva::find($id);
+    $productosReservados = ProductoReservado::with('producto')->where('reservas_id', $id)->get();
+    $productos = Product::all();
+    $reserva = Reserva::with('productosReservados.producto')->find($id);
+    $existingClient = Clientes::find($existingReservation->cliente_id);
 
-        if ($existingReservation) {
-            return view('reservations.editReservation', compact('existingReservation', 'existingClient', 'id', 'productosReservados', 'productos', 'clientes', 'reserva'));
-        } else {
-            return redirect(route('reservations'))->with("error", "No se encontró la Reserva");
-        }
+    $clientes = Clientes::where('estado', 'activo')->get();
+
+    if ($existingReservation) {
+        return view('reservations.editReservation', compact('existingReservation', 'existingClient', 'id', 'productosReservados', 'productos', 'clientes', 'reserva'));
+    } else {
+        return redirect(route('reservations'))->with("error", "No se encontró la Reserva");
     }
+}
 
     public function updateProductReservation(Request $request, $id)
     {
         $existingReservation = Reserva::find($id);
         $producto = Product::find($request->productSelect);
 
+        if (!$existingReservation) {
+            return redirect(route('reservations'))->with('error', 'Reserva no encontrada.');
+        }
         if (!$producto) {
             return redirect(route('reservation.redirect.edit', $id))->with('error', 'Producto no encontrado.');
         }
@@ -66,6 +70,10 @@ class ReservationController extends Controller
         $productoReservado = $existingReservation->productosReservados()->where('producto_id', $request->productSelect)->first();
         $cantidadTotalAReservar = $productoReservado ? $productoReservado->cantidad + $request->productCant : $request->productCant;
 
+        $request -> validate([
+            'productSelect' => 'required|exists:productos,id',
+            'productCant' => 'required|integer|min:1'
+        ]);
         if ($cantidadTotalAReservar > $cantidadDisponible) {
             return redirect(route('reservation.redirect.edit', $id))->with('error', 'No hay suficiente stock disponible para reservar.');
         }

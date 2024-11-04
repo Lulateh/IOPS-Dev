@@ -62,7 +62,7 @@
                 <p class="text-lg  ">email : {{ $incoming->proveedor->email }}</p>
                 <p class="text-lg  mb-6">Telefono: {{ $incoming->proveedor->telefono }}</p>
 
-                <p class="text-lg">Encargado de mercadería: {{$incoming->user_nombre}}</p>
+                <p class="text-lg">Encargado de mercadería: {{ $incoming->usuario->nombre }}</p>
 
                 <p class="text-s mt-20 ">Fecha de Entrada: {{ $incoming->created_at->format('d-m-y') }}</p>
 

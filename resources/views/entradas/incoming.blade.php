@@ -68,7 +68,7 @@
                 
                 <div>
                     <h1 class="font-Coda text-main-green text-3xl">
-                    Entradas pendientes
+                    Entradas de productos
                     </h1>
                 </div>
 
