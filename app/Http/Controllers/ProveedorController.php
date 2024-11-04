@@ -13,6 +13,7 @@ class ProveedorController extends Controller
         $proveedor->nombre_proveedor = $request->nombre;
         $proveedor->email = $request->email;
         $proveedor->telefono = $request->telefono;
+        $proveedor->empresa_id = auth()->user()->empresa_id;
         $proveedor->save();
 
         return redirect()->route('proveedores.index')->with('success', 'Proveedor guardado exitosamente.');

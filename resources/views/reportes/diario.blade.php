@@ -80,53 +80,39 @@
                                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Descripción del producto</th>
                                 <th class="py-2 px-4 border-b bg-[#64746B] text-white">Precio del producto</th>
                                 <th class="py-2 px-4 border-b bg-[#26413C] text-white">Condición de stock</th>
-                                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Cantidad de productos vendidos</th>
-                                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Cantidad de productos comprados</th>
+                                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Movimiento</th>
+                                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Cantidad de productos del movimiento</th>
                                 <th class="py-2 px-4 border-b bg-[#64746B] text-white">Ganancias</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
+                            @php
+                                $iteration = 0;
+                            @endphp
+
+                            @foreach ($audits as $audit)
+                                @if($audit->auditable_type == 'App\Models\ProductoEntregado')
+                                    <tr>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->nombre }}</td>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->marca }}</td>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->descripcion }}</td>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->precio_venta }}</td>
+                                        @if($reportedProducts[ $iteration ]->cantidad_stock > 0)
+                                            <td class="py-2 px-4 text-center border-b">En stock</td>
+                                        @else
+                                            <td class="py-2 px-4 text-center border-b">Agotado</td>
+                                        @endif
+                                        @if($audit->auditable_type == 'App\Models\ProductoEntregado')
+                                            <td class="py-2 px-4 text-center border-b">Venta</td>
+                                        @endif
+                                        <td class="py-2 px-4 text-center border-b">{{ $saledProducts[ $iteration ]->cantidad }}</td>
+                                        <td class="py-2 px-4 text-center border-b">₡{{ $saledProducts[ $iteration ]->cantidad * $reportedProducts[ $iteration ]->precio_venta }}</td>
+                                    </tr>
+                                    @php
+                                        $iteration++;
+                                    @endphp
+                                @endif
+                            @endforeach
                         </tbody>
                 </table>
             </div>

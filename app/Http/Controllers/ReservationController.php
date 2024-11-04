@@ -19,6 +19,7 @@ class ReservationController extends Controller
         $reserva->cliente_id = 1;
         $reserva->fecha_salida = now();
         $reserva->user_id = auth()->user()->id;
+        $reserva->empresa_id = auth()->user()->empresa_id;
         $reserva->estado = 'Reservado';
         $reserva->save();
 
@@ -87,6 +88,7 @@ class ReservationController extends Controller
             $newProductoReservado->reservas_id = $id;
             $newProductoReservado->producto_id = $request->productSelect;
             $newProductoReservado->cantidad = $request->productCant;
+            $newProductoReservado->empresa_id = auth()->user()->empresa_id;
             $newProductoReservado->save();
             $producto->cantidad_stock -= $request->productCant;
             $producto->save();
@@ -154,6 +156,7 @@ class ReservationController extends Controller
                 $newSales->fecha_salida = now();
                 $newSales->cliente_id = $reserva->cliente_id;
                 $newSales->user_id = auth()->user()->id;
+                $newSales->empresa_id = auth()->user()->empresa_id;
                 $newSales->save();
 
                 foreach ($productosReservados as $productoReservado) {
@@ -161,6 +164,7 @@ class ReservationController extends Controller
                     $newProductoEntregado->salidas_id = $newSales->id;
                     $newProductoEntregado->producto_id = $productoReservado->producto_id;
                     $newProductoEntregado->cantidad = $productoReservado->cantidad;
+                    $newProductoEntregado->empresa_id = auth()->user()->empresa_id;
                     $newProductoEntregado->save();
                 }
 

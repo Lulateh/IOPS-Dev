@@ -25,6 +25,7 @@ class HomeController extends Controller{
         $product -> descripcion = $request -> details;
         $product -> fecha_vencimiento = $request -> expiration;
         $product -> ubicacion_bodega = $request -> location;
+        $product -> empresa_id = auth() -> user() -> empresa_id;
         $product -> save();
 
         return redirect(route('home'));
