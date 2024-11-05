@@ -51,11 +51,11 @@
         <div class="mt-4 flex">
             <a href="{{ route('product.redirect.edit', $existingProduct['id'])}}" class="text-white bg-main-green hover:bg-secondary-green px-6 py-2 rounded-lg font-Coda">Editar</a>
     
-            <div class="mt-[0.43rem] ml-5">
+            {{-- <div class="mt-[0.43rem] ml-5">
                 <label for="deleteProductModal" class=" hover:bg-red-500 text-white bg-main-green px-6 py-2 rounded-lg font-Coda">
                     Eliminar
                 </label>
-            </div>
+            </div> --}}
             <input type="checkbox" id="deleteProductModal" class="peer fixed appearance-none opacity-0">
             <label for="deleteProductModal" class="pointer-events-none invisible fixed inset-0 flex cursor-pointer items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30 opacity-0 transition-all duration-200 ease-in-out peer-checked:pointer-events-auto peer-checked:visible peer-checked:opacity-100 peer-checked:[&>*]:translate-y-0 peer-checked:[&>*]:scale-100">
                 <label class="max-h-[calc(100vh - 5em)] h-fit max-w-screen-lg scale-90 overflow-y-auto overscroll-contain rounded-md bg-white p-6 text-black shadow-2xl transition" for="deleteProductModal">
