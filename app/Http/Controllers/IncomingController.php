@@ -11,6 +11,13 @@ class IncomingController extends Controller
 
     public function guardarEntrada(Request $request){
         
+        $request->validate([
+            'cantidad' => 'required|integer|min:1',
+            'prod_id' => 'required|exists:productos,id', 
+            'prov_id' => 'required|exists:proveedores,id',
+        ]);
+
+
         $proveedores = Proveedor::where('estado', 'activo')->get();
         $newIncoming = new Incoming();
         $newIncoming -> producto_id = $request -> prod_id;
@@ -25,13 +32,8 @@ class IncomingController extends Controller
             $product -> save();
         }
 
-        $request->validate([
-            'cantidad_entrada' => 'required|integer|min:1',
-            'prod_id' => 'required|exists:products,id', 
-            'prov_id' => 'required|exists:proveedors,id',
-        ]);
-
-        return redirect(route('incoming'), compact('proveedores'));
+        
+        return redirect(route('incoming'));
     }
     
     public function index()

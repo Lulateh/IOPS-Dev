@@ -47,6 +47,9 @@
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price_income" required><br>
                     <label for="price_sale" class="font-Coda"> Precio de Venta </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="price" name="price_sale" required><br>
+                    @if ($errors->has('price_sale'))
+                        <div class="text-red-600 mt-1">{{ $errors->first('price_sale') }}</div>
+                    @endif
                     <label for="location" class="font-Coda"> Ubicación </label> <br>
                     <input class="rounded-lg my-2 bg-card-bg w-96" type="text" id="location" name="location"><br>
                 </div>

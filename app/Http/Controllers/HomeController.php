@@ -8,6 +8,21 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller{
     public function addProduct(Request $request){
+        $request->validate([
+        'productName' => 'required|string|max:255',
+        'brand' => 'required|string|max:255',
+        'price_sale' => 'required|numeric|min:0',
+        'price_income' => 'required|numeric|min:0',
+        'details' => 'nullable|string',
+        'expiration' => 'nullable|date',
+        'location' => 'nullable|string|max:255',
+        'img' => 'nullable|image',
+    ]);
+
+    if ($request->price_sale < $request->price_income) {
+        return redirect()->back()->withErrors(['price_sale' => 'El precio de venta no puede ser menor que el precio de compra.']);
+    }
+        
         $product = new Product();
 
         if($request->hasFile('img')){
