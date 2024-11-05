@@ -78,11 +78,13 @@
                                 <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Nombre del producto</th>
                                 <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Marca del producto</th>
                                 <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Descripción del producto</th>
-                                <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Precio del producto</th>
+                                <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Precio de compra</th>
+                                <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Precio de venta</th>
                                 <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Condición de stock</th>
                                 <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Movimiento</th>
                                 <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Cantidad de productos del movimiento</th>
                                 <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Ganancias bruta</th>
+                                <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Ganancias netas</th>
                                 
                             </tr>
                         </thead>
@@ -97,7 +99,8 @@
                                         <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->nombre }}</td>
                                         <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->marca }}</td>
                                         <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->descripcion }}</td>
-                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->precio_venta }}</td>
+                                        <td class="py-2 px-4 text-center border-b">₡{{ $reportedProducts[ $iteration ]->precio_compra }}</td>
+                                        <td class="py-2 px-4 text-center border-b">₡{{ $reportedProducts[ $iteration ]->precio_venta }}</td>
                                         @if($reportedProducts[ $iteration ]->cantidad_stock > 0)
                                             <td class="py-2 px-4 text-center border-b">En stock</td>
                                         @else
@@ -108,6 +111,7 @@
                                         @endif
                                         <td class="py-2 px-4 text-center border-b dt-body-center">{{ $saledProducts[ $iteration ]->cantidad }}</td>
                                         <td class="py-2 px-4 text-center border-b">₡{{ $saledProducts[ $iteration ]->cantidad * $reportedProducts[ $iteration ]->precio_venta }}</td>
+                                        <td class="py-2 px-4 text-center border-b">₡{{ $saledProducts[ $iteration ]->cantidad * ($reportedProducts[ $iteration ]->precio_venta - $reportedProducts[ $iteration ]->precio_compra) }}</td>
                                     </tr>
                                     @php
                                         $iteration++;
