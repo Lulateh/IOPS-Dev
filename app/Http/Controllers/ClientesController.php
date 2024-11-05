@@ -14,6 +14,7 @@ class ClientesController extends Controller
         $cliente->email = $request->email;
         $cliente->telefono = $request->telefono;
         $cliente->direccion = $request->direccion;
+        $cliente->empresa_id = auth()->user()->empresa_id;
         $cliente->save();
 
         return redirect()->route('clientes.index')->with('success', 'Cliente guardado exitosamente.');

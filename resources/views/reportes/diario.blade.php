@@ -71,62 +71,49 @@
             </div>
 
         <div class="ml-20 mt-5">
-            <div class=" mt-8 rounded h-[26rem] overflow-y-scroll mr-10">
-                <table class="min-w-full bg-white">
+            <div class=" mt-8 rounded h-[26rem]  mr-10">
+                <table id="salesReport" class="min-w-full bg-white display compact ">
                         <thead>
                             <tr>
-                                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Nombre del producto</th>
-                                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Marca del producto</th>
-                                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Descripción del producto</th>
-                                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Precio del producto</th>
-                                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Condición de stock</th>
-                                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Cantidad de productos vendidos</th>
-                                <th class="py-2 px-4 border-b bg-[#26413C] text-white">Cantidad de productos comprados</th>
-                                <th class="py-2 px-4 border-b bg-[#64746B] text-white">Ganancias</th>
+                                <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Nombre del producto</th>
+                                <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Marca del producto</th>
+                                <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Descripción del producto</th>
+                                <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Precio del producto</th>
+                                <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Condición de stock</th>
+                                <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Movimiento</th>
+                                <th class="py-2 px-4 border-b bg-[#26413C] text-white dt-head-center">Cantidad de productos del movimiento</th>
+                                <th class="py-2 px-4 border-b bg-[#64746B] text-white dt-head-center">Ganancias bruta</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 text-center border-b">Cigarros Pall Moll Alaska</td>
-                                <td class="py-2 px-4 text-center border-b">Pall Moll</td>
-                                <td class="py-2 px-4 text-center border-b">Cigarros</td>
-                                <td class="py-2 px-4 text-center border-b">₡2115.00</td>
-                                <td class="py-2 px-4 text-center border-b">En stock</td>
-                                <td class="py-2 px-4 text-center border-b">75</td>
-                                <td class="py-2 px-4 text-center border-b">20</td>
-                                <td class="py-2 px-4 text-center border-b">10000</td>
-                            </tr>
+                            @php
+                                $iteration = 0;
+                            @endphp
+
+                            @foreach ($audits as $audit)
+                                @if($audit->auditable_type == 'App\Models\ProductoEntregado')
+                                    <tr>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->nombre }}</td>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->marca }}</td>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->descripcion }}</td>
+                                        <td class="py-2 px-4 text-center border-b">{{ $reportedProducts[ $iteration ]->precio_venta }}</td>
+                                        @if($reportedProducts[ $iteration ]->cantidad_stock > 0)
+                                            <td class="py-2 px-4 text-center border-b">En stock</td>
+                                        @else
+                                            <td class="py-2 px-4 text-center border-b">Agotado</td>
+                                        @endif
+                                        @if($audit->auditable_type == 'App\Models\ProductoEntregado')
+                                            <td class="py-2 px-4 text-center border-b">Venta</td>
+                                        @endif
+                                        <td class="py-2 px-4 text-center border-b dt-body-center">{{ $saledProducts[ $iteration ]->cantidad }}</td>
+                                        <td class="py-2 px-4 text-center border-b">₡{{ $saledProducts[ $iteration ]->cantidad * $reportedProducts[ $iteration ]->precio_venta }}</td>
+                                    </tr>
+                                    @php
+                                        $iteration++;
+                                    @endphp
+                                @endif
+                            @endforeach
                         </tbody>
                 </table>
             </div>
@@ -134,4 +121,30 @@
     </div>
 
 </section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.1.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.print.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#salesReport').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json'
+            }
+        });
+    });
+</script>
 @endsection

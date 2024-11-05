@@ -25,7 +25,7 @@
   <!-- --------------HEADER-------------- -->
 
   <!-- --------------BODY-------------- -->
-  <section class="flex columns-2">
+  <section class="columns-2 flex">
 
     <div class="basis-1/6 bg-card-bg pb-[10.3rem]">
       <div class="flex flex-col font-Coda justify-center text-center mt-20">
@@ -52,9 +52,9 @@
 
     <div>
       <div class="mt-10 ml-20">
-              <h1 class="font-normal font-Poppins text-main-green text-3xl">
-                Ventas
-              </h1>
+        <h1 class="font-normal font-Poppins text-main-green text-3xl">
+          Ventas
+        </h1>
       </div>
       
       <div class="ml-20 mt-5">
