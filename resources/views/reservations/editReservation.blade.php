@@ -102,7 +102,7 @@ Edit Reservation
                                         @foreach($productos as $producto)
                                                 <option value="{{ $producto->id }}" 
                                                 {{ old('productSelect', isset($selectedProduct) && $selectedProduct->id == $producto->id ? 'selected' : '') }}>
-                                                {{ $producto->nombre }}
+                                                {{ $producto->nombre }} ({{ $producto->cantidad_stock }})
                                             </option>
                                         @endforeach
                                     </select>
