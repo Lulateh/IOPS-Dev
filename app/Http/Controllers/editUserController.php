@@ -62,27 +62,45 @@ class editUserController extends Controller
 
     public function updatePassword(Request $request)
     {
-
-       $request->validate([
-        'current_password' => 'required',
-        'new_password' => 'required|confirmed',
-    ]);
-
-
-    $user = Auth::user();
-
-
-    if (!Hash::check($request->current_password, $user->password)) {
-        return back()->withErrors(['current_password' => 'La contraseña actual no es correcta.']);
+        try {
+            // Realizar la validación
+            $request->validate([
+                'current_password' => 'required',
+                'new_password' => [
+                    'required',
+                    'confirmed',
+                    'min:8',                
+                    'regex:/[A-Z]/',        
+                    'regex:/[a-z]/',        
+                    'regex:/[0-9]/',        
+                    'regex:/[@$!%*?&]/',    
+                ],
+            ]);
+    
+            $user = Auth::user();
+    
+            
+            if (!Hash::check($request->current_password, $user->password)) {
+                return back()->withErrors(['current_password' => 'La contraseña actual no es correcta.']);
+            }
+    
+            
+            $user->password = Hash::make($request->new_password);
+            $user->save();
+    
+            return redirect()->back()->with('success', 'La contraseña ha sido actualizada correctamente. Por favor, inicia sesión con la nueva contraseña.');
+        } catch (ValidationException $e) {
+            
+            return redirect()->back()
+                ->withErrors($e->errors()) 
+                ->withInput();
+        } catch (\Exception $e) {
+            
+            return redirect()->back()
+                ->withErrors(['error' => 'Ocurrió un error al intentar actualizar la contraseña. Por favor, inténtelo de nuevo.'])
+                ->withInput();
+        }
     }
-
-  
-    $user->password = Hash::make($request->new_password);
-    $user->save();
-
-    return redirect()->back()->with('success', 'La contraseña ha sido actualizada correctamente.\n\nAhora inicia sesion con la nueva contraseña');
-
-    }   
 
    
 
