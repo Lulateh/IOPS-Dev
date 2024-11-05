@@ -10,6 +10,8 @@ class IncomingController extends Controller
 {
 
     public function guardarEntrada(Request $request){
+        
+        $proveedores = Proveedor::where('estado', 'activo')->get();
         $newIncoming = new Incoming();
         $newIncoming -> producto_id = $request -> prod_id;
         $newIncoming -> cantidad_entrada = $request -> cantidad;
@@ -21,7 +23,14 @@ class IncomingController extends Controller
             $product -> cantidad_stock += $request -> cantidad;
             $product -> save();
         }
-        return redirect(route('incoming'));
+
+        $request->validate([
+            'cantidad_entrada' => 'required|integer|min:1',
+            'prod_id' => 'required|exists:products,id', 
+            'prov_id' => 'required|exists:proveedors,id',
+        ]);
+
+        return redirect(route('incoming'), compact('proveedores'));
     }
     
     public function index()
@@ -80,9 +89,10 @@ class IncomingController extends Controller
 
     public function edit($id)
     {
-        $incoming = Incoming::findOrFail($id); 
-        $proveedores = Proveedor::all();
+        $incoming = Incoming::findOrFail($id);
+        $proveedores = Proveedor::where('estado', 'activo')->get();
         $posts = Product::all();
+        
 
         return view('entradas.incomingEdit', compact('incoming', 'proveedores', 'posts'));
     }

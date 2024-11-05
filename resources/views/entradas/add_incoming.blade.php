@@ -54,7 +54,9 @@
                         <select name ="prov_id" class="block appearance-none w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgba(38, 65, 60, 0.25);">
                             <option value="">Seleccione un proveedor</option>
                             @foreach($proveedores as $proveedor)
-                            <option value="{{ $proveedor->id }}">{{ $proveedor->nombre_proveedor}}</option>
+                            @if($proveedor->estado == 'activo')
+                                <option value="{{ $proveedor->id }}">{{ $proveedor->nombre_proveedor}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>

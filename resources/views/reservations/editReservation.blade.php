@@ -35,7 +35,7 @@ Edit Reservation
 <!-- --------------BODY-------------- -->
 <body class="bg-card-bg">
 
-<div class="flex-container flex items-end justify-center">
+<div class="flex-container mt-[-2.5rem] flex items-end justify-center">
 
     <div class="inline-block align-bottom text-left overflow-hidden mt-30"> 
 
@@ -49,75 +49,15 @@ Edit Reservation
             </div>
         @endif
 
-        <div class="text-center mt-2"> 
+        <div class="text-center "> 
 
             <h2 class="font-Poppins font-medium text-3xl mb-5">Modificar reserva</h2>
 
-            <div class="flex flex-row"> 
+            <div class="flex flex-row gap-8"> 
 
-                <div class="bg-main-green bg-opacity-30 rounded-lg w-[36rem] mr-16">
-
-                    <div class="m-8 overflow-y-scroll h-[25.4rem]"> 
-
-                      <div class="flex">
-                        <div>
-                            @foreach ($productosReservados as $productoReservado)
-                                <div class="flex">
-                                    <div class="mt-2"> 
-                                        <form action="{{ route('deleteProductReservation', ['reservaId' => $existingReservation->id, 'productoId' => $productoReservado->producto_id]) }}" 
-                                            method="POST" style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="bg-transparent border-0 p-0">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                                                </svg>
-                                            </button>
-                                        </form>
-                                    </div>
-                        
-                                    <div class="mt-3 ml-2"> 
-                                        <button onclick="fillEditForm({ 
-                                            id: {{ $productoReservado->producto_id }}, 
-                                            name: '{{ $productoReservado->producto->nombre }}',
-                                            quantity: {{ $productoReservado->cantidad }} 
-                                        })">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                       
-                                    <div class="grid grid-cols-2 gap-[0.01rem] mb-6 mr-0">
-                                        <div class="flex border border-secondary-green w-[24rem] h-14 mt-1 ml-2 m-2">
-                                            <div class="flex flex-col ml-6 mt-2 text-left">
-                                                @foreach ($productos as $producto)
-                                                    @if ($productoReservado -> producto_id == $producto['id'])
-                                                        <p class="text-secondary-green font-Coda text-sm m-0">Producto: {{$producto['nombre']}}</p>
-                                                        <p class="text-secondary-green font-Coda text-sm m-0">Código: {{$producto['id']}}</p>
-                                                    @endif
-                                                @endforeach
-                                            </div>
-
-                                            <div class="flex mx-auto mt-[0.76rem] ml-[10rem]">
-                                                <p class="text-secondary-green font-Poppins font-extrabold text-2xl">{{$productoReservado -> cantidad}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div> 
-
-                      </div>
-
-                    </div>
-
-                </div>
                 
-                <div class="flex-col">
+                
+                <div class="flex-col ">
 
                     <div> 
                       <div class="bg-main-green bg-opacity-30 rounded-lg p-2 mb-6 font-Coda font-semibold columns-2 w-[38rem] h-[12rem]">
@@ -185,9 +125,71 @@ Edit Reservation
     
                 </div>
 
+                <div class="bg-main-green bg-opacity-30 rounded-lg w-[36rem] mr-16">
+
+                    <div class="m-8 overflow-y-scroll h-[25.4rem]"> 
+
+                      <div class="flex">
+                        <div>
+                            @foreach ($productosReservados as $productoReservado)
+                                <div class="flex">
+                                    <div class="mt-2"> 
+                                        <form action="{{ route('deleteProductReservation', ['reservaId' => $existingReservation->id, 'productoId' => $productoReservado->producto_id]) }}" 
+                                            method="POST" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="bg-transparent border-0 p-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                        
+                                    <div class="mt-3 ml-2"> 
+                                        <button onclick="fillEditForm({ 
+                                            id: {{ $productoReservado->producto_id }}, 
+                                            name: '{{ $productoReservado->producto->nombre }}',
+                                            quantity: {{ $productoReservado->cantidad }} 
+                                        })">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                       
+                                    <div class="grid grid-cols-2 gap-[0.01rem] mb-6 mr-0">
+                                        <div class="flex border border-secondary-green w-[24rem] h-14 mt-1 ml-2 m-2">
+                                            <div class="flex flex-col ml-6 mt-2 text-left">
+                                                @foreach ($productos as $producto)
+                                                    @if ($productoReservado -> producto_id == $producto['id'])
+                                                        <p class="text-secondary-green font-Coda text-sm m-0">Producto: {{$producto['nombre']}}</p>
+                                                        <p class="text-secondary-green font-Coda text-sm m-0">Código: {{$producto['id']}}</p>
+                                                    @endif
+                                                @endforeach
+                                            </div>
+
+                                            <div class="flex mx-auto mt-[0.76rem] ml-[10rem]">
+                                                <p class="text-secondary-green font-Poppins font-extrabold text-2xl">{{$productoReservado -> cantidad}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div> 
+
+                      </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="mt-6 mr-6 rounded-lg">
+            <div class="mt-6 mb-10 mr-6 rounded-lg">
                 <button onclick="window.location.href='{{route('reservation.show', $reserva->id)}}'" class="text-white bg-main-green text-lg  p-1 rounded-lg  font-Poppins">
                     Modificar reserva
                 </button>
