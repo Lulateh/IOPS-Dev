@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<header class="bg-main-green py-2">
+<header class="bg-main-blue py-2">
     <div class="columns-2">
         <div>
             <img class="w-24 ml-20" src= "{{ asset('img/IopsIconWhite.png') }}" alt="">
@@ -19,7 +19,7 @@
             </a>
 
             <a href="./safetyPage">
-                <button class="text-white bg-secondary-green ml-2 px-8 py-1 rounded-lg font-Coda">
+                <button class="text-white bg-lilac ml-2 px-8 py-1 rounded-lg font-Coda">
                     Probar LogiStock
                 </button>
             </a>
@@ -41,13 +41,13 @@
 
         <div class="mt-4">
             <a href="./safetyPage">
-                <button class="text-white bg-secondary-green px-8 py-1 rounded-lg font-Coda">
+                <button class="text-white bg-lilac px-8 py-1 rounded-lg font-Coda">
                     Probar LogiStock
                 </button>
             </a>
 
             <a href=" {{ url('/login') }} ">
-                <button class="text-white bg-main-green ml-4 px-8 py-1 rounded-lg font-Coda">
+                <button class="text-white bg-lilac ml-4 px-8 py-1 rounded-lg font-Coda">
                     Ir a LogiStock
                 </button>
             </a>
@@ -60,7 +60,7 @@
     </div>
 </section>
 
-<section class="columns-2 bg-main-green">
+<section class="columns-2 bg-main-blue">
     <div class=" py-28">
         
         <div class="break-inside-avoid  ml-20">
@@ -98,7 +98,7 @@
 
 </section>
 
-<footer class="bg-secondary-green py-2">
+<footer class="bg-main-blue py-2">
     <div class="columns-2">
         <div>
             <img class="w-24 ml-20" src= "{{ asset('img/IopsIconWhite.png') }}" alt="">

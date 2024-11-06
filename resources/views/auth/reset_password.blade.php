@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-<body class="bg-main-green bg-opacity-30">
+<body class="bg-green">
 
     <div class="mt-20 mb-5">
-        <a href="{{ route('profile') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">
+        <a href="{{ route('profile') }}" class="ml-20 text-black font-Coda hover:underline text-4xl">
             ← Volver
         </a>
     </div>
@@ -19,7 +19,7 @@
         @csrf
         <input type="hidden" name="token" value="{{ $token }}">
         
-        <div class="max-w-2xl mx-auto p-6 bg-main-green bg-opacity-35 rounded-lg shadow-md">
+        <div class="max-w-2xl mx-auto p-6 bg-white bg-opacity-35 rounded-lg shadow-md">
 
             <div class="mb-6">
                 <label for="email" class="block text-sm font-medium text-black">Correo Electrónico</label>
@@ -37,7 +37,7 @@
             </div>
 
             <div class="flex justify-end space-x-3">
-                <button type="submit" class="px-4 py-2 bg-main-green text-white rounded-md hover:bg-green-700">Restablecer Contraseña</button>
+                <button type="submit" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700">Restablecer Contraseña</button>
             </div>
         </div>
     </form>

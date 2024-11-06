@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-    <header class="bg-main-green py-2">
+    <header class="bg-main-blue py-2">
         <div class="columns-2">
             <div >
                 <a class="ml-20 mt-4 flex" href="./">
                     <img src="{{ asset('icons/backArrow.svg') }}" alt="">
-                    <p class="font-Coda text-white text-xl">Regresar</p>
+                    <p class="font-Coda text-white text-xl">Volver</p>
                 </a>
             </div>
 
@@ -20,7 +20,7 @@
         </div>
     </header>
 
-    <section class="bg-cream h-screen">
+    <section class="bg-white h-screen">
         <div class="columns-2 pt-36">
             <div class="ml-20">
                 <img class=" size-11/12" src="{{ asset('img/LogiStockIconBlack.png') }}" alt="">

@@ -6,7 +6,7 @@
 
 @section('content')
     
-<section class="bg-main-green py-2  h-screen ">
+<section class="bg-green py-2  h-screen ">
 
     <div class="mt-10">
         <a href="./" class="ml-20 text-white font-Coda hover:underline text-4xl">  
@@ -15,7 +15,7 @@
     </div>
 
         <div class="block ">
-            <img class="mx-auto w-32 mt-6" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
+            <img class="mx-auto w-40 mt-6" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
         </div>
 
     @if (session() -> has("success"))
@@ -31,7 +31,7 @@
     @endif
 
     <div class="grid justify-center mt-10">
-        <form method="POST" action="{{route("login.post")}}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
+        <form method="POST" action="{{route("login.post")}}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl text-black">
             @csrf
             <h2 class="text-center text-3xl mb-10">Iniciar sesión</h2>
             
@@ -56,9 +56,9 @@
             </div>
 
             <div class="mt-6 ml-[7.7rem]">
-                <input class="text-white bg-main-green px-8 py-1 ml-auto rounded-lg" type="submit" value="Iniciar sesion">
+                <input class="text-white bg-main-blue px-8 py-1 ml-auto rounded-lg" type="submit" value="Iniciar sesion">
             </div>
-            <a href="{{ route('forgot.password.view') }}"class="flex mt-4 mx-auto justify-center underline text-main-green hover:text-green-500">Recuperar contraseña</a>
+            <a href="{{ route('forgot.password.view') }}"class="flex mt-4 mx-auto justify-center underline text-black hover:text-green-500">Recuperar contraseña</a>
         </form>
     </div>
     
