@@ -68,7 +68,7 @@
                 
                 <div>
                     <h1 class="font-Coda text-main-green text-3xl">
-                    Entradas de productos
+                    Entradas
                     </h1>
                 </div>
 
