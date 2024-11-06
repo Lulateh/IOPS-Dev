@@ -62,7 +62,7 @@ Edit Reservation
                 <div class="flex-col ">
 
                     <div> 
-                      <div class="bg-main-blue bg-opacity-20 rounded-lg p-2 mb-6 font-Coda font-semibold columns-2 w-[38rem] h-[12rem]">
+                      <div class="bg-lilac bg-opacity-20 rounded-lg p-2 mb-6 font-Coda font-semibold columns-2 w-[38rem] h-[12rem]">
     
                         <div class="flex-col text-base text-left mt-10 ml-10">
                           <p>Cliente: {{ $existingClient['nombre_cliente']}}</p>
@@ -89,7 +89,7 @@ Edit Reservation
                         // Extraemos los IDs de los productos reservados en un array
                             $productosReservadosIds = $productosReservados->pluck('producto_id')->toArray();
                         @endphp
-                        <div class="bg-main-blue bg-opacity-20 rounded-lg p-10 text-left"> 
+                        <div class="bg-lilac bg-opacity-20 rounded-lg p-10 text-left"> 
                             <form action="{{ route('update.productReservation', ['id' => $existingReservation->id ]) }}" method="POST" >
                                 @csrf
                                 
@@ -127,7 +127,7 @@ Edit Reservation
     
                 </div>
 
-                <div class="bg-main-blue bg-opacity-20 rounded-lg w-[36rem] mr-16">
+                <div class="bg-lilac bg-opacity-20 rounded-lg w-[36rem] mr-16">
 
                     <div class="m-8 overflow-y-scroll h-[25.4rem]"> 
 
@@ -245,8 +245,8 @@ Edit Reservation
 
             <!-- Botones de acción -->
             <div class="flex justify-end">
-                <button type="button" class="bg-gray-300 px-4 py-2 rounded mr-2" onclick="closeModal()">Cancelar</button>
-                <button type="submit" class="bg-main-green text-white px-4 py-2 rounded">Guardar</button>
+                <button type="button" class="bg-green text-white px-4 py-2 rounded mr-2" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="bg-main-blue text-white px-4 py-2 rounded">Guardar</button>
             </div>
         </form>
     </div>
