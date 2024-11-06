@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-<body class="bg-main-green bg-opacity-30 p-4">
+@include('components.header')
+<body class="bg-main-green bg-opacity-30 ">
 
 <div class="mt-5 mb-5">
     <a href="{{ route('editUser') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
@@ -13,7 +14,7 @@
     </a>
 </div>
 <h2 class="text-5xl font-Coda my-16 text-center">Cambiar Contraseña</h2>
-
+<div class="px-4">
 <form action="{{ route('updatePassword') }}" method="POST" id="password-form">
     @csrf
 
@@ -47,7 +48,7 @@
         </div>
     </div>
 </form>
-
+</div>
 @if(session('success'))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>

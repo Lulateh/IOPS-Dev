@@ -6,7 +6,8 @@
 @endsection
 
 @section('content')
-<body class="bg-main-green bg-opacity-30 p-4">
+@include('components.header')
+<body class="bg-main-green bg-opacity-30 ">
 
 <div class="mt-5 mb-5">
     <a href="{{ route('profile') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
@@ -14,8 +15,8 @@
     </a>
 </div>
 
-<h2 class="text-5xl font-Coda my-16 text-center">Editar Perfil</h2>
-
+<h2 class="text-5xl font-Coda my-6 text-center">Editar Perfil</h2>
+<div class="px-4">
 <form action="{{ route('updateUser') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
@@ -59,7 +60,7 @@
         </div>
     </div>
 </form>
-
+</div>
 <script>
     document.getElementById('fileInput').addEventListener('change', function(event) {
         const file = event.target.files[0];

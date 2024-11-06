@@ -5,15 +5,7 @@
 @endsection
 
 @section('content')
-<header class="bg-main-green py-2">
-    <div class="columns-2">
-        <div>
-            <a href="{{ route('home') }}">
-                <img class="w-[6rem] ml-20" src="{{ asset('img/LogiStockIconWhite.png') }}" alt="Logotipo">
-            </a>
-        </div>
-    </div> 
-</header>
+@include('components.header')
 
 <body class="bg-teal-100">
 
