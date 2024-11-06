@@ -58,6 +58,11 @@ class ForgotPasswordController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:usuarios,email',
             'password' => 'required|confirmed',
+                    'min:8',                
+                    'regex:/[A-Z]/',        
+                    'regex:/[a-z]/',        
+                    'regex:/[0-9]/',        
+                    'regex:/[@$!%*?&]/',
             'token' => 'required',
         ], [
             'password.confirmed' => 'Las contraseñas no coinciden.',
