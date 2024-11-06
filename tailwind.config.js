@@ -13,14 +13,6 @@ export default {
         'green':'#0B5351',
         'lightB':'#68A8DE',
 
-
-        'main-green': '#26413C',
-        'secondary-green': '#03120E',
-        'card-bg': '#BCC4C3',
-        'cream' : '#F4EBD9',
-        'light-blue' : 'DCFFFD',
-        'card-bg': '#BCC4C3'
-
       },
       fontFamily: {
         Coda: ['Coda'],

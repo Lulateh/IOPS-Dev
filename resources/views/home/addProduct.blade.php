@@ -24,12 +24,11 @@
     </div> 
 </header>
 
-<div>
-    <a class="ml-20 mt-4 flex" href="{{ route('home') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" class="mt-1 w-6 fill-main-green"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
-        <p class="font-Coda text-main-green text-2xl">Volver</p>
-    </a>
-</div>
+<div class="mt-8">
+    <a href="{{ route('home') }}" class="ml-20 text-black font-Coda hover:underline text-2xl">  
+    ← Volver
+   </a>
+ </div>
 
 <div class="mt-6 flex justify-center">
     <div class="bg-lilac bg-opacity-20 px-5 py-3 rounded-lg">

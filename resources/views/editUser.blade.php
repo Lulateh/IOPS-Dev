@@ -2,25 +2,35 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Iops
+    Edit profile
 @endsection
 
 @section('content')
-<body class="bg-main-green bg-opacity-30 p-4">
+<header class="bg-main-blue py-2">
+    <div class="columns-2">
+        <div>
+            <a href="{{ route('home') }}">
+                <img class="w-[6rem] ml-20" src="{{ asset('img/LogiStockIconWhite.png') }}" alt="Logotipo">
+            </a>
+        </div>
+    </div> 
+</header>
+
+<body>
 
 <div class="mt-5 mb-5">
-    <a href="{{ route('profile') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+    <a href="{{ route('profile') }}" class="ml-20 text-main-green font-Coda hover:underline text-2xl">  
       ← Volver
     </a>
 </div>
 
-<h2 class="text-5xl font-Coda my-16 text-center">Editar Perfil</h2>
+<h2 class="text-3xl font-Coda mb-4 text-center">Editar Perfil</h2>
 
 <form action="{{ route('updateUser') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
-    <div class="max-w-2xl mx-auto p-6 bg-main-green bg-opacity-35 rounded-lg shadow-md">
+    <div class="max-w-2xl mx-auto p-6 bg-lightB bg-opacity-20 rounded-lg shadow-md">
       
         <div class="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
             <div class="flex justify-center sm:justify-start">
@@ -30,7 +40,7 @@
             </div>
             <div class="flex flex-col justify-center">
                 <label class="block text-sm font-medium text-black mb-1">Cambiar Foto de Perfil</label>
-                <input type="file" id="fileInput" name="imagen" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100">
+                <input type="file" id="fileInput" name="imagen" class="text-sm file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 hover:file:bg-gray-100">
             </div>
         </div>
 
@@ -47,15 +57,17 @@
         </div>
 
       
-        <div class="mb-6">
-            <a href="{{ route('changePassword') }}" class="px-4 py-2 bg-main-green text-white rounded-md hover:bg-green-700">  
-              Cambiar Contraseña
-            </a>
-        </div>
+        <div class="columns-2 ml-20">
+            <div class="mt-2.5">
+                <a href="{{ route('changePassword') }}" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700">  
+                Cambiar Contraseña
+                </a>
+            </div>
 
-       
-        <div class="flex justify-end space-x-3">
-            <button type="submit" class="px-4 py-2 bg-main-green text-white rounded-md hover:bg-green-700">Guardar Cambios</button>
+        
+            <div>
+                <button type="submit" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700">Guardar Cambios</button>
+            </div>
         </div>
     </div>
 </form>
