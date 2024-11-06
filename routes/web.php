@@ -56,18 +56,26 @@ Route::post('password/update', [ForgotPasswordController::class, 'updatePassword
 
 Route::middleware("auth:usuario") -> group(function(){
     Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');
-    $posts = DB::table('productos') ->get();
-    $incomings = DB::table('entradas')->get();
-    $reservas = DB::table('reservas')->get();
-    $sales = DB::table('salidas')->get();
+    
+    
+    
+    
     $proveedores = DB::table('proveedores') ->get();
     $clientes = DB::table('clientes')->get();
     $productosReservados = DB::table('productos_reservados')->get();
     $productosEntregados = DB::table('productos_entregados')->get();
     $audits = DB::table('audits')->get();
     
-    Route::view('/home', 'home.home', ['posts' => $posts]) -> name('home');
-    Route::view('/home/addProduct', 'home.addProduct', ['proveedor' => $proveedores]) -> name('product.add');
+    Route::get('/home', function () {
+        $empresaId = auth()->user()->empresa_id;
+        $posts = DB::table('productos')->where('empresa_id', $empresaId)->get();
+        return view('home.home', ['posts' => $posts]);
+    })->name('home');
+    Route::get('/home/addProduct', function () {
+        $empresaId = auth()->user()->empresa_id;
+        $proveedores = DB::table('proveedores')->where('empresa_id', $empresaId)->get();
+        return view('home.addProduct', ['proveedor' => $proveedores]);
+    })->name('product.add');
     Route::post('/home/addProduct', [HomeController::class, 'addProduct']) -> name('product.post');
     Route::get('/home/producto/{id}', [HomeController::class, 'showProduct']) -> name('product.show');
     Route::get('/home/producto/{id}/edit', [HomeController::class, 'redirectToEdit']) -> name('product.redirect.edit');
@@ -78,7 +86,22 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
     Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
 
-    Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productosReservados' => $productosReservados, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
+    Route::get('/reservations', function () {
+
+        $empresaId = auth()->user()->empresa_id;
+    
+        $reservas = DB::table('reservas')->where('empresa_id', $empresaId)->get();
+        $productosReservados = DB::table('productos_reservados')->where('empresa_id', $empresaId)->get();
+        $clientes = DB::table('clientes')->where('empresa_id', $empresaId)->get();
+        $posts = DB::table('productos')->where('empresa_id', $empresaId)->get();
+    
+        return view('reservations.reservation', [
+            'reservas' => $reservas,
+            'productosReservados' => $productosReservados,
+            'clientes' => $clientes,
+            'posts' => $posts
+        ]);
+    })->name('reservations');
     Route::post('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); 
     Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
     Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit');
@@ -87,7 +110,21 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::delete('/reservas/{reservaId}/productos/{productoId}', [ReservationController::class, 'deleteProductReservation'])->name('deleteProductReservation');
     Route::post('/reservations/update-status/{id}', [ReservationController::class, 'updateStatus'])->name('reservations.updateStatus');
 
-    Route::view('/sales', 'salidas.sales', ['clientes'=> $clientes, 'posts' => $posts, 'sales' => $sales, 'productosEntregados' => $productosEntregados]) -> name('sales');
+    Route::get('/sales', function () {
+        $empresaId = auth()->user()->empresa_id;
+    
+        $clientes = DB::table('clientes')->where('empresa_id', $empresaId)->get();
+        $posts = DB::table('productos')->where('empresa_id', $empresaId)->get();
+        $sales = DB::table('salidas')->where('empresa_id', $empresaId)->get();
+        $productosEntregados = DB::table('productos_entregados')->where('empresa_id', $empresaId)->get();
+    
+        return view('salidas.sales', [
+            'clientes' => $clientes,
+            'posts' => $posts,
+            'sales' => $sales,
+            'productosEntregados' => $productosEntregados
+        ]);
+    })->name('sales');
     Route::get('/sales/{id}',  [SalesController::class, 'viewSales']) -> name('viewSales');    
 
     Route::get('/profile', [ProfileController::class, 'profile']) -> name('profile');
@@ -96,7 +133,17 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::post('/editCompany/{id}', [CompanyController::class, 'update'])->name('company.update');
     
     Route::get('/incoming', [IncomingController::class, 'incoming']) -> name('incoming');
-    Route::view('/incoming/addIncoming', 'entradas.add_incoming',['proveedores' => $proveedores,'posts' => $posts])->name('incoming.addIncoming');
+    Route::get('/incoming/addIncoming', function () {
+        $empresaId = auth()->user()->empresa_id;
+    
+        $proveedores = DB::table('proveedores')->where('empresa_id', $empresaId)->get();
+        $posts = DB::table('productos')->where('empresa_id', $empresaId)->get();
+    
+        return view('entradas.add_incoming', [
+            'proveedores' => $proveedores,
+            'posts' => $posts
+        ]);
+    })->name('incoming.addIncoming');    
     Route::post('/incoming/addIncoming', [IncomingController::class, 'guardarEntrada'])->name('incoming.post');
     Route::get('/incomings/details/{id}', [IncomingController::class, 'showIncoming'])->name('incomings.show');
     Route::delete('/incomings/delete/{id}', [IncomingController::class, 'destroy'])->name('incomings.delete');

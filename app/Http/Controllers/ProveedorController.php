@@ -29,7 +29,10 @@ class ProveedorController extends Controller
     
     $proveedores = Proveedor::when($estado, function ($query, $estado) {
         return $query->where('estado', $estado);
-    })->get();
+    })
+    ->where('empresa_id', auth()->user()->empresa_id) // Filtrar por empresa_id
+    ->get();
+
 
     return view('personas.proveedores', compact('proveedores', 'estado'));
 }

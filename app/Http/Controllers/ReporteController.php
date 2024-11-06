@@ -11,10 +11,17 @@ class ReporteController extends Controller
     // Reporte diario
     public function diario()
     {
-        $audits = DB::table('audits')->get();
-        $sales = DB::table('salidas')->get();
-        $products = DB::table('productos')->get();
-        $saledProducts = DB::table('productos_entregados')->get();
+        $empresaId = auth()->user()->empresa_id;
+
+        $userId = auth()->user()->id;
+
+        $audits = DB::table('audits')
+                    ->join('usuarios', 'audits.user_id', '=', 'usuarios.id') 
+                    ->where('usuarios.empresa_id', $empresaId) 
+                    ->get();
+        $sales = DB::table('salidas')->where('empresa_id', $empresaId)->get();
+        $products = DB::table('productos')->where('empresa_id', $empresaId)->get();
+        $saledProducts = DB::table('productos_entregados')->where('empresa_id', $empresaId)->get();
         $reportedProducts = collect();
 
         foreach ($saledProducts as $saledProduct) {

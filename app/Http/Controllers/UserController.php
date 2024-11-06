@@ -14,7 +14,8 @@ class UserController extends Controller
     {
         $usuario = auth()->user();
         $empresa = Empresa::where('id', $usuario->empresa_id)->first();
-        $usuarios = Usuario::all();
+        $usuarios = Usuario::where('empresa_id', auth()->user()->empresa_id)->get();
+
         
         return view('users.usuarios',compact('usuarios', 'usuario', 'empresa'));
     }

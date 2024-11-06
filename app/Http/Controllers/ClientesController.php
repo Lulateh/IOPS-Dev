@@ -24,9 +24,11 @@ class ClientesController extends Controller
     {
         $estado = $request->input('estado');
     
-    $clientes = Clientes::when($estado, function ($query, $estado) {
-        return $query->where('estado', $estado);
-    })->get();
+        $clientes = Clientes::when($estado, function ($query, $estado) {
+            return $query->where('estado', $estado);
+        })
+        ->where('empresa_id', auth()->user()->empresa_id) // Filtrar por empresa_id
+        ->get();
 
     return view('personas.clientes', compact('clientes', 'estado'));
 }

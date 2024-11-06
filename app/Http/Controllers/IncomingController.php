@@ -40,7 +40,8 @@ class IncomingController extends Controller
 
     {
     
-        $incomings = Incoming::all(); 
+        $incomings = Incoming::where('empresa_id', auth()->user()->empresa_id)->get();
+
     
         return view('entradas.incoming', compact('incomings'));
     
@@ -60,7 +61,7 @@ class IncomingController extends Controller
 
     public function incoming()
     {
-        $incomings = Incoming::all();
+        $incomings = Incoming::where('empresa_id', auth()->user()->empresa_id)->get();
         return view('entradas.incoming', compact('incomings'));
     }
 
