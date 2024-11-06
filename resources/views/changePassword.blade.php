@@ -13,7 +13,7 @@
         ← Volver
     </a>
 </div>
-<h2 class="text-5xl font-Coda my-16 text-center">Cambiar Contraseña</h2>
+<h2 class="text-5xl font-Coda my-6 text-center">Cambiar Contraseña</h2>
 <div class="px-4">
 <form action="{{ route('updatePassword') }}" method="POST" id="password-form">
     @csrf
