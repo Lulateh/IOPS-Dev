@@ -192,7 +192,7 @@ Edit Reservation
             </div>
 
             <div class="mt-6 mb-10 mr-6 rounded-lg">
-                <button onclick="window.location.href='{{route('reservation.show', $reserva->id)}}'" class="text-white bg-main-green text-lg  p-1 rounded-lg  font-Poppins">
+                <button onclick="window.location.href='{{route('reservation.show', $reserva->id)}}'" class="text-white bg-main-blue text-lg  p-1 rounded-lg  font-Poppins">
                     Modificar reserva
                 </button>
             </div>

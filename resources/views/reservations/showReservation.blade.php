@@ -121,8 +121,8 @@ View reservations
 
             <p class="text-center">¿Estás seguro que deseas cambiar el estado?</p>
             <div class="mt-4 ml-[6.3rem]">
-                <button type="button" class="bg-gray-300 px-4 py-2 rounded mr-2" onclick="closeModal()">Cancelar</button>
-                <button type="submit" class="bg-main-green text-white px-4 py-2 rounded">Confirmar</button>
+                <button type="button" class="bg-green text-white px-4 py-2 rounded mr-2" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="bg-main-blue text-white px-4 py-2 rounded">Confirmar</button>
             </div>
         </form>
     </div>
