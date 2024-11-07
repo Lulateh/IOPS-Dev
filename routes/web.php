@@ -74,9 +74,9 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::post('/home/producto/{id}/edit', [HomeController::class, 'editProduct']) -> name('product.edit');
     Route::get('/home/producto/{id}/delete', [HomeController::class, 'deleteProduct']) -> name('product.delete');
 
-    Route::get('/reporte-diario', [ReporteController::class, 'diario'])->name('reporte.diario');
-    Route::get('/reporte-semanal', [ReporteController::class, 'semanal'])->name('reporte.semanal');
-    Route::get('/reporte-mensual', [ReporteController::class, 'mensual'])->name('reporte.mensual');
+    Route::get('/reporte-ventas', [ReporteController::class, 'ventas'])->name('reporte.ventas');
+    Route::get('/reporte-compras', [ReporteController::class, 'compras'])->name('reporte.compras');
+    Route::get('/reporte-reservas', [ReporteController::class, 'reservas'])->name('reporte.reservas');
 
     Route::view('/reservations', 'reservations.reservation', ['reservas' => $reservas, 'productosReservados' => $productosReservados, 'clientes'=> $clientes, 'posts' => $posts]) -> name('reservations');
     Route::post('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); 
