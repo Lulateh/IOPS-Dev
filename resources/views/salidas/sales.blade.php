@@ -105,11 +105,7 @@
                 Ventas
             </h1>
 
-            <div class="ml-[50rem]">
-
-                
-
-            </div>
+            
             
         </div>
       
@@ -118,7 +114,7 @@
               
 
               @foreach ($sales as $sale)
-                <div class="w-[34rem] h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
+                <div class="w-[30rem] h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
                   <a href="{{route('viewSales', $sale->id)}}">
 
                     <div class="ml-4 mt-[20px] mr-3">
@@ -136,7 +132,7 @@
                           <p class="m-0">Fecha: {{$sale -> fecha_salida}}</p>
                         </div>
                       </div>
-                     
+
 
                     <div class="flex">
 
