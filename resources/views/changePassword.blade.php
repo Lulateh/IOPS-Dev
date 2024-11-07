@@ -5,15 +5,7 @@
 @endsection
 
 @section('content')
-<header class="bg-main-blue py-2">
-    <div class="columns-2">
-        <div>
-            <a href="{{ route('home') }}">
-                <img class="w-[6rem] ml-20" src="{{ asset('img/LogiStockIconWhite.png') }}" alt="Logotipo">
-            </a>
-        </div>
-    </div> 
-</header>
+@include('components.header')
 <body>
 
 <div class="mt-5 mb-5">
@@ -22,7 +14,7 @@
     </a>
 </div>
 <h2 class="text-4xl font-Coda my-5 text-center">Cambiar Contraseña</h2>
-
+<div class="px-4">
 <form action="{{ route('updatePassword') }}" method="POST" id="password-form">
     @csrf
 
@@ -56,6 +48,7 @@
         </div>
     </div>
 </form>
+
 </div>
 @if(session('success'))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
