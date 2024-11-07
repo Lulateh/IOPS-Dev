@@ -6,15 +6,21 @@
 
 @section('content')
 @if(Auth::user()->rol == 'administrador')
-    <section class="bg-main-green py-2 h-screen">
-        <div class="block">
-            <img class="mx-auto w-32" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
+    <section class="bg-main-blue py-2 h-screen">
+        <div class="mt-8">
+            <a href="{{route('users.index')}}" class="ml-20 text-white font-Coda hover:underline text-2xl">  
+                 ← Volver
+            </a>
         </div>
 
-        <div class="grid justify-center">
+        <div class="block">
+            <img class="mx-auto w-40"  src="{{ asset('img/IopsIconWhite.png') }}" alt="">
+        </div>
+
+        <div class="grid justify-center mt-5">
             <form method="POST" action="{{ route('users.add') }}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
                 @csrf
-                <h2 class="text-center text-3xl">Registrar Usuario</h2>
+                <h2 class="text-center text-3xl my-5">Registrar Usuario</h2>
 
                 <div>
                     <label for="name">Nombre Completo</label><br>
@@ -42,7 +48,7 @@
 
                 <div>
                     <label for="role">Rol del Usuario</label><br>
-                    <select class="rounded-lg my-2" id="rol" name="rol" required>
+                    <select class="rounded-lg my-2 w-[25.9rem]" style="text-align: center" id="rol" name="rol" required>
                         <option value="administrador">Administrador</option>
                         <option value="colaborador">Colaborador</option>
                         <option value="supervisor">Supervisor</option>
@@ -50,18 +56,10 @@
                     
                 </div>
 
-                <div class=" mt-4 grid">
-                    <input class="text-white bg-main-green px-8 py-1 rounded-lg" type="submit" value="Registrar">
+                <div class=" mt-4 ml-[9rem]">
+                    <input class="text-white bg-main-blue px-8 py-1 rounded-lg" type="submit" value="Registrar">
                 </div>
             </form>
-        </div>
-
-        <div class="flex">
-            <a class="mx-auto mt-4" href="{{ route('users.index') }}">
-                <button class="font-Coda text-white bg-secondary-green px-8 py-1 rounded-lg">
-                    Volver
-                </button>
-            </a>
         </div>
     </section>
     @else

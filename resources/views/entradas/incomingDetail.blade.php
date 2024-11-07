@@ -1,25 +1,42 @@
 @extends('layouts.plantilla') 
 
 @section('title')
-    Addincoming
+    Incoming Detail
 @endsection
 
 @section('content')
 
-@include('components.header')
+<header class="bg-main-blue py-3">
+    <div class="columns-2">
+        <div>
+            <a href="{{ route('home') }}"><img class="w-[6rem] ml-20" src= "{{ asset('img/LogiStockIconWhite.png') }}" alt="">
+            </a>
+        </div>
+
+        <div class="relative float-right mr-20 mt-3">
+            <a href="{{ route('profile') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle stroke-cream-10 fill-white" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </a>
+        </div>
+    </div> 
+</header>
     
     
-<div class=" /*bg-[#26413C]*/  bg-secondary-green h-screen">
+<div>
 
-    <a class="ml-20  flex" href="{{ route('incoming') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" class="mt-10 w-6 fill-white"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
-        <p class="underline mt-10 font-Coda text-white text-2xl">Volver</p>
-    </a>
+    <div class="mt-8">
+        <a href="{{ route('incoming')}}" class="ml-20 text-black font-Coda hover:underline text-2xl">  
+             ← Volver
+        </a>
+    </div>
 
-    <div class="font-Coda mt-6 max-w-6xl mx-auto bg-white  rounded-lg shadow-lg p-10 mb-28">
+    <div class="font-Coda mt-10 max-w-6xl mx-auto bg-lightB bg-opacity-20 rounded-lg shadow-lg p-10 mb-28">
         <div class="grid grid-cols-2 gap-4  ">
         
-            <div class =" text-center justify-center ">
+            <div class =" text-center justify-center mt-5">
                 
                 <h1 class="text-4xl font-bold mb-4">{{ $incoming->product->nombre }}</h1>
 
@@ -53,9 +70,9 @@
                 
                 <div class=" mt-5 flex justify-center gap-4">
                 
-                    <a href="{{ route('incoming.edit', ['id' => $incoming->id]) }}" class="bg-green-950 text-white py-2 px-4 rounded-lg hover:bg-green-800">Modificar Entrada</a>
+                    <a href="{{ route('incoming.edit', ['id' => $incoming->id]) }}" class="bg-main-blue text-white py-2 px-4 rounded-lg hover:bg-green-800">Modificar Entrada</a>
 
-                <button onclick="toggleModal()" class="bg-green-950 text-white py-2 px-4 rounded-lg hover:bg-green-800">Eliminar Entrada</button>
+                <button onclick="toggleModal()" class="bg-main-blue text-white py-2 px-4 rounded-lg hover:bg-green-800">Eliminar Entrada</button>
                 </div>
             </div>
         </div>

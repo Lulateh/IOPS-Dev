@@ -5,20 +5,28 @@
 @endsection
 
 @section('content')
-@include('components.header')
-<body class="bg-main-green bg-opacity-30 ">
+<header class="bg-main-blue py-2">
+    <div class="columns-2">
+        <div>
+            <a href="{{ route('home') }}">
+                <img class="w-[6rem] ml-20" src="{{ asset('img/LogiStockIconWhite.png') }}" alt="Logotipo">
+            </a>
+        </div>
+    </div> 
+</header>
+<body>
 
 <div class="mt-5 mb-5">
-    <a href="{{ route('editUser') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+    <a href="{{ route('editUser') }}" class="ml-20 text-main-green font-Coda hover:underline text-2xl">  
         ← Volver
     </a>
 </div>
-<h2 class="text-5xl font-Coda my-6 text-center">Cambiar Contraseña</h2>
-<div class="px-4">
+<h2 class="text-4xl font-Coda my-5 text-center">Cambiar Contraseña</h2>
+
 <form action="{{ route('updatePassword') }}" method="POST" id="password-form">
     @csrf
 
-    <div class="max-w-2xl mx-auto p-6 bg-main-green bg-opacity-35 rounded-lg shadow-md">
+    <div class="max-w-2xl mx-auto p-6 bg-lilac bg-opacity-20 rounded-lg shadow-md">
         
         <div class="mb-6">
             <label for="current_password" class="block text-sm font-medium text-black">Contraseña Actual</label>
@@ -44,7 +52,7 @@
         </div>
 
         <div class="flex justify-end space-x-3">
-            <button type="submit" id="submit-button" class="px-4 py-2 bg-main-green text-white rounded-md hover:bg-green-700" disabled>Cambiar Contraseña</button>
+            <button type="submit" id="submit-button" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700" disabled>Cambiar Contraseña</button>
         </div>
     </div>
 </form>

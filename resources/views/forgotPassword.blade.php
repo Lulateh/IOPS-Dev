@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-<body class="bg-main-green bg-opacity-30">
+<body class="bg-green">
 
-<div class="mt-5 mb-5">
-    <a href="{{ route('login') }}" class="ml-20 text-main-green font-Coda hover:underline text-4xl">  
+<div class="mt-16 mb-5">
+    <a href="{{ route('login') }}" class="ml-20 text-black font-Coda hover:underline text-4xl">  
         ← Volver
     </a>
 </div>
@@ -17,7 +17,7 @@
 <form action="{{ route('checkEmail') }}" method="POST">
     @csrf
 
-    <div class="max-w-2xl mx-auto p-6 bg-main-green bg-opacity-35 rounded-lg shadow-md">
+    <div class="max-w-2xl mx-auto p-6 bg-white bg-opacity-35 rounded-lg shadow-md">
     <h3 class="text-2xl font-Coda mb-4 text-center">Ingresa tu correo electrónico</h3>
         <div class="mb-6">
             <label for="email" class="block text-sm font-medium text-black">Correo Electrónico</label>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="flex justify-center space-x-3">
-            <button type="submit" class="px-4 py-2 bg-main-green text-white rounded-md hover:bg-green-700">Enviar Código</button>
+            <button type="submit" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700">Enviar Código</button>
         </div>
     </div>
 </form>
