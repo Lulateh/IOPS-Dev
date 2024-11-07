@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ReporteController extends Controller
 {
     // Reporte diario
-    public function diario()
+    public function ventas()
     {
         $empresaId = auth()->user()->empresa_id;
 
@@ -32,22 +32,53 @@ class ReporteController extends Controller
             }
         }
 
-        return view('reportes.diario', compact('audits', 'sales', 'saledProducts', 'products', 'reportedProducts'));
+        return view('reportes.reporteVentas', compact('audits', 'sales', 'saledProducts', 'products', 'reportedProducts'));
     }
 
     // Reporte semanal
-    public function semanal()
+    public function compras()
     {
-      
+        $empresaId = auth()->user()->empresa_id;
 
-        return view('reportes.semanal');
+        $userId = auth()->user()->id;
+
+        $audits = DB::table('audits')
+                    ->join('usuarios', 'audits.user_id', '=', 'usuarios.id') 
+                    ->where('usuarios.empresa_id', $empresaId) 
+                    ->get();
+        $incomings = DB::table('entradas')->where('empresa_id', $empresaId)->get();
+        $products = DB::table('productos')->where('empresa_id', $empresaId)->get();
+        $proveedores = DB::table('proveedores')->where('empresa_id', $empresaId)->get();
+
+        return view('reportes.reporteCompras', compact('audits', 'incomings', 'products', 'proveedores' ));;
     }
 
     // Reporte mensual
-    public function mensual()
+    public function reservas()
     {
-        
+        $empresaId = auth()->user()->empresa_id;
 
-        return view('reportes.mensual');
+        $userId = auth()->user()->id;
+
+        $audits = DB::table('audits')
+                    ->join('usuarios', 'audits.user_id', '=', 'usuarios.id') 
+                    ->where('usuarios.empresa_id', $empresaId) 
+                    ->get();
+        $reservas = DB::table('reservas')->where('empresa_id', $empresaId)->get();
+        $productosReservados = DB::table('productos_reservados')->where('empresa_id', $empresaId)->get();
+        $clientes = DB::table('clientes')->where('empresa_id', $empresaId)->get();
+        $products = DB::table('productos')->where('empresa_id', $empresaId)->get();
+
+        $reservedProducts = collect();
+
+        foreach ($productosReservados as $productoReservado) {
+            foreach ($products as $product) {
+                if ($productoReservado->producto_id == $product->id) {
+                    $reservedProducts->push($product);
+                }
+            }
+        }
+
+        return view('reportes.reporteReservas', compact('audits', 'reservas', 'productosReservados', 'clientes', 'products', 'reservedProducts'));
     }
 }
