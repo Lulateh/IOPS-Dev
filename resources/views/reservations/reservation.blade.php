@@ -94,7 +94,6 @@
             </ul>
         </div>
     </div>
-
     <div>
 
         <div class="flex columns-2 mt-10 ml-24">

@@ -25,7 +25,7 @@
   <!-- --------------HEADER-------------- -->
 
   <!-- --------------BODY-------------- -->
-  <section class="columns-2 flex">
+  <section class=" columns-2 flex">
 
     <div class="basis-1/6 bg-green bg-opacity-15 pb-[10.3rem]">
       <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
@@ -100,24 +100,29 @@
   
 
     <div>
-      <div class="mt-10 ml-20">
-        <h1 class="font-normal font-Poppins text-main-blue text-3xl">
-          Ventas
-        </h1>
-      </div>
+    <div class="flex columns-2 mt-10 ml-24">
+            <h1 class="font-normal font-Poppins text-main-blue text-3xl">
+                Ventas
+            </h1>
+
+            <div class="ml-[50rem]">
+
+                
+
+            </div>
+            
+        </div>
       
       <div class="ml-20 mt-5">
         <div class="overflow-y-scroll basis-5/6 gap-2 flex flex-wrap mt-2 h-[32rem]">
               
-              <!-- card 1 -->
+
               @foreach ($sales as $sale)
                 <div class="w-[34rem] h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
                   <a href="{{route('viewSales', $sale->id)}}">
 
                     <div class="ml-4 mt-[20px] mr-3">
-                      <!-- info cliente -->
                       <div class="border-b-2 border-dotted border-black columns-2 m-1">
-
                         <div class="font-Poppins text-black mt-2">
                           <h3 class="uppercase">Entregado</h3>
                         </div>
@@ -130,15 +135,16 @@
                           @endforeach
                           <p class="m-0">Fecha: {{$sale -> fecha_salida}}</p>
                         </div>
-
                       </div>
-                      <!-- productos -->
-                      <div class="flex-auto ml-1 box-border h-16 grid grid-cols-3 gap-2 mr-4 mt-3 text-black">
+                     
+
+                    <div class="flex">
 
                     @foreach ($productosEntregados as $productoEntregado)
                       @if ($productoEntregado -> salidas_id == $sale -> id)  
-                        <div class="flex border border-black h-12">
-                          <div class="flex flex-col ml-2 mt-1">
+                        <div class="flex  m-1 box-border h-16 gap-2 mr-4 mt-3  text-secondary-green ">
+                        <div class="flex border border-black h-12 px-2">
+                        <div class="flex flex-col ml-2 mt-1">
                             @foreach ($posts as $producto)
                               @if ($productoEntregado -> producto_id == $producto -> id)
                                 <p class="font-Coda text-xs m-0">{{$producto -> nombre}}</p>
@@ -150,6 +156,7 @@
                           <div class="flex ml-6 mt-[0.45rem]">
                             <p class="font-Poppins font-extrabold text-black text-2xl">{{$productoEntregado -> cantidad}}</p>   
                           </div>
+                        </div>
                         </div>
                       @endif
                     @endforeach
