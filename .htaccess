@@ -1,4 +1,16 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine On
+
+    # Asegurar que todos los métodos HTTP están permitidos
+    RewriteCond %{REQUEST_METHOD} ^(POST|PUT|DELETE|GET|HEAD|OPTIONS|PATCH)$
+
+    # Redirigir todas las solicitudes al directorio /public
+    RewriteCond %{REQUEST_URI} !^/public/ 
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ /public/$1 [L]
+
+    # Redirigir a index.php en caso de que sea una ruta raíz
+    RewriteRule ^(/)?$ public/index.php [L]
+</IfModule>

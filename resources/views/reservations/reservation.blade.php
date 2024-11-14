@@ -87,10 +87,11 @@
             </h1>
 
             <div class="ml-[39rem] mt-1">
+                
 
                 <form action="{{ route('reservation.add') }}" method="POST">
                     @csrf
-                <input type="submit" value="Agregar reserva" class="cursor-pointer active:bg-secondary-green text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
+                    <input type="submit" value="Agregar reserva" class="cursor-pointer active:bg-secondary-green text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
                 </form>
 
             </div>
