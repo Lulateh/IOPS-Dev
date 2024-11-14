@@ -13,11 +13,10 @@ class Reserva extends Model
 
     protected $fillable = [
         'id',
-        'cantidad_reservas',
         'fecha_salida',
         'estado',
         'cliente_id',
-        'producto_id',
+        'user_id',
         'empresa_id',
     ];
 
@@ -26,11 +25,10 @@ class Reserva extends Model
         return $this->belongsTo(Clientes::class, 'cliente_id');
     }
 
-    public function producto()
+    public function user()
     {
-        return $this->belongsTo(Product::class, 'producto_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
-
     public function productosReservados()
     {
         return $this->hasMany(ProductoReservado::class, 'reservas_id');

@@ -102,7 +102,7 @@ Route::middleware("auth:usuario") -> group(function(){
             'posts' => $posts
         ]);
     })->name('reservations');
-    Route::post('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); 
+    Route::get('/addReservation', [ReservationController::class, 'addReservation']) -> name('reservation.add'); 
     Route::get('/reservations/{id}',  [ReservationController::class, 'viewReservation']) -> name('reservation.show');
     Route::get('/reservations/{id}/edit',  [ReservationController::class, 'redirectToEdit']) -> name('reservation.redirect.edit');
     Route::post('/reservations/{id}/edit',  [ReservationController::class, 'updateProductReservation']) -> name('update.productReservation');

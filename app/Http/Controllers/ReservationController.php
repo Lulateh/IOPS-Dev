@@ -10,13 +10,15 @@ use App\Models\Clientes;
 use App\Models\ProductoReservado;
 use App\Models\Sales;
 use App\Models\ProductoEntregado;
+use App\Models\Emrpesa;
 
 class ReservationController extends Controller
 {
     public function addReservation()
     {
+        $clientes = Clientes::where('empresa_id', '=', auth()->user()->empresa_id)->get();
         $reserva = new Reserva();
-        $reserva->cliente_id = 1;
+        $reserva->cliente_id = $clientes->first()->id;
         $reserva->fecha_salida = now();
         $reserva->user_id = auth()->user()->id;
         $reserva->empresa_id = auth()->user()->empresa_id;
@@ -69,7 +71,11 @@ class ReservationController extends Controller
 
         $cantidadDisponible = $producto->cantidad_stock;
         $productoReservado = $existingReservation->productosReservados()->where('producto_id', $request->productSelect)->first();
-        $cantidadTotalAReservar = $productoReservado ? $productoReservado->cantidad + $request->productCant : $request->productCant;
+        if ($productoReservado) {
+            $cantidadTotalAReservar = $request->productCant + $productoReservado->pivot->cantidad;
+        } else {
+            $cantidadTotalAReservar = $request->productCant;
+        }
 
         $request -> validate([
             'productSelect' => 'required|exists:productos,id',

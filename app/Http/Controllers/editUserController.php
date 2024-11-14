@@ -49,9 +49,9 @@ class editUserController extends Controller
                 'email' => $request->email,
             ]);
     
-            return redirect()->back()->with('success', 'Los datos han sido actualizados correctamente.');
+            return redirect()->route('profile')->with('success', 'Los datos han sido actualizados correctamente.');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Hubo un problema al actualizar los datos. Intenta nuevamente.');
+            return redirect()->route('profile')->with('error', 'Hubo un problema al actualizar los datos. Intenta nuevamente.');
         }
     }
 
