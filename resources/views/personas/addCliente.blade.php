@@ -47,9 +47,10 @@ LogiStock - Add client
                 </label>
                 <input type="text" name="telefono" class="w-[23rem] p-1  rounded-xl" style="background-color: rgb(255, 255, 255);" required
                 maxlength="10" 
-           pattern="[0-9]{10}" 
-           title="Solo números, máximo 10 dígitos"
-           oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Ejemplo: 1234567890">
+       pattern="[0-9]{1,10}" 
+       title="Solo números, hasta 10 dígitos" 
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+       placeholder="Ejemplo: 12345678">
             </div>
             
             <div>

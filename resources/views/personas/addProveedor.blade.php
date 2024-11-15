@@ -35,10 +35,11 @@
                 <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
                 </svg>Teléfono</label>
                 <input type="text" name="telefono" class="w-[20rem] p-1 rounded-lg" style="background-color: rgb(255, 255, 255);" required 
-           maxlength="10" 
-           pattern="[0-9]{10}" 
-           title="Solo números, máximo 10 dígitos"
-           oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Ejemplo: 1234567890">
+                maxlength="10" 
+       pattern="[0-9]{1,10}" 
+       title="Solo números, hasta 10 dígitos" 
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+       placeholder="Ejemplo: 12345678">
                     </div>
                 </div>
                     <div class="mt-10 mb-10 flex justify-center">

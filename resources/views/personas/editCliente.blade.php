@@ -36,10 +36,12 @@
 
     <div class="ml-28">
     <label class="block font-semibold">Teléfono</label>
-        <input type="text" name="telefono" value="{{ $cliente->telefono }}" class="w-[20rem] p-1 rounded-lg" style="background-color: rgb(255, 255, 255);"required maxlength="10" 
-           pattern="[0-9]{10}" 
-           title="Solo números, máximo 10 dígitos"
-           oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Ejemplo: 1234567890">
+        <input type="text" name="telefono" value="{{ $cliente->telefono }}" class="w-[20rem] p-1 rounded-lg" style="background-color: rgb(255, 255, 255);"required 
+       maxlength="10" 
+       pattern="[0-9]{1,10}" 
+       title="Solo números, hasta 10 dígitos" 
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+       placeholder="Ejemplo: 12345678">
        
     </div>
 
