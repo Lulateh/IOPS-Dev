@@ -17,8 +17,9 @@ class ReservationController extends Controller
     public function addReservation()
     {
         $clientes = Clientes::where('empresa_id', '=', auth()->user()->empresa_id)->get();
+        
         $reserva = new Reserva();
-        $reserva->cliente_id = $clientes->first()->id;
+        $reserva->cliente_id = $clientes[0]->id;
         $reserva->fecha_salida = now();
         $reserva->user_id = auth()->user()->id;
         $reserva->empresa_id = auth()->user()->empresa_id;
@@ -58,58 +59,59 @@ class ReservationController extends Controller
 }
 
     public function updateProductReservation(Request $request, $id)
-    {
-        $existingReservation = Reserva::find($id);
-        $producto = Product::find($request->productSelect);
+{
+    $existingReservation = Reserva::find($id);
+    $producto = Product::find($request->productSelect);
 
-        if (!$existingReservation) {
-            return redirect(route('reservations'))->with('error', 'Reserva no encontrada.');
-        }
-        if (!$producto) {
-            return redirect(route('reservation.redirect.edit', $id))->with('error', 'Producto no encontrado.');
-        }
-
-        $cantidadDisponible = $producto->cantidad_stock;
-        $productoReservado = $existingReservation->productosReservados()->where('producto_id', $request->productSelect)->first();
-        if ($productoReservado) {
-            $cantidadTotalAReservar = $request->productCant + $productoReservado->pivot->cantidad;
-        } else {
-            $cantidadTotalAReservar = $request->productCant;
-        }
-
-        $request -> validate([
-            'productSelect' => 'required|exists:productos,id',
-            'productCant' => 'required|integer|min:1'
-        ]);
-        if ($cantidadTotalAReservar > $cantidadDisponible) {
-            return redirect(route('reservation.redirect.edit', $id))->with('error', 'No hay suficiente stock disponible para reservar.');
-        }
-
-        if ($productoReservado) {
-            $oldAmount = $productoReservado->cantidad;
-            $incomingAmount = $request->productCant;
-            $productoReservado->cantidad = $incomingAmount;
-            $productoReservado->save();
-            $newAmount = $productoReservado->cantidad;
-            if ($oldAmount > $newAmount) {
-                $producto->cantidad_stock += $oldAmount - $newAmount;
-            } else {
-                $producto->cantidad_stock -= $newAmount - $oldAmount;
-            }
-            $producto->save();
-        } else {
-            $newProductoReservado = new ProductoReservado();
-            $newProductoReservado->reservas_id = $id;
-            $newProductoReservado->producto_id = $request->productSelect;
-            $newProductoReservado->cantidad = $request->productCant;
-            $newProductoReservado->empresa_id = auth()->user()->empresa_id;
-            $newProductoReservado->save();
-            $producto->cantidad_stock -= $request->productCant;
-            $producto->save();
-        }
-
-        return redirect(route('reservation.redirect.edit', $id))->with('success', 'Producto reservado actualizado o agregado correctamente.');
+    if (!$existingReservation) {
+        return redirect(route('reservations'))->with('error', 'Reserva no encontrada.');
     }
+    if (!$producto) {
+        return redirect(route('reservation.redirect.edit', $id))->with('error', 'Producto no encontrado.');
+    }
+
+    // Recuperar el producto reservado previamente
+    $productoReservado = $existingReservation->productosReservados()->where('producto_id', $request->productSelect)->first();
+
+    // Si existe, devolver la cantidad previamente reservada al stock
+    if ($productoReservado) {
+        $producto->cantidad_stock += $productoReservado->cantidad;
+        $producto->save();
+    }
+
+    // Validaciones
+    $request->validate([
+        'productSelect' => 'required|exists:productos,id',
+        'productCant' => 'required|integer|min:1'
+    ]);
+
+    $cantidadDisponible = $producto->cantidad_stock;
+    $cantidadTotalAReservar = $request->productCant;
+
+    // Verificar que la cantidad solicitada no exceda el stock disponible
+    if ($cantidadTotalAReservar > $cantidadDisponible) {
+        return redirect(route('reservation.redirect.edit', $id))->with('error', 'No hay suficiente stock disponible para reservar.');
+    }
+
+    // Actualizar o agregar el producto reservado
+    if ($productoReservado) {
+        $productoReservado->cantidad = $cantidadTotalAReservar;
+        $productoReservado->save();
+        $producto->cantidad_stock -= $cantidadTotalAReservar;
+    } else {
+        $newProductoReservado = new ProductoReservado();
+        $newProductoReservado->reservas_id = $id;
+        $newProductoReservado->producto_id = $request->productSelect;
+        $newProductoReservado->cantidad = $cantidadTotalAReservar;
+        $newProductoReservado->empresa_id = auth()->user()->empresa_id;
+        $newProductoReservado->save();
+        $producto->cantidad_stock -= $cantidadTotalAReservar;
+    }
+
+    $producto->save();
+
+    return redirect(route('reservation.redirect.edit', $id))->with('success', 'Producto reservado actualizado o agregado correctamente.');
+}
 
     public function updateClientReservation(Request $request)
     {

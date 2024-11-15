@@ -12,7 +12,7 @@ class editUserController extends Controller
     public function edituser()
     {
         $usuario = auth()->user();
-        return view('edituser', compact('usuario'));
+        return view('editUser', compact('usuario'));
     }
 
     public function updateUser(Request $request)
@@ -20,7 +20,7 @@ class editUserController extends Controller
     
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . auth()->id(),
+            'email' => 'required|email|unique:usuarios,email,' . auth()->id(),
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
     

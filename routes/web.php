@@ -174,7 +174,7 @@ Route::middleware("auth:usuario") -> group(function(){
     Route::get('/personas', [ProveedorController::class, 'showPerson'])->name('personas');
 
     Route::get('/usuarios', [UserController::class, 'showUsuarios'])->name('users.index');
-    Route::get('users/editUsers/{id} ', [UserController::class, 'edit'])-> name('edit.users');
+    Route::get('users/editUsers/{id}', [UserController::class, 'edit'])-> name('edit.users');
     Route::post('users/editUsers/{id}', [UserController::class, 'update'])-> name('update.users');
     Route::get('/users/addUser', [UserController::class, 'user'])->name('users.add');
     Route::post('/users/addUser', [UserController::class, 'addUsers'])->name('users.add');
