@@ -9,7 +9,7 @@
 
 <section class="columns-2 flex">
 
-    <div class="basis-1/6 bg-green bg-opacity-15 pb-[10.3rem]">
+    <div class="basis-1/6 bg-green bg-opacity-15 h-[calc(100vh-85px)] ">
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
             <ul>
             <h2 class="text-3xl font-bold mb-3">Menu</h2>
@@ -79,7 +79,7 @@
             </ul>
         </div>
     </div>
-    <div>
+    <div class="basis-5/6 gap-2 flex flex-wrap">
 
         <div class="flex columns-2 mt-10 ml-24">
             <h1 class="font-normal font-Poppins text-main-blue text-3xl">
@@ -87,19 +87,12 @@
             </h1>
 
             <div class="ml-[39rem] mt-1">
-                
-
-                <form action="{{ route('reservation.add') }}" method="POST">
-                    @csrf
-                    <input type="submit" value="Agregar reserva" class="cursor-pointer active:bg-secondary-green text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
-                </form>
-
+                <a class="text-white bg-main-blue px-8 py-1 rounded-lg font-Poppins" href="{{route('reservation.add')}}">Agregar reserva</a>
             </div>
-            
         </div>
 
         <div class="ml-20 mt-5">
-            <div class="overflow-y-scroll basis-5/6 gap-2 flex flex-wrap mt-2 h-[32rem]">
+            <div class="overflow-y-scroll flex flex-wrap mt-2 h-[32rem]">
             
                 @foreach ($reservas as $reserva)
                     <div class="w-[45%] h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
@@ -157,9 +150,23 @@
 
     </div>
 
-  
-
-
+@if(session('error'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+        swal({
+            title: "Error!",
+            text: "{{ session('error') }}",
+            icon: "error",
+            button: {
+                text: "OK",
+                value: true,
+                visible: true,
+                className: "my-button",
+                closeModal: true,
+            }
+        });
+    </script>
+@endif
         
 
 </section>

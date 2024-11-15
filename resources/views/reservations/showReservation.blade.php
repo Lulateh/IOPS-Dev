@@ -84,11 +84,14 @@ View reservations
                     </div>
                 </div>
                 
-                <div class="my-6">
-                    <a href="{{ route('reservation.redirect.edit', $reserva['id']) }}">
-                        <button  class="text-white bg-main-blue px-8 py-1 rounded-lg font-Poppins mr-2">Editar</button>
-                    <a>
-                </div>
+                @if($reserva['estado'] == "reservado")
+                    <div class="my-6">
+                        <a href="{{ route('reservation.redirect.edit', $reserva['id']) }}">
+                            <button  class="text-white bg-main-blue px-8 py-1 rounded-lg font-Poppins mr-2">Editar</button>
+                        <a>
+                    </div>
+                @endif
+
 
             </div>
         </div>
