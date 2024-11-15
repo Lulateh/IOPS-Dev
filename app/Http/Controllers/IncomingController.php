@@ -15,6 +15,14 @@ class IncomingController extends Controller
             'cantidad' => 'required|integer|min:1',
             'prod_id' => 'required|exists:productos,id', 
             'prov_id' => 'required|exists:proveedores,id',
+        ],[
+            'cantidad.required' => 'La cantidad es requerida',
+            'cantidad.integer' => 'La cantidad debe ser un número entero',
+            'cantidad.min' => 'La cantidad debe ser mayor a 0',
+            'prod_id.required' => 'El producto es requerido',
+            'prod_id.exists' => 'El producto no existe',
+            'prov_id.required' => 'El proveedor es requerido',
+            'prov_id.exists' => 'El proveedor no existe',
         ]);
 
 
@@ -93,6 +101,7 @@ class IncomingController extends Controller
 
     public function edit($id)
     {
+
         $incoming = Incoming::findOrFail($id);
         $proveedores = Proveedor::where('estado', 'activo')->get();
         $posts = Product::all();
@@ -104,6 +113,20 @@ class IncomingController extends Controller
     
 
     public function updateIncoming(Request $request, $id){
+        $request->validate([
+            'cantidad' => 'required|integer|min:1',
+            'prod_id' => 'required|exists:productos,id', 
+            'prov_id' => 'required|exists:proveedores,id',
+        ],[
+            'cantidad.required' => 'La cantidad es requerida',
+            'cantidad.integer' => 'La cantidad debe ser un número entero',
+            'cantidad.min' => 'La cantidad debe ser mayor a 0',
+            'prod_id.required' => 'El producto es requerido',
+            'prod_id.exists' => 'El producto no existe',
+            'prov_id.required' => 'El proveedor es requerido',
+            'prov_id.exists' => 'El proveedor no existe',
+        ]);
+
         $existingIncoming = Incoming::find($id);
         $product = Product::find($request -> prod_id);
         if($existingIncoming){
