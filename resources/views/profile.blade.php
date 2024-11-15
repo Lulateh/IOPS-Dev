@@ -95,7 +95,7 @@
 </div>
 @if(Auth::user()->rol == 'administrador')
  <a href="{{ route('company.edit', ['id' => $empresa->id]) }}" 
-   class="bg-main-blue hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg inline-block text-center lg:ml-auto">
+   class="bg-main-blue hover:bg-gray-600 text-white font-coda py-2 px-4 rounded-lg inline-block text-center lg:ml-auto">
    Editar Empresa
 </a>
 @endif
