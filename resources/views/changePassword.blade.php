@@ -32,19 +32,19 @@
                 <li id="uppercase" class="text-red-500">Al menos una letra mayúscula</li>
                 <li id="lowercase" class="text-red-500">Al menos una letra minúscula</li>
                 <li id="number" class="text-red-500">Al menos un número</li>
-                <li id="special" class="text-red-500">Al menos un carácter especial</li>
+                <li id="special" class="text-red-500">Al menos un carácter especial (!@#$%^&*)</li>
             </ul>
             <input type="password" id="new_password" name="new_password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-main-green focus:border-main-green sm:text-sm" placeholder="Ingresa tu nueva contraseña" required>
         </div>
 
         <div class="mb-6">
             <label for="confirm_password" class="block text-sm font-medium text-black">Confirmar Nueva Contraseña</label>
-            <div id="password-match" class="text-sm text-red-500 mb-2">Las contraseñas deben coincidir</div>
+            <div id="password-match" class="text-sm text-red-500 mb-2">✘ Las contraseñas no coinciden</div>
             <input type="password" id="confirm_password" name="new_password_confirmation" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-main-green focus:border-main-green sm:text-sm" placeholder="Confirma tu nueva contraseña" required>
         </div>
 
-        <div class="flex justify-end space-x-3">
-            <button type="submit" id="submit-button" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700" disabled>Cambiar Contraseña</button>
+        <div class="flex justify-center md:justify-end space-x-3">
+            <button type="submit" id="submit-button" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-blue transition duration-300" disabled>Cambiar Contraseña</button>
         </div>
     </div>
 </form>

@@ -48,21 +48,21 @@
         </div>
 
       
-        <div class="columns-2 ml-20">
-            <div class="mt-2.5">
-                <a href="{{ route('changePassword') }}" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700">  
-                Cambiar Contraseña
-                </a>
-            </div>
-
-        
+        <div class="columns-2 md:ml-20">
+        <div>
+    <a href="{{ route('changePassword') }}" 
+       class="text-center inline-block px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-blue transition duration-300">
+        Cambiar Contraseña
+    </a>
+        </div>
             <div>
-                <button type="submit" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700">Guardar Cambios</button>
+                <button type="submit" class="px-4 py-2 bg-main-blue text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-blue transition duration-300">Guardar Cambios</button>
             </div>
         </div>
     </div>
 </form>
 </div>
+
 <script>
     document.getElementById('fileInput').addEventListener('change', function(event) {
         const file = event.target.files[0];
