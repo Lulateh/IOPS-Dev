@@ -7,7 +7,7 @@
 @section('content')
 @include('components.header')
 
-<section class="columns-2 flex">
+<section class="flex columns-2">
 
     <div class="basis-1/6 bg-green bg-opacity-15 h-[calc(100vh-85px)] ">
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
@@ -68,14 +68,14 @@
                     <li><a href="{{route('clientes.index')}}" class = "ml-5">Clientes</a></li>
                 </div>
 
-                <div class="flex columns-2 px-4 py-2 text-xl text-main-blue hover:bg-main-blue hover:text-gray-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ml-10" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                    </svg>
-                    @if(Auth::user()->rol == 'administrador')
-                    <li><a href="{{route('users.index')}}" class = "ml-5">Usuarios</a></li>
-                    @endif
-                </div> 
+                @if(Auth::user()->rol == 'administrador')
+                    <div class="flex columns-2 px-4 py-2 text-xl text-main-blue hover:bg-main-blue hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ml-10" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                        </svg>
+                        <li><a href="{{route('users.index')}}" class = "ml-5">Usuarios</a></li>
+                    </div> 
+                @endif
             </ul>
         </div>
     </div>

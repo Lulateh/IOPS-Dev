@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Lista de Clientes
+    Usuarios
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
 <section class="flex columns-2">
 
-    <div class="basis-1/6 bg-green bg-opacity-15 pb-[10.3rem]">
+    <div class="basis-1/6 bg-green bg-opacity-15 h-[calc(100vh-85px)] overflow-y-auto ">
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
             <ul>
             <h2 class="text-3xl font-bold mb-3">Menu</h2>
@@ -43,7 +43,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ml-10" viewBox="0 0 16 16">
                         <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
                     </svg>
-                    <li><a href="{{route('sales')}}" class = "ml-5">Ventas</a></li>
+                    <li><a href="{{route('sales')}}" class = "ml-5">Salidas</a></li>
                 </div>
 
                 <div class="flex columns-2 px-4 py-2 text-xl text-main-blue hover:bg-main-blue hover:text-gray-100">
@@ -58,7 +58,7 @@
 
             <ul>
                 <h2 class="text-3xl font-bold my-3">Personas</h2>
-                <div class="flex columns-2 px-4 py-2 text-xl text-main-blue hover:bg-main-blue hover:text-gray-100">
+                <div class="flex columns-2 px-4 py-2 text-xl text-main-blue hover:bg-main-blue hover:text-gray-100  ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ml-10" viewBox="0 0 16 16">
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0"/>
                     </svg>
@@ -72,14 +72,14 @@
                     <li><a href="{{route('clientes.index')}}" class = "ml-5">Clientes</a></li>
                 </div>
 
-                <div class="flex columns-2 px-4 py-2 text-xl bg-main-blue text-gray-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ml-10" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                    </svg>
-                    @if(Auth::user()->rol == 'administrador')
-                    <li><a href="{{route('users.index')}}" class = "ml-5">Usuarios</a></li>
-                    @endif
-                </div> 
+                @if(Auth::user()->rol == 'administrador')
+                    <div class="flex columns-2 px-4 py-2 text-xl bg-main-blue text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ml-10" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                        </svg>
+                        <li><a href="{{route('users.index')}}" class = "ml-5">Usuarios</a></li>
+                    </div> 
+                @endif
             </ul>
         </div>
     </div>
