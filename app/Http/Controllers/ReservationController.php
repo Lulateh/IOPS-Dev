@@ -92,6 +92,12 @@ class ReservationController extends Controller
     $request->validate([
         'productSelect' => 'required|exists:productos,id',
         'productCant' => 'required|integer'
+    ], [
+        'productSelect.required' => 'Seleccione un producto.',
+        'productSelect.exists' => 'El producto seleccionado no existe.',
+        'productCant.required' => 'Ingrese una cantidad.',
+        'productCant.integer' => 'La cantidad debe ser un número entero.',
+        'productCant.min' => 'La cantidad debe ser al menos 1.'
     ]);
 
     $cantidadDisponible = $producto->cantidad_stock;

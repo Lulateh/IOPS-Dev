@@ -28,6 +28,9 @@
                             <option value="{{ $producto->id }}" {{ $incoming->producto_id == $producto->id ? 'selected' : '' }}>{{ $producto->nombre }}</option>
                             @endforeach
                           </select>
+                          @error('prod_id')
+                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                          @enderror
                       </div>
 
                 </div>
@@ -40,6 +43,9 @@
                               <option value="{{ $proveedor->id }}" {{ $incoming->proveedor_id == $proveedor->id ? 'selected' : '' }}>{{ $proveedor->nombre_proveedor}}</option>
                             @endforeach
                           </select>
+                    @error('prov_id')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
                       </div>
 
                 </div>
@@ -48,6 +54,9 @@
             <div class="ml-[16rem]">
                 <label class="block mt-9 mb-2 font-semibold">Cantidad del producto</label>
                 <input type="number" name="cantidad" class="w-[31.6rem] p-2 mb-4 rounded-lg text-black" style="background-color: rgb(255, 255, 255);" required>
+            @error('cantidad')
+                <div class="text-red-500 text-sm">{{ $message }}</div>
+            @enderror
              </div>
 
             <div class="flex justify-center mt-8">

@@ -22,23 +22,47 @@
             <div class="columns-2 gap-x-16 flex">
                 <div >
                     <label for="productName" class="font-Coda">Nombre del producto </label> <br>
-                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="productName" name="productName" value="{{ $existingProduct['nombre']}}" required><br>
+                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="productName" name="productName" value="{{ old('productName', $existingProduct['nombre']) }}" required><br>
+                    @error('productName')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                     <label for="brand" class="font-Coda">Marca </label> <br>
-                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="brand" name="brand" value="{{ $existingProduct['marca']}}" required><br>
+                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="brand" name="brand" value="{{ old('brand', $existingProduct['marca']) }}" required><br>
+                    @error('brand')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                     <label for="price_income" class="font-Coda">Precio de Compra </label> <br>
-                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="price_income" name="price_income" value="{{ $existingProduct['precio_compra']}}" required><br>
+                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="price_income" name="price_income" value="{{ old('price_income', $existingProduct['precio_compra']) }}" required><br>
+                    @error('price_income')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                     <label for="price_sale" class="font-Coda"> Precio de Venta </label> <br>
-                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="price_sale" name="price_sale" value="{{ $existingProduct['precio_venta']}}" required><br>
+                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="price_sale" name="price_sale" value="{{ old('price_sale', $existingProduct['precio_venta']) }}" required><br>
+                    @error('price_sale')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                     <label for="location" class="font-Coda"> Ubicación </label> <br>
-                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="location" name="location" value="{{ $existingProduct['ubicacion_bodega']}}"><br>
+                    <input class="rounded-lg my-2 bg-white w-96" type="text" id="location" name="location" value="{{ old('location', $existingProduct['ubicacion_bodega']) }}"><br>
+                    @error('location')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div >
                     <label for="details" class="font-Coda text-wrap">Descripción </label> <br>
-                    <input class="rounded-lg my-2 bg-white w-60 h-16" type="text" id="details" name="details" value="{{ $existingProduct['descripcion']}}" required><br>
+                    <input class="rounded-lg my-2 bg-white w-60 h-16" type="text" id="details" name="details" value="{{ old('details', $existingProduct['descripcion']) }}" required><br>
+                    @error('details')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                     <label for ="expiration" class="font-Coda">Fecha de Vencimiento </label><br>
-                    <input class="rounded-lg my-2 bg-white w-96" type="date" id="expiration" name="expiration" value="{{ $existingProduct['fecha_vencimiento']}}"><br>
+                    <input class="rounded-lg my-2 bg-white w-96" type="date" id="expiration" name="expiration" value="{{ old('expiration', $existingProduct['fecha_vencimiento']) }}"><br>
+                    @error('expiration')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                     <label for="img" class="font-Coda">Imagen </label> <br>
-                    <input  type="file" id="img" name="img" required accept="image/*, .jpg, .jpeg, .png"><br>
+                    <input type="file" id="img" name="img" accept="image/*, .jpg, .jpeg, .png"><br>
+                    @error('img')
+                        <div class="text-red-600 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="flex mt-4 gap-5 justify-center">
