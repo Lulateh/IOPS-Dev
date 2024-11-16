@@ -94,12 +94,12 @@
         <!-- Botones -->
         <div class="flex flex-col sm:flex-row sm:gap-x-4 gap-y-2 w-full">
             <a href="{{ route('reporte.ventas') }}" 
-               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-main-blue text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-blue transition duration-300"
+               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-blue transition duration-300"
                aria-label="Ir al reporte de ventas">
                Reporte de Ventas
             </a>                       
             <a href="{{ route('reporte.compras') }}" 
-               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
+               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-main-blue text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
                aria-label="Ir al reporte de compras">
                Reporte de Compras
             </a>                        
