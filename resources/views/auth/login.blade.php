@@ -6,16 +6,16 @@
 
 @section('content')
     
-<section class="bg-green py-2  h-screen ">
+<section class="bg-green py-4 min-h-screen">
 
     <div class="mt-10">
-        <a href="./" class="ml-20 text-white font-Coda hover:underline text-4xl">  
+        <a href="./" class="ml-20 text-white font-Coda hover:underline text-4xl sm:text-2xl md:text-3xl">  
             ← Volver
         </a>
     </div>
 
         <div class="block ">
-            <img class="mx-auto w-40 mt-6" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
+            <img class="mx-auto w-24 sm:w-32 md:w-40" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
         </div>
 
     @if (session() -> has("success"))
@@ -31,7 +31,7 @@
     @endif
 
     <div class="grid justify-center mt-10">
-        <form method="POST" action="{{route("login.post")}}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl text-black">
+        <form method="POST" action="{{route("login.post")}}" class="bg-white/[.17] px-8 sm:px-12 md:px-16 py-6 sm:py-8 mt-4 font-Coda rounded-xl text-black w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
             @csrf
             <h2 class="text-center text-3xl mb-10">Iniciar sesión</h2>
             
