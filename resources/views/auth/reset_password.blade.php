@@ -7,7 +7,7 @@
 @section('content')
 <body class="bg-green">
 
-    <div class="mt-20 mb-5">
+    <div class="mt-8 lg:mt-20 mb-5">
         <a href="{{ route('profile') }}" class="ml-20 text-black font-Coda hover:underline text-4xl">
             ← Volver
         </a>
@@ -15,7 +15,7 @@
 
     <h2 class="text-5xl font-Coda my-16 text-center">Restablecer Contraseña</h2>
 
-    <form action="{{ route('password.update') }}" method="POST" enctype="multipart/form-data" id="reset-password-form">
+    <form action="{{ route('password.update') }}" method="POST" enctype="multipart/form-data" id="reset-password-form" class="px-4 mb-4">
         @csrf
         <input type="hidden" name="token" value="{{ $token }}">
         
