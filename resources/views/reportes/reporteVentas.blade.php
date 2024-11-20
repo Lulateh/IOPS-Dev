@@ -82,8 +82,9 @@
                 @endif
             </ul>
         </div>
-    </div> -->
+    </div>
 
+        <div>
         <!-- Botonera top -->
         <div class="px-4 py-6">
             <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0 gap-y-4 lg:gap-x-8 lg:space-x-[27rem] w-full">
@@ -198,7 +199,7 @@
         </div>
 
 
-
+    </div>
 
     </div>
 </section>
