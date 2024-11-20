@@ -85,7 +85,7 @@
   
 
     <div>
-    <div class="flex columns-2 mt-10 ml-24">
+    <div class="flex columns-2 mt-10 ml-24 ">
             <h1 class="font-normal font-Poppins text-main-blue text-3xl">
                 Ventas
             </h1>
@@ -95,11 +95,11 @@
         </div>
       
       <div class="ml-20 mt-5">
-        <div class="overflow-y-scroll basis-5/6 gap-2 flex flex-wrap mt-2 h-[32rem]">
+        <div class="overflow-y-scroll basis-5/6 gap-2 flex flex-wrap mt-2 lg:h-[32rem] lg:w-[100%] md:h-[50rem] md:w-[25rem]">
               
 
               @foreach ($sales as $sale)
-                <div class="w-[30rem] h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
+                <div class="w-[30rem] h-60  bg-lightB bg-opacity-20 mr-4 rounded-lg">
                   <a href="{{route('viewSales', $sale->id)}}">
 
                     <div class="ml-4 mt-[20px] mr-3">

@@ -15,8 +15,8 @@
         </a>
     </div>
 
-    <div class="font-Coda mt-10 max-w-6xl mx-auto bg-lightB bg-opacity-20 rounded-lg shadow-lg p-10 mb-28">
-        <div class="grid grid-cols-2 gap-4  ">
+    <div class="font-Coda mt-10 lg:max-w-6xl mx-auto bg-lightB bg-opacity-20 rounded-lg shadow-lg lg:w-[100%] p-10 mb-28 md:w-[42rem] max-sm:w-[25rem]">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 gap-4  ">
         
             <div class =" text-center justify-center mt-5">
                 
@@ -32,7 +32,7 @@
                 <p class="text-base  mb-10">{{ $incoming->product->descripcion }}</p>
 
                 <div class ="flex justify-center">
-                <div class="bg-white rounded-lg flex  items-center justify-center w-32 h-[2rem] ">
+                <div class="bg-white rounded-lg flex  items-center justify-center w-32 h-[2rem] max-sm:mb-10 ">
                     <span class="font-bold">{{ $incoming->cantidad_entrada }} unidades</span>
                 </div>
                 </div>
@@ -47,10 +47,10 @@
 
                 <p class="text-lg">Encargado de mercadería: {{ $incoming->usuario->nombre }}</p>
 
-                <p class="text-s mt-20 ">Fecha de Entrada: {{ $incoming->created_at->format('d-m-y') }}</p>
+                <p class="text-s lg:mt-10 md:mt-10 ">Fecha de Entrada: {{ $incoming->created_at->format('d-m-y') }}</p>
 
                 
-                <div class=" mt-5 flex justify-center gap-4">
+                <div class=" mt-5 lg:flex md:flex max-sm:grid justify-center gap-4">
                 
                     <a href="{{ route('incoming.edit', ['id' => $incoming->id]) }}" class="bg-main-blue text-white py-2 px-4 rounded-lg hover:bg-green-800">Modificar Entrada</a>
 

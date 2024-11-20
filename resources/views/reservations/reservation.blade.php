@@ -81,21 +81,21 @@
     </div>
     <div class="basis-5/6 gap-2 flex flex-wrap">
 
-        <div class="flex columns-2 mt-10 ml-24">
+        <div class="flex columns-2 mt-10 lg:ml-24 md:ml-12">
             <h1 class="font-normal font-Poppins text-main-blue text-3xl">
                 Reservas
             </h1>
 
-            <div class="ml-[39rem] mt-1">
+            <div class="lg:ml-[39rem] md:ml-[7rem] md:w-[13rem] mt-1">
                 <a class="text-white bg-main-blue px-8 py-1 rounded-lg font-Poppins" href="{{route('reservation.add')}}">Agregar reserva</a>
             </div>
         </div>
 
         <div class="ml-20 mt-5">
-            <div class="overflow-y-scroll flex flex-wrap mt-2 h-[32rem]">
+            <div class="overflow-y-scroll basis-5/6 gap-4 flex flex-wrap lg:mt-2 lg:h-[30rem] lg:w-[95%] md:h-[50rem] md:w-[28rem]">
             
                 @foreach ($reservas as $reserva)
-                    <div class="w-[45%] h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
+                    <div class="lg:w-[45%] md:w-[30rem] md:h-[15rem] lg:h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
                         <a href="{{route('reservation.show', $reserva->id)}}">
         
                             <div class="ml-4 mt-[20px] mr-3">
@@ -117,7 +117,7 @@
                                 <div class="flex ">
                                     @foreach ($productosReservados as $productoReservado)
                                         @if ($productoReservado -> reservas_id == $reserva -> id)
-                                            <div class="flex  m-1 box-border h-16 gap-2 mr-4 mt-3  text-black ">
+                                            <div class="flex  m-1 box-border lg:h-16 gap-2 mr-4 mt-3  text-black ">
                                                 <div class="flex border border-black h-12 px-2">
                                                     <div class="flex flex-col ml-2 mt-1">
                                                         @foreach ($posts as $producto)
