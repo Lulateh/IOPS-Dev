@@ -83,14 +83,14 @@
 
     <div>
 
-        <div class="flex flex-row items-start md:items-center justify-between mt-10 ml-6 ">
+        <div class="lg:flex lg:flex-row md:grid lg:items-start md:items-start justify-between mt-10 lg:ml-6 md:ml-6 ">
             <div>
                 <h1 class="font-Coda text-main-blue text-3xl md:text-4xl">
                     Bienvenido, {{Auth::user()->nombre}}
                 </h1>
             </div>
 
-            <div class="mt-2 ml-5 md:mt-0 md:ml-[10rem] lg:ml-[26rem] text-sm md:text-lg">
+            <div class="lg:mt-2  md:mt-10 md:mb-[2rem] md:items-end lg:ml-[26rem] text-sm md:text-lg">
                 <div>
                     <a href="{{ route('product.add') }}"  class="cursor-pointer active:bg-secondary-green text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
                         Agregar producto
@@ -99,14 +99,14 @@
             </div>
         </div>
 
-        <div class="ml-20 mt-5"> 
+        <div class="ml-20 mt-5 "> 
 
-            <div class="basis-5/6 flex">
+            <div class="md:overflow-y-scroll lg:overflow-y-hidden lg:basis-5/6 lg:flex md:grid lg:w-[100%] md:w-[28rem] md:h-[45rem] lg:h-[100%] ">
                 @foreach ($posts as $post)
                 <a href="{{route('product.show', $post->id)}}">
-                    <div class="w-48 h-60 bg-lightB bg-opacity-30 mr-4 rounded-lg">
+                    <div class="lg:w-48 lg:h-60 md:h-[20rem] bg-lightB bg-opacity-30 mr-4 rounded-lg">
                         <figure>
-                            <img class="h-32 mx-auto my-2" src="img/{{$post->imagen_url}}" alt="{{$post->imagen_url}}">
+                            <img class="lg:h-32 md:h-[13rem] mx-auto my-2" src="img/{{$post->imagen_url}}" alt="{{$post->imagen_url}}">
                         </figure>
                         <div class="ml-4 font-Coda">
                             <h2 class="text-lg md:text-xl"> {{$post->nombre}} </h2>

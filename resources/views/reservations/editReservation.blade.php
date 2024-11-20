@@ -39,14 +39,14 @@ Edit Reservation
 
             <h2 class="font-Poppins font-medium text-3xl mb-5">Modificar reserva</h2>
 
-            <div class="flex flex-row gap-8"> 
+            <div class="lg:flex lg:flex-row md:grid gap-8"> 
 
                 
                 
                 <div class="flex-col ">
 
                     <div> 
-                      <div class="bg-lilac bg-opacity-20 rounded-lg p-2 mb-6 font-Coda font-semibold columns-2 w-[38rem] h-[12rem]">
+                      <div class="bg-lilac bg-opacity-20 rounded-lg p-2 mb-6 font-Coda font-semibold columns-2 lg:w-[38rem] lg:h-[12rem] md:w-[40rem]">
     
                       <div class="flex-col text-base text-left mt-10 ml-10">
  
@@ -174,9 +174,9 @@ Edit Reservation
     
                 </div>
 
-                <div class="bg-lilac bg-opacity-20 rounded-lg w-[36rem] mr-16">
+                <div class="bg-lilac bg-opacity-20 rounded-lg lg:w-[36rem] md:w-[40rem] lg:mr-16">
 
-                    <div class="m-8 overflow-y-scroll h-[25.4rem]"> 
+                    <div class="m-8 overflow-y-scroll lg:w-[33rem] lg:h-[25.4rem] md:w-[40rem]"> 
 
                       <div class="flex">
                         <div>
