@@ -102,7 +102,7 @@
                         <button type="submit" class=" ml-2 text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900 " >Filtrar</button>
                     </form>
             
-            <div class="mx-6">
+            <div class="mx-6 lg:grid md:grid md:text-center">
                 <a href="{{route('users.add')}}"  class="text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900">Agregar Usuario</a> 
             </div>
         </div>
