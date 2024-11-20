@@ -1,5 +1,5 @@
-<header class="bg-main-blue py-3 w-[100vw]">
-    <div class="flex flex-row items-center justify-between w-[100vw]">
+<header class="bg-main-blue py-3 w-[100%]">
+    <div class="flex flex-row items-center justify-between lg:w-[100%]">
 
         <button id="menu-toggle" class="md:hidden p-2 bg-main-blue text-white">
             MENU

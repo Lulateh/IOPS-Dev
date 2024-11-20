@@ -11,7 +11,7 @@
 @section('content')
 @include('components.header')
 
-<section>
+<section class="flex columns-2">
 
     <div id="sidebar" class="hidden md:block basis-1/3 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
@@ -86,12 +86,12 @@
 
             <!-- Botonera top -->
             <div class="px-4 py-6">
-            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0 gap-y-4 lg:gap-x-8 lg:space-x-[27rem] w-full">
+            <div class="flex lg:flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0 gap-y-4 lg:gap-x-8 lg:space-x-[27rem] w-full">
                  <!-- Título -->
                   <h1 class="text-3xl text-main-blue font-Coda">Reportes</h1>
 
         <!-- Botones -->
-        <div class="flex flex-col sm:flex-row sm:gap-x-4 gap-y-2 w-full">
+        <div class="lg:flex lg:flex-col sm:flex-row sm:gap-x-4 gap-y-2 w-full">
             <a href="{{ route('reporte.ventas') }}" 
                class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-blue transition duration-300"
                aria-label="Ir al reporte de ventas">

@@ -11,7 +11,7 @@
 @section('content')
 @include('components.header')
 
-<section>
+<section class="flex columns-2">
 
     <div id="sidebar" class="hidden md:block basis-1/3 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">

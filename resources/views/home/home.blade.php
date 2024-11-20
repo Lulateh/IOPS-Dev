@@ -10,7 +10,7 @@
     
 <section class="flex grid-cols-1 md:grid-cols-2">
 
-    <div id="sidebar" class="hidden md:block basis-1/3 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
+    <div id="sidebar" class="hidden md:block lg:basis-1/12 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
             <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
                 <ul>
                 <h2 class="text-3xl font-bold mb-6 border-b-2 pb-2 border-main-blue">Menu</h2>

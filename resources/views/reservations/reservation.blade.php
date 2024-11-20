@@ -9,7 +9,7 @@
 
 <section class="flex columns-2">
 
-    <div id="sidebar" class="hidden md:block basis-1/3 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
+    <div id="sidebar" class="hidden md:block lg:basis-1/12 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
             <ul>
             <h2 class="text-3xl font-bold mb-6 border-b-2 pb-2 border-main-blue">Menu</h2>
@@ -39,7 +39,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ml-10" viewBox="0 0 16 16">
                         <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
                     </svg>
-                    <li><a href="{{route('sales')}}" class = "ml-5">Salidas</a></li>
+                    <li><a href="{{route('sales')}}" class = "ml-5">Ventas</a></li>
                 </div>
 
                 <div class="flex columns-2 px-4 py-2 text-lg md:text-xl text-main-blue hover:bg-main-blue hover:text-gray-100">
