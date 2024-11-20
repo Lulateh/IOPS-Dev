@@ -11,7 +11,7 @@
 @section('content')
 @include('components.header')
 
-<section class="flex columns-2">
+<section>
 
     <div id="sidebar" class="hidden md:block basis-1/3 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
@@ -82,23 +82,41 @@
                 @endif
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <div >
-        <div>
-            <div class="flex flex-row mt-10 ml-20">
+               <!-- Botonera top -->
+               <div class="px-4 py-6">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0 gap-y-4 lg:gap-x-8 lg:space-x-[27rem] w-full">
+                 <!-- Título -->
+                  <h1 class="text-3xl text-main-blue font-Coda">Reportes</h1>
 
-                    <h1 class="text-3xl text-main-blue font-Coda mt-4">Reportes</h1>
+        <!-- Botones -->
+        <div class="flex flex-col sm:flex-row sm:gap-x-4 gap-y-2 w-full">
+            <a href="{{ route('reporte.ventas') }}" 
+               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-blue transition duration-300"
+               aria-label="Ir al reporte de ventas">
+               Reporte de Ventas
+            </a>                       
+            <a href="{{ route('reporte.compras') }}" 
+               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-main-blue text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
+               aria-label="Ir al reporte de compras">
+               Reporte de Compras
+            </a>                        
+            <a href="{{ route('reporte.reservas') }}" 
+               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
+               aria-label="Ir al reporte de reservas">
+               Reporte de Reservas
+            </a>                   
+        </div>
 
-                    <div class="space-x-2 pt-6 ml-[27rem]">
-                        <a href="{{ route('reporte.ventas') }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded">Reporte de ventas</a>
-                        <a href="{{ route('reporte.compras') }}" class="px-4 py-2 bg-main-blue text-white rounded">Reporte de compras</a>
-                        <a href="{{ route('reporte.reservas') }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded">Reporte de reservas</a>
-                    </div>
+    </div>
+</div>
 
-                </div>
 
-        <div class="ml-20 mt-5 overflow-y-auto">
+  <!-- min-max date -->
+   
+        <div class=" md:ml-20 ml-5 mt-5 overflow-y-auto">
             <div>
                 <table border="0" cellspacing="5" cellpadding="5">
                     <tbody>
@@ -113,8 +131,10 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <!-- teibol -->
 
-            <div class=" mt-8 rounded h-[26rem]  mr-10">
+            <div class=" mt-8 overflow-x-auto px-5 py-5">
                 <table id="salesReport" class="min-w-full bg-white display compact ">
                         <thead>
                             <tr>

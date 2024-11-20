@@ -14,7 +14,7 @@
 </div>
 <h2 class="text-5xl md:text-4xl font-Coda my-8 md:my-16 text-center">Reestablecer Contraseña</h2>
 
-<form action="{{ route('checkEmail') }}" method="POST">
+<form action="{{ route('checkEmail') }}" method="POST" class="px-4">
     @csrf
 
     <div class="max-w-2xl mx-auto p-6 bg-white bg-opacity-35 rounded-lg shadow-md">

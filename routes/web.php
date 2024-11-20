@@ -19,6 +19,7 @@ use App\Models\Proveedor;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\UserController;
 use Faker\Provider\ar_EG\Company;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::get('/', function () {
 Route::get('/safetyPage', function () {
     return view('safetyPage');
 });
+Route::post('/send-contact', [ContactController::class, 'send'])->name('contact.send');
 
 Route::get('/registro', [AuthController::class, 'registro']) -> name('registro');
 Route::post('/registro', [AuthController::class, 'registroPost']) -> name('registro.post') ;
