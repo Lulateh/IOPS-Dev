@@ -16,10 +16,10 @@ View reservations
         </a>
     </div>
 
-    <div class="flex-container flex items-end justify-center mt-16">
-        <div class="inline-block align-bottom mt-[-3.5rem] mb-8 text-left overflow-hidden bg-lightB bg-opacity-20 rounded-2xl"> 
-            <div class="text-center mt-6 w-[60rem]"> 
-                <div class="border-b-2 border-dotted border-black columns-2 m-2 ml-[4.5rem] w-[50rem] mb-4">          
+    <div class="flex-container flex items-end justify-center mt-5">
+        <div class="inline-block align-bottom text-left mb-8 overflow-hidden m bg-lightB bg-opacity-20 rounded-2xl max-sm:w-[23rem]"> 
+            <div class="text-center mt-6 lg:w-[60rem] md:w-[45rem]"> 
+                <div class="border-b-2 border-dotted border-black columns-2 lg:m-2 lg:ml-[4.5rem] lg:w-[50rem] lg:mb-4 md:ml-[4.5rem] w-full md:w-[36rem] max-sm:gap-[3rem] max-sm:w-[22.5rem] max-sm:px-4">          
                     <div class="text-black text-left flex flex-col font-Poppins font-regular ml-6 mb-4">
                         <p class="m-0">Cliente: {{$client['nombre_cliente']}}</p>
                         <p class="m-0">Telefono: {{$client['telefono']}}</p>
@@ -27,14 +27,14 @@ View reservations
                         <p class="m-0">Fecha de entrega: {{$reserva['fecha_salida']}}<p>
                     </div>
 
-                    <div class="text-black flex text-3xl ml-64 font-Poppins font-medium"> 
+                    <div class="text-black flex text-3xl lg:ml-64 md:ml-40 font-Poppins font-medium"> 
                         <h2 class="my-4">N° {{$reserva['id']}}</h2>
                     </div>
                     
                 </div>
                 
-                <div class="columns-2 mr-16 mb-2"> 
-                    <div> 
+                <div class="columns-2 lg:mr-16 lg:mb-2 md:mr-8 md:ml-[-6rem]"> 
+                    <div class="md:ml-[6rem]"> 
                         <h3 class="font-Poppins font-medium">Estado de la reserva:<h3>
                     </div>
 
