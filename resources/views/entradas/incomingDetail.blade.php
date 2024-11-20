@@ -52,9 +52,9 @@
                 
                 <div class=" mt-5 lg:flex md:flex max-sm:grid justify-center gap-4">
                 
-                    <a href="{{ route('incoming.edit', ['id' => $incoming->id]) }}" class="bg-main-blue text-white py-2 px-4 rounded-lg hover:bg-green-800">Modificar Entrada</a>
+                    <a href="{{ route('incoming.edit', ['id' => $incoming->id]) }}" class="bg-main-blue text-white py-2 px-4 rounded-lg hover:bg-blue-900">Modificar Entrada</a>
 
-                <button onclick="toggleModal()" class="bg-main-blue text-white py-2 px-4 rounded-lg hover:bg-green-800">Eliminar Entrada</button>
+                <button onclick="toggleModal()" class="bg-main-blue text-white py-2 px-4 rounded-lg hover:bg-blue-900">Eliminar Entrada</button>
                 </div>
             </div>
         </div>
@@ -73,8 +73,8 @@
         <form id="deleteForm" action="{{ route('incomings.delete', $incoming->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded mr-10">Eliminar entrada</button>
-            </form><button id="cancelDelete" class="bg-white border-solid border-2 text-black px-4 py-2 rounded">Cancelar</button>
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded mr-10">Eliminar entrada</button>
+            </form><button id="cancelDelete" class="bg-white border-solid border-2 hover:bg-gray-200 text-black px-4 py-2 rounded">Cancelar</button>
         </div>
     </div>
 </div>

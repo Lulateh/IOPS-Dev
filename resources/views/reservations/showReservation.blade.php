@@ -17,7 +17,7 @@ View reservations
     </div>
 
     <div class="flex-container flex items-end justify-center mt-5">
-        <div class="inline-block align-bottom text-left mb-8 overflow-hidden m bg-lightB bg-opacity-20 rounded-2xl max-sm:w-[23rem]"> 
+        <div class="inline-block align-bottom text-left mb-8 overflow-hidden shadow-lg bg-lightB bg-opacity-20 rounded-2xl max-sm:w-[23rem]"> 
             <div class="text-center mt-6 lg:w-[60rem] md:w-[45rem]"> 
                 <div class="border-b-2 border-dotted border-black columns-2 lg:m-2 lg:ml-[4.5rem] lg:w-[50rem] lg:mb-4 md:ml-[4.5rem] w-full md:w-[36rem] max-sm:gap-[3rem] max-sm:w-[22.5rem] max-sm:px-4">          
                     <div class="text-black text-left flex flex-col font-Poppins font-regular ml-6 mb-4">
@@ -40,21 +40,21 @@ View reservations
 
                     @if($reserva['estado'] == "entregado")
                         <div> 
-                            <button onclick="openModal('entregado')" class="bg-main-blue border-2 border-main-blue rounded-lg px-3 text-white font-Poppins font-bold text-sm">ENTREGADO</button>
-                            <button onclick="openModal('reservado')" class="bg-white border-2 border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">RESERVADO</button>
-                            <button onclick="openModal('cancelado')" class="bg-white border-2 border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">CANCELADO</button>
+                            <button onclick="openModal('entregado')" class="bg-main-blue border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-white font-Poppins font-bold text-sm">ENTREGADO</button>
+                            <button onclick="openModal('reservado')" class="bg-white border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">RESERVADO</button>
+                            <button onclick="openModal('cancelado')" class="bg-white border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">CANCELADO</button>
                         </div>
                     @elseif($reserva['estado'] == "reservado")
                         <div> 
-                            <button onclick="openModal('entregado')" class="bg-white border-2 border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">ENTREGADO</button>
-                            <button onclick="openModal('reservado')" class="bg-main-blue border-2 border-main-blue rounded-lg px-3 text-white font-Poppins font-bold text-sm">RESERVADO</button>
-                            <button onclick="openModal('cancelado')" class="bg-white border-2 border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">CANCELADO</button>
+                            <button onclick="openModal('entregado')" class="bg-white border-2 hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">ENTREGADO</button>
+                            <button onclick="openModal('reservado')" class="bg-main-blue border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-white font-Poppins font-bold text-sm">RESERVADO</button>
+                            <button onclick="openModal('cancelado')" class="bg-white border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">CANCELADO</button>
                         </div>
                     @elseif($reserva['estado'] == "cancelado")
                         <div> 
-                            <button onclick="openModal('entregado')" class="bg-white border-2 border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">ENTREGADO</button>
-                            <button onclick="openModal('reservado')" class="bg-white border-2 border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">RESERVADO</button>
-                            <button onclick="openModal('cancelado')" class="bg-main-blue border-2 border-main-blue rounded-lg px-3 text-white font-Poppins font-bold text-sm">CANCELADO</button>
+                            <button onclick="openModal('entregado')" class="bg-white border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">ENTREGADO</button>
+                            <button onclick="openModal('reservado')" class="bg-white border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-main-blue font-Poppins font-bold text-sm">RESERVADO</button>
+                            <button onclick="openModal('cancelado')" class="bg-main-blue border-2  hover:bg-blue-900 hover:text-white border-main-blue rounded-lg px-3 text-white font-Poppins font-bold text-sm">CANCELADO</button>
                         </div>
                     @endif
                 </div>
@@ -108,8 +108,8 @@ View reservations
 
             <p class="text-center">¿Estás seguro que deseas cambiar el estado?</p>
             <div class="mt-4 ml-[6.3rem]">
-                <button type="button" class="bg-green text-white px-4 py-2 rounded mr-2" onclick="closeModal()">Cancelar</button>
-                <button type="submit" class="bg-main-blue text-white px-4 py-2 rounded">Confirmar</button>
+                <button type="button" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded mr-2" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="bg-main-blue hover:bg-green text-white px-4 py-2 rounded">Confirmar</button>
             </div>
         </form>
     </div>

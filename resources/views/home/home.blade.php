@@ -92,7 +92,7 @@
 
             <div class="lg:mt-2  md:mt-10 md:mb-[2rem] md:items-end lg:ml-[26rem] text-sm md:text-lg">
                 <div>
-                    <a href="{{ route('product.add') }}"  class="cursor-pointer active:bg-secondary-green text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
+                    <a href="{{ route('product.add') }}"  class="cursor-pointer hover:bg-blue-900 text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
                         Agregar producto
                     </a>
                 </div>           
@@ -104,7 +104,7 @@
             <div class="md:overflow-y-scroll lg:overflow-y-hidden lg:basis-5/6 lg:flex md:grid lg:w-[100%] md:w-[28rem] md:h-[45rem] lg:h-[100%] ">
                 @foreach ($posts as $post)
                 <a href="{{route('product.show', $post->id)}}">
-                    <div class="lg:w-48 lg:h-60 md:h-[20rem] bg-lightB bg-opacity-30 mr-4 rounded-lg">
+                    <div class="lg:w-48 lg:h-60 md:h-[20rem] border-2 hover:border-main-blue shadow-lg bg-lightB bg-opacity-30 mr-4 rounded-lg">
                         <figure>
                             <img class="lg:h-32 md:h-[13rem] mx-auto my-2" src="img/{{$post->imagen_url}}" alt="{{$post->imagen_url}}">
                         </figure>
