@@ -6,7 +6,7 @@
 
 @section('content')
 @include('components.header')
-<section class="flex columns-2">
+<section class="flex columns-1 md:columns-2">
 
     <div id="sidebar" class="hidden md:block lg:basis-1/12 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)]"> 
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
@@ -80,33 +80,34 @@
     </div>
 
     <div>
-        <div class="flex justify-between items-center mt-12 mb-10 mx-20">
-            <div class="ml-1">
-                <h2 class="text-main-blue font-Coda text-4xl">  
+        <div class="flex flex-col md:flex-row justify-between items-center mt-12 mb-10 mx-4 md:mx-20">
+            <div class="mb-4 md:mb-0">
+                <h1 class="text-main-blue font-Coda text-4xl">  
                     Proveedores
-                </h2>
+                </h1>
             </div>
 
-            <div class="flex items-center">
+            <div class="flex flex-col md:flex-row items-center gap-4 ">
                     <form action="{{ route('proveedores.index') }}" method="GET">
                         <select name="estado" class="px-4 py-1 border rounded-lg">
                             <option value="">Estado</option>
                             <option value="activo" {{ request('estado') === 'activo' ? 'selected' : '' }}>Activo</option>
                             <option value="inactivo" {{ request('estado') === 'inactivo' ? 'selected' : '' }}>Inactivo</option>
                         </select>
-                        <button type="submit" class=" ml-2 text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins" >Filtrar</button>
+                        <button type="submit" class=" ml-2 text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900" >Filtrar</button>
                     </form>
                     
 
 
                 <div class="mx-6">
-                <a href="{{ route('proveedores.create') }}" class="text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins">Agregar Proveedor</a> 
+                <a href="{{ route('proveedores.create') }}" class="text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900">Agregar Proveedor</a> 
                 </div>
             </div>
         </div>
 
-        <div class="basis-5/6 flex items-center mr-5 ml-10">
-            <table class="w-[65rem]">
+        <div class="grid">
+        <div class="overflow-x-auto mx-4 md:mx-10">
+            <table class="w-[65rem] shadow-lg">
                 <thead>
                     <tr>
                         <th class="py-2 px-4 border-b bg-main-blue text-white rounded-tl-lg">Nombre</th>
@@ -131,13 +132,14 @@
                         @endif
                     </td>
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">
-                            <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="text-white hover:bg-green bg-main-blue rounded-lg px-3 py-2">Editar</a>
+                            <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="text-white bg-main-blue rounded-lg px-3 py-2 hover:bg-blue-900">Editar</a>
                             
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 

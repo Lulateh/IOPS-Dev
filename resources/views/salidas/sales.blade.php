@@ -99,7 +99,7 @@
               
 
               @foreach ($sales as $sale)
-                <div class="w-[30rem] h-60  bg-lightB bg-opacity-20 mr-4 rounded-lg">
+                <div class="w-[30rem] h-60  bg-lightB bg-opacity-20 mr-4 rounded-lg shadow-lg border hover:border-main-blue">
                   <a href="{{route('viewSales', $sale->id)}}">
 
                     <div class="ml-4 mt-[20px] mr-3">

@@ -6,29 +6,31 @@
 
 @section('content')
 @if(Auth::user()->rol == 'administrador')
-<section class="bg-main-blue py-2 h-screen">
+<section class="bg-main-blue py-2 h-screen lg:h-full">
     <div class="mt-8">
-        <a href="{{route('users.index')}}" class="ml-20 text-white font-Coda hover:underline text-2xl">  
+        <a href="{{route('users.index')}}" class="ml-5 lg:ml-20 text-white font-Coda hover:underline text-2xl">  
              ← Volver
         </a>
     </div>
 
     <div class="block">
-        <img class="mx-auto w-40" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
+        <img class="mx-auto w-32 lg:w-40" src="{{ asset('img/IopsIconWhite.png') }}" alt="">
     </div>
 
-    <div class="grid justify-center mt-5">
-        <form method="POST" action="{{ route('users.add') }}" class="bg-white/[.17] px-16 py-8 mt-4 font-Coda rounded-xl">
+    <div class="grid justify-items-center mt-5">
+        
+        <form method="POST" action="{{ route('users.add') }}" class="bg-white/[.17] lg:px-16 py-8 mt-4 font-Coda rounded-xl">
             @csrf
             <h2 class="text-center text-3xl my-5">Registrar Usuario</h2>
 
+            <div class=" ml-12">
             <div>
                 <label for="name" class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                     </svg>Nombre Completo
                 </label>
-                <input class="rounded-lg my-2" type="text" id="nombre" name="nombre" size="50" required><br>
+                <input class="rounded-lg my-2 lg:w-[25.9rem]" type="text" id="nombre" name="nombre"  required><br>
                 @if ($errors->has('nombre'))
                     <span class="text-red-500">{{ $errors->first('nombre') }}</span>
                 @endif
@@ -40,7 +42,7 @@
                         <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"/>
                     </svg>Correo Electrónico
                 </label>
-                <input class="rounded-lg my-2" type="email" id="email" name="email" size="50" required><br>
+                <input class="rounded-lg my-2 lg:w-[25.9rem]" type="email" id="email" name="email" required><br>
                 @if ($errors->has('email'))
                     <span class="text-red-500">{{ $errors->first('email') }}</span>
                 @endif
@@ -52,7 +54,7 @@
                         <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2M2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
                     </svg>Contraseña
                 </label>
-                <input class="rounded-lg my-2" type="password" id="password" name="password" size="50" required>
+                <input class="rounded-lg my-2 lg:w-[25.9rem]" type="password" id="password" name="password"required>
                 <ul id="password-requirements" class="text-sm text-white">
                     <li id="length" class="text-red-500">Mínimo 8 caracteres</li>
                     <li id="uppercase" class="text-red-500">Al menos una letra mayúscula</li>
@@ -70,23 +72,24 @@
                         <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2M2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
                     </svg>Confirmar Contraseña
                 </label>
-                <input class="rounded-lg my-2" type="password" id="password_confirmation" name="password_confirmation" size="50" required>
+                <input class="rounded-lg my-2 lg:w-[25.9rem]" type="password" id="password_confirmation" name="password_confirmation" required>
                 <span id="password-match" class="text-sm block mt-2"></span>
             </div>
 
             <div>
                 <label for="role">Rol del Usuario</label><br>
-                <select class="rounded-lg my-2 w-[25.9rem]" style="text-align: center" id="rol" name="rol" required>
+                <select class="rounded-lg my-2 lg:w-[25.9rem]" style="text-align: center" id="rol" name="rol" required>
                     <option value="administrador">Administrador</option>
                     <option value="colaborador">Colaborador</option>
                     <option value="supervisor">Supervisor</option>
                 </select>
             </div>
 
-            <div class="mt-4 ml-[9rem]">
+            <div class="mt-4 ml-10 lg:ml-[9rem]">
                 <input id="submit-btn" class="text-white bg-main-blue px-8 py-1 rounded-lg cursor-not-allowed" type="submit" value="Registrar" disabled>
             </div>
         </form>
+        </div>
     </div>
 </section>
 

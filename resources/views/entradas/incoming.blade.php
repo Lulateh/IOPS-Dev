@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="lg:ml-[39rem] md:ml-[7rem] md:w-[13rem] mt-1">
-                    <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer active:bg-secondary-green text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
+                    <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer hover:bg-blue-900 text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
                         Agregar entrada
                     </a>
                 </div>
@@ -104,7 +104,7 @@
                     <div class="lg:grid lg:grid-cols-2 gap-4 md:grid lg:w-[100%] md:w-[26rem]">
                         @foreach ($incomings as $incoming)
                             <a href="{{ route('incomings.show', ['id' => $incoming->id]) }}">
-                                <div class="font-Coda relative w-full h-32 bg-lightB bg-opacity-20 mr-4 rounded-lg flex items-center">
+                                <div class="font-Coda border hover:border-main-blue relative w-full h-32 bg-lightB bg-opacity-20 mr-4 rounded-lg flex items-center">
                                     <div class="mx-10 flex flex-col justify-center">
                                         <h2 class="text-l font-bold ">{{ $incoming->product->nombre }}</h2>
                                         <p class="text-sm">Código: {{ $incoming->producto_id }}</p>

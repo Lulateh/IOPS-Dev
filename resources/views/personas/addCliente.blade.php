@@ -14,12 +14,12 @@ LogiStock - Add client
 </div>
 
 <div class="flex justify-center">
-<div class="bg-lilac bg-opacity-20 w-3/4 p-10 rounded-lg shadow-lg mt-10">
-<h1 class="font-Poppins font-bold text-center text-3xl mb-10">Agregar Cliente</h1>
+<div class="bg-lilac bg-opacity-20 w-3/4 p-2 lg:p-10 rounded-lg shadow-lg mt-4 lg:mt-10">
+<h1 class="font-Poppins font-bold text-center text-3xl my-4 lg:mb-10">Agregar Cliente</h1>
        
     <form action="{{ route('cliente.add') }}" method="POST" class="w-full">
         @csrf
-        <div class="grid grid-cols-2 gap-2 font-Poppins">
+        <div class="ml-10 lg:ml-0  grid-cols-1 grid lg:grid-cols-2 gap-4 font-Poppins">
            <div class="mr-10">
                 <label class="flex items-center mb-2 font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" mr-2" viewBox="0 0 16 16">
@@ -27,7 +27,7 @@ LogiStock - Add client
                 </svg>
                 Nombre
                 </label>
-                <input type="text" name="nombre" class="w-[23rem] p-1 rounded-xl" style="background-color: rgb(255, 255, 255);" required>
+                <input type="text" name="nombre" class="lg:w-[23rem] p-1 rounded-xl" style="background-color: rgb(255, 255, 255);" required>
             </div>
             <div>
                 <label class="flex items-center mb-2 font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
@@ -35,7 +35,7 @@ LogiStock - Add client
                 </svg>
                 Dirección
                 </label>
-                <input type="text" name="direccion" class="w-[23rem] p-1 rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
+                <input type="text" name="direccion" class="lg:w-[23rem] p-1 rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
             </div>
             
             <div>
@@ -45,7 +45,7 @@ LogiStock - Add client
                 </svg>          
                 Teléfono
                 </label>
-                <input type="text" name="telefono" class="w-[23rem] p-1  rounded-xl" style="background-color: rgb(255, 255, 255);" required
+                <input type="text" name="telefono" class="lg:w-[23rem] p-1  rounded-xl" style="background-color: rgb(255, 255, 255);" required
                 maxlength="10" 
        pattern="[0-9]{1,10}" 
        title="Solo números, hasta 10 dígitos" 
@@ -61,12 +61,23 @@ LogiStock - Add client
                 </svg>
                 Email
             </label>
-                <input type="email" name="email" class="w-[23rem] p-1  rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
+                <input type="email" name="email" class="lg:w-[23rem] p-1  rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
             </div>
         </div>
 
-<div class="flex justify-center mt-16">
-                <input type="submit" class="text-white bg-main-blue cursor-pointer text-2xl px-8 py-1 rounded-xl font-Poppins" value="Agregar">
+            <div class="flex justify-center mt-16">
+            <button class="text-white bg-main-blue group hover:bg-blue-900  px-6 py-2 rounded-lg font-Poppins flex items-center relative">
+    
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" absolute w-6 h-6 text-white group-hover:opacity-0 transition-opacity duration-300" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="absolute w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                        </svg>
+                        <span class="ml-8 font-Poppins text-white">Agregar Cliente</span>
+                </button>
             </div>
         </form>
     </div>

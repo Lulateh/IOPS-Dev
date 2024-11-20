@@ -88,7 +88,7 @@
             </h1>
 
             <div class="lg:ml-[39rem] md:ml-[7rem] md:w-[13rem] mt-1">
-                <a class="text-white bg-main-blue px-8 py-1 rounded-lg font-Poppins" href="{{route('reservation.add')}}">Agregar reserva</a>
+                <a class="text-white hover:bg-blue-900 bg-main-blue px-8 py-1 rounded-lg font-Poppins" href="{{route('reservation.add')}}">Agregar reserva</a>
             </div>
         </div>
 
@@ -96,7 +96,7 @@
             <div class="overflow-y-scroll basis-5/6 gap-4 flex flex-wrap lg:mt-2 lg:h-[30rem] lg:w-[95%] md:h-[50rem] md:w-[28rem]">
             
                 @foreach ($reservas as $reserva)
-                    <div class="lg:w-[45%] md:w-[30rem] md:h-[15rem] lg:h-60 bg-lightB bg-opacity-20 mr-4 rounded-lg">
+                    <div class="lg:w-[45%] md:w-[30rem] md:h-[15rem] lg:h-60 bg-lightB bg-opacity-20 mr-4 shadow-lg rounded-lg border hover:border-main-blue">
                         <a href="{{route('reservation.show', $reserva->id)}}">
         
                             <div class="ml-4 mt-[20px] mr-3">

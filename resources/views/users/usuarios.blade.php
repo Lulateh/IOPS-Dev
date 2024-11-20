@@ -11,7 +11,7 @@
 
 
 
-<section class="flex columns-2">
+<section class="flex columns-1 md:columns-2">
 
     <div id="sidebar" class="hidden md:block lg:basis-1/12 md:basis-1/5 bg-green bg-opacity-15 h-[calc(100vh-85px)] "> 
         <div class="flex flex-col font-Coda justify-center text-center mt-20 text-main-blue">
@@ -85,20 +85,32 @@
     </div>
 
     <div>
-        <div class="flex col-2 mt-10 ml-20">
-            <div class="ml-1">
-                <h2 class="text-main-blue font-Coda text-4xl">  
+        <div class="flex flex-col md:flex-row justify-between items-center mt-12 mb-10 mx-4 md:mx-20">
+            <div class="mb-4 md:mb-0">
+                <h1 class="text-main-blue font-Coda text-4xl">  
                     Usuarios: {{$empresa->nombre}}
-                </h2>
+                </h1>
             </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                    <form action="{{ route('users.index') }}" method="GET">
+                        <select name="estado" class="px-4 py-1 border rounded-lg">
+                            <option value="">Estado</option>
+                            <option value="activo" {{ request('estado') === 'activo' ? 'selected' : '' }}>Activo</option>
+                            <option value="inactivo" {{ request('estado') === 'inactivo' ? 'selected' : '' }}>Inactivo</option>
+                        </select>
+                        <button type="submit" class=" ml-2 text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900 " >Filtrar</button>
+                    </form>
             
-            <div class="ml-[30rem] mt-2">
-                <a href="{{route('users.add')}}"  class="text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins">Agregar Usuario</a> 
+            <div class="mx-6">
+                <a href="{{route('users.add')}}"  class="text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900">Agregar Usuario</a> 
             </div>
         </div>
+        </div>
 
-        <div class="basis-5/6 flex items-center justify-center mr-5 mt-16 ml-6">
-            <table class="w-[65rem] ">
+        <div class="grid">
+        <div class="overflow-x-auto mx-4 md:mx-10">
+            <table class="w-[65rem] shadow-lg">
                 <thead>
                     <tr>
                         <th class="py-2 px-4 border-b bg-main-blue text-white rounded-tl-lg ">Nombre</th>
@@ -117,13 +129,14 @@
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $usuario->rol }}</td>
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $usuario->estado}}</td>
                         <td class="py-2 px-4 bg-card-bg border t-black text-center">
-                            <a href="{{route('edit.users',['id' => $usuario->id])}}" class="text-white hover:bg-green bg-main-blue rounded-lg px-3 py-2">Editar</a>
+                            <a href="{{route('edit.users',['id' => $usuario->id])}}" class="text-white hover:bg-green bg-main-blue rounded-lg px-3 py-2 hover:bg-blue-900">Editar</a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+          </div>
     </div>
 </section>
 
