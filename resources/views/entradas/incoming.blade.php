@@ -82,7 +82,7 @@
         
         <div>
 
-            <div class="flex columns-2 mt-10 ml-20">
+            <div class="flex columns-2 mt-10 lg:ml-24 md:ml-12">
                 
                 <div>
                     <h1 class="font-Coda text-main-blue text-3xl">
@@ -90,7 +90,7 @@
                     </h1>
                 </div>
 
-                <div class="ml-[32rem] mt-1">
+                <div class="lg:ml-[39rem] md:ml-[7rem] md:w-[13rem] mt-1">
                     <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer active:bg-secondary-green text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
                         Agregar entrada
                     </a>
@@ -101,7 +101,7 @@
             <div class="ml-20 mt-5">
 
                 <div class="mt-10 max-h-[600px] overflow-y-auto">
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="lg:grid lg:grid-cols-2 gap-4 md:grid lg:w-[100%] md:w-[26rem]">
                         @foreach ($incomings as $incoming)
                             <a href="{{ route('incomings.show', ['id' => $incoming->id]) }}">
                                 <div class="font-Coda relative w-full h-32 bg-lightB bg-opacity-20 mr-4 rounded-lg flex items-center">
