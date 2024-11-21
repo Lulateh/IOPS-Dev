@@ -64,8 +64,8 @@
 <!-- teibol -->
 
 
-        <div class= "px-5 py-5" >
-            <div class=" mt-8 overflow-x-auto">
+        <div class= "px-5 py-5 over" >
+            <div class=" mt-8 md:overflow-y-auto md:h-[500px]">
                 <table id="salesReport" class="min-w-full bg-white display compact">
                         <thead>
                             <tr>
@@ -118,7 +118,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th colspan="9" style="text-align:right">Total:</th>
+                                <th colspan="9" style="text-align:right"></th>
                                 <th></th>
                             </tr>
                         </tfoot>
@@ -176,6 +176,14 @@
     });
 
     let table = new DataTable('#salesReport', {
+
+        columnDefs: [
+            {
+                targets: 9,
+                width: '12%',
+            }
+        ],
+
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
@@ -199,7 +207,7 @@
             pageTotal = api.column(9, { page: 'current' }).data().reduce((a, b) => intVal(a) + intVal(b), 0);
     
             // Update footer
-            api.column(9).footer().innerHTML = '₡' + pageTotal + ' ( ₡' + total + ' total)';
+            api.column(9).footer().innerHTML = 'Total: ₡' + pageTotal + '<br> Total General: ₡' + total;
         },
     });
 

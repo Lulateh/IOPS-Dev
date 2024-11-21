@@ -18,7 +18,7 @@
                 </svg>
             </button>
 
-            <div class="fixed right-0 mt-2 mr-16 w-46 rounded-md shadow-lg bg-lightB bg-opacity-80 ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="profile-dropdown-button" id="profile-dropdown-menu">
+            <div class="fixed right-0 mt-36 mr-16 w-46 rounded-md shadow-lg bg-lightB bg-opacity-80 ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="profile-dropdown-button" id="profile-dropdown-menu">
                 <div class="py-1" role="none">
                     <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:text-gray-900" role="menuitem">Profile</a>
                     <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:text-gray-900" role="menuitem">
