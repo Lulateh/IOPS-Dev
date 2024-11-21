@@ -7,16 +7,16 @@
 @section('content')
 @include('components.header')
 
-<div class="mt-8">
+<div class="lg:mt-8 md:mt-8 max-sm:mt-3 ">
     <a href="{{ route('home') }}" class="ml-20 text-black font-Coda hover:underline text-3xl md:text-2xl">  
     ← Volver
    </a>
  </div>
 
-<section class ="columns-1 md:columns-2 mt-4 ml-24   md:ml-[25rem] flex ">
-    <div class="flex bg-lilac bg-opacity-20 w-3/4 p-10 rounded-lg shadow-lg gap-8 justify-center">
+<section class ="columns-1 md:columns-2 mt-4 lg:ml-24   md:ml-[4rem] max-sm:ml-14 flex ">
+    <div class="flex max-sm:grid bg-lilac bg-opacity-20 lg:w-3/4 md:w-[40rem] max-sm:w-[20rem] max-sm:h-[48rem] max-sm:mb-8 lg:h-[32rem] p-10 rounded-lg shadow-lg gap-8 justify-center">
         <div class="basis-1/3 ">
-            <img class="content-center rounded-lg w-full h-auto" src = "../../img/{{$existingProduct['imagen_url']}}" alt = "{{$existingProduct['imagen_url']}}">
+            <img class="content-center rounded-lg w-full lg:h-[28rem] md:h-auto max-sm:h-auto" src = "../../img/{{$existingProduct['imagen_url']}}" alt = "{{$existingProduct['imagen_url']}}">
         </div>
 
         <div class="content-center">

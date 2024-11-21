@@ -37,7 +37,7 @@
             
             <div>
                 <label for="corpMail">Correo electrónico</label><br>
-                <input class="rounded-lg my-2" type="email" id="email" name="email" size="50" required><br>
+                <input class="rounded-lg my-2 max-sm:w-[20rem] py-1" type="email" id="email" name="email" size="50" required><br>
                 @if ($errors -> has('email'))
                     <span class="">
                         {{ $errors -> first('email') }}
@@ -47,7 +47,7 @@
 
             <div>
                 <label for="password">Contraseña</label><br>
-                <input class="rounded-lg my-2" type="password" id="password" name="password" size="50" required><br>
+                <input class="rounded-lg my-2 max-sm:w-[20rem] py-1" type="password" id="password" name="password" size="50" required><br>
                 @if ($errors -> has('password'))
                     <span class="">
                         {{ $errors -> first('password') }}
@@ -55,7 +55,7 @@
                 @endif
             </div>
 
-            <div class="mt-6 ml-[7.7rem]">
+            <div class="mt-6 lg:ml-[7.7rem] md:ml-[7.7rem] max-sm:ml-[5rem]">
                 <input class="text-white bg-main-blue px-8 py-1 ml-auto rounded-lg" type="submit" value="Iniciar sesion">
             </div>
             <a href="{{ route('forgot.password.view') }}"class="flex mt-4 mx-auto justify-center underline text-black hover:text-green-500">Recuperar contraseña</a>

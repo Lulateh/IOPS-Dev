@@ -33,7 +33,7 @@ View reservations
                     
                 </div>
                 
-                <div class="columns-2 lg:mr-16 lg:mb-2 md:mr-8 md:ml-[-6rem]"> 
+                <div class="lg:columns-2 md:columns-2 lg:mr-16 lg:mb-2 md:mr-8 md:ml-[-6rem] max-sm:grid"> 
                     <div class="md:ml-[6rem]"> 
                         <h3 class="font-Poppins font-medium">Estado de la reserva:<h3>
                     </div>
@@ -60,10 +60,10 @@ View reservations
                 </div>
 
                 <div class="flex flex-row ml-16">
-                    <div class="overflow-auto rounded-lg h-80 m-2  w-[50rem]">
+                    <div class="overflow-auto rounded-lg h-80 m-2 max-sm:mt-6  lg:w-[50rem] md:w-[50rem]  ">
                         <div>
                             @foreach ($productosReservados as $productoReservado)
-                                <div class="grid grid-cols-2 gap-[0.01rem] mb-6 mr-0">
+                                <div class="lg:grid md:grid lg:grid-cols-2 md:grid-cols-2 max-sm:w-[15rem] gap-[0.01rem] mb-6 mr-0">
                                     <div class="flex border border-main-blue h-14 mt-1 ml-2 m-2">
                                         <div class="flex flex-col ml-6 mt-2 text-left">
                                             @foreach ($productos as $producto)

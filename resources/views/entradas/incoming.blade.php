@@ -7,11 +7,11 @@
 @section('content')
 @include('components.headerTables')
 
-    <section class="md:ml-[15rem] md:mr-[1rem]">
+    <section class="md:ml-[16rem]  md:mr-[1rem]">
         
         <div>
 
-            <div class="flex columns-2 mt-10 lg:ml-24 md:ml-12">
+            <div class="flex columns-2 mt-10 lg:ml-24 md:ml-12 max-sm:ml-[2rem]">
                 
                 <div>
                     <h1 class="font-Coda text-main-blue text-3xl md:text-4xl">
@@ -19,7 +19,7 @@
                     </h1>
                 </div>
 
-                <div class="lg:ml-[45rem] md:ml-[7rem] mt-1 text-sm md:text-lg">
+                <div class="lg:ml-[45rem] md:ml-[5rem] max-sm:ml-[4rem] mt-1 text-sm md:text-lg">
                     <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer hover:bg-blue-900 text-white bg-main-blue px-8 py-1 rounded-lg font-Poppins">
                         Agregar entrada
                     </a>
@@ -27,13 +27,13 @@
                     
             </div>
 
-            <div class="ml-20 mt-5">
+            <div class=" lg:ml-20 md:ml-20 max-sm:grid max-sm:justify-center  mt-5">
 
                 <div class="mt-10 max-h-[600px] overflow-y-auto">
-                    <div class="lg:grid lg:grid-cols-2 gap-4 md:grid lg:w-[100%] md:w-[26rem]">
+                    <div class="lg:grid lg:grid-cols-2 gap-4 md:grid lg:w-[100%] md:w-[26rem] max-sm:w-[23rem] ">
                         @foreach ($incomings as $incoming)
                             <a href="{{ route('incomings.show', ['id' => $incoming->id]) }}">
-                                <div class="font-Coda border hover:border-main-blue relative w-full h-32 bg-lightB bg-opacity-20 mr-4 rounded-lg flex items-center">
+                                <div class="font-Coda border hover:border-main-blue relative w-full h-32 bg-lightB bg-opacity-20 mr-4 rounded-lg flex items-center max-sm:mb-4">
                                     <div class="mx-10 flex flex-col justify-center">
                                         <h2 class="text-l font-bold ">{{ $incoming->product->nombre }}</h2>
                                         <p class="text-sm">Código: {{ $incoming->producto_id }}</p>
