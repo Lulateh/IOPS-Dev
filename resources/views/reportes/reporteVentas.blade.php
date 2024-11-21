@@ -65,7 +65,7 @@
 
 
         <div class= "px-5 py-5 over" >
-            <div class=" mt-8 md:overflow-y-auto md:h-[500px]">
+            <div class=" mt-8 md:overflow-y-auto max-sm:overflow-x-auto md:h-[500px]">
                 <table id="salesReport" class="min-w-full bg-white display compact">
                         <thead>
                             <tr>

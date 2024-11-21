@@ -62,7 +62,7 @@
         </div>
         <!-- teibol -->
 
-            <div class=" mt-8 overflow-x-auto px-5 py-5">
+            <div class=" mt-8 overflow-x-auto max-sm:overflow-x-auto px-5 py-5">
                 <table id="salesReport" class="min-w-full bg-white display compact ">
                         <thead>
                             <tr>
