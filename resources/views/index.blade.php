@@ -8,10 +8,10 @@
 <header class="bg-main-blue py-2">
     <div class="flex flex-col md:flex-row items-center justify-between px-4">
         <div>
-            <img class="w-24 ml-20" src= "{{ asset('img/IopsIconWhite.png') }}" alt="">
+            <img class="w-24 lg:ml-20 md:ml-20" src= "{{ asset('img/IopsIconWhite.png') }}" alt="">
         </div>
 
-        <div class="mt-4 md:mt-0 space-x-2">
+        <div class="mt-4 md:mt-0 space-x-2 max-sm:mb-6">
             <a href=" {{ url('/login') }} ">
                 <button class="bg-neutral-300 px-8 py-1 rounded-lg font-Coda">
                     Ir a LogiStock
@@ -41,13 +41,13 @@
 
         <div class="mt-4 space-x-4 md:text-xl">
             <a href="./safetyPage">
-                <button class="text-white bg-lilac px-8 py-1 rounded-lg font-Coda">
+                <button class="text-white bg-lilac  md:mb-6 max-sm:mb-6 px-8 py-1 rounded-lg font-Coda">
                     Probar LogiStock
                 </button>
             </a>
 
             <a href=" {{ url('/login') }} ">
-                <button class="text-white bg-lilac ml-4 px-8 py-1 rounded-lg font-Coda">
+                <button class="text-white bg-lilac lg:ml-4 px-8 py-1 rounded-lg font-Coda">
                     Ir a LogiStock
                 </button>
             </a>
@@ -55,18 +55,18 @@
 
     </div>
 
-    <div class="flex justify-center mt-12 mr-20">
-        <img class="w-3/4 md:w-full" src="{{ asset('img/LogiStockIconBlack.png') }}" alt="logo Lo">
+    <div class="flex justify-center mt-12 mb-6 lg:mr-20 md:mr-20">
+        <img class="w-3/4 md:w-full" src="{{ asset('img/LogiStockIconBlack.png') }}" alt="LogiStockIconBlack">
     </div>
 </section>
 
 <section class="grid grid-cols-1 md:grid-cols-2 bg-main-blue py-10">
         
-        <div class="flex justify-center my-10 md:ml-20">
-            <img class="w-3/4 md:w-full" src="{{ asset('img/LogiStockIconBlack.png') }}" alt="">
+        <div class="flex justify-center lg:my-10 md:my-[15rem] md:ml-20">
+            <img class="lg:w-3/4 max-sm:w-3/4 md:w-full md:h-[15rem]" src="{{ asset('img/LogiStockIconWhite.png') }}" alt="LogiStockIconWhite">
         </div>
 
-        <div class="text-center md:text-left px-4 ml-16 mt-10 md:mt-28 md:ml-16">
+        <div class="text-center md:text-left px-4 lg:ml-16 mt-10 md:mt-28 md:ml-8 md:mr-8">
             <p class=" font-Coda sm:text-center text-lg md:text-2xl  text-white align-middle">
                 LogiStock by I.OPS te ofrece distintas funciones y <br> apartados tales como Inventario, Entregas, Reportes, <br> etc.<br> <br> 
                 Todos estos pensados para mejorar tu experiencia <br> manejando tu negocio y optimizando procesos tediosos <br> como el ordenar tu inventario.<br> <br>

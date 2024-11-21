@@ -15,15 +15,15 @@
 </div>
    
    <div class= "mt-10 flex justify-center">
-    <div class="bg-lilac bg-opacity-20 w-3/4 p-10 rounded-lg shadow-lg">
+    <div class="bg-lilac bg-opacity-20  md:w-3/4 lg:w-3/4  max-sm:w-[24rem] p-10 rounded-lg shadow-lg">
         <h1 class="font-Poppins font-medium text-center text-3xl mb-10 text-main-blue">Editar Entrada</h1>
         <form action="{{ route('update.incoming', ['id' => $incoming->id]) }}" method="POST">
             @csrf
-            <div class="grid grid-cols-2 gap-8 font-Poppins">
+            <div class="grid lg:grid-cols-2 md:grid-cols-2  gap-8 font-Poppins">
                 <div>
                     <label class="block mb-2 font-semibold">Código del producto</label>
                     <div class="relative inline-block mb-5">
-                        <select name ="prod_id" class="md:w-[16rem] block appearance-none lg:w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgb(255, 255, 255);">
+                        <select name ="prod_id" class="md:w-[16rem] max-sm:w-[16rem] block appearance-none lg:w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgb(255, 255, 255);">
                             @foreach($posts as $producto)
                             <option value="{{ $producto->id }}" {{ $incoming->producto_id == $producto->id ? 'selected' : '' }}>{{ $producto->nombre }}</option>
                             @endforeach
@@ -38,7 +38,7 @@
                 <div>
                     <label class="block mb-2 font-semibold">Proveedor</label>
                     <div class="relative inline-block  mb-5">
-                        <select name ="prov_id" class="md:w-[16rem] block appearance-none lg:w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgb(255, 255, 255);"">
+                        <select name ="prov_id" class="md:w-[16rem] max-sm:w-[16rem] block appearance-none lg:w-[31.6rem] text-center border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:shadow-outline" style="background-color: rgb(255, 255, 255);"">
                             @foreach($proveedores as $proveedor)
                               <option value="{{ $proveedor->id }}" {{ $incoming->proveedor_id == $proveedor->id ? 'selected' : '' }}>{{ $proveedor->nombre_proveedor}}</option>
                             @endforeach
@@ -53,7 +53,7 @@
             </div>
             <div class="lg:ml-[16rem] md:items-center">
                 <label class="block mt-9 mb-2 font-semibold">Cantidad del producto</label>
-                <input type="number" name="cantidad" class="w-[31.6rem] p-2 mb-4 rounded-lg text-black" style="background-color: rgb(255, 255, 255);" required>
+                <input type="number" name="cantidad" class="lg:w-[31.6rem] md:w-[31.6rem] max-sm:w-[16rem] p-2 mb-4 rounded-lg text-black" style="background-color: rgb(255, 255, 255);" required>
             @error('cantidad')
                 <div class="text-red-500 text-sm">{{ $message }}</div>
             @enderror

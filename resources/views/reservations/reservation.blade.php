@@ -25,7 +25,7 @@
             <div class="overflow-y-scroll basis-5/6 gap-4 flex flex-wrap lg:mt-2 lg:h-[30rem] max-sm:mr-auto lg:w-[95%] md:h-[50rem] max-sm:h-[44rem] md:w-[28rem]">
             
                 @foreach ($reservas as $reserva)
-                    <div class="lg:w-[45%] md:w-[30rem] md:h-[15rem] lg:h-60 max-sm:h-[16rem] max-sm:w-[22rem] bg-lightB bg-opacity-20 mr-4 shadow-lg rounded-lg border hover:border-main-blue">
+                    <div class="lg:w-[45%] md:w-[30rem] md:h-[15rem] lg:h-60 max-sm:h-[20rem] max-sm:w-[22rem] bg-lightB bg-opacity-20 mr-4 shadow-lg rounded-lg border hover:border-main-blue">
                         <a href="{{route('reservation.show', $reserva->id)}}">
         
                             <div class="ml-4 mt-[20px] mr-3">
@@ -44,11 +44,11 @@
                                     </div>
                                 </div>
         
-                                <div class="flex ">
+                                <div class="lg:flex md:flex max-sm:grid ">
                                     @foreach ($productosReservados as $productoReservado)
                                         @if ($productoReservado -> reservas_id == $reserva -> id)
-                                            <div class="flex  m-1 box-border lg:h-16 md:h-16 max-sm:h-20 gap-2 mr-4 mt-3  text-black ">
-                                                <div class="flex border border-black h-12 px-2">
+                                            <div class="flex  m-1 box-border lg:h-16 md:h-16 max-sm:h-20   gap-2 mr-4 mt-3  text-black ">
+                                                <div class="flex  border border-black max-sm:w-[13rem]  h-12 px-2">
                                                     <div class="flex flex-col ml-2 mt-1">
                                                         @foreach ($posts as $producto)
                                                             @if ($productoReservado -> producto_id == $producto -> id)
