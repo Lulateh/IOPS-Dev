@@ -17,7 +17,7 @@
                <div class="px-4 py-6">
                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0 gap-y-4 lg:gap-x-8 lg:space-x-auto w-full">
                <!-- Título -->
-                  <h1 class="text-3xl text-main-blue font-Coda">Reportes</h1>
+                  <h1 class="text-3xl md:text-4xl text-main-blue font-Coda ml-5">Reportes</h1>
 
         <!-- Botones -->
         <div class="flex flex-col sm:flex-row sm:gap-x-4 gap-y-2 w-full">

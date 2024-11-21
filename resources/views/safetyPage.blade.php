@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Safety Page
+    Contact Page
 @endsection
 
 @section('content')
