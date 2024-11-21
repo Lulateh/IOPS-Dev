@@ -13,15 +13,15 @@
     <div>
 
         <div class="lg:flex lg:flex-row md:grid lg:items-start md:items-start justify-between mt-10 lg:ml-6 md:ml-6 ">
-            <div>
+            <div class="ml-2">
                 <h1 class="font-Coda text-main-blue text-3xl md:text-4xl">
                     Bienvenido, {{Auth::user()->nombre}}
                 </h1>
             </div>
 
-            <div class="lg:mt-2  md:mt-10 md:mb-[2rem] md:items-end lg:ml-[26rem] text-sm md:text-lg">
-                <div>
-                    <a href="{{ route('product.add') }}"  class="cursor-pointer hover:bg-blue-900 text-white bg-main-blue px-8 py-1 rounded-lg font-Coda">
+            <div class="lg:mt-2 md:mt-10 md:mb-[2rem] md:items-end  text-sm md:text-lg">
+                <div class="mt-4 px-4">
+                    <a href="{{ route('product.add') }}"  class="inline-block w-full sm:w-auto text-center px-6 py-2 cursor-pointer hover:bg-blue-900 text-white bg-main-blue rounded-lg font-Poppins">
                         Agregar producto
                     </a>
                 </div>           

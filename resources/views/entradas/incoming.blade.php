@@ -7,29 +7,31 @@
 @section('content')
 @include('components.headerTables')
 
-    <section class="md:ml-[15rem] md:mr-[1rem]">
+    <section class="md:ml-72 md:mr-[1rem]">
         
         <div>
 
-            <div class="flex columns-2 mt-10 lg:ml-24 md:ml-12">
+        <div class="lg:flex lg:flex-row md:grid lg:items-start md:items-start justify-between mt-10 lg:ml-6 md:ml-6 ">
                 
-                <div>
+                <div class= "ml-2 mb-5">
                     <h1 class="font-Coda text-main-blue text-3xl md:text-4xl">
                     Entradas
                     </h1>
                 </div>
 
-                <div class="lg:ml-[45rem] md:ml-[7rem] mt-1 text-sm md:text-lg">
-                    <a href="{{ route('incoming.addIncoming') }}" class=" cursor-pointer hover:bg-blue-900 text-white bg-main-blue px-8 py-1 rounded-lg font-Poppins">
+                <div class="lg:mt-2  md:mt-10 md:mb-[2rem] md:items-end  text-sm md:text-lg">
+                    <div class="px-4">
+                    <a href="{{ route('incoming.addIncoming') }}" class=" inline-block w-full sm:w-auto text-center px-6 py-2 cursor-pointer hover:bg-blue-900 text-white bg-main-blue rounded-lg font-Poppins">
                         Agregar entrada
                     </a>
+                </div>
                 </div>
                     
             </div>
 
-            <div class="ml-20 mt-5">
+            <div class="mt-5">
 
-                <div class="mt-10 max-h-[600px] overflow-y-auto">
+                <div class="mt-10 max-h-[600px] overflow-y-auto px-4">
                     <div class="lg:grid lg:grid-cols-2 gap-4 md:grid lg:w-[100%] md:w-[26rem]">
                         @foreach ($incomings as $incoming)
                             <a href="{{ route('incomings.show', ['id' => $incoming->id]) }}">
