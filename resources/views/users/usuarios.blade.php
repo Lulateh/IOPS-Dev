@@ -61,7 +61,7 @@
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $usuario->rol }}</td>
                         <td class="py-2 px-4 bg-card-bg border text-black text-center">{{ $usuario->estado}}</td>
                         <td class="py-2 px-4 bg-card-bg border t-black text-center">
-                            <a href="{{route('edit.users',['id' => $usuario->id])}}" class="text-white hover:bg-green bg-main-blue rounded-lg px-3 py-2 hover:bg-blue-900">Editar</a>
+                            <a href="{{route('edit.users',['id' => $usuario->id])}}" class="text-white bg-main-blue rounded-lg px-3 py-2 hover:bg-blue-900">Editar</a>
                         </td>
                     </tr>
                     @endforeach
