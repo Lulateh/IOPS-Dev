@@ -28,12 +28,12 @@
                Reporte de Ventas
             </a>                       
             <a href="{{ route('reporte.compras') }}" 
-               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-main-blue text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
+               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
                aria-label="Ir al reporte de compras">
                Reporte de Compras
             </a>                        
             <a href="{{ route('reporte.reservas') }}" 
-               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
+               class="inline-block w-full sm:w-auto text-center px-6 py-2 bg-main-blue text-white rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 transition duration-300"
                aria-label="Ir al reporte de reservas">
                Reporte de Reservas
             </a>                   
