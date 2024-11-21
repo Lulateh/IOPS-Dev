@@ -19,15 +19,15 @@ LogiStock - Add client
        
     <form action="{{ route('cliente.add') }}" method="POST" class="w-full">
         @csrf
-        <div class="ml-10 lg:ml-0  grid-cols-1 grid lg:grid-cols-2 gap-4 font-Poppins">
-           <div class="mr-10">
+        <div class="ml-10 md:justify-items-center lg:ml-0  grid-cols-1 grid lg:grid-cols-2 gap-4 font-Poppins">
+           <div class="">
                 <label class="flex items-center mb-2 font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" mr-2" viewBox="0 0 16 16">
                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                 </svg>
                 Nombre
                 </label>
-                <input type="text" name="nombre" class="lg:w-[23rem] p-1 rounded-xl" style="background-color: rgb(255, 255, 255);" required>
+                <input type="text" name="nombre" class="xl:w-[23rem] md:w-[16rem] p-1 rounded-xl" style="background-color: rgb(255, 255, 255);" required>
             </div>
             <div>
                 <label class="flex items-center mb-2 font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
@@ -35,17 +35,17 @@ LogiStock - Add client
                 </svg>
                 Dirección
                 </label>
-                <input type="text" name="direccion" class="lg:w-[23rem] p-1 rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
+                <input type="text" name="direccion" class="xl:w-[23rem] md:w-[16rem] p-1 rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
             </div>
             
             <div>
                 <label class="flex items-center mb-2 font-semibold">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
                 </svg>          
                 Teléfono
                 </label>
-                <input type="text" name="telefono" class="lg:w-[23rem] p-1  rounded-xl" style="background-color: rgb(255, 255, 255);" required
+                <input type="text" name="telefono" class="xl:w-[23rem] md:w-[16rem] p-1  rounded-xl" style="background-color: rgb(255, 255, 255);" required
                 maxlength="10" 
        pattern="[0-9]{1,10}" 
        title="Solo números, hasta 10 dígitos" 
@@ -61,7 +61,7 @@ LogiStock - Add client
                 </svg>
                 Email
             </label>
-                <input type="email" name="email" class="lg:w-[23rem] p-1  rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
+                <input type="email" name="email" class="xl:w-[23rem] md:w-[16rem] p-1  rounded-xl text-black" style="background-color: rgb(255, 255, 255);" required>
             </div>
         </div>
 

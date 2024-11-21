@@ -21,7 +21,7 @@
         <h1 class="font-Poppins font-bold text-center text-3xl mb-10 ">Agregar Proveedor</h1>
         <form action="{{ route('proveedor.add') }}" method="POST" class="w-full">
             @csrf
-            <div class=" grid-cols-1 grid lg:grid-cols-2 gap-2 font-Poppins">
+            <div class=" grid-cols-1 md:justify-items-center grid lg:grid-cols-2 gap-2 font-Poppins">
                 <div class="lg:ml-20">
                     <label class=" flex text-start  mb-2 font-semibold">
                         
@@ -43,7 +43,7 @@
                                 placeholder="Ejemplo: 12345678">
                     </div>
                 </div>
-                    <div class=" my-4 lg:my-10 flex lg:justify-center">
+                    <div class=" my-4 lg:my-10 flex md:justify-center lg:justify-center">
                     <div>
                     <label class="flex items-center mb-2 font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
