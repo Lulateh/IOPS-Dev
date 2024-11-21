@@ -87,23 +87,25 @@
     <div>
         <div class="flex flex-col md:flex-row justify-between items-center mt-12 mb-10 mx-4 md:mx-20">
             <div class="mb-4 md:mb-0">
-                <h1 class="text-main-blue font-Coda text-4xl">  
+                <h1 class="text-main-blue font-Coda md:text-3xl text-4xl">  
                     Usuarios: {{$empresa->nombre}}
                 </h1>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center gap-4">
+            <div class="flex flex-col lg:flex-row items-center gap-4">
+            <div class="md:ml-8 ">
                     <form action="{{ route('users.index') }}" method="GET">
-                        <select name="estado" class="px-4 py-1 border rounded-lg">
+                        <select name="estado" class="px-4 md:px-0 py-1 border rounded-lg">
                             <option value="">Estado</option>
                             <option value="activo" {{ request('estado') === 'activo' ? 'selected' : '' }}>Activo</option>
                             <option value="inactivo" {{ request('estado') === 'inactivo' ? 'selected' : '' }}>Inactivo</option>
                         </select>
-                        <button type="submit" class=" ml-2 text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900 " >Filtrar</button>
+                        <button type="submit" class=" ml-2 md:mt-2 text-white bg-main-blue cursor-pointer md:px-2 px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900 " >Filtrar</button>
                     </form>
+                </div>
             
             <div class="mx-6 lg:grid md:grid md:text-center">
-                <a href="{{route('users.add')}}"  class="text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900">Agregar Usuario</a> 
+                <a href="{{route('users.add')}}"  class="text-white bg-main-blue cursor-pointer  px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900">Agregar Usuario</a> 
             </div>
         </div>
         </div>

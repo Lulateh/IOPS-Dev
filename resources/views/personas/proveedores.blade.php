@@ -82,14 +82,13 @@
     <div>
         <div class="flex flex-col md:flex-row justify-between items-center mt-12 mb-10 mx-4 md:mx-20">
             <div class="mb-4 md:mb-0">
-                <h1 class="text-main-blue font-Coda text-4xl">  
+                <h1 class="text-main-blue font-Coda text-4xl md:text-3xl">  
                     Proveedores
                 </h1>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center gap-4 ">
-
-            <div class="md:ml-8 ">
+                <div class="flex flex-col lg:flex-row items-center gap-4 ">
+                <div class="md:ml-8 ">
                     <form action="{{ route('proveedores.index') }}" method="GET">
                         <select name="estado" class="px-4 md:px-0 py-1 border rounded-lg">
                             <option value="">Estado</option>
@@ -98,16 +97,15 @@
                         </select>
                         <button type="submit" class=" ml-2 md:mt-2 text-white bg-main-blue cursor-pointer px-4 md:px-2 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900" >Filtrar</button>
                     </form>
-
-                    </div>
-                    
-
+                </div>    
 
                 <div class="mx-6 lg:grid md:grid md:text-center">
                 <a href="{{ route('proveedores.create') }}" class="text-white bg-main-blue cursor-pointer px-4 py-1 rounded-xl font-Poppins shadow-lg hover:bg-blue-900">Agregar Proveedor</a> 
                 </div>
             </div>
         </div>
+        
+        
 
         <div class="grid">
         <div class="overflow-x-auto mx-4 md:mx-10">

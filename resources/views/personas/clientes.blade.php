@@ -85,10 +85,10 @@
             <div class="mb-4 md:mb-0">
                 <h1 class="text-main-blue font-Coda text-3xl">  
                     Clientes
-            </h1>
-            </div>
+                </h1>
+        </div>
 
-            <div class="flex flex-col md:flex-row items-center gap-4">
+            <div class="flex flex-col lg:flex-row items-center gap-4">
             <div class="md:ml-8 ">
                     <form action="{{ route('clientes.index') }}" method="GET">
                         <select name="estado" class="px-4 md:px-0  py-1 border rounded-lg">
