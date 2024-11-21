@@ -11,21 +11,21 @@
     
     <div class="basis-5/6 gap-2 flex flex-wrap">
 
-        <div class="flex columns-2 mt-10 lg:ml-24 md:ml-12">
+        <div class="flex columns-2 mt-10 lg:ml-24 md:ml-16 max-sm:ml-4">
             <h1 class="font-normal font-Coda text-main-blue text-3xl md:text-4xl">
                 Reservas
             </h1>
 
-            <div class="lg:ml-[45rem] md:ml-[7rem] mt-1 text-sm md:text-lg">
+            <div class="lg:ml-[45rem] md:ml-[5rem] mt-1 text-sm md:text-lg max-sm:ml-20">
                 <a class="text-white hover:bg-blue-900 bg-main-blue px-8 py-1 rounded-lg font-Poppins" href="{{route('reservation.add')}}">Agregar reserva</a>
             </div>
         </div>
 
-        <div class="ml-20 mt-5">
-            <div class="overflow-y-scroll basis-5/6 gap-4 flex flex-wrap lg:mt-2 lg:h-[30rem] lg:w-[95%] md:h-[50rem] md:w-[28rem]">
+        <div class="lg:ml-20 md:ml-20 max-sm:ml-12 mt-5">
+            <div class="overflow-y-scroll basis-5/6 gap-4 flex flex-wrap lg:mt-2 lg:h-[30rem] max-sm:mr-auto lg:w-[95%] md:h-[50rem] max-sm:h-[44rem] md:w-[28rem]">
             
                 @foreach ($reservas as $reserva)
-                    <div class="lg:w-[45%] md:w-[30rem] md:h-[15rem] lg:h-60 bg-lightB bg-opacity-20 mr-4 shadow-lg rounded-lg border hover:border-main-blue">
+                    <div class="lg:w-[45%] md:w-[30rem] md:h-[15rem] lg:h-60 max-sm:h-[16rem] max-sm:w-[22rem] bg-lightB bg-opacity-20 mr-4 shadow-lg rounded-lg border hover:border-main-blue">
                         <a href="{{route('reservation.show', $reserva->id)}}">
         
                             <div class="ml-4 mt-[20px] mr-3">
@@ -47,7 +47,7 @@
                                 <div class="flex ">
                                     @foreach ($productosReservados as $productoReservado)
                                         @if ($productoReservado -> reservas_id == $reserva -> id)
-                                            <div class="flex  m-1 box-border lg:h-16 gap-2 mr-4 mt-3  text-black ">
+                                            <div class="flex  m-1 box-border lg:h-16 md:h-16 max-sm:h-20 gap-2 mr-4 mt-3  text-black ">
                                                 <div class="flex border border-black h-12 px-2">
                                                     <div class="flex flex-col ml-2 mt-1">
                                                         @foreach ($posts as $producto)
